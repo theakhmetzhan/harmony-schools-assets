@@ -109,6 +109,8 @@ document.documentElement.insertAdjacentHTML("beforeend","<svg xmlns=\"http://www
    - footer: every <footer class="foot"> that is not ours is replaced (homepages: inside block D). Inner pages get the
      verified D record as the last record of #allrecords once the parser has closed it.
    - contact (STEAM, Global homepages): the contact section record directly above block D; a pasted copy is dropped.
+   - v5 moves: a record moved after another (Start stats into the proof section); the Global hero's programme table
+     and note moved into their own section after the hero.
    - content edits: CONTENT-EDITS.json, applied when the target's content equals the published "before" (spacing
      normalised); equal to "after" means already applied natively (no-op). Idempotent.
    - tone tags, then hs.js (header state, Lenis), once, at the moment block E used to run: when the parser has moved past
@@ -199,6 +201,24 @@ document.documentElement.insertAdjacentHTML("beforeend","<svg xmlns=\"http://www
       if (d) {
         var old = D.querySelectorAll('.hs-contact-wrap'); for (var k = 0; k < old.length; k++) if (!own(old[k])) old[k].remove();
         d.parentNode.insertBefore(record(P.contact), d); P.contactDone = true;
+      }
+    }
+    // v5 (spec 4.29): record moves. Start: the stat record goes after the accreditation heading record, so the stats sit
+    // inside the proof section. Done in the microtask after the target record is inserted, before that region paints.
+    if (P.moves) for (var v = 0; v < P.moves.length; v++) {
+      var mv = P.moves[v]; if (mv.done) continue;
+      var ma = D.getElementById(mv.rec), mb = D.getElementById(mv.after);
+      if (ma && mb) { if (mb.nextSibling !== ma) mb.parentNode.insertBefore(ma, mb.nextSibling); mv.done = true; }
+    }
+    // v5 (Akhmet, Global homepages): the PYP / MYP / DP table and its note leave the hero (block C) for their own section
+    // directly after it. The hero keeps the H1, the intro line and the consultation button.
+    if (P.stages && !P.stagesDone) {
+      var se = D.querySelector('.hs .sentence'), tb = se && se.querySelector('.stages__table');
+      if (tb) {
+        if (!P.stagesSec) { var sc = D.createElement('section'); sc.className = 'stages-section'; sc.setAttribute('data-tone', 'light'); mark(sc); se.parentNode.insertBefore(sc, se.nextSibling); P.stagesSec = sc; }
+        if (tb.parentNode !== P.stagesSec) P.stagesSec.appendChild(tb);
+        var nt = se.querySelector('.stages__note');
+        if (nt) { P.stagesSec.appendChild(nt); P.stagesDone = true; }
       }
     }
     for (var m = edits.length - 1; m >= 0; m--) if (applyEdit(edits[m])) edits.splice(m, 1);
