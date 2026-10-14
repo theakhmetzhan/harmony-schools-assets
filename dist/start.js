@@ -29,6 +29,16 @@ document.documentElement.insertAdjacentHTML("beforeend","<svg xmlns=\"http://www
      block D (homepages) or has closed #allrecords (inner pages), or at DOMContentLoaded at the latest. */
 (function (CFG, HSMAIN) {
   var D = document, R = D.documentElement, P = null, ran = false, N = 0, edits = null, stopped = false;
+  // v5.1 (late layout shift): the frozen faces' font files are requested from <head>, before Google's stylesheets are parsed,
+  // so the hero text renders in its own face on first paint instead of swapping about 4 s in (Start CLS ~0.008). Same files
+  // the stylesheets reference; if Google ever renames them the preload is simply unused.
+  (function () {
+    var G = 'https://fonts.gstatic.com/s/', F = ['inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2', 'inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2',
+      'inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2', 'intertight/v9/NGSwv5HMAFg6IuGlBNMjxLsH8ahuQ2e8.woff2', 'intertight/v9/NGSwv5HMAFg6IuGlBNMjxLsD8ahuQ2e8Smg.woff2'];
+    if (/intently-finished-panflute|harmony\.edu\.kz\/?$/.test(location.host)) F.push('sourceserif4/v15/vEFF2_tTDB4M7-auWDN0ahZJW3IX2iZPwg3BucvUtfykDXr4Y3qwzQ.woff2');
+    var h = D.head || R;
+    for (var i = 0; i < F.length; i++) { var l = D.createElement('link'); l.rel = 'preload'; l.as = 'font'; l.type = 'font/woff2'; l.crossOrigin = 'anonymous'; l.href = G + F[i]; h.appendChild(l); }
+  })();
   var WRAP = ['<div id="', '" class="r t-rec t-rec_pt_0 t-rec_pb_0" style="padding-top:0px;padding-bottom:0px; " data-animationappear="off" data-record-type="131"> <!-- T123 --> <div class="t123"> <div class="t-container_100 "> <div class="t-width t-width_100 "> <!-- nominify begin --> ', ' <!-- nominify end --> </div> </div> </div> </div>'];
   function frag(html) { var t = D.createElement('template'); t.innerHTML = html; return t.content; }
   function mark(n) { n.__hs = 1; var l = n.querySelectorAll ? n.querySelectorAll('*') : []; for (var i = 0; i < l.length; i++) l[i].__hs = 1; return n; }
@@ -122,12 +132,28 @@ document.documentElement.insertAdjacentHTML("beforeend","<svg xmlns=\"http://www
       var ma = D.getElementById(mv.rec), mb = D.getElementById(mv.after);
       if (ma && mb) { if (mb.nextSibling !== ma) mb.parentNode.insertBefore(ma, mb.nextSibling); mv.done = true; }
     }
+    // v5.1 (spec 4.29): block nests. STEAM: the accreditation marks move to the end of the stat record (moved after the
+    // accreditation heading above), so heading, stats, hairline and marks read as one proof section, as on Start. Done once
+    // the parser has moved past the target record (it has a next sibling), same microtask timing as the moves.
+    if (P.nests) for (var q = 0; q < P.nests.length; q++) {
+      var ns = P.nests[q]; if (ns.done) continue;
+      var nn = D.querySelector(ns.node), ni = D.querySelector(ns.into), nb = ni && ns.before ? ni.querySelector(ns.before) : null;
+      if (nn && ni && (nb || !ns.before) && ni.nextSibling) { ni.insertBefore(nn, nb); ns.done = true; }
+    }
     // v5 (Akhmet, Global homepages): the PYP / MYP / DP table and its note leave the hero (block C) for their own section
     // directly after it. The hero keeps the H1, the intro line and the consultation button.
     if (P.stages && !P.stagesDone) {
       var se = D.querySelector('.hs .sentence'), tb = se && se.querySelector('.stages__table');
       if (tb) {
-        if (!P.stagesSec) { var sc = D.createElement('section'); sc.className = 'stages-section'; sc.setAttribute('data-tone', 'light'); mark(sc); se.parentNode.insertBefore(sc, se.nextSibling); P.stagesSec = sc; }
+        if (!P.stagesSec) {
+          var sc = D.createElement('section'); sc.className = 'stages stages-section'; sc.setAttribute('data-tone', 'light');
+          // v5.2 (spec 4.32, one stage table): the section is built exactly like STEAM's stage section (section.stages, its
+          // h2.stages__title in the label role, then the table). The label is the site's own name for the programme (the
+          // footer link to #ib: IB-программа / IB-бағдарламасы / IB curriculum), so no new copy
+          var lm = /href="#ib"[^>]*>([^<]+)</.exec(P.footer || '');
+          if (lm) { var hd = D.createElement('h2'); hd.className = 'stages__title'; hd.textContent = lm[1].trim(); sc.appendChild(hd); }
+          mark(sc); se.parentNode.insertBefore(sc, se.nextSibling); P.stagesSec = sc;
+        }
         if (tb.parentNode !== P.stagesSec) P.stagesSec.appendChild(tb);
         var nt = se.querySelector('.stages__note');
         if (nt) { P.stagesSec.appendChild(nt); P.stagesDone = true; }
