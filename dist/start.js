@@ -574,8 +574,15 @@ document.addEventListener("DOMContentLoaded",function(){
     }
   }
 
+  /* G3: once the Global stat section carries the "Две школы. Одни ценности" head (Tilda), the building stub in block C goes */
+  function g3() {
+    if (R.getAttribute('data-site') !== 'global') return;
+    var l = D.querySelectorAll('.t1052.k-stat .t-section__title');
+    for (var i = 0; i < l.length; i++) if (/^(Две школы|Екі мектеп|Two schools)/i.test(l[i].textContent.trim())) { R.classList.add('v9-g3'); return; }
+  }
+
   function ready() {
-    markStats(D);
+    markStats(D); g3();
     stripAll(HS); stripAll(HN);
     story();
     whenConsult();
