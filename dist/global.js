@@ -749,18 +749,28 @@ document.addEventListener("DOMContentLoaded",function(){
     var l = D.querySelectorAll('.t468__descr, .t-section__descr, .hs-common-values p');
     for (var i = 0; i < l.length; i++) {
       var w = D.createTreeWalker(l[i], 4), n;
-      while ((n = w.nextNode())) if (/Harmony,[\s\u00a0]+под[\s\u00a0]+ребёнка/.test(n.data)) n.data = n.data.replace(/Harmony,([\s\u00a0]+)под/, 'Harmony\u00a0—$1под');
+      while ((n = w.nextNode())) if (/Harmony,[\s\u00a0]+под[\s\u00a0]+ребёнка/.test(n.data)) n.data = n.data.replace(/Harmony,([\s\u00a0]+)под/, 'Harmony\u00a0\u2013$1под');
     }
   }
 
+  /* R5 (Akhmet 2026-10-16): no em dashes anywhere; every em dash shows as an en dash (all sites, RU / KZ / EN). Runtime
+     only: bake into the Tilda copy at handover */
+  function noEm(n) { if (n.nodeType === 3) { if (n.data.indexOf('\u2014') > -1 && !(n.parentNode && n.parentNode.closest && n.parentNode.closest('script,style,textarea'))) n.data = n.data.replace(/\u2014/g, '\u2013'); return; }
+    if (n.nodeType !== 1 || /^(SCRIPT|STYLE|TEXTAREA)$/.test(n.nodeName)) return;
+    var w = D.createTreeWalker(n, 4), t; while ((t = w.nextNode())) noEm(t); }
+  function emAll() { if (D.body) noEm(D.body); if (D.title.indexOf('\u2014') > -1) D.title = D.title.replace(/\u2014/g, '\u2013'); }
+  new MutationObserver(function (ms) { for (var i = 0; i < ms.length; i++) { var m = ms[i]; if (m.type === 'characterData') noEm(m.target); else for (var j = 0; j < m.addedNodes.length; j++) noEm(m.addedNodes[j]); } })
+    .observe(R, { childList: true, subtree: true, characterData: true });
+
   function ready() {
+    emAll();
     markStats(D); g3(); dashes();
     stripAll(HS); stripAll(HN);
     story();
     whenConsult();
   }
   if (D.readyState === 'loading') D.addEventListener('DOMContentLoaded', ready); else ready();
-  addEventListener('load', function () { setTimeout(function () { stripAll(HN); stripAll(HS); markStats(D); mo.disconnect(); }, 4500); });
+  addEventListener('load', function () { setTimeout(function () { stripAll(HN); stripAll(HS); markStats(D); emAll(); mo.disconnect(); }, 4500); });
 })();
 
 /* motion.js (v9, U6): port of proto/motion/motion-steam.js to every STEAM and Global homepage (RU, KZ, EN).
