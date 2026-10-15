@@ -648,7 +648,31 @@ document.addEventListener("DOMContentLoaded",function(){
   mo.observe(R, { childList: true, subtree: true });
 
   /* 4. consultation: native form + contacts */
-  var ADDR_MAP = null;   // no street address from the school yet: the map link and WhatsApp stay out (hidden) until supplied
+  /* CONTACT CONFIG (Akhmet 2026-10-15): the school has no dedicated WhatsApp number or street address yet. One-line changes
+     when it confirms: WA = the admissions mobile in wa.me form; MAP[site] = Google Maps search queries (Start shows both). */
+  var WA = '77750072332';
+  var MAP = { steam: ['Harmony STEAM School, Астана'], global: ['Harmony Global, ЖК Highvill, Астана'], start: ['Harmony STEAM School, Астана', 'Harmony Global, ЖК Highvill, Астана'] };
+  var T = {
+    wa: { ru: 'Написать в WhatsApp', kz: 'WhatsApp-қа жазу', en: 'Message on WhatsApp' },
+    map: { ru: 'Открыть на карте', kz: 'Картадан ашу', en: 'Open in Google Maps' },
+    mapOf: { ru: ' на карте', kz: ' картада', en: ' on the map' }
+  };
+  function extLink(cls, href, text) {
+    var a = D.createElement('a'); a.className = 'k-consult__line ' + cls; a.href = href; a.target = '_blank'; a.rel = 'noopener'; a.textContent = text; return a;
+  }
+  function contactExtras(lines) {
+    if (lines.querySelector('.v9-wa')) return;
+    var lg = lang(), site = R.getAttribute('data-site') || 'start', grp = lines.querySelector('.k-consult__group');
+    var addr = lines.querySelector('.v9-addr');
+    var at = addr ? addr.nextSibling : grp;
+    var wa = extLink('v9-wa', 'https://wa.me/' + WA, T.wa[lg] || T.wa.ru);
+    lines.insertBefore(wa, addr ? addr : at);   // WhatsApp under the phone and email, above the address
+    var qs = MAP[site] || [];
+    for (var i = 0; i < qs.length; i++) {
+      var label = qs.length > 1 ? qs[i].split(',')[0].replace(' School', '') + (T.mapOf[lg] || T.mapOf.ru) : (T.map[lg] || T.map.ru);
+      lines.insertBefore(extLink('v9-map', 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(qs[i]), label), grp || null);
+    }
+  }
   function consult() {
     var sec = D.querySelector('.k-consult'), place = sec && sec.querySelector('.k-consult__form');
     if (!place || place.__v9) return !!place;
@@ -673,6 +697,7 @@ document.addEventListener("DOMContentLoaded",function(){
         lines.insertBefore(p, grp || null);
       }
     }
+    if (lines) contactExtras(lines);
     return true;
   }
   function whenConsult() {
