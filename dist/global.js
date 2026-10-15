@@ -332,6 +332,262 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && window.Lenis) {
 })();
 });
 
+/* hs consultation buttons (STEAM, Global; src-prep lane 2026-10-15). Source: SRC/cta-targets.js. assemble.py --cdn fills the
+   table from markup/inner/pages.json (cta_targets) and appends this to dist/steam.js and dist/global.js.
+   On /admission and /contacts the header "Консультация" button, and on Global /admission the body buttons ("#contact"),
+   point at the page's form record. contact.css hides that record until the real form exists, so a click went nowhere.
+   While the form record is not rendered, those links point at the page's visible contact section instead: on /admission
+   the admissions entries record, on /contacts the contact section the runtime puts under the header (#contacts). Once the
+   form record is shown again they point at it again. Only href attributes change; nothing is shown or hidden.
+   Table: Tilda page id -> [form record id, visible target id, the hrefs that point at the form]. */
+(function (T) {
+  var D = document;
+  function page() { var A = D.getElementById('allrecords'); return A ? T[A.getAttribute('data-tilda-page-id')] : null; }
+  function fix(a, P) {
+    var h = a.getAttribute('data-hs-form-href') || a.getAttribute('href');
+    if (!h || P[2].indexOf(h) < 0) return;
+    var f = D.getElementById(P[0]), to = D.getElementById(P[1]);
+    if ((!f || !f.getClientRects().length) && to) {
+      if (!a.hasAttribute('data-hs-form-href')) a.setAttribute('data-hs-form-href', h);
+      a.setAttribute('href', '#' + P[1]);
+    } else if (a.hasAttribute('data-hs-form-href')) { a.setAttribute('href', h); a.removeAttribute('data-hs-form-href'); }
+  }
+  function all() { var P = page(); if (!P) return; var l = D.querySelectorAll('a[href^="#"]'); for (var i = 0; i < l.length; i++) fix(l[i], P); }
+  // At click time, in the capture phase (before Lenis and Tilda read the href), and up front so the link shows its real target
+  addEventListener('click', function (e) {
+    var P = page(), a = P && e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (a) fix(a, P);
+  }, true);
+  D.addEventListener('DOMContentLoaded', all);
+  addEventListener('load', all);
+})({"293024503": ["rec4616870203", "rec4616838903", ["#rec4616870203", "#contact"]], "293054703": ["rec4616896403", "contacts", ["#rec4616896403"]], "293198903": ["rec4620089103", "rec4620088003", ["#rec4620089103", "#contact"]], "293201303": ["rec4620090803", "contacts", ["#rec4620090803"]], "293229503": ["rec4620147003", "rec4620145903", ["#rec4620147003", "#contact"]], "293229703": ["rec4620149103", "contacts", ["#rec4620149103"]]});
+
+(function(){var s=document.currentScript,b=s&&s.src?s.src.replace(/[^/]*$/,""):"";window.HSK={base:b,icons:{usage:[{"record": "rec4616591103", "block": "t468", "index": 0, "icon": "team.svg"}, {"record": "rec4616591103", "block": "t468", "index": 1, "icon": "programme.svg"}, {"record": "rec4616591103", "block": "t468", "index": 2, "icon": "entrance-assessment.svg"}, {"record": "rec4620043703", "block": "t468", "index": 0, "icon": "team.svg"}, {"record": "rec4620043703", "block": "t468", "index": 1, "icon": "programme.svg"}, {"record": "rec4620043703", "block": "t468", "index": 2, "icon": "entrance-assessment.svg"}, {"record": "rec4620139403", "block": "t468", "index": 0, "icon": "team.svg"}, {"record": "rec4620139403", "block": "t468", "index": 1, "icon": "programme.svg"}, {"record": "rec4620139403", "block": "t468", "index": 2, "icon": "entrance-assessment.svg"}, {"record": "rec4616643603", "block": "t1053", "index": 0, "icon": "thinking.svg"}, {"record": "rec4616643603", "block": "t1053", "index": 1, "icon": "inquiry.svg"}, {"record": "rec4616643603", "block": "t1053", "index": 2, "icon": "global-outlook.svg"}, {"record": "rec4620042903", "block": "t1053", "index": 0, "icon": "thinking.svg"}, {"record": "rec4620042903", "block": "t1053", "index": 1, "icon": "inquiry.svg"}, {"record": "rec4620042903", "block": "t1053", "index": 2, "icon": "global-outlook.svg"}, {"record": "rec4620138603", "block": "t1053", "index": 0, "icon": "thinking.svg"}, {"record": "rec4620138603", "block": "t1053", "index": 1, "icon": "inquiry.svg"}, {"record": "rec4620138603", "block": "t1053", "index": 2, "icon": "global-outlook.svg"}, {"record": "rec4616667603", "block": "t1053", "index": 0, "icon": "curiosity.svg"}, {"record": "rec4616667603", "block": "t1053", "index": 1, "icon": "safe-environment.svg"}, {"record": "rec4616667603", "block": "t1053", "index": 2, "icon": "family-partnership.svg"}, {"record": "rec4620043303", "block": "t1053", "index": 0, "icon": "curiosity.svg"}, {"record": "rec4620043303", "block": "t1053", "index": 1, "icon": "safe-environment.svg"}, {"record": "rec4620043303", "block": "t1053", "index": 2, "icon": "family-partnership.svg"}, {"record": "rec4620139003", "block": "t1053", "index": 0, "icon": "curiosity.svg"}, {"record": "rec4620139003", "block": "t1053", "index": 1, "icon": "safe-environment.svg"}, {"record": "rec4620139003", "block": "t1053", "index": 2, "icon": "family-partnership.svg"}, {"record": "rec4616834803", "block": "t550", "index": 0, "icon": "apply.svg"}, {"record": "rec4616834803", "block": "t550", "index": 1, "icon": "entrance-assessment.svg"}, {"record": "rec4616834803", "block": "t550", "index": 2, "icon": "contract.svg"}, {"record": "rec4616834803", "block": "t550", "index": 3, "icon": "payment.svg"}, {"record": "rec4616834803", "block": "t550", "index": 4, "icon": "start-school.svg"}, {"record": "rec4620087903", "block": "t550", "index": 0, "icon": "apply.svg"}, {"record": "rec4620087903", "block": "t550", "index": 1, "icon": "entrance-assessment.svg"}, {"record": "rec4620087903", "block": "t550", "index": 2, "icon": "contract.svg"}, {"record": "rec4620087903", "block": "t550", "index": 3, "icon": "payment.svg"}, {"record": "rec4620087903", "block": "t550", "index": 4, "icon": "start-school.svg"}, {"record": "rec4620145803", "block": "t550", "index": 0, "icon": "apply.svg"}, {"record": "rec4620145803", "block": "t550", "index": 1, "icon": "entrance-assessment.svg"}, {"record": "rec4620145803", "block": "t550", "index": 2, "icon": "contract.svg"}, {"record": "rec4620145803", "block": "t550", "index": 3, "icon": "payment.svg"}, {"record": "rec4620145803", "block": "t550", "index": 4, "icon": "start-school.svg"}, {"record": "rec4616856803", "block": "t1053", "index": 0, "icon": "pay-once.svg"}, {"record": "rec4616856803", "block": "t1053", "index": 1, "icon": "pay-instalments.svg"}, {"record": "rec4616856803", "block": "t1053", "index": 2, "icon": "pay-monthly.svg"}, {"record": "rec4620088303", "block": "t1053", "index": 0, "icon": "pay-once.svg"}, {"record": "rec4620088303", "block": "t1053", "index": 1, "icon": "pay-instalments.svg"}, {"record": "rec4620088303", "block": "t1053", "index": 2, "icon": "pay-monthly.svg"}, {"record": "rec4620146203", "block": "t1053", "index": 0, "icon": "pay-once.svg"}, {"record": "rec4620146203", "block": "t1053", "index": 1, "icon": "pay-instalments.svg"}, {"record": "rec4620146203", "block": "t1053", "index": 2, "icon": "pay-monthly.svg"}, {"record": "rec4616863103", "block": "t1053", "index": 0, "icon": "pay-once.svg"}, {"record": "rec4616863103", "block": "t1053", "index": 1, "icon": "pay-instalments.svg"}, {"record": "rec4616863103", "block": "t1053", "index": 2, "icon": "pay-monthly.svg"}, {"record": "rec4620088603", "block": "t1053", "index": 0, "icon": "pay-once.svg"}, {"record": "rec4620088603", "block": "t1053", "index": 1, "icon": "pay-instalments.svg"}, {"record": "rec4620088603", "block": "t1053", "index": 2, "icon": "pay-monthly.svg"}, {"record": "rec4620146503", "block": "t1053", "index": 0, "icon": "pay-once.svg"}, {"record": "rec4620146503", "block": "t1053", "index": 1, "icon": "pay-instalments.svg"}, {"record": "rec4620146503", "block": "t1053", "index": 2, "icon": "pay-monthly.svg"}, {"record": "rec4616866003", "block": "t1052", "index": 0, "icon": "additional-child.svg"}, {"record": "rec4616866003", "block": "t1052", "index": 1, "icon": "additional-child.svg"}, {"record": "rec4620088903", "block": "t1052", "index": 0, "icon": "additional-child.svg"}, {"record": "rec4620088903", "block": "t1052", "index": 1, "icon": "additional-child.svg"}, {"record": "rec4620146803", "block": "t1052", "index": 0, "icon": "additional-child.svg"}, {"record": "rec4620146803", "block": "t1052", "index": 1, "icon": "additional-child.svg"}]},svg:{"additional-child.svg": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%221.2857%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2%22/%3E%3Ccircle cx=%229%22 cy=%227%22 r=%224%22/%3E%3Cline x1=%2219%22 y1=%228%22 x2=%2219%22 y2=%2214%22/%3E%3Cline x1=%2222%22 y1=%2211%22 x2=%2216%22 y2=%2211%22/%3E%3C/svg%3E", "apply.svg": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%221.2857%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z%22/%3E%3Cpath d=%22m21.854 2.147-10.94 10.939%22/%3E%3C/svg%3E", "contract.svg": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%221.2857%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M14.364 13.634a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506l4.013-4.009a1 1 0 0 0-3.004-3.004z%22/%3E%3Cpath d=%22M14.487 7.858A1 1 0 0 1 14 7V2%22/%3E%3Cpath d=%22M20 19.645V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l2.516 2.516%22/%3E%3Cpath d=%22M8 18h1%22/%3E%3C/svg%3E", "curiosity.svg": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%221.2857%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22m10.065 12.493-6.18 1.318a.934.934 0 0 1-1.108-.702l-.537-2.15a1.07 1.07 0 0 1 .691-1.265l13.504-4.44%22/%3E%3Cpath d=%22m13.56 11.747 4.332-.924%22/%3E%3Cpath d=%22m16 21-3.105-6.21%22/%3E%3Cpath d=%22M16.485 5.94a2 2 0 0 1 1.455-2.425l1.09-.272a1 1 0 0 1 1.212.727l1.515 6.06a1 1 0 0 1-.727 1.213l-1.09.272a2 2 0 0 1-2.425-1.455z%22/%3E%3Cpath d=%22m6.158 8.633 1.114 4.456%22/%3E%3Cpath d=%22m8 21 3.105-6.21%22/%3E%3Ccircle cx=%2212%22 cy=%2213%22 r=%222%22/%3E%3C/svg%3E", "entrance-assessment.svg": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%221.2857%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%228%22 y=%222%22 width=%228%22 height=%224%22 rx=%221%22 ry=%221%22/%3E%3Cpath d=%22M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2%22/%3E%3Cpath d=%22m9 14 2 2 4-4%22/%3E%3C/svg%3E", "family-partnership.svg": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%221.2857%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762%22/%3E%3C/svg%3E", "global-outlook.svg": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%221.2857%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath d=%22M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20%22/%3E%3Cpath d=%22M2 12h20%22/%3E%3C/svg%3E", "inquiry.svg": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%221.2857%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22m21 21-4.34-4.34%22/%3E%3Ccircle cx=%2211%22 cy=%2211%22 r=%228%22/%3E%3C/svg%3E", "pay-instalments.svg": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%221.2857%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%223%22 y=%223%22 width=%2218%22 height=%2218%22 rx=%222%22/%3E%3Cpath d=%22M16 2v3%22/%3E%3Cpath d=%22M3 9h18%22/%3E%3Cpath d=%22M8 2v3%22/%3E%3Cpath d=%22M17 13h-6%22/%3E%3Cpath d=%22M13 17H7%22/%3E%3Cpath d=%22M7 13h.01%22/%3E%3Cpath d=%22M17 17h.01%22/%3E%3C/svg%3E", "pay-monthly.svg": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%221.2857%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M11 10v4h4%22/%3E%3Cpath d=%22m11 14 1.535-1.605a5 5 0 018 1.5%22/%3E%3Cpath d=%22M16 2v3%22/%3E%3Cpath d=%22m21 18-1.535 1.605a5 5 0 01-8-1.5%22/%3E%3Cpath d=%22M21 22v-4h-4%22/%3E%3Cpath d=%22M21 8.517V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h3.517%22/%3E%3Cpath d=%22M3 9h4%22/%3E%3Cpath d=%22M8 2v3%22/%3E%3C/svg%3E", "pay-once.svg": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%221.2857%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M8 2v3%22/%3E%3Cpath d=%22M16 2v3%22/%3E%3Crect x=%223%22 y=%223%22 width=%2218%22 height=%2218%22 rx=%222%22/%3E%3Cpath d=%22M3 9h18%22/%3E%3Cpath d=%22m9 15 2 2 4-4%22/%3E%3C/svg%3E", "payment.svg": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%221.2857%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1%22/%3E%3Cpath d=%22M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4%22/%3E%3C/svg%3E", "programme.svg": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%221.2857%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M12 5v16%22/%3E%3Cpath d=%22M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z%22/%3E%3C/svg%3E", "safe-environment.svg": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%221.2857%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z%22/%3E%3C/svg%3E", "start-school.svg": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%221.2857%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z%22/%3E%3Cpath d=%22M8 10h8%22/%3E%3Cpath d=%22M8 18h8%22/%3E%3Cpath d=%22M8 22v-6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6%22/%3E%3Cpath d=%22M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2%22/%3E%3C/svg%3E", "team.svg": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%221.2857%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2%22/%3E%3Cpath d=%22M16 3.128a4 4 0 0 1 0 7.744%22/%3E%3Cpath d=%22M22 21v-2a4 4 0 0 0-3-3.87%22/%3E%3Ccircle cx=%229%22 cy=%227%22 r=%224%22/%3E%3C/svg%3E", "thinking.svg": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%221.2857%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M12 18V5%22/%3E%3Cpath d=%22M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4%22/%3E%3Cpath d=%22M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5%22/%3E%3Cpath d=%22M17.997 5.125a4 4 0 0 1 2.526 5.77%22/%3E%3Cpath d=%22M18 18a4 4 0 0 0 2-7.464%22/%3E%3Cpath d=%22M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517%22/%3E%3Cpath d=%22M6 18a4 4 0 0 1-2-7.464%22/%3E%3Cpath d=%22M6.003 5.125a4 4 0 0 0-2.526 5.77%22/%3E%3C/svg%3E"},icon:function(n){return this.svg[n]||""},uni:null};})();
+document.addEventListener("DOMContentLoaded",function(){
+/* consult.js (prototype): FEEDBACK-1 point 10. ONE consultation section on every homepage
+   (Start, STEAM, Global; RU, KZ, EN), built from the existing nodes:
+     head (h2) / intro / steps (the t468 list, icons from kit.js) / ONE CTA /
+     form group (the one placeholder, then the contact lines once)
+   - CTA: STEAM and Global move the closing band's own button into the section; Start has none,
+     so it reuses the verbatim label the sister sites use in the same language.
+   - Contact lines: the t468 lines (STEAM, Global); Start has none in the body, so it reuses the
+     sister sites' verbatim line labels with the footer's own phone and email.
+   - Global intro: the sentence hidden as a duplicate of the band (data-hs-dup) is shown again,
+     because the band that carried it is removed.
+   - Removed (class k-consult-gone, display: none, so nothing inside stays focusable): the navy
+     closing band, the contact section (STEAM, Global), the empty Start form slot.
+   - Every consultation link on the page (header, hero, CTA) points at #consultation, the form
+     group; the slot keeps #contact and the section #contacts for links from other pages.
+   Styles: consult.css. */
+(function () {
+  var LABEL = { ru: 'Записаться на консультацию', kz: 'Консультацияға жазылу', en: 'Book a consultation' };
+  var LINE = { ru: ['Телефон: ', 'Почта: '], kz: ['Телефон: ', 'Пошта: '], en: ['Phone: ', 'Email: '] };
+  var TARGETS = ['#contact', '#consultation'];
+
+  function lang() {
+    var m = location.pathname.match(/\/(ru|kz|en)(\/|$)/);
+    if (m) return m[1];
+    var l = (document.documentElement.lang || 'ru').slice(0, 2);
+    if (l === 'kk') return 'kz';
+    return LABEL[l] ? l : 'ru';
+  }
+
+  function trimTrailingBreaks(el) {
+    el.querySelectorAll('br').forEach(function (br) {
+      var r = document.createRange();
+      r.setStartAfter(br); r.setEnd(el, el.childNodes.length);
+      if (!r.toString().trim()) br.remove();
+    });
+  }
+
+  function samePage(a) {
+    var h = a.getAttribute('href') || '';
+    if (h.charAt(0) === '#') return TARGETS.indexOf(h) > -1;
+    try {
+      var u = new URL(h, location.href);
+      return u.origin === location.origin && u.pathname.replace(/\/$/, '') === location.pathname.replace(/\/$/, '') && TARGETS.indexOf(u.hash) > -1;
+    } catch (e) { return false; }
+  }
+
+  function build(force) {
+    var root = document.documentElement;
+    if (root.classList.contains('k-consult-on')) return true;
+    var band = document.querySelector('.hs > section.band');
+    var startSlot = document.querySelector('.start-form-slot');
+    if (!band && !startSlot) return true;                    /* not a homepage: nothing to do */
+    var hsSlot = document.querySelector('.hs-contact__slot');
+    if (band && !hsSlot && !force) return false;             /* contact section not injected yet */
+    var lists = [].filter.call(document.querySelectorAll('.t468__descr > ol, .t468__descr > ul'), function (n) {
+      return n.children.length > 0 && n.children.length < 6;
+    });
+    var list = lists[lists.length - 1];
+    if (!list) return true;
+    var lg = lang();
+    var rec = list.closest('.t-rec'), descr = list.parentNode, col = descr.parentNode, block = rec.querySelector('.t468');
+    rec.classList.add('k-consult');
+
+    /* intro: everything in the descr before the list */
+    var dup = descr.querySelector('[data-hs-dup]');
+    if (dup) { dup.removeAttribute('hidden'); dup.removeAttribute('data-hs-dup'); }
+    var intro = document.createElement('p'); intro.className = 'k-consult__intro';
+    while (descr.firstChild && descr.firstChild !== list) intro.appendChild(descr.firstChild);
+    trimTrailingBreaks(intro);
+    if (intro.textContent.trim()) descr.insertBefore(intro, list);
+    list.classList.add('k-consult__steps');
+
+    /* contact lines */
+    var links = [].slice.call(descr.querySelectorAll(':scope > a[href^="tel:"], :scope > a[href^="mailto:"]'));
+    descr.querySelectorAll(':scope > br').forEach(function (b) { b.remove(); });
+    if (!links.length) {
+      var foot = document.querySelector('.foot__col--contacts');
+      if (foot) {
+        [['a[href^="tel:"]', 0], ['a[href^="mailto:"]', 1]].forEach(function (s) {
+          var src = foot.querySelector(s[0]); if (!src) return;
+          var a = document.createElement('a'); a.href = src.getAttribute('href');
+          a.textContent = LINE[lg][s[1]] + src.textContent.trim();
+          links.push(a);
+        });
+      }
+    }
+
+    /* the one CTA */
+    var cta = band && band.querySelector('a.btn');
+    if (!cta) { cta = document.createElement('a'); cta.textContent = LABEL[lg]; }
+    cta.className = 'k-consult__cta';
+    cta.setAttribute('href', '#consultation');
+    var action = document.createElement('div'); action.className = 'k-consult__action';
+    action.appendChild(cta);
+
+    /* the one form place: placeholder, then the lines */
+    var slot = hsSlot || (startSlot && startSlot.querySelector('.start-form-placeholder'));
+    if (startSlot) startSlot.removeAttribute('id');
+    if (band) band.removeAttribute('id');
+    var hsSection = document.querySelector('.hs-contact#contacts');
+    if (hsSection) hsSection.removeAttribute('id');
+    var form = document.createElement('div'); form.className = 'k-consult__form'; form.id = 'consultation';
+    if (slot) { slot.className = 'k-consult__slot'; slot.id = 'contact'; form.appendChild(slot); }
+    /* every DISTINCT contact from the removed contact section, verbatim, each number once:
+       the section's lines first claim nothing new if their href is already here; the labelled
+       admission group ("Запись на приёмную комиссию") keeps its entries whose number is new.
+       Instagram and the address stay in the footer only (true duplicates). */
+    var seen = {};
+    var key = function (a) { return (a.getAttribute('href') || '').replace(/\s/g, '').toLowerCase(); };
+    links.forEach(function (a) { seen[key(a)] = true; });
+    var group = null, extra = [];
+    if (hsSection) {
+      var g = hsSection.querySelector('.hs-contact__group:not(.hs-contact__group--form)');
+      if (g) {
+        g.querySelectorAll('.hs-contact__entry').forEach(function (e) {
+          var a = e.querySelector('a[href]');
+          if (!a || seen[key(a)]) { e.remove(); return; }
+          seen[key(a)] = true; e.className = 'k-consult__entry';
+        });
+        if (g.querySelector('.k-consult__entry')) {
+          group = g; g.className = 'k-consult__group';
+          var sub = g.querySelector('.hs-contact__sub'); if (sub) sub.className = 'k-consult__label';
+          var dl = g.querySelector('.hs-contact__grid'); if (dl) dl.className = 'k-consult__entries';
+        }
+      }
+      hsSection.querySelectorAll('.hs-contact__lines a[href^="tel:"], .hs-contact__lines a[href^="mailto:"]').forEach(function (a) {
+        if (seen[key(a)]) return; seen[key(a)] = true; extra.push(a);
+      });
+    }
+    links = links.concat(extra);
+    if (links.length || group) {
+      var lines = document.createElement('div'); lines.className = 'k-consult__lines';
+      links.forEach(function (a) { a.className = 'k-consult__line'; lines.appendChild(a); });
+      if (group) lines.appendChild(group);
+      form.appendChild(lines);
+    }
+    col.appendChild(action);
+    col.appendChild(form);
+    if (block && !document.getElementById('contacts')) block.id = 'contacts';
+
+    /* remove the duplicates */
+    if (band) band.classList.add('k-consult-gone');
+    if (startSlot) startSlot.classList.add('k-consult-gone');
+    if (hsSlot) { var hsRec = (hsSection || hsSlot).closest('.t-rec'); if (hsRec && hsRec !== rec) hsRec.classList.add('k-consult-gone'); }
+    var footRec = document.querySelector('footer.foot');
+    footRec = footRec && footRec.closest('.t-rec');
+    if (footRec) footRec.classList.add('k-consult-end');
+
+    /* every consultation link goes to the form place */
+    document.querySelectorAll('a[href]').forEach(function (a) { if (samePage(a)) a.setAttribute('href', '#consultation'); });
+
+    root.classList.add('k-consult-on');
+    if (TARGETS.indexOf(location.hash) > -1) requestAnimationFrame(function () { form.scrollIntoView(); });
+    return true;
+  }
+
+  function go() {
+    if (build(false)) return;
+    var mo = new MutationObserver(function () { if (build(false)) mo.disconnect(); });
+    mo.observe(document.body, { childList: true, subtree: true });
+    setTimeout(function () { mo.disconnect(); build(true); }, 5000);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
+})();
+
+});
+/* kit.js (prototype): FEEDBACK-1 point 9. The university name list (t016, STEAM) becomes a centred
+   logo wall: each university's logo with its name under it. Names stay text, in source order; the
+   logo files and their optical sizes come from /unilogos/unilogos.json (Lane U). */
+(function () {
+  function build(data) {
+    document.querySelectorAll('.t016').forEach(function (block) {
+      if (block.querySelector('.k-uniwall')) return;
+      var texts = block.querySelectorAll('.t016__text');
+      var names = [];
+      texts.forEach(function (t) { t.innerHTML.split(/<br\s*\/?>/i).forEach(function (n) { var s = n.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').trim(); if (s) names.push(s); }); });
+      if (!names.length) return;
+      var byName = {};
+      data.universities.forEach(function (u) { Object.keys(u.name).forEach(function (l) { byName[u.name[l]] = u; }); });
+      var ul = document.createElement('ul'); ul.className = 'k-uniwall';
+      names.forEach(function (n) {
+        var u = byName[n], li = document.createElement('li'); li.className = 'k-uni';
+        if (u) {
+          var fig = document.createElement('span'); fig.className = 'k-uni__mark';
+          var img = document.createElement('img'); img.src = window.HSK.base + 'unilogos/' + u.file; img.alt = ''; img.loading = 'lazy';
+          // GRADE F06: equal visual weight, not equal box: every mark gets about 2,400 px2 of ink area at 1440
+          // (box area corrected by the mark's ink density), height 26..48; phones 0.72 of that.
+          var dens = u.inkDensity || 0.45, asp = u.aspect || (u.widthPx['1440'] / u.heightPx['1440']);
+          var h = Math.sqrt(2400 / asp) * Math.pow(0.45 / dens, 0.25); h = Math.max(26, Math.min(48, h));
+          var w = Math.min(h * asp, 200); h = w / asp;
+          img.style.setProperty('--h', h.toFixed(1) + 'px'); img.style.setProperty('--h-phone', (h * 0.72).toFixed(1) + 'px');
+          img.style.setProperty('--w', w.toFixed(1) + 'px'); img.style.setProperty('--w-phone', (w * 0.72).toFixed(1) + 'px');
+          fig.appendChild(img); li.appendChild(fig);
+        }
+        var name = document.createElement('span'); name.className = 'k-uni__name'; name.textContent = n; li.appendChild(name);
+        ul.appendChild(li);
+      });
+      var row = block.querySelector('.t-row') || block;
+      row.parentNode.insertBefore(ul, row.nextSibling);
+      block.classList.add('k-uniwall-on');
+    });
+  }
+  function go() { if (!document.querySelector('.t016')) return; Promise.resolve(window.HSK.uni).then(build).catch(function () {}); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
+})();
+
+/* kit.js (prototype): FEEDBACK-1 point 6. One icon family (Lucide, Lane I) on every card and step
+   listed in /icons/icons.json (record id + item index in DOM order). The script only marks the item
+   (class k-has-icon, custom property --k-icon); size, colour and gaps are kit.css section 18. */
+(function () {
+  var ITEMS = { t772: '.t772__col', t650: '.t650__container > .t-card__col', t1053: '.t1053__col', t1052: '.t1052__col', t550: '.t550__col', t468: '.t468__descr > ol > li, .t468__descr > ul > li', t923: '.t923 .t-card__col' };
+  function wire(data) {
+    data.usage.forEach(function (u) {
+      var rec = document.getElementById(u.record); if (!rec) return;
+      var sel = ITEMS[u.block]; if (!sel) return;
+      var items = rec.querySelectorAll(sel), el = items[u.index]; if (!el) return;
+      el.classList.add('k-has-icon');
+      el.style.setProperty('--k-icon', 'url("' + window.HSK.icon(u.icon) + '")');
+    });
+    document.documentElement.classList.add('k-icons');
+  }
+  function go() { Promise.resolve(window.HSK.icons).then(wire).catch(function () {}); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
+})();
+
 /* hero-continuum.js (v6): Harmony Global homepage hero, "the continuum". One blue current, born as a single thread at the
    left, gaining strands as it travels (filaments, braid, ribbon). Raw WebGL2, instanced line strips, ink on white.
    Global homepages only: runs when <html> carries data-site="global" and data-hs-home (set by dist/global.js from the URL
