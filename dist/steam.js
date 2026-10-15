@@ -1103,7 +1103,10 @@ document.addEventListener("DOMContentLoaded",function(){
       var e5 = sd[u]; if (e5.__r5) continue;
       var mm5 = e5.innerHTML.match(/^\s*([^<]{1,40}?)\s*<br\s*\/?>\s*([\s\S]+)$/i);
       if (!mm5) continue; e5.__r5 = 1;
-      e5.innerHTML = '<span class="r5-meta">' + mm5[1] + '</span>' + mm5[2];
+      e5.innerHTML = mm5[2];
+      var meta = D.createElement('div'); meta.className = 'r5-meta'; meta.innerHTML = mm5[1];
+      var ti5 = e5.parentNode.querySelector('.t550__title');   /* the period above the title, like the yearly cards' label */
+      e5.parentNode.insertBefore(meta, ti5 || e5);
     }
     var d = D.querySelectorAll('.t-rec[data-record-type="468"] .t468__descr');
     for (var k = 0; k < d.length; k++) {
