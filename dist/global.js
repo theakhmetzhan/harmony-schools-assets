@@ -588,6 +588,338 @@ document.addEventListener("DOMContentLoaded",function(){
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
 })();
 
+/* v9.js: rapid feedback round 2026-10-15 (build/feedback-2026-10-15-rapid.md). Hooks for kit/v9.css; runs in <head>.
+   1. U3: Source Serif 4 light (300) for the stat figures (the HEAD loader requests 400 only).
+   2. U3/U4: marks stat rows (.t1052 four-to-a-row with figures) as .k-stat, their record as .k-stat-rec, as the parser
+      inserts them (before paint).
+   3. U2: no trailing period on headings. CDN markup (.hs) at once; native Tilda headings at DOMContentLoaded and once more
+      after the runtime's content edits have settled (an edit compares the published heading, period included).
+   4. S2 / T5 / G10: a native Tilda form record on a homepage moves into the consultation section's form place (whole
+      record, so Tilda's #rec-scoped form scripts keep working); html gets .k-v9-form, otherwise .k-v9-noform (the
+      placeholder hides). The contacts column gains the footer's address line.
+   5. T3: STEAM campus photo caption (RU / KZ / EN). T2: a facts row placed under the STEAM story record moves
+      inside it, above the photo. */
+(function () {
+  var D = document, R = D.documentElement;
+
+  /* 1. font */
+  try {
+    var fl = D.createElement('link'); fl.rel = 'stylesheet';
+    fl.href = 'https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300&display=swap';
+    (D.head || R).appendChild(fl);
+  } catch (e) {}
+
+  function lang() { var l = R.getAttribute('data-lang') || (location.pathname.match(/^\/(kz|en)(\/|$)/) || [])[1] || 'ru'; return l; }
+
+  /* 2. stats */
+  function markStats(root) {
+    var l = (root.querySelectorAll ? root : D).querySelectorAll('.t1052');
+    for (var i = 0; i < l.length; i++) {
+      var b = l[i]; if (b.classList.contains('k-stat') || b.__v9s) continue;
+      var c = b.querySelector('.t1052__container'); if (!c || !c.classList.contains('t-list__container_inrow4')) continue;
+      var t = b.querySelectorAll('.t1052__title'); if (t.length < 2) continue;
+      var fig = 0, step = 0;
+      for (var j = 0; j < t.length; j++) { var s = t[j].textContent.replace(/\s+/g, ' ').trim(); if (/^0\d$/.test(s)) step++; else if (s.length <= 12 && /^[$€₸+−-]?\s?\d/.test(s)) fig++; }
+      if (step || fig < Math.ceil(t.length * 0.6)) { b.__v9s = 1; continue; }
+      b.classList.add('k-stat'); var r = b.closest('.t-rec'); if (r) r.classList.add('k-stat-rec');
+    }
+  }
+
+  /* 3. headings */
+  var HS = '.hs h1, .hs h2, .hs h3, .hs .display';
+  var HN = '.t-section__title, .t468__title, .t480__title, .t489__title, .t338__title, .t001__title, .t050__title, .t467__title, .t-title, .t795__title, .t030__title, .t017__title, .t-name_xl, .t1053__title, .t772 .t-card__title';
+  function strip(el) {
+    if (el.closest('.t254, .t-card__descr')) return;
+    var w = D.createTreeWalker(el, 4), n, last = null;
+    while ((n = w.nextNode())) if (n.data.replace(/[\s ⁠]/g, '')) last = n;
+    if (!last) return;
+    var m = /([^.])\.([\s ⁠]*)$/.exec(last.data);
+    if (m) last.data = last.data.slice(0, m.index + 1) + m[2];
+  }
+  function stripAll(sel, root) { var l = (root || D).querySelectorAll(sel); for (var i = 0; i < l.length; i++) strip(l[i]); }
+
+  var mo = new MutationObserver(function (recs) {
+    for (var i = 0; i < recs.length; i++) for (var j = 0; j < recs[i].addedNodes.length; j++) {
+      var n = recs[i].addedNodes[j]; if (n.nodeType !== 1) continue;
+      if (n.matches && (n.matches('.t1052, .t-rec') || n.querySelector('.t1052'))) markStats(n.matches('.t1052') ? n.parentNode : n);
+      if (n.closest && (n.closest('.hs') || n.querySelector('.hs'))) stripAll(HS, n.closest('.hs') ? n.closest('.hs').parentNode : n);
+    }
+  });
+  mo.observe(R, { childList: true, subtree: true });
+
+  /* 4. consultation: native form + contacts */
+  var ADDR_MAP = null;   // no street address from the school yet: the map link and WhatsApp stay out (hidden) until supplied
+  function consult() {
+    var sec = D.querySelector('.k-consult'), place = sec && sec.querySelector('.k-consult__form');
+    if (!place || place.__v9) return !!place;
+    place.__v9 = 1;
+    var forms = D.querySelectorAll('#allrecords .t-rec form.t-form'), rec = null;
+    for (var i = 0; i < forms.length; i++) {
+      var r = forms[i].closest('.t-rec');
+      if (!r || r === sec || sec.contains(r) || r.classList.contains('k-consult-gone') || r.closest('.k-consult-gone')) continue;
+      if (r.closest('footer, .t-popup, [data-record-type="702"], [data-record-type="390"]')) continue;
+      rec = r; break;
+    }
+    var lines = place.querySelector('.k-consult__lines');
+    if (rec) {
+      place.insertBefore(rec, place.firstChild);
+      R.classList.add('k-v9-form');
+    } else R.classList.add('k-v9-noform');
+    if (lines && !lines.querySelector('.v9-addr')) {
+      var fp = D.querySelector('.foot__col--contacts p:not(.foot__head)');
+      if (fp && fp.textContent.trim()) {
+        var p = D.createElement('p'); p.className = 'v9-addr'; p.textContent = fp.textContent.trim();
+        var grp = lines.querySelector('.k-consult__group');
+        lines.insertBefore(p, grp || null);
+      }
+    }
+    return true;
+  }
+  function whenConsult() {
+    if (R.classList.contains('k-consult-on')) { consult(); return; }
+    var am = new MutationObserver(function () { if (R.classList.contains('k-consult-on')) { am.disconnect(); consult(); } });
+    am.observe(R, { attributes: true, attributeFilter: ['class'] });
+    setTimeout(function () { am.disconnect(); }, 8000);
+  }
+
+  /* 5. STEAM story record: caption, facts row */
+  var CAP = { ru: 'Кампус Harmony STEAM, Астана', kz: 'Harmony STEAM кампусы, Астана', en: 'Harmony STEAM campus, Astana' };
+  function story() {
+    if (R.getAttribute('data-site') !== 'steam' || !D.querySelector('.hs > section.photo')) return;
+    var img = D.querySelector('#allrecords .t480 .t480__blockimg'); if (!img) return;
+    var rec = img.closest('.t-rec');
+    if (!rec.querySelector('.v9-caption')) {
+      var cap = D.createElement('p'); cap.className = 'v9-caption'; cap.textContent = CAP[lang()] || CAP.ru;
+      img.parentNode.insertBefore(cap, img.nextSibling);
+    }
+    var nx = rec.nextElementSibling;
+    while (nx && nx.offsetParent === null && !nx.querySelector('.t1052')) nx = nx.nextElementSibling;
+    var facts = nx && nx.querySelector(':scope > .t1052.k-stat');
+    if (facts && !facts.querySelector('.t-section__title')) {
+      var col = rec.querySelector('.t480__col:not(.t480__top)');
+      if (col) { col.parentNode.insertBefore(facts, col); nx.classList.add('v9-gone'); facts.classList.add('v9-facts'); }
+    }
+  }
+
+  function ready() {
+    markStats(D);
+    stripAll(HS); stripAll(HN);
+    story();
+    whenConsult();
+  }
+  if (D.readyState === 'loading') D.addEventListener('DOMContentLoaded', ready); else ready();
+  addEventListener('load', function () { setTimeout(function () { stripAll(HN); stripAll(HS); markStats(D); mo.disconnect(); }, 4500); });
+})();
+
+/* motion.js (v9, U6): port of proto/motion/motion-steam.js to every STEAM and Global homepage (RU, KZ, EN).
+ * System-level targets instead of the prototype's RU record ids:
+ *   walk    the t772 photo-card record with 6+ cards (STEAM "Пройдитесь по школе"); STEAM only
+ *   reveal  every t772 photo-card record and every t537 portrait record (STEAM places, events, teachers; Global team)
+ *   mosaic  the other t772 photo-card records (STEAM events): asymmetric parallax, +-40px, desktop only
+ * Waits for DOMContentLoaded (the bundle runs in <head>). Inert under prefers-reduced-motion. */
+(function (run) { if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run(); })(function () {
+
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  var site = root.getAttribute('data-site');
+  if ((site !== 'steam' && site !== 'global') || !root.hasAttribute('data-hs-home')) return;
+  if (window.__hmMotion && window.__hmMotion.destroy) window.__hmMotion.destroy();
+
+  var RM = matchMedia('(prefers-reduced-motion: reduce)');
+  var recs772 = [].filter.call(document.querySelectorAll('#allrecords .t-rec'), function (r) { return r.querySelector(':scope > .t772 .t772__imgwrapper') && r.offsetParent !== null; });
+  var walkRec = site === 'steam' ? recs772.filter(function (r) { return r.querySelectorAll('.t772__col').length >= 6; })[0] : null;
+  var WALK_ID = walkRec ? walkRec.id : '';
+  var mosaicRecs = recs772.filter(function (r) { return r !== walkRec; });
+  var REVEAL_IDS = recs772.concat([].filter.call(document.querySelectorAll('#allrecords .t-rec'), function (r) { return r.querySelector(':scope > .t537 .t537__bgimg'); })).map(function (r) { return r.id; });
+  var cleanups = [];
+  var api = { destroy: destroy, version: '2026-10-15' };
+  window.__hmMotion = api;
+
+  function on(t, ev, fn, opt) { t.addEventListener(ev, fn, opt); cleanups.push(function () { t.removeEventListener(ev, fn, opt); }); }
+  function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+
+  function destroy() {
+    while (cleanups.length) { try { cleanups.pop()(); } catch (e) {} }
+    root.classList.remove('hm-motion');
+    document.querySelectorAll('.hm-layer,.hm-counter').forEach(function (n) { n.remove(); });
+    var cls = ['hm-walk', 'hm-sda', 'hm-reveal', 'hm-card', 'hm-in', 'hm-done', 'hm-clip', 'hm-img', 'hm-cap', 'hm-title'];
+    cls.forEach(function (c) { document.querySelectorAll('.' + c).forEach(function (n) { n.classList.remove(c); }); });
+    document.querySelectorAll('[style*="--hm-"]').forEach(function (n) { n.style.removeProperty('--hm-i'); n.style.removeProperty('--hm-dist'); n.style.removeProperty('--hm-top'); n.style.removeProperty('--hm-card'); n.style.removeProperty('--hm-font'); });
+    var w = WALK_ID && document.querySelector('#' + WALK_ID + ' .t772__wrapper'); if (w) w.style.transform = '';
+    if (window.__hmMotion === api) window.__hmMotion = null;
+  }
+
+  if (RM.matches) return;
+  on(RM, 'change', function () { if (RM.matches) destroy(); });
+  root.classList.add('hm-motion');
+
+  /* ---------- prepare cards (reveal + hover hooks) ---------- */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var card = e.target;
+      // reveal when visible, or immediately if already scrolled past (no hidden content when scrolling back up)
+      if (e.isIntersecting || e.boundingClientRect.bottom < 0) {
+        io.unobserve(card);
+        card.classList.add('hm-in');
+        var t = setTimeout(function () { card.classList.add('hm-done'); }, 1500);
+        cleanups.push(function () { clearTimeout(t); });
+      }
+    });
+  }, { threshold: 0.2 });
+  cleanups.push(function () { io.disconnect(); });
+
+  REVEAL_IDS.forEach(function (id) {
+    var rec = document.getElementById(id);
+    if (!rec) return;
+    var is537 = !!rec.querySelector('.t537');
+    var cards = rec.querySelectorAll(is537 ? '.t537__col' : '.t772__col');
+    cards.forEach(function (card) {
+      var img = card.querySelector(is537 ? '.t537__bgimg' : '.t772__bgimg');
+      var clip = is537 ? img : card.querySelector('.t772__imgwrapper');
+      if (!img || !clip) return;
+      card.classList.add('hm-card');
+      clip.classList.add('hm-clip');
+      img.classList.add('hm-img');
+      var layer = document.createElement('span');
+      layer.className = 'hm-layer';
+      layer.setAttribute('aria-hidden', 'true');
+      img.appendChild(layer);
+      var caps = card.querySelectorAll(is537 ? '.t537__persname,.t537__persdescr,.t537__perstext' : '.t-card__uptitle,.t-card__title,.t-card__descr');
+      caps.forEach(function (c, j) { c.classList.add('hm-cap'); c.style.setProperty('--hm-i', j + 1); });
+      var title = card.querySelector(is537 ? '.t537__persname' : '.t-card__title');
+      if (title) title.classList.add('hm-title');
+      io.observe(card);
+    });
+    rec.classList.add('hm-reveal');
+  });
+
+  /* ---------- mosaic (events): asymmetric parallax, desktop ---------- */
+  (function () {
+    if (!mosaicRecs.length) return;
+    var mq = matchMedia('(min-width: 768px)'), cols = [], mraf = 0;
+    mosaicRecs.forEach(function (r) { r.classList.add('hm-mosaic'); [].forEach.call(r.querySelectorAll('.t772__col'), function (c, i) { cols.push({ el: c, k: (i % 2 ? 1 : -1) * (i % 4 < 2 ? 1 : 0.6) }); }); });
+    function upd() {
+      mraf = 0;
+      var vh = window.innerHeight;
+      cols.forEach(function (c) {
+        if (!mq.matches) { c.el.style.removeProperty('--hm-py'); return; }
+        var r = c.el.getBoundingClientRect();
+        var t = clamp((vh - r.top) / (vh + r.height)) * 2 - 1;      // -1 entering .. 1 leaving
+        c.el.style.setProperty('--hm-py', (-t * 40 * c.k).toFixed(1) + 'px');
+      });
+    }
+    function sch() { if (!mraf) mraf = requestAnimationFrame(upd); }
+    on(window, 'scroll', sch, { passive: true }); on(window, 'resize', sch); on(mq, 'change', sch);
+    cleanups.push(function () { cancelAnimationFrame(mraf); cols.forEach(function (c) { c.el.style.removeProperty('--hm-py'); }); mosaicRecs.forEach(function (r) { r.classList.remove('hm-mosaic'); }); });
+    upd();
+  })();
+
+  /* ---------- walk ---------- */
+  var rec = WALK_ID ? document.getElementById(WALK_ID) : null;
+  var box = rec && rec.querySelector('.t772');
+  var track = rec && rec.querySelector('.t772__wrapper');
+  if (!rec || !box || !track) return;
+  var cards = Array.prototype.slice.call(track.querySelectorAll('.t772__col'));
+  if (cards.length < 2) return;
+  var titles = cards.map(function (c) { var t = c.querySelector('.t-card__title'); return t ? t.textContent.replace(/\s+/g, ' ').trim() : ''; });
+  var n = cards.length;
+
+  rec.classList.add('hm-walk');
+  var sda = !!(window.CSS && CSS.supports && CSS.supports('animation-timeline: view()') && CSS.supports('view-timeline: --a block'));
+  if (sda) rec.classList.add('hm-sda');
+  api.mode = sda ? 'css-scroll-driven' : 'js-raf';
+
+  var counter = document.createElement('div');
+  counter.className = 'hm-counter';
+  counter.setAttribute('aria-hidden', 'true');
+  counter.innerHTML = '<span class="hm-counter__num"><b>01</b> <i>/ ' + pad2(n) + '</i></span><span class="hm-counter__title"></span><span class="hm-counter__bar"><i></i></span>';
+  box.appendChild(counter);
+  var fontSrc = cards[0].querySelector('.t-card__descr, .t-card__title');
+  if (fontSrc) rec.style.setProperty('--hm-font', getComputedStyle(fontSrc).fontFamily);
+  var numEl = counter.querySelector('b'), titleEl = counter.querySelector('.hm-counter__title'), barEl = counter.querySelector('.hm-counter__bar i');
+
+  var mqDesk = matchMedia('(min-width: 768px)');
+  var dist = 0, idx = -1, raf = 0, swapT = 0;
+
+  function headerOffset() {
+    // bottom edge of the fixed site header (floating pill), so the pinned frame starts below it
+    var el = document.elementFromPoint(window.innerWidth / 2, 24), best = 0;
+    while (el && el !== document.body) {
+      if (rec.contains(el)) return 0;
+      if (getComputedStyle(el).position === 'fixed') { var r = el.getBoundingClientRect(); if (r.top < 40 && r.height < 200) best = Math.round(r.bottom); }
+      el = el.parentElement;
+    }
+    return best;
+  }
+
+  function measure() {
+    if (!mqDesk.matches) { ['--hm-dist', '--hm-top', '--hm-card'].forEach(function (k) { rec.style.removeProperty(k); }); track.style.transform = ''; dist = 0; return; }
+    var top = Math.max(72, headerOffset() + 28);
+    rec.style.setProperty('--hm-top', top + 'px');
+    // fit: header block + photo (3:2) + card text + counter must fit in one viewport
+    var head = rec.querySelector('.js-block-header');
+    var fixed = top + 40 + (head ? head.offsetHeight + 36 : 0) + counter.offsetHeight + 28;
+    var w = parseFloat(rec.style.getPropertyValue('--hm-card')) || cards[0].offsetWidth;
+    for (var k = 0; k < 2; k++) {
+      var text = 0;
+      cards.forEach(function (c) { var iw = c.querySelector('.t772__imgwrapper'); text = Math.max(text, c.offsetHeight - (iw ? iw.offsetHeight : 0)); });
+      w = Math.round(Math.max(300, Math.min(window.innerWidth * 0.56, (window.innerHeight - fixed - text) * 1.5, 900)));
+      rec.style.setProperty('--hm-card', w + 'px');
+    }
+    var last = cards[n - 1];
+    var pr = parseFloat(getComputedStyle(track).paddingRight) || 0;
+    dist = Math.max(0, Math.round(last.offsetLeft + last.offsetWidth + pr - track.clientWidth));
+    rec.style.setProperty('--hm-dist', dist + 'px');
+  }
+
+  function progress() {
+    if (mqDesk.matches) {
+      var r = rec.getBoundingClientRect();
+      var span = r.height - window.innerHeight;
+      return span > 0 ? clamp(-r.top / span) : 0;
+    }
+    var max = track.scrollWidth - track.clientWidth;
+    return max > 0 ? clamp(track.scrollLeft / max) : 0;
+  }
+
+  function setIndex(i) {
+    if (i === idx) return;
+    var first = idx < 0;
+    idx = i;
+    numEl.textContent = pad2(i + 1);
+    if (first) { titleEl.textContent = titles[i]; return; }
+    titleEl.classList.add('is-swap');
+    clearTimeout(swapT);
+    swapT = setTimeout(function () { titleEl.textContent = titles[idx]; titleEl.classList.remove('is-swap'); }, 120);
+  }
+
+  function update() {
+    raf = 0;
+    var p = progress();
+    if (mqDesk.matches && !sda) track.style.transform = 'translate3d(' + (-p * dist).toFixed(1) + 'px,0,0)';
+    barEl.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+    setIndex(Math.min(n - 1, Math.round(p * (n - 1))));
+  }
+  function schedule() { if (!raf) raf = requestAnimationFrame(update); }
+  function relayout() { measure(); update(); }
+
+  on(window, 'scroll', schedule, { passive: true });
+  on(track, 'scroll', schedule, { passive: true });
+  on(window, 'resize', relayout);
+  on(mqDesk, 'change', relayout);
+  if (window.ResizeObserver) {
+    var ro = new ResizeObserver(function () { relayout(); });
+    ro.observe(box);
+    cleanups.push(function () { ro.disconnect(); });
+  }
+  cleanups.push(function () { cancelAnimationFrame(raf); clearTimeout(swapT); });
+  relayout();
+  api.state = function () { return { mode: api.mode, dist: dist, index: idx + 1, total: n, progress: +progress().toFixed(3) }; };
+})();
+});
+
 /* hero-continuum.js (v6): Harmony Global homepage hero, "the continuum". One blue current, born as a single thread at the
    left, gaining strands as it travels (filaments, braid, ribbon). Raw WebGL2, instanced line strips, ink on white.
    Global homepages only: runs when <html> carries data-site="global" and data-hs-home (set by dist/global.js from the URL

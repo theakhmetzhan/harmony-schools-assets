@@ -173,9 +173,9 @@ document.documentElement.insertAdjacentHTML("beforeend","<svg xmlns=\"http://www
   D.addEventListener('DOMContentLoaded', step);
   addEventListener('load', function () { step(); setTimeout(function () { step(); relabel(); if (edits && edits.length && window.console) console.warn('hs: content edits not applied', edits.map(function (e) { return e.id; })); stop(); }, 4000); });
 })(
-{"292377903":{"key": "start-ru", "lang": "ru", "home": true, "header": "<header class=\"hdr\"><a class=\"hdr__logo hdr__logo--stack\" href=\"https://intently-finished-panflute.tilda.ws/\" aria-label=\"Harmony\" data-on=\"dark\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"826 825 2516 2517\"><use href=\"#logo-start\" x=\"826\" y=\"825\" width=\"2516\" height=\"2517\"></use></svg></a><div class=\"hdr__end\" data-on=\"dark\"><nav class=\"lang\" aria-label=\"Language\"><a href=\"https://intently-finished-panflute.tilda.ws/\" data-lang=\"ru\" lang=\"ru\" aria-current=\"true\">RU</a><a href=\"https://intently-finished-panflute.tilda.ws/kz\" data-lang=\"kz\" lang=\"kk\">KZ</a><a href=\"https://intently-finished-panflute.tilda.ws/en\" data-lang=\"en\" lang=\"en\">EN</a></nav></div></header>", "footer": "<footer class=\"foot\" data-tone=\"dark\"><div class=\"foot__grid\"><div class=\"foot__brand\"><a class=\"foot__logo foot__logo--stack\" href=\"https://intently-finished-panflute.tilda.ws/\" aria-label=\"Harmony\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"826 825 2516 2517\"><use href=\"#logo-start\" x=\"826\" y=\"825\" width=\"2516\" height=\"2517\"></use></svg></a></div><div class=\"foot__col\"><p class=\"foot__head\">Школы Harmony</p><a href=\"https://knit-decided-ocelot.tilda.ws/\">Harmony STEAM</a><a href=\"https://project13642453.tilda.ws/\">Harmony Global</a></div><div class=\"foot__col\"><p class=\"foot__head\">О&nbsp;нас</p><a href=\"#rec4607642103\">Философия</a><a href=\"#rec4607560703\">Результаты</a><a href=\"https://knit-decided-ocelot.tilda.ws/#rec4607963003\">Команда</a><a href=\"https://knit-decided-ocelot.tilda.ws/#news\" data-start-unavailable=\"press\" hidden aria-hidden=\"true\" tabindex=\"-1\">Пресса</a><a href=\"https://knit-decided-ocelot.tilda.ws/team\">Карьера</a></div><div class=\"foot__col foot__col--contacts\"><p class=\"foot__head\">Контакты</p><a href=\"tel:+77750072332\">+7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a><p>Астана, Казахстан</p><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram harmonyedukz</a></div></div>\n    <p class=\"foot__legal\">© 2026&nbsp;Harmony&nbsp;Schools, Астана, Казахстан<br>Политика конфиденциальности · Оферта</p></footer>", "dRec": "rec4730812903", "anchor": "rec4730812903", "contact": null, "edits": [{"id": "S-007", "rec": "rec4730818703", "sel": ".hs-common-values p", "kind": "html", "before": "Что одинаково в обеих школах: культура, комфортная среда, школьная атмосфера, безопасность, принципы Harmony и партнёрство с семьёй.", "after": "Что одинаково в обеих школах: культура, комфортная среда, школьная атмосфера, безопасность, принципы Harmony и партнёрство с семьёй."}, {"id": "S-013", "rec": "rec4634528403", "sel": ".t431__data-part2", "kind": "data", "before": "Аккредитации / Партнер", "after": "Аккредитации / партнер"}], "moves": [{"rec": "rec4607560703", "after": "rec4607582903"}],"tones":[]},
-"292687303":{"key": "start-kz", "lang": "kz", "home": true, "header": "<header class=\"hdr\"><a class=\"hdr__logo hdr__logo--stack\" href=\"https://intently-finished-panflute.tilda.ws/kz\" aria-label=\"Harmony\" data-on=\"dark\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"826 825 2516 2517\"><use href=\"#logo-start\" x=\"826\" y=\"825\" width=\"2516\" height=\"2517\"></use></svg></a><div class=\"hdr__end\" data-on=\"dark\"><nav class=\"lang\" aria-label=\"Language\"><a href=\"https://intently-finished-panflute.tilda.ws/\" data-lang=\"ru\" lang=\"ru\">RU</a><a href=\"https://intently-finished-panflute.tilda.ws/kz\" data-lang=\"kz\" lang=\"kk\" aria-current=\"true\">KZ</a><a href=\"https://intently-finished-panflute.tilda.ws/en\" data-lang=\"en\" lang=\"en\">EN</a></nav></div></header>", "footer": "<footer class=\"foot\" data-tone=\"dark\"><div class=\"foot__grid\"><div class=\"foot__brand\"><a class=\"foot__logo foot__logo--stack\" href=\"https://intently-finished-panflute.tilda.ws/kz\" aria-label=\"Harmony\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"826 825 2516 2517\"><use href=\"#logo-start\" x=\"826\" y=\"825\" width=\"2516\" height=\"2517\"></use></svg></a></div><div class=\"foot__col\"><p class=\"foot__head\">Harmony мектептері</p><a href=\"https://knit-decided-ocelot.tilda.ws/kz\">Harmony STEAM</a><a href=\"https://project13642453.tilda.ws/kz\">Harmony Global</a></div><div class=\"foot__col\"><p class=\"foot__head\">Біз туралы</p><a href=\"#rec4614023503\">Пәлсапа</a><a href=\"#rec4614022503\">Нәтижелер</a><a href=\"https://knit-decided-ocelot.tilda.ws/kz/#rec4620066303\">Команда</a><a href=\"https://knit-decided-ocelot.tilda.ws/kz#news\" data-start-unavailable=\"press\" hidden aria-hidden=\"true\" tabindex=\"-1\">Баспасөз</a><a href=\"https://knit-decided-ocelot.tilda.ws/kz/team\">Мансап</a></div><div class=\"foot__col foot__col--contacts\"><p class=\"foot__head\">Байланыс</p><a href=\"tel:+77750072332\">+7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a><p>Астана, Қазақстан</p><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram harmonyedukz</a></div></div>\n    <p class=\"foot__legal\">© 2026&nbsp;Harmony&nbsp;Schools, Астана, Қазақстан<br>Жеке деректерді қорғау/өңдеу саясаты · Ұсыныс</p></footer>", "dRec": "rec4730826303", "anchor": "rec4730826303", "contact": null, "edits": [{"id": "S-047", "rec": "rec4614024003", "sel": "[field=\"title\"]", "kind": "html", "before": "Жеке консультацияға<br />жазылыңыз", "after": "Жеке консультацияға жазылыңыз"}, {"id": "FF-237", "rec": "rec4645710503", "sel": ".t431__data-part2", "kind": "data", "before": "Құны;жылына 4,4 млн ₸;", "after": "Құны;Жылына 4,4 млн ₸;"}], "moves": [{"rec": "rec4614022503", "after": "rec4614022803"}],"tones":[]},
-"292719303":{"key": "start-en", "lang": "en", "home": true, "header": "<header class=\"hdr\"><a class=\"hdr__logo hdr__logo--stack\" href=\"https://intently-finished-panflute.tilda.ws/en\" aria-label=\"Harmony\" data-on=\"dark\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"826 825 2516 2517\"><use href=\"#logo-start\" x=\"826\" y=\"825\" width=\"2516\" height=\"2517\"></use></svg></a><div class=\"hdr__end\" data-on=\"dark\"><nav class=\"lang\" aria-label=\"Language\"><a href=\"https://intently-finished-panflute.tilda.ws/\" data-lang=\"ru\" lang=\"ru\">RU</a><a href=\"https://intently-finished-panflute.tilda.ws/kz\" data-lang=\"kz\" lang=\"kk\">KZ</a><a href=\"https://intently-finished-panflute.tilda.ws/en\" data-lang=\"en\" lang=\"en\" aria-current=\"true\">EN</a></nav></div></header>", "footer": "<footer class=\"foot\" data-tone=\"dark\"><div class=\"foot__grid\"><div class=\"foot__brand\"><a class=\"foot__logo foot__logo--stack\" href=\"https://intently-finished-panflute.tilda.ws/en\" aria-label=\"Harmony\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"826 825 2516 2517\"><use href=\"#logo-start\" x=\"826\" y=\"825\" width=\"2516\" height=\"2517\"></use></svg></a></div><div class=\"foot__col\"><p class=\"foot__head\">Harmony schools</p><a href=\"https://knit-decided-ocelot.tilda.ws/en\">Harmony STEAM</a><a href=\"https://project13642453.tilda.ws/en\">Harmony Global</a></div><div class=\"foot__col\"><p class=\"foot__head\">About us</p><a href=\"#rec4614171003\">Philosophy</a><a href=\"#rec4614170003\">Results</a><a href=\"https://knit-decided-ocelot.tilda.ws/en/#rec4620178403\">Team</a><a href=\"https://knit-decided-ocelot.tilda.ws/en#news\" data-start-unavailable=\"press\" hidden aria-hidden=\"true\" tabindex=\"-1\">Media</a><a href=\"https://knit-decided-ocelot.tilda.ws/en/team\">Careers</a></div><div class=\"foot__col foot__col--contacts\"><p class=\"foot__head\">Contacts</p><a href=\"tel:+77750072332\">+7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a><p>Astana, Kazakhstan</p><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram harmonyedukz</a></div></div>\n    <p class=\"foot__legal\">© 2026&nbsp;Harmony&nbsp;Schools, Astana, Kazakhstan<br>Privacy Policy · Terms and Conditions</p></footer>", "dRec": "rec4730848303", "anchor": "rec4730848303", "contact": null, "edits": [{"id": "S-066", "rec": "rec4614171503", "sel": "[field=\"title\"]", "kind": "html", "before": "Book a<br />personal consultation", "after": "Book a personal consultation"}], "moves": [{"rec": "rec4614170003", "after": "rec4614170303"}],"tones":[]},
+{"292377903":{"key": "start-ru", "lang": "ru", "home": true, "header": "<header class=\"hdr\"><a class=\"hdr__logo hdr__logo--stack\" href=\"https://intently-finished-panflute.tilda.ws/\" aria-label=\"Harmony\" data-on=\"dark\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"826 825 2516 2517\"><use href=\"#logo-start\" x=\"826\" y=\"825\" width=\"2516\" height=\"2517\"></use></svg></a><div class=\"hdr__end\" data-on=\"dark\"><nav class=\"lang\" aria-label=\"Language\"><a href=\"https://intently-finished-panflute.tilda.ws/\" data-lang=\"ru\" lang=\"ru\" aria-current=\"true\">RU</a><a href=\"https://intently-finished-panflute.tilda.ws/kz\" data-lang=\"kz\" lang=\"kk\">KZ</a><a href=\"https://intently-finished-panflute.tilda.ws/en\" data-lang=\"en\" lang=\"en\">EN</a></nav><a class=\"btn hdr__cta\" href=\"#consultation\">Консультация</a></div></header>", "footer": "<footer class=\"foot\" data-tone=\"dark\"><div class=\"foot__grid\"><div class=\"foot__brand\"><a class=\"foot__logo foot__logo--stack\" href=\"https://intently-finished-panflute.tilda.ws/\" aria-label=\"Harmony\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"826 825 2516 2517\"><use href=\"#logo-start\" x=\"826\" y=\"825\" width=\"2516\" height=\"2517\"></use></svg></a></div><div class=\"foot__col\"><p class=\"foot__head\">Школы Harmony</p><a href=\"https://knit-decided-ocelot.tilda.ws/\">Harmony STEAM</a><a href=\"https://project13642453.tilda.ws/\">Harmony Global</a></div><div class=\"foot__col\"><p class=\"foot__head\">О&nbsp;нас</p><a href=\"#rec4607642103\">Философия</a><a href=\"#rec4607560703\">Результаты</a><a href=\"https://knit-decided-ocelot.tilda.ws/#rec4607963003\">Команда</a><a href=\"https://knit-decided-ocelot.tilda.ws/#news\" data-start-unavailable=\"press\" hidden aria-hidden=\"true\" tabindex=\"-1\">Пресса</a><a href=\"https://knit-decided-ocelot.tilda.ws/team\">Карьера</a></div><div class=\"foot__col foot__col--contacts\"><p class=\"foot__head\">Контакты</p><a href=\"tel:+77750072332\">+7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a><p>Астана, Казахстан</p><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram harmonyedukz</a></div></div>\n    <p class=\"foot__legal\">© 2026&nbsp;Harmony&nbsp;Schools, Астана, Казахстан<br>Политика конфиденциальности · Оферта</p></footer>", "dRec": "rec4730812903", "anchor": "rec4730812903", "contact": null, "edits": [{"id": "S-007", "rec": "rec4730818703", "sel": ".hs-common-values p", "kind": "html", "before": "Что одинаково в обеих школах: культура, комфортная среда, школьная атмосфера, безопасность, принципы Harmony и партнёрство с семьёй.", "after": "Что одинаково в обеих школах: культура, комфортная среда, школьная атмосфера, безопасность, принципы Harmony и партнёрство с семьёй."}, {"id": "S-013", "rec": "rec4634528403", "sel": ".t431__data-part2", "kind": "data", "before": "Аккредитации / Партнер", "after": "Аккредитации / партнер"}], "moves": [{"rec": "rec4607560703", "after": "rec4607582903"}],"tones":[]},
+"292687303":{"key": "start-kz", "lang": "kz", "home": true, "header": "<header class=\"hdr\"><a class=\"hdr__logo hdr__logo--stack\" href=\"https://intently-finished-panflute.tilda.ws/kz\" aria-label=\"Harmony\" data-on=\"dark\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"826 825 2516 2517\"><use href=\"#logo-start\" x=\"826\" y=\"825\" width=\"2516\" height=\"2517\"></use></svg></a><div class=\"hdr__end\" data-on=\"dark\"><nav class=\"lang\" aria-label=\"Language\"><a href=\"https://intently-finished-panflute.tilda.ws/\" data-lang=\"ru\" lang=\"ru\">RU</a><a href=\"https://intently-finished-panflute.tilda.ws/kz\" data-lang=\"kz\" lang=\"kk\" aria-current=\"true\">KZ</a><a href=\"https://intently-finished-panflute.tilda.ws/en\" data-lang=\"en\" lang=\"en\">EN</a></nav><a class=\"btn hdr__cta\" href=\"#consultation\">Консультация</a></div></header>", "footer": "<footer class=\"foot\" data-tone=\"dark\"><div class=\"foot__grid\"><div class=\"foot__brand\"><a class=\"foot__logo foot__logo--stack\" href=\"https://intently-finished-panflute.tilda.ws/kz\" aria-label=\"Harmony\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"826 825 2516 2517\"><use href=\"#logo-start\" x=\"826\" y=\"825\" width=\"2516\" height=\"2517\"></use></svg></a></div><div class=\"foot__col\"><p class=\"foot__head\">Harmony мектептері</p><a href=\"https://knit-decided-ocelot.tilda.ws/kz\">Harmony STEAM</a><a href=\"https://project13642453.tilda.ws/kz\">Harmony Global</a></div><div class=\"foot__col\"><p class=\"foot__head\">Біз туралы</p><a href=\"#rec4614023503\">Пәлсапа</a><a href=\"#rec4614022503\">Нәтижелер</a><a href=\"https://knit-decided-ocelot.tilda.ws/kz/#rec4620066303\">Команда</a><a href=\"https://knit-decided-ocelot.tilda.ws/kz#news\" data-start-unavailable=\"press\" hidden aria-hidden=\"true\" tabindex=\"-1\">Баспасөз</a><a href=\"https://knit-decided-ocelot.tilda.ws/kz/team\">Мансап</a></div><div class=\"foot__col foot__col--contacts\"><p class=\"foot__head\">Байланыс</p><a href=\"tel:+77750072332\">+7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a><p>Астана, Қазақстан</p><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram harmonyedukz</a></div></div>\n    <p class=\"foot__legal\">© 2026&nbsp;Harmony&nbsp;Schools, Астана, Қазақстан<br>Жеке деректерді қорғау/өңдеу саясаты · Ұсыныс</p></footer>", "dRec": "rec4730826303", "anchor": "rec4730826303", "contact": null, "edits": [{"id": "S-047", "rec": "rec4614024003", "sel": "[field=\"title\"]", "kind": "html", "before": "Жеке консультацияға<br />жазылыңыз", "after": "Жеке консультацияға жазылыңыз"}, {"id": "FF-237", "rec": "rec4645710503", "sel": ".t431__data-part2", "kind": "data", "before": "Құны;жылына 4,4 млн ₸;", "after": "Құны;Жылына 4,4 млн ₸;"}], "moves": [{"rec": "rec4614022503", "after": "rec4614022803"}],"tones":[]},
+"292719303":{"key": "start-en", "lang": "en", "home": true, "header": "<header class=\"hdr\"><a class=\"hdr__logo hdr__logo--stack\" href=\"https://intently-finished-panflute.tilda.ws/en\" aria-label=\"Harmony\" data-on=\"dark\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"826 825 2516 2517\"><use href=\"#logo-start\" x=\"826\" y=\"825\" width=\"2516\" height=\"2517\"></use></svg></a><div class=\"hdr__end\" data-on=\"dark\"><nav class=\"lang\" aria-label=\"Language\"><a href=\"https://intently-finished-panflute.tilda.ws/\" data-lang=\"ru\" lang=\"ru\">RU</a><a href=\"https://intently-finished-panflute.tilda.ws/kz\" data-lang=\"kz\" lang=\"kk\">KZ</a><a href=\"https://intently-finished-panflute.tilda.ws/en\" data-lang=\"en\" lang=\"en\" aria-current=\"true\">EN</a></nav><a class=\"btn hdr__cta\" href=\"#consultation\">Consultation</a></div></header>", "footer": "<footer class=\"foot\" data-tone=\"dark\"><div class=\"foot__grid\"><div class=\"foot__brand\"><a class=\"foot__logo foot__logo--stack\" href=\"https://intently-finished-panflute.tilda.ws/en\" aria-label=\"Harmony\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"826 825 2516 2517\"><use href=\"#logo-start\" x=\"826\" y=\"825\" width=\"2516\" height=\"2517\"></use></svg></a></div><div class=\"foot__col\"><p class=\"foot__head\">Harmony schools</p><a href=\"https://knit-decided-ocelot.tilda.ws/en\">Harmony STEAM</a><a href=\"https://project13642453.tilda.ws/en\">Harmony Global</a></div><div class=\"foot__col\"><p class=\"foot__head\">About us</p><a href=\"#rec4614171003\">Philosophy</a><a href=\"#rec4614170003\">Results</a><a href=\"https://knit-decided-ocelot.tilda.ws/en/#rec4620178403\">Team</a><a href=\"https://knit-decided-ocelot.tilda.ws/en#news\" data-start-unavailable=\"press\" hidden aria-hidden=\"true\" tabindex=\"-1\">Media</a><a href=\"https://knit-decided-ocelot.tilda.ws/en/team\">Careers</a></div><div class=\"foot__col foot__col--contacts\"><p class=\"foot__head\">Contacts</p><a href=\"tel:+77750072332\">+7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a><p>Astana, Kazakhstan</p><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram harmonyedukz</a></div></div>\n    <p class=\"foot__legal\">© 2026&nbsp;Harmony&nbsp;Schools, Astana, Kazakhstan<br>Privacy Policy · Terms and Conditions</p></footer>", "dRec": "rec4730848303", "anchor": "rec4730848303", "contact": null, "edits": [{"id": "S-066", "rec": "rec4614171503", "sel": "[field=\"title\"]", "kind": "html", "before": "Book a<br />personal consultation", "after": "Book a personal consultation"}], "moves": [{"rec": "rec4614170003", "after": "rec4614170303"}],"tones":[]},
 "293304803":{"key": "start-ru-not-found", "lang": "ru", "home": false, "header": "<header class=\"hdr\"><a class=\"hdr__logo hdr__logo--stack\" href=\"https://intently-finished-panflute.tilda.ws/\" aria-label=\"Harmony\" data-on=\"light\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"826 825 2516 2517\"><use href=\"#logo-start\" x=\"826\" y=\"825\" width=\"2516\" height=\"2517\"></use></svg></a><div class=\"hdr__end\" data-on=\"light\"><nav class=\"lang\" aria-label=\"Language\"><a href=\"https://intently-finished-panflute.tilda.ws/\" data-lang=\"ru\" lang=\"ru\" aria-current=\"true\">RU</a><a href=\"https://intently-finished-panflute.tilda.ws/kz\" data-lang=\"kz\" lang=\"kk\">KZ</a><a href=\"https://intently-finished-panflute.tilda.ws/en\" data-lang=\"en\" lang=\"en\">EN</a></nav></div></header>", "footer": "<footer class=\"foot\" data-tone=\"dark\"><div class=\"foot__grid\"><div class=\"foot__brand\"><a class=\"foot__logo foot__logo--stack\" href=\"https://intently-finished-panflute.tilda.ws/\" aria-label=\"Harmony\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"826 825 2516 2517\"><use href=\"#logo-start\" x=\"826\" y=\"825\" width=\"2516\" height=\"2517\"></use></svg></a></div><div class=\"foot__col\"><p class=\"foot__head\">Школы Harmony</p><a href=\"https://knit-decided-ocelot.tilda.ws/\">Harmony STEAM</a><a href=\"https://project13642453.tilda.ws/\">Harmony Global</a></div><div class=\"foot__col\"><p class=\"foot__head\">О&nbsp;нас</p><a href=\"https://intently-finished-panflute.tilda.ws/#rec4607642103\">Философия</a><a href=\"https://intently-finished-panflute.tilda.ws/#rec4607560703\">Результаты</a><a href=\"https://knit-decided-ocelot.tilda.ws/#rec4607963003\">Команда</a><a href=\"https://knit-decided-ocelot.tilda.ws/#news\" data-start-unavailable=\"press\" hidden aria-hidden=\"true\" tabindex=\"-1\">Пресса</a><a href=\"https://knit-decided-ocelot.tilda.ws/team\">Карьера</a></div><div class=\"foot__col foot__col--contacts\"><p class=\"foot__head\">Контакты</p><a href=\"tel:+77750072332\">+7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a><p>Астана, Казахстан</p><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram harmonyedukz</a></div></div>\n    <p class=\"foot__legal\">© 2026&nbsp;Harmony&nbsp;Schools, Астана, Казахстан<br>Политика конфиденциальности · Оферта</p></footer>", "contactPage": null, "H": "<!-- hs block H: start-ru-not-found, frozen header only -->\n<div class=\"hs\">\u0001</div>", "Dm": "<!-- hs block D: start-ru-not-found, frozen footer only -->\n<div class=\"hs\" data-start-closing=\"ru\">\u0001</div>\n", "first": "rec4620291103", "edits": [{"id": "S-069", "rec": "rec4620291103", "sel": "[field=\"descr\"]", "kind": "html", "before": "Страница не найдена · Бет табылмады · Page not found<br /><a href=\"/\">← harmony</a>", "after": "Страница не найдена<br />Бет табылмады<br />Page not found<br /><a href=\"/\">harmony</a>"}],"tones":[]}},
 function () {
 /* Lenis 1.3.25: frozen vendor bytes from reference/assets/vendor/lenis.min.js. */
@@ -459,6 +459,129 @@ document.addEventListener("DOMContentLoaded",function(){
   }
   function go() { Promise.resolve(window.HSK.icons).then(wire).catch(function () {}); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
+})();
+
+/* v9.js: rapid feedback round 2026-10-15 (build/feedback-2026-10-15-rapid.md). Hooks for kit/v9.css; runs in <head>.
+   1. U3: Source Serif 4 light (300) for the stat figures (the HEAD loader requests 400 only).
+   2. U3/U4: marks stat rows (.t1052 four-to-a-row with figures) as .k-stat, their record as .k-stat-rec, as the parser
+      inserts them (before paint).
+   3. U2: no trailing period on headings. CDN markup (.hs) at once; native Tilda headings at DOMContentLoaded and once more
+      after the runtime's content edits have settled (an edit compares the published heading, period included).
+   4. S2 / T5 / G10: a native Tilda form record on a homepage moves into the consultation section's form place (whole
+      record, so Tilda's #rec-scoped form scripts keep working); html gets .k-v9-form, otherwise .k-v9-noform (the
+      placeholder hides). The contacts column gains the footer's address line.
+   5. T3: STEAM campus photo caption (RU / KZ / EN). T2: a facts row placed under the STEAM story record moves
+      inside it, above the photo. */
+(function () {
+  var D = document, R = D.documentElement;
+
+  /* 1. font */
+  try {
+    var fl = D.createElement('link'); fl.rel = 'stylesheet';
+    fl.href = 'https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300&display=swap';
+    (D.head || R).appendChild(fl);
+  } catch (e) {}
+
+  function lang() { var l = R.getAttribute('data-lang') || (location.pathname.match(/^\/(kz|en)(\/|$)/) || [])[1] || 'ru'; return l; }
+
+  /* 2. stats */
+  function markStats(root) {
+    var l = (root.querySelectorAll ? root : D).querySelectorAll('.t1052');
+    for (var i = 0; i < l.length; i++) {
+      var b = l[i]; if (b.classList.contains('k-stat') || b.__v9s) continue;
+      var c = b.querySelector('.t1052__container'); if (!c || !c.classList.contains('t-list__container_inrow4')) continue;
+      var t = b.querySelectorAll('.t1052__title'); if (t.length < 2) continue;
+      var fig = 0, step = 0;
+      for (var j = 0; j < t.length; j++) { var s = t[j].textContent.replace(/\s+/g, ' ').trim(); if (/^0\d$/.test(s)) step++; else if (s.length <= 12 && /^[$€₸+−-]?\s?\d/.test(s)) fig++; }
+      if (step || fig < Math.ceil(t.length * 0.6)) { b.__v9s = 1; continue; }
+      b.classList.add('k-stat'); var r = b.closest('.t-rec'); if (r) r.classList.add('k-stat-rec');
+    }
+  }
+
+  /* 3. headings */
+  var HS = '.hs h1, .hs h2, .hs h3, .hs .display';
+  var HN = '.t-section__title, .t468__title, .t480__title, .t489__title, .t338__title, .t001__title, .t050__title, .t467__title, .t-title, .t795__title, .t030__title, .t017__title, .t-name_xl, .t1053__title, .t772 .t-card__title';
+  function strip(el) {
+    if (el.closest('.t254, .t-card__descr')) return;
+    var w = D.createTreeWalker(el, 4), n, last = null;
+    while ((n = w.nextNode())) if (n.data.replace(/[\s ⁠]/g, '')) last = n;
+    if (!last) return;
+    var m = /([^.])\.([\s ⁠]*)$/.exec(last.data);
+    if (m) last.data = last.data.slice(0, m.index + 1) + m[2];
+  }
+  function stripAll(sel, root) { var l = (root || D).querySelectorAll(sel); for (var i = 0; i < l.length; i++) strip(l[i]); }
+
+  var mo = new MutationObserver(function (recs) {
+    for (var i = 0; i < recs.length; i++) for (var j = 0; j < recs[i].addedNodes.length; j++) {
+      var n = recs[i].addedNodes[j]; if (n.nodeType !== 1) continue;
+      if (n.matches && (n.matches('.t1052, .t-rec') || n.querySelector('.t1052'))) markStats(n.matches('.t1052') ? n.parentNode : n);
+      if (n.closest && (n.closest('.hs') || n.querySelector('.hs'))) stripAll(HS, n.closest('.hs') ? n.closest('.hs').parentNode : n);
+    }
+  });
+  mo.observe(R, { childList: true, subtree: true });
+
+  /* 4. consultation: native form + contacts */
+  var ADDR_MAP = null;   // no street address from the school yet: the map link and WhatsApp stay out (hidden) until supplied
+  function consult() {
+    var sec = D.querySelector('.k-consult'), place = sec && sec.querySelector('.k-consult__form');
+    if (!place || place.__v9) return !!place;
+    place.__v9 = 1;
+    var forms = D.querySelectorAll('#allrecords .t-rec form.t-form'), rec = null;
+    for (var i = 0; i < forms.length; i++) {
+      var r = forms[i].closest('.t-rec');
+      if (!r || r === sec || sec.contains(r) || r.classList.contains('k-consult-gone') || r.closest('.k-consult-gone')) continue;
+      if (r.closest('footer, .t-popup, [data-record-type="702"], [data-record-type="390"]')) continue;
+      rec = r; break;
+    }
+    var lines = place.querySelector('.k-consult__lines');
+    if (rec) {
+      place.insertBefore(rec, place.firstChild);
+      R.classList.add('k-v9-form');
+    } else R.classList.add('k-v9-noform');
+    if (lines && !lines.querySelector('.v9-addr')) {
+      var fp = D.querySelector('.foot__col--contacts p:not(.foot__head)');
+      if (fp && fp.textContent.trim()) {
+        var p = D.createElement('p'); p.className = 'v9-addr'; p.textContent = fp.textContent.trim();
+        var grp = lines.querySelector('.k-consult__group');
+        lines.insertBefore(p, grp || null);
+      }
+    }
+    return true;
+  }
+  function whenConsult() {
+    if (R.classList.contains('k-consult-on')) { consult(); return; }
+    var am = new MutationObserver(function () { if (R.classList.contains('k-consult-on')) { am.disconnect(); consult(); } });
+    am.observe(R, { attributes: true, attributeFilter: ['class'] });
+    setTimeout(function () { am.disconnect(); }, 8000);
+  }
+
+  /* 5. STEAM story record: caption, facts row */
+  var CAP = { ru: 'Кампус Harmony STEAM, Астана', kz: 'Harmony STEAM кампусы, Астана', en: 'Harmony STEAM campus, Astana' };
+  function story() {
+    if (R.getAttribute('data-site') !== 'steam' || !D.querySelector('.hs > section.photo')) return;
+    var img = D.querySelector('#allrecords .t480 .t480__blockimg'); if (!img) return;
+    var rec = img.closest('.t-rec');
+    if (!rec.querySelector('.v9-caption')) {
+      var cap = D.createElement('p'); cap.className = 'v9-caption'; cap.textContent = CAP[lang()] || CAP.ru;
+      img.parentNode.insertBefore(cap, img.nextSibling);
+    }
+    var nx = rec.nextElementSibling;
+    while (nx && nx.offsetParent === null && !nx.querySelector('.t1052')) nx = nx.nextElementSibling;
+    var facts = nx && nx.querySelector(':scope > .t1052.k-stat');
+    if (facts && !facts.querySelector('.t-section__title')) {
+      var col = rec.querySelector('.t480__col:not(.t480__top)');
+      if (col) { col.parentNode.insertBefore(facts, col); nx.classList.add('v9-gone'); facts.classList.add('v9-facts'); }
+    }
+  }
+
+  function ready() {
+    markStats(D);
+    stripAll(HS); stripAll(HN);
+    story();
+    whenConsult();
+  }
+  if (D.readyState === 'loading') D.addEventListener('DOMContentLoaded', ready); else ready();
+  addEventListener('load', function () { setTimeout(function () { stripAll(HN); stripAll(HS); markStats(D); mo.disconnect(); }, 4500); });
 })();
 
 /* v8 hero axis2: dist/start.js runs in <head>, before the T123 markup exists, so the hero waits for DOMContentLoaded */
