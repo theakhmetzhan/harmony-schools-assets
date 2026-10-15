@@ -1102,8 +1102,18 @@ document.addEventListener("DOMContentLoaded",function(){
       if (!mm5) continue; e5.__r5 = 1;
       e5.innerHTML = mm5[2];
       var meta = D.createElement('div'); meta.className = 'r5-meta'; meta.innerHTML = mm5[1];
-      var ti5 = e5.parentNode.querySelector('.t550__title');   /* the period above the title, like the yearly cards' label */
-      e5.parentNode.insertBefore(meta, ti5 || e5);
+      e5.parentNode.insertBefore(meta, e5);   /* title, then the period as a grey subtitle, then the text */
+    }
+    /* the yearly cards after the growth steps read the same way: title, grey subtitle, text; numbered on from the steps */
+    var y772 = D.querySelectorAll('.t-rec[data-record-type="772"]');
+    for (var v = 0; v < y772.length; v++) {
+      var rv = y772[v]; if (rv.__r5 || !rv.querySelector('.t-card__uptitle')) continue; rv.__r5 = 1;
+      var cols = rv.querySelectorAll('.t772__col');
+      for (var c = 0; c < cols.length; c++) {
+        var up = cols[c].querySelector('.t-card__uptitle'), tt = cols[c].querySelector('.t-card__title');
+        if (up && tt && tt.parentNode) tt.parentNode.insertBefore(up, tt.nextSibling);
+      }
+      rv.classList.add('r5-yearly');
     }
     var d = D.querySelectorAll('.t-rec[data-record-type="468"] .t468__descr');
     for (var k = 0; k < d.length; k++) {
