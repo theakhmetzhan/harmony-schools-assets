@@ -1097,6 +1097,14 @@ document.addEventListener("DOMContentLoaded",function(){
       }
       rec923.classList.add('r5-grid');
     }
+    /* growth steps: the period line ("1–2 месяц") sits on its own line in the text field; it becomes a meta line */
+    var sd = D.querySelectorAll('.t-rec[data-record-type="550"] .t550__descr');
+    for (var u = 0; u < sd.length; u++) {
+      var e5 = sd[u]; if (e5.__r5) continue;
+      var mm5 = e5.innerHTML.match(/^\s*([^<]{1,40}?)\s*<br\s*\/?>\s*([\s\S]+)$/i);
+      if (!mm5) continue; e5.__r5 = 1;
+      e5.innerHTML = '<span class="r5-meta">' + mm5[1] + '</span>' + mm5[2];
+    }
     var d = D.querySelectorAll('.t-rec[data-record-type="468"] .t468__descr');
     for (var k = 0; k < d.length; k++) {
       var el = d[k]; if (el.__r5 || !el.querySelector('a[href^="mailto:"]')) continue; el.__r5 = 1;
