@@ -261,9 +261,9 @@ document.documentElement.insertAdjacentHTML("beforeend","<svg xmlns=\"http://www
   D.addEventListener('DOMContentLoaded', step);
   addEventListener('load', function () { step(); setTimeout(function () { step(); relabel(); if (edits && edits.length && window.console) console.warn('hs: content edits not applied', edits.map(function (e) { return e.id; })); stop(); }, 4000); });
 })(
-{"292944403":{"key": "global-ru", "lang": "ru", "home": true, "header": "<header class=\"hdr\"><a class=\"hdr__logo\" href=\"https://project13642453.tilda.ws/\" aria-label=\"Harmony Global School\" data-on=\"light\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"660 656 5400 1376\"><use href=\"#logo-global\" x=\"660\" y=\"656\" width=\"5400\" height=\"1376\"></use></svg></a>\n    <div class=\"hdr__end\" data-on=\"light\"><nav class=\"hdr__nav\" data-on=\"light\"><a href=\"https://project13642453.tilda.ws/admission\">Поступление</a></nav><nav class=\"lang\" aria-label=\"Language\"><a href=\"https://project13642453.tilda.ws/\" data-lang=\"ru\" lang=\"ru\" aria-current=\"true\">RU</a><a href=\"https://project13642453.tilda.ws/kz\" data-lang=\"kz\" lang=\"kk\">KZ</a><a href=\"https://project13642453.tilda.ws/en\" data-lang=\"en\" lang=\"en\">EN</a></nav><details class=\"lang-d\"><summary aria-label=\"Language: RU\">RU</summary><nav class=\"lang-d__menu\" aria-label=\"Language\"><a href=\"https://project13642453.tilda.ws/kz\" data-lang=\"kz\" lang=\"kk\">KZ</a><a href=\"https://project13642453.tilda.ws/en\" data-lang=\"en\" lang=\"en\">EN</a></nav></details>\n      <a class=\"btn hdr__cta\" href=\"#contact\">Консультация</a></div></header>", "footer": "<footer class=\"foot\" data-tone=\"dark\"><div class=\"foot__grid\"><div class=\"foot__brand\"><a class=\"foot__logo\" href=\"https://project13642453.tilda.ws/\" aria-label=\"Harmony Global School\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"660 656 5400 1376\"><use href=\"#logo-global\" x=\"660\" y=\"656\" width=\"5400\" height=\"1376\"></use></svg></a></div><div class=\"foot__col\"><p class=\"foot__head\">Harmony Global</p><a href=\"#about\">О&nbsp;школе</a><a href=\"#ib\">IB-программа</a><a href=\"#director\">Директор</a><a href=\"#team\">Команда</a><a href=\"/admission\">Поступление</a><a href=\"/#contacts\">Контакты</a></div><div class=\"foot__col\"><p class=\"foot__head\">Школы Harmony</p><a href=\"https://knit-decided-ocelot.tilda.ws/\">Harmony STEAM</a><a href=\"https://project13642453.tilda.ws/\">Harmony Global</a><a href=\"https://intently-finished-panflute.tilda.ws/\">Обе школы</a><a href=\"https://intently-finished-panflute.tilda.ws/#difference\">Отличия школ</a></div><div class=\"foot__col foot__col--contacts\"><p class=\"foot__head\">Контакты</p><a href=\"tel:+77750072332\">+7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a><p>ЖК&nbsp;Highvill, Астана</p><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram</a></div></div>\n    <p class=\"foot__legal\">Сеть школ в Астане. Международное образование с первого года и до поступления в университет.<br>© 2026&nbsp;Harmony&nbsp;Schools, Астана, Казахстан<br>Политика конфиденциальности · Оферта</p></footer>", "dRec": "rec4730902003", "anchor": "rec4730902003", "contact": "<!-- hs contact section: global-ru. Verbatim from https://project13642453.tilda.ws/contacts rec4616886003 + rec4616896303 + rec4616896403. Styles: contact.css -->\n<div class=\"hs hs-contact-wrap\"><section class=\"hs-contact\" id=\"contacts\" data-tone=\"light\"><h2 class=\"hs-contact__title\">Контакты</h2><p class=\"hs-contact__lead hs-contact__address\">ЖК&nbsp;Highvill, Астана</p><ul class=\"hs-contact__lines\"><li><a href=\"tel:+77750072332\">Телефон: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a></li><li><a href=\"mailto:admission@harmony.edu.kz\">Почта: admission@harmony.edu.kz</a></li><li><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram</a></li><li hidden data-pending=\"address-and-map\">[Map: address to confirm]</li></ul><div class=\"hs-contact__group\"><h3 class=\"hs-contact__sub\">Запись на&nbsp;приёмную комиссию</h3><dl class=\"hs-contact__grid\"><div class=\"hs-contact__entry\"><dt>Harmony STEAM School</dt><dd><a href=\"tel:+77000550051\">+7&nbsp;700&nbsp;055&nbsp;0051</a></dd></div><div class=\"hs-contact__entry\"><dt>Harmony Global School</dt><dd><a href=\"tel:+77001010038\">+7&nbsp;700&nbsp;101&nbsp;0038</a></dd></div><div class=\"hs-contact__entry\"><dt>Email</dt><dd><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a></dd></div></dl></div><div class=\"hs-contact__group hs-contact__group--form\"><h3 class=\"hs-contact__sub\">Оставьте заявку</h3><p class=\"hs-contact__lead\">Перезвоним в&nbsp;течение рабочего дня.</p><div class=\"hs-contact__slot\">[Microsoft Forms embed goes here]</div></div></section></div>\n", "edits": [{"id": "GN-010", "rec": "rec4616795903", "sel": "[field=\"title\"]", "kind": "html", "before": "Учителя,<br /><em>с которыми хочется учиться</em>", "after": "Учителя, <em>с&nbsp;которыми хочется учиться</em>"}, {"id": "FF-201", "rec": "rec4616591103", "sel": "[field=\"descr\"]", "kind": "html", "before": "Команда Harmony Global расскажет о&nbsp;программе и&nbsp;ответит на&nbsp;все&nbsp;ваши вопросы.<br /><ul><li data-list=\"bullet\">Знакомство с&nbsp;командой</li><li data-list=\"bullet\">Разбор IB‑программы</li><li data-list=\"bullet\">Сдача вступительного комплекса</li></ul><a href=\"tel:+77750072332\">Телефон: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><br /><a href=\"mailto:admission@harmony.edu.kz\">Почта: admission@harmony.edu.kz</a>", "after": "<span data-hs-dup hidden>Команда Harmony Global расскажет о&nbsp;программе и&nbsp;ответит на&nbsp;все&nbsp;ваши вопросы.<br /></span><ul><li data-list=\"bullet\">Знакомство с&nbsp;командой</li><li data-list=\"bullet\">Разбор IB‑программы</li><li data-list=\"bullet\">Сдача вступительного комплекса</li></ul><a href=\"tel:+77750072332\">Телефон: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><br /><a href=\"mailto:admission@harmony.edu.kz\">Почта: admission@harmony.edu.kz</a>"}, {"id": "NUM-01", "rec": "rec4616588203", "sel": "[field=\"li_text__6846079630030\"]", "kind": "html", "before": "Опыт в&nbsp;менеджменте школ. Награжден орденом \"Құрмет\" от&nbsp;президента РК.", "after": "Более 20&nbsp;лет в&nbsp;менеджменте школ. Награжден орденом «Құрмет» от&nbsp;президента РК.", "alt": ["Опыт в&nbsp;менеджменте школ. Награжден орденом «Құрмет» от&nbsp;президента РК."]}, {"id": "NUM-02", "rec": "rec4616588203", "sel": "[field=\"li_text__6846079630031\"]", "kind": "html", "before": "Опыт в&nbsp;экосистемах БИЛ&nbsp;и&nbsp;НИШ. Магистр Назарбаев Университета по&nbsp;направлению «Управление образованием».<br />Сертифицированный педагог Cambridge University.<br />Аккредитованный международный эксперт CIS, Нидерланды.", "after": "18&nbsp;лет опыта в&nbsp;экосистемах БИЛ&nbsp;и&nbsp;НИШ. Магистр Назарбаев Университета по&nbsp;направлению «Управление образованием».<br />Сертифицированный педагог Cambridge University.<br />Аккредитованный международный эксперт CIS, Нидерланды."}, {"id": "NUM-03", "rec": "rec4616588203", "sel": "[field=\"li_text__6846079630032\"]", "kind": "html", "before": "Опыт в&nbsp;сфере образования.<br />Опыт в&nbsp;системе Назарбаев Интеллектуальных школ (NIS)<br />международный оценщик CIS, Master of&nbsp;Education, UCL", "after": "14&nbsp;лет опыта в&nbsp;сфере образования.<br />12&nbsp;лет опыта в&nbsp;системе Назарбаев Интеллектуальных школ (NIS)<br />международный оценщик CIS, Master of&nbsp;Education, UCL"}, {"id": "NUM-04", "rec": "rec4616588203", "sel": "[field=\"li_text__6846079630033\"]", "kind": "html", "before": "Педагог с&nbsp;опытом работы в&nbsp;сфере образования.<br />Сертифицированный специалист по&nbsp;международному экзамену IELTS, профессиональный наставник.", "after": "Педагог с&nbsp;более чем 14‑летним опытом работы в&nbsp;сфере образования.<br />Сертифицированный специалист по&nbsp;международному экзамену IELTS, профессиональный наставник."}, {"id": "NUM-05", "rec": "rec4616795903", "sel": "[field=\"descr\"]", "kind": "html", "before": "Мы&nbsp;постоянно инвестируем в&nbsp;учителей, как&nbsp;в&nbsp;детей. Большая часть наших учителей говорит на&nbsp;трёх языках и&nbsp;преподает предметы на&nbsp;английском языке.", "after": "Мы&nbsp;постоянно инвестируем в&nbsp;учителей, как&nbsp;в&nbsp;детей. Большая часть наших учителей говорит на&nbsp;трёх языках и&nbsp;преподает предметы на&nbsp;английском языке. Средний опыт в&nbsp;образовании, 12&nbsp;лет."}, {"id": "NUM-06", "rec": "rec4616673403", "sel": "[field=\"descr\"]", "kind": "html", "before": "БІЛІМ Инновация, сеть лицеев, из&nbsp;которых выпускаются победители международных олимпиад и&nbsp;студенты ведущих университетов Казахстана и&nbsp;мира. Harmony Global, не&nbsp;филиал БИЛ, но&nbsp;его&nbsp;стратегический партнёр.<br /><br />Это&nbsp;значит, что&nbsp;наши ученики участвуют в&nbsp;мероприятиях, конкурсах и&nbsp;мониторингах фонда. А&nbsp;воспитательная программа построена на&nbsp;основе программы лицеев БИЛ.<br /><br /><strong>Что&nbsp;даёт партнёрство</strong><br /><br /><ul><li data-list=\"bullet\">Участие в&nbsp;мероприятиях и&nbsp;конкурсах среди школ фонда</li><li data-list=\"bullet\">Регулярные мониторинги качества, как&nbsp;в&nbsp;системе БИЛ</li><li data-list=\"bullet\">Воспитательная программа на&nbsp;базе лицеев БИЛ</li><li data-list=\"bullet\">Доступ к&nbsp;методической базе и&nbsp;педагогическому сообществу</li><li data-list=\"bullet\">Олимпиадная подготовка и&nbsp;академическая культура</li><li data-list=\"bullet\">Директор с&nbsp;опытом внутри системы БИЛ&nbsp;и&nbsp;НИШ</li></ul>", "after": "БІЛІМ Инновация, сеть лицеев, из&nbsp;которых выпускаются победители международных олимпиад и&nbsp;студенты ведущих университетов Казахстана и&nbsp;мира. Harmony Global, не&nbsp;филиал БИЛ, но&nbsp;его&nbsp;стратегический партнёр.<br /><br />Это&nbsp;значит, что&nbsp;наши ученики участвуют в&nbsp;мероприятиях, конкурсах и&nbsp;мониторингах фонда. А&nbsp;воспитательная программа построена на&nbsp;основе программы лицеев БИЛ.<br /><br /><strong>Что&nbsp;даёт партнёрство</strong><br /><br /><ul><li data-list=\"bullet\">Участие в&nbsp;мероприятиях и&nbsp;конкурсах среди школ фонда</li><li data-list=\"bullet\">Регулярные мониторинги качества, как&nbsp;в&nbsp;системе БИЛ</li><li data-list=\"bullet\">Воспитательная программа на&nbsp;базе лицеев БИЛ</li><li data-list=\"bullet\">Доступ к&nbsp;методической базе и&nbsp;педагогическому сообществу</li><li data-list=\"bullet\">Олимпиадная подготовка и&nbsp;академическая культура</li><li data-list=\"bullet\">Директор, 18&nbsp;лет внутри системы БИЛ&nbsp;и&nbsp;НИШ</li></ul>"}, {"id": "NUM-07", "rec": "rec4616586103", "sel": "[field=\"descr\"]", "kind": "html", "before": "Harmony Global, вторая школа сети Harmony в&nbsp;Астане. Это&nbsp;не&nbsp;замена существующей школе, а&nbsp;развитие нашей образовательной среды с&nbsp;теми же&nbsp;ценностями, вниманием к&nbsp;ребёнку и&nbsp;академической&nbsp;культурой.<br /><br />Новая школа будет работать по&nbsp;программе International Baccalaureate с&nbsp;преемственностью между этапами обучения. Такой подход позволяет выстроить единый образовательный путь без&nbsp;смены академической логики на&nbsp;разных этапах&nbsp;обучения.<br /><br />Harmony Global расположена в&nbsp;ЖК&nbsp;Highvill. Новое здание спроектировано с&nbsp;учётом требований современной международной&nbsp;школы.<br /><br />Приём начинается с&nbsp;начальной&nbsp;школы.", "after": "Harmony Global, вторая школа сети Harmony в&nbsp;Астане. Это&nbsp;не&nbsp;замена существующей школе, а&nbsp;развитие нашей образовательной среды с&nbsp;теми же&nbsp;ценностями, вниманием к&nbsp;ребёнку и&nbsp;академической&nbsp;культурой.<br /><br />Новая школа будет работать по&nbsp;программе International Baccalaureate с&nbsp;преемственностью от&nbsp;0 до&nbsp;12&nbsp;класса. Такой подход позволяет выстроить единый образовательный путь без&nbsp;смены академической логики на&nbsp;разных этапах&nbsp;обучения.<br /><br />Harmony Global расположена в&nbsp;ЖК&nbsp;Highvill. Новое здание площадью 10&nbsp;446&nbsp;м² рассчитано на&nbsp;800&nbsp;учеников и&nbsp;спроектировано с&nbsp;учётом требований современной международной&nbsp;школы.<br /><br />В&nbsp;сентябре 2026&nbsp;года Harmony Global откроет свои двери для&nbsp;учеников 0–5&nbsp;классов."}, {"id": "NUM-22", "rec": "rec4616580403", "sel": "[field=\"li_title__6646075653033\"]", "kind": "html", "before": "KG –12", "after": "KG–12"}], "stages": true,"tones":[function(){(function(){var m={'#rec4616588203 .t537__bgimg':'dark','#rec4620043503 .t537__bgimg':'dark','#rec4620139203 .t537__bgimg':'dark'};for(var s in m){var l=document.querySelectorAll(s);for(var i=0;i<l.length;i++){l[i].setAttribute('data-tone',m[s]);}}})();}]},
-"293178803":{"key": "global-kz", "lang": "kz", "home": true, "header": "<header class=\"hdr\"><a class=\"hdr__logo\" href=\"https://project13642453.tilda.ws/kz\" aria-label=\"Harmony Global School\" data-on=\"light\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"660 656 5400 1376\"><use href=\"#logo-global\" x=\"660\" y=\"656\" width=\"5400\" height=\"1376\"></use></svg></a>\n    <div class=\"hdr__end\" data-on=\"light\"><nav class=\"hdr__nav\" data-on=\"light\"><a href=\"https://project13642453.tilda.ws/kz/admission\">Оқуға түсу</a></nav><nav class=\"lang\" aria-label=\"Language\"><a href=\"https://project13642453.tilda.ws/\" data-lang=\"ru\" lang=\"ru\">RU</a><a href=\"https://project13642453.tilda.ws/kz\" data-lang=\"kz\" lang=\"kk\" aria-current=\"true\">KZ</a><a href=\"https://project13642453.tilda.ws/en\" data-lang=\"en\" lang=\"en\">EN</a></nav><details class=\"lang-d\"><summary aria-label=\"Language: KZ\">KZ</summary><nav class=\"lang-d__menu\" aria-label=\"Language\"><a href=\"https://project13642453.tilda.ws/\" data-lang=\"ru\" lang=\"ru\">RU</a><a href=\"https://project13642453.tilda.ws/en\" data-lang=\"en\" lang=\"en\">EN</a></nav></details>\n      <a class=\"btn hdr__cta\" href=\"#contact\">Консультация</a></div></header>", "footer": "<footer class=\"foot\" data-tone=\"dark\"><div class=\"foot__grid\"><div class=\"foot__brand\"><a class=\"foot__logo\" href=\"https://project13642453.tilda.ws/kz\" aria-label=\"Harmony Global School\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"660 656 5400 1376\"><use href=\"#logo-global\" x=\"660\" y=\"656\" width=\"5400\" height=\"1376\"></use></svg></a></div><div class=\"foot__col\"><p class=\"foot__head\">Harmony Global</p><a href=\"#about\">Мектеп туралы</a><a href=\"#ib\">IB-бағдарламасы</a><a href=\"#director\">Директор</a><a href=\"#team\">Команда</a><a href=\"/kz/admission\">Оқуға түсу</a><a href=\"/kz#contacts\">Байланыс</a></div><div class=\"foot__col\"><p class=\"foot__head\">Harmony мектептері</p><a href=\"https://knit-decided-ocelot.tilda.ws/kz\">Harmony STEAM</a><a href=\"https://project13642453.tilda.ws/kz\">Harmony Global</a><a href=\"https://intently-finished-panflute.tilda.ws/kz\">Екі мектеп</a><a href=\"https://intently-finished-panflute.tilda.ws/kz#difference\">Мектептердің айырмашылығы</a></div><div class=\"foot__col foot__col--contacts\"><p class=\"foot__head\">Байланыс</p><a href=\"tel:+77750072332\">+7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a><p>Highvill ТК, Астана</p><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram</a></div></div>\n    <p class=\"foot__legal\">Астанадағы мектептер желісі. Халықаралық білім бірінші жылдан бастап университетке түскенге дейін.<br>© 2026&nbsp;Harmony&nbsp;Schools, Астана, Қазақстан<br>Жеке деректерді қорғау/өңдеу саясаты · Ұсыныс</p></footer>", "dRec": "rec4730949203", "anchor": "rec4730949203", "contact": "<!-- hs contact section: global-kz. Verbatim from https://project13642453.tilda.ws/kz/contacts rec4620090603 + rec4620090703 + rec4620090803. Styles: contact.css -->\n<div class=\"hs hs-contact-wrap\"><section class=\"hs-contact\" id=\"contacts\" data-tone=\"light\"><h2 class=\"hs-contact__title\">Байланыс</h2><p class=\"hs-contact__lead hs-contact__address\">Highvill ТК, Астана</p><ul class=\"hs-contact__lines\"><li><a href=\"tel:+77750072332\">Телефон: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a></li><li><a href=\"mailto:admission@harmony.edu.kz\">Пошта: admission@harmony.edu.kz</a></li><li><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram</a></li><li hidden data-pending=\"address-and-map\">[Map: address to confirm]</li></ul><div class=\"hs-contact__group\"><h3 class=\"hs-contact__sub\">Қабылдау бөліміне жазылу</h3><dl class=\"hs-contact__grid\"><div class=\"hs-contact__entry\"><dt>Harmony STEAM School</dt><dd><a href=\"tel:+77000550051\">+7&nbsp;700&nbsp;055&nbsp;0051</a></dd></div><div class=\"hs-contact__entry\"><dt>Harmony Global School</dt><dd><a href=\"tel:+77001010038\">+7&nbsp;700&nbsp;101&nbsp;0038</a></dd></div><div class=\"hs-contact__entry\"><dt>Email</dt><dd><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a></dd></div></dl></div><div class=\"hs-contact__group hs-contact__group--form\"><h3 class=\"hs-contact__sub\">Өтініш қалдырыңыз</h3><p class=\"hs-contact__lead\">Жұмыс күні ішінде хабарласамыз.</p><div class=\"hs-contact__slot\">[Microsoft Forms embed goes here]</div></div></section></div>\n", "edits": [{"id": "FF-209", "rec": "rec4620043703", "sel": "[field=\"descr\"]", "kind": "html", "before": "Harmony Global командасы бағдарлама туралы айтып, барлық сұрақтарыңызға жауап береді.<br /><ul><li data-list=\"bullet\">Командамен танысу</li><li data-list=\"bullet\">IB&nbsp;бағдарламасын талдау</li><li data-list=\"bullet\">Кешенді қабылдау емтиханын тапсыру</li></ul><a href=\"tel:+77750072332\">Телефон: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><br /><a href=\"mailto:admission@harmony.edu.kz\">Пошта: admission@harmony.edu.kz</a>", "after": "<span data-hs-dup hidden>Harmony Global командасы бағдарлама туралы айтып, барлық сұрақтарыңызға жауап береді.<br /></span><ul><li data-list=\"bullet\">Командамен танысу</li><li data-list=\"bullet\">IB&nbsp;бағдарламасын талдау</li><li data-list=\"bullet\">Кешенді қабылдау емтиханын тапсыру</li></ul><a href=\"tel:+77750072332\">Телефон: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><br /><a href=\"mailto:admission@harmony.edu.kz\">Пошта: admission@harmony.edu.kz</a>"}, {"id": "NUM-08", "rec": "rec4620043503", "sel": "[field=\"li_text__6846079630030\"]", "kind": "html", "before": "Мектеп менеджментіндегі тәжірибе. Қазақстан Республикасы мемлекеттік “Құрмет” орденімен марапатталған.", "after": "Мектеп менеджментіндегі 20&nbsp;жылдан астам тәжірибе. Қазақстан Республикасы мемлекеттік «Құрмет» орденімен марапатталған.", "alt": ["Мектеп менеджментіндегі тәжірибе. Қазақстан Республикасы мемлекеттік «Құрмет» орденімен марапатталған."]}, {"id": "NUM-09", "rec": "rec4620043503", "sel": "[field=\"li_text__6846079630031\"]", "kind": "html", "before": "БИЛ&nbsp;және НЗМ&nbsp;білім беру жүйелеріндегі тәжірибе. Назарбаев Университетінің «Білім беруді басқару саласы» бағыты бойынша магистрі. Cambridge University сертификатталған маманы.<br />CIS, Нидерланды, аккредиттеу жөніндегі халықаралық сарапшысы.", "after": "БИЛ&nbsp;және НЗМ&nbsp;білім беру жүйелерінде 18&nbsp;жылдық тәжірибе. Назарбаев Университетінің «Білім беруді басқару саласы» бағыты бойынша магистрі. Cambridge University сертификатталған маманы.<br />CIS, Нидерланды, аккредиттеу жөніндегі халықаралық сарапшысы."}, {"id": "NUM-10", "rec": "rec4620043503", "sel": "[field=\"li_text__6846079630032\"]", "kind": "html", "before": "Білім беру саласындағы тәжірибе.<br />Назарбаев Зияткерлік мектептері (NIS) жүйесіндегі тәжірибе.<br />CIS&nbsp;халықаралық бағалаушысы<br />UCL&nbsp;университетінің Master of&nbsp;Education дәрежесі", "after": "Білім беру саласында 14&nbsp;жылдық тәжірибе.<br />Назарбаев Зияткерлік мектептері (NIS) жүйесінде 12&nbsp;жылдық тәжірибе.<br />CIS&nbsp;халықаралық бағалаушысы<br />UCL&nbsp;университетінің Master of&nbsp;Education дәрежесі"}, {"id": "NUM-11", "rec": "rec4620043503", "sel": "[field=\"li_text__6846079630033\"]", "kind": "html", "before": "Білім беру саласында тәжірибесі бар&nbsp;педагог. IELTS халықаралық емтиханы бойынша сертификатталған маман, кәсіби тәлімгер.", "after": "Білім беру саласында 14&nbsp;жылдан астам тәжірибесі бар&nbsp;педагог. IELTS халықаралық емтиханы бойынша сертификатталған маман, кәсіби тәлімгер."}, {"id": "NUM-12", "rec": "rec4620043403", "sel": "[field=\"descr\"]", "kind": "html", "before": "Біз&nbsp;ұстаздарға балаға сияқты үнемі инвестиция құямыз. Ұстаздарымыздың басым бөлігі үш&nbsp;тілде сөйлеп, пәндерін ағылшын тілінде береді.", "after": "Біз&nbsp;ұстаздарға балаға сияқты үнемі инвестиция құямыз. Ұстаздарымыздың басым бөлігі үш&nbsp;тілде сөйлеп, пәндерін ағылшын тілінде береді. Білім берудегі орта тәжірибесі, 12&nbsp;жыл."}, {"id": "NUM-13", "rec": "rec4620043603", "sel": "[field=\"descr\"]", "kind": "html", "before": "Білім‑Инновация, халықаралық олимпиада жеңімпаздары мен&nbsp;әлемнің үздік университеттері студенттерін түлеген лицейлер желісі. Harmony Global, БИЛ‑дің филиалы емес, оның ресми стратегиялық серіктесі.<br /><br />Біздің оқушылар қордың барлық іс‑шараларына, конкурстары мен&nbsp;олимпиадаларына қатысады, ал&nbsp;тәрбие жұмысы БІЛ&nbsp;лицейлерінің үздік тәжірибесі негізінде құрылған.<br /><br /><strong>Бұл&nbsp;не&nbsp;береді?</strong><br /><br /><ul><li data-list=\"bullet\">Қор&nbsp;мектептері арасындағы ауқымды іс‑шаралар мен&nbsp;конкурстарға қатысу</li><li data-list=\"bullet\">БИЛ&nbsp;стандарттары бойынша білім сапасына тұрақты ішкі мониторинг жүргізу</li><li data-list=\"bullet\">БИЛ&nbsp;лицейлерінің озық тәжірибесіне негізделген тәрбие жүйесі</li><li data-list=\"bullet\">Ортақ әдістемелік база мен&nbsp;кәсіби педагогтар қауымдастығына қолжетімділік</li><li data-list=\"bullet\">Олимпиадаға дайындық және жоғары академиялық мәдениет</li><li data-list=\"bullet\">Мектеп басшысы, БИЛ&nbsp;және НЗМ&nbsp;жүйесінде тәжірибесі бар&nbsp;маман</li></ul>", "after": "Білім‑Инновация, халықаралық олимпиада жеңімпаздары мен&nbsp;әлемнің үздік университеттері студенттерін түлеген лицейлер желісі. Harmony Global, БИЛ‑дің филиалы емес, оның ресми стратегиялық серіктесі.<br /><br />Біздің оқушылар қордың барлық іс‑шараларына, конкурстары мен&nbsp;олимпиадаларына қатысады, ал&nbsp;тәрбие жұмысы БІЛ&nbsp;лицейлерінің үздік тәжірибесі негізінде құрылған.<br /><br /><strong>Бұл&nbsp;не&nbsp;береді?</strong><br /><br /><ul><li data-list=\"bullet\">Қор&nbsp;мектептері арасындағы ауқымды іс‑шаралар мен&nbsp;конкурстарға қатысу</li><li data-list=\"bullet\">БИЛ&nbsp;стандарттары бойынша білім сапасына тұрақты ішкі мониторинг жүргізу</li><li data-list=\"bullet\">БИЛ&nbsp;лицейлерінің озық тәжірибесіне негізделген тәрбие жүйесі</li><li data-list=\"bullet\">Ортақ әдістемелік база мен&nbsp;кәсіби педагогтар қауымдастығына қолжетімділік</li><li data-list=\"bullet\">Олимпиадаға дайындық және жоғары академиялық мәдениет</li><li data-list=\"bullet\">Мектеп басшысы, БИЛ&nbsp;және НЗМ&nbsp;жүйесінде 18&nbsp;жылдық тәжірибесі бар&nbsp;маман</li></ul>"}, {"id": "NUM-14", "rec": "rec4620042703", "sel": "[field=\"descr\"]", "kind": "html", "before": "Harmony Global, Астанадағы Harmony мектептер желісінің екінші мектебі. Бұл&nbsp;қолданыстағы мектептің орнын басу емес, ортақ құндылықтарға, балаға бағытталған көзқарасқа және академиялық мәдениетке негізделген білім беру ортасын&nbsp;кеңейту.<br /><br />Жаңа мектепте International Baccalaureate бағдарламасы оқу&nbsp;кезеңдері арасындағы сабақтастықпен жүзеге асырылатын болады. Бұл&nbsp;оқушыларға мектептегі барлық оқу&nbsp;кезеңдерінде бірізді әрі&nbsp;тұтас білім беру жолын қамтамасыз&nbsp;етеді.<br /><br />Harmony Global Highvill тұрғын үй&nbsp;кешенінде орналасқан. Жаңа ғимарат заманауи халықаралық мектеп талаптарына сәйкес&nbsp;жобаланған.<br /><br />Қабылдау бастауыш мектептен&nbsp;басталады.", "after": "Harmony Global, Астанадағы Harmony мектептер желісінің екінші мектебі. Бұл&nbsp;қолданыстағы мектептің орнын басу емес, ортақ құндылықтарға, балаға бағытталған көзқарасқа және академиялық мәдениетке негізделген білім беру ортасын&nbsp;кеңейту.<br /><br />Жаңа мектепте International Baccalaureate бағдарламасы 0‑сыныптан 12‑сыныпқа дейінгі сабақтастықпен жүзеге асырылады. Бұл&nbsp;оқушыларға мектептегі барлық оқу&nbsp;кезеңдерінде бірізді әрі&nbsp;тұтас білім беру жолын қамтамасыз&nbsp;етеді.<br /><br />Harmony Global Highvill тұрғын үй&nbsp;кешенінде орналасқан. Жалпы ауданы 10&nbsp;446&nbsp;м² болатын жаңа ғимарат 800&nbsp;оқушыға арналған және заманауи халықаралық мектеп талаптарына сәйкес&nbsp;жобаланған.<br /><br />2026&nbsp;жылдың қыркүйегінде Harmony Global 0–5&nbsp;сынып оқушыларына өз есігін&nbsp;ашады."}, {"id": "NUM-23", "rec": "rec4620042403", "sel": "[field=\"li_title__6646075653030\"]", "kind": "html", "before": "10 446<br /><em>м²</em>", "after": "10 446 <em>м²</em>"}, {"id": "NUM-24", "rec": "rec4620042403", "sel": "[field=\"li_title__6646075653033\"]", "kind": "html", "before": "KG -12", "after": "KG–12"}], "stages": true,"tones":[function(){(function(){var m={'#rec4616588203 .t537__bgimg':'dark','#rec4620043503 .t537__bgimg':'dark','#rec4620139203 .t537__bgimg':'dark'};for(var s in m){var l=document.querySelectorAll(s);for(var i=0;i<l.length;i++){l[i].setAttribute('data-tone',m[s]);}}})();}]},
-"293226903":{"key": "global-en", "lang": "en", "home": true, "header": "<header class=\"hdr\"><a class=\"hdr__logo\" href=\"https://project13642453.tilda.ws/en\" aria-label=\"Harmony Global School\" data-on=\"light\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"660 656 5400 1376\"><use href=\"#logo-global\" x=\"660\" y=\"656\" width=\"5400\" height=\"1376\"></use></svg></a>\n    <div class=\"hdr__end\" data-on=\"light\"><nav class=\"hdr__nav\" data-on=\"light\"><a href=\"https://project13642453.tilda.ws/en/admission\">Admission</a></nav><nav class=\"lang\" aria-label=\"Language\"><a href=\"https://project13642453.tilda.ws/\" data-lang=\"ru\" lang=\"ru\">RU</a><a href=\"https://project13642453.tilda.ws/kz\" data-lang=\"kz\" lang=\"kk\">KZ</a><a href=\"https://project13642453.tilda.ws/en\" data-lang=\"en\" lang=\"en\" aria-current=\"true\">EN</a></nav><details class=\"lang-d\"><summary aria-label=\"Language: EN\">EN</summary><nav class=\"lang-d__menu\" aria-label=\"Language\"><a href=\"https://project13642453.tilda.ws/\" data-lang=\"ru\" lang=\"ru\">RU</a><a href=\"https://project13642453.tilda.ws/kz\" data-lang=\"kz\" lang=\"kk\">KZ</a></nav></details>\n      <a class=\"btn hdr__cta\" href=\"#contact\">Consultation</a></div></header>", "footer": "<footer class=\"foot\" data-tone=\"dark\"><div class=\"foot__grid\"><div class=\"foot__brand\"><a class=\"foot__logo\" href=\"https://project13642453.tilda.ws/en\" aria-label=\"Harmony Global School\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"660 656 5400 1376\"><use href=\"#logo-global\" x=\"660\" y=\"656\" width=\"5400\" height=\"1376\"></use></svg></a></div><div class=\"foot__col\"><p class=\"foot__head\">Harmony Global</p><a href=\"#about\">About the&nbsp;school</a><a href=\"#ib\">IB curriculum</a><a href=\"#director\">Principal</a><a href=\"#team\">Team</a><a href=\"/en/admission\">Admission</a><a href=\"/en#contacts\">Contacts</a></div><div class=\"foot__col\"><p class=\"foot__head\">Harmony schools</p><a href=\"https://knit-decided-ocelot.tilda.ws/en\">Harmony STEAM</a><a href=\"https://project13642453.tilda.ws/en\">Harmony Global</a><a href=\"https://intently-finished-panflute.tilda.ws/en\">Both schools</a><a href=\"https://intently-finished-panflute.tilda.ws/en#difference\">School differences</a></div><div class=\"foot__col foot__col--contacts\"><p class=\"foot__head\">Contacts</p><a href=\"tel:+77750072332\">+7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a><p>Highvill residential complex,&nbsp;Astana</p><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram</a></div></div>\n    <p class=\"foot__legal\">A network of schools in Astana. International education from Year 1 right through to university entrance.<br>© 2026&nbsp;Harmony&nbsp;Schools, Astana, Kazakhstan<br>Privacy Policy · Terms and Conditions</p></footer>", "dRec": "rec4730963903", "anchor": "rec4730963903", "contact": "<!-- hs contact section: global-en. Verbatim from https://project13642453.tilda.ws/en/contacts rec4620148903 + rec4620149003 + rec4620149103. Styles: contact.css -->\n<div class=\"hs hs-contact-wrap\"><section class=\"hs-contact\" id=\"contacts\" data-tone=\"light\"><h2 class=\"hs-contact__title\">Contacts</h2><p class=\"hs-contact__lead hs-contact__address\">Highvill residential complex, Astana</p><ul class=\"hs-contact__lines\"><li><a href=\"tel:+77750072332\">Phone: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a></li><li><a href=\"mailto:admission@harmony.edu.kz\">Email: admission@harmony.edu.kz</a></li><li><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram</a></li><li hidden data-pending=\"address-and-map\">[Map: address to confirm]</li></ul><div class=\"hs-contact__group\"><h3 class=\"hs-contact__sub\">Book an&nbsp;admissions appointment</h3><dl class=\"hs-contact__grid\"><div class=\"hs-contact__entry\"><dt>Harmony STEAM School</dt><dd><a href=\"tel:+77000550051\">+7&nbsp;700&nbsp;055&nbsp;0051</a></dd></div><div class=\"hs-contact__entry\"><dt>Harmony Global School</dt><dd><a href=\"tel:+77001010038\">+7&nbsp;700&nbsp;101&nbsp;0038</a></dd></div><div class=\"hs-contact__entry\"><dt>Email</dt><dd><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a></dd></div></dl></div><div class=\"hs-contact__group hs-contact__group--form\"><h3 class=\"hs-contact__sub\">Leave a&nbsp;request</h3><p class=\"hs-contact__lead\">We will call back within one working day.</p><div class=\"hs-contact__slot\">[Microsoft Forms embed goes here]</div></div></section></div>\n", "edits": [{"id": "FF-221", "rec": "rec4620139403", "sel": "[field=\"descr\"]", "kind": "html", "before": "The Harmony Global team will introduce the program and answer all your questions.<br /><ul><li data-list=\"bullet\">Meet the Team</li><li data-list=\"bullet\">Explore the IB Programme</li><li data-list=\"bullet\">Taking the entrance exam</li></ul><a href=\"tel:+77750072332\">Phone: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><br /><a href=\"mailto:admission@harmony.edu.kz\">Email: admission@harmony.edu.kz</a>", "after": "<span data-hs-dup hidden>The Harmony Global team will introduce the program and answer all your questions.<br /></span><ul><li data-list=\"bullet\">Meet the team</li><li data-list=\"bullet\">Explore the IB programme</li><li data-list=\"bullet\">Taking the entrance exam</li></ul><a href=\"tel:+77750072332\">Phone: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><br /><a href=\"mailto:admission@harmony.edu.kz\">Email: admission@harmony.edu.kz</a>"}, {"id": "CASE-30", "rec": "rec4620139203", "sel": "[field=\"li_persdescr__6846079630030\"]", "kind": "html", "before": "General Director", "after": "General director"}, {"id": "CASE-32", "rec": "rec4620139203", "sel": "[field=\"li_persdescr__6846079630032\"]", "kind": "html", "before": "Vice Principal for&nbsp;Academic Affairs", "after": "Vice principal for&nbsp;academic affairs"}, {"id": "CASE-33", "rec": "rec4620139203", "sel": "[field=\"li_persdescr__6846079630033\"]", "kind": "html", "before": "Vice Principal of&nbsp;Well Being", "after": "Vice principal of&nbsp;well being"}, {"id": "NUM-15", "rec": "rec4620139203", "sel": "[field=\"li_text__6846079630030\"]", "kind": "html", "before": "Experience in school administration. Recipient of the “Qurmet” State Order.", "after": "Over 20&nbsp;years of experience in school administration. Recipient of the “Qurmet” State Order."}, {"id": "NUM-16", "rec": "rec4620139203", "sel": "[field=\"li_text__6846079630031\"]", "kind": "html", "before": "Experience in education: Vice Principal at BIL and NIS.<br />Master of Science in Educational Leadership from Nazarbayev University.<br />Cambridge Certified Teacher.<br />Accredited CIS International Expert (Netherlands)", "after": "18&nbsp;years of experience in education: Vice Principal at BIL and NIS.<br />Master of Science in Educational Leadership from Nazarbayev University.<br />Cambridge Certified Teacher.<br />Accredited CIS International Expert (Netherlands)"}, {"id": "NUM-17", "rec": "rec4620139203", "sel": "[field=\"li_text__6846079630032\"]", "kind": "html", "before": "Experience in education.<br />Experience within the Nazarbayev Intellectual Schools (NIS) system.<br />CIS International Evaluator<br />Master of Education, UCL", "after": "14&nbsp;years of experience in education.<br />12&nbsp;years of experience within the Nazarbayev Intellectual Schools (NIS) system.<br />CIS International Evaluator<br />Master of Education, UCL"}, {"id": "NUM-18", "rec": "rec4620139203", "sel": "[field=\"li_text__6846079630033\"]", "kind": "html", "before": "Experience in education. A&nbsp;certified IELTS specialist and professional mentor.", "after": "Over 14&nbsp;years of experience in education. A&nbsp;certified IELTS specialist and professional mentor."}, {"id": "NUM-19", "rec": "rec4620139103", "sel": "[field=\"descr\"]", "kind": "html", "before": "We are constantly investing in our teachers, just as we do in our pupils. Most of our teachers are trilingual and teach their subjects in English.", "after": "We are constantly investing in our teachers, just as we do in our pupils. Most of our teachers are trilingual and teach their subjects in English. They have an average of 12&nbsp;years’ teaching experience."}, {"id": "NUM-20", "rec": "rec4620139303", "sel": "[field=\"descr\"]", "kind": "html", "before": "Bilim‑Innovation is a&nbsp;network of schools famous for international olympiad winners and students at the world's top universities. Harmony Global is an&nbsp;independent school, but its strategic partner. Our students actively participate in the foundation's events, competitions, and tests, while our counseling and values program is built upon the proven BIL model.<br /><br /><strong>What does this mean?</strong><br /><br /><ul><li data-list=\"bullet\">Active participation in elite competitions and events across the foundation's network</li><li data-list=\"bullet\">Regular quality benchmarks and academic monitoring aligned with BIL standards</li><li data-list=\"bullet\">Values and character development based on the proven BIL school model</li><li data-list=\"bullet\">Direct access to an&nbsp;exclusive methodological framework and a&nbsp;premium pedagogical community</li><li data-list=\"bullet\">Advanced Olympiad preparation and a&nbsp;well‑established culture of academic excellence</li><li data-list=\"bullet\">Led by a&nbsp;Principal with leadership experience within the prestigious BIL and NIS networks</li></ul>", "after": "Bilim‑Innovation is a&nbsp;network of schools famous for international olympiad winners and students at the world’s top universities. Harmony Global is an&nbsp;independent school, but its strategic partner. Our students actively participate in the foundation’s events, competitions, and tests, while our counseling and values program is built upon the proven BIL model.<br /><br /><strong>What does this mean?</strong><br /><br /><ul><li data-list=\"bullet\">Active participation in elite competitions and events across the foundation’s network</li><li data-list=\"bullet\">Regular quality benchmarks and academic monitoring aligned with BIL standards</li><li data-list=\"bullet\">Values and character development based on the proven BIL school model</li><li data-list=\"bullet\">Direct access to an&nbsp;exclusive methodological framework and a&nbsp;premium pedagogical community</li><li data-list=\"bullet\">Advanced Olympiad preparation and a&nbsp;well‑established culture of academic excellence</li><li data-list=\"bullet\">Led by a&nbsp;Principal with 18&nbsp;years of leadership within the prestigious BIL and NIS networks</li></ul>", "alt": ["Bilim‑Innovation is a&nbsp;network of schools famous for international olympiad winners and students at the world’s top universities. Harmony Global is an&nbsp;independent school, but its strategic partner. Our students actively participate in the foundation’s events, competitions, and tests, while our counseling and values program is built upon the proven BIL model.<br /><br /><strong>What does this mean?</strong><br /><br /><ul><li data-list=\"bullet\">Active participation in elite competitions and events across the foundation’s network</li><li data-list=\"bullet\">Regular quality benchmarks and academic monitoring aligned with BIL standards</li><li data-list=\"bullet\">Values and character development based on the proven BIL school model</li><li data-list=\"bullet\">Direct access to an&nbsp;exclusive methodological framework and a&nbsp;premium pedagogical community</li><li data-list=\"bullet\">Advanced Olympiad preparation and a&nbsp;well‑established culture of academic excellence</li><li data-list=\"bullet\">Led by a&nbsp;Principal with leadership experience within the prestigious BIL and NIS networks</li></ul>"]}, {"id": "NUM-21", "rec": "rec4620138403", "sel": "[field=\"descr\"]", "kind": "html", "before": "Harmony Global is the second school in the Harmony network in Astana. It is not a&nbsp;replacement for our existing school, but an&nbsp;expansion of our educational environment built on the same values, student‑centered approach, and academic&nbsp;culture.<br /><br />The new school will offer the International Baccalaureate programme with continuity between stages of learning. This approach provides students with a&nbsp;consistent educational pathway and a&nbsp;seamless academic experience throughout their school&nbsp;years.<br /><br />Located in the Highvill Residential Complex, Harmony Global features a&nbsp;new purpose‑built campus designed to meet the needs of a&nbsp;modern international&nbsp;school.<br /><br />The initial intake is for primary&nbsp;school.", "after": "Harmony Global is the second school in the Harmony network in Astana. It is not a&nbsp;replacement for our existing school, but an&nbsp;expansion of our educational environment built on the same values, student‑centered approach, and academic&nbsp;culture.<br /><br />The new school will offer the International Baccalaureate programme with continuity from Grade&nbsp;0 through Grade&nbsp;12. This approach provides students with a&nbsp;consistent educational pathway and a&nbsp;seamless academic experience throughout their school&nbsp;years.<br /><br />Located in the Highvill Residential Complex, Harmony Global features a&nbsp;new purpose‑built campus with a&nbsp;total area of 10,446&nbsp;m² and a&nbsp;capacity of 800&nbsp;students, designed to meet the needs of a&nbsp;modern international&nbsp;school.<br /><br />In September 2026, Harmony Global will open its doors to students in Grades 0–5."}, {"id": "NUM-25", "rec": "rec4620138103", "sel": "[field=\"li_title__6646075653030\"]", "kind": "html", "before": "10 446<br /><em>м²</em>", "after": "10 446 <em>м²</em>"}, {"id": "NUM-26", "rec": "rec4620138103", "sel": "[field=\"li_title__6646075653033\"]", "kind": "html", "before": "KG -12", "after": "KG–12"}], "stages": true,"tones":[function(){(function(){var m={'#rec4616588203 .t537__bgimg':'dark','#rec4620043503 .t537__bgimg':'dark','#rec4620139203 .t537__bgimg':'dark'};for(var s in m){var l=document.querySelectorAll(s);for(var i=0;i<l.length;i++){l[i].setAttribute('data-tone',m[s]);}}})();}]},
+{"292944403":{"key": "global-ru", "lang": "ru", "home": true, "header": "<header class=\"hdr\"><a class=\"hdr__logo\" href=\"https://project13642453.tilda.ws/\" aria-label=\"Harmony Global School\" data-on=\"dark\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"660 656 5400 1376\"><use href=\"#logo-global\" x=\"660\" y=\"656\" width=\"5400\" height=\"1376\"></use></svg></a>\n    <div class=\"hdr__end\" data-on=\"dark\"><nav class=\"hdr__nav\" data-on=\"dark\"><a href=\"https://project13642453.tilda.ws/admission\">Поступление</a></nav><nav class=\"lang\" aria-label=\"Language\"><a href=\"https://project13642453.tilda.ws/\" data-lang=\"ru\" lang=\"ru\" aria-current=\"true\">RU</a><a href=\"https://project13642453.tilda.ws/kz\" data-lang=\"kz\" lang=\"kk\">KZ</a><a href=\"https://project13642453.tilda.ws/en\" data-lang=\"en\" lang=\"en\">EN</a></nav><details class=\"lang-d\"><summary aria-label=\"Language: RU\">RU</summary><nav class=\"lang-d__menu\" aria-label=\"Language\"><a href=\"https://project13642453.tilda.ws/kz\" data-lang=\"kz\" lang=\"kk\">KZ</a><a href=\"https://project13642453.tilda.ws/en\" data-lang=\"en\" lang=\"en\">EN</a></nav></details>\n      <a class=\"btn hdr__cta\" href=\"#contact\">Консультация</a></div></header>", "footer": "<footer class=\"foot\" data-tone=\"dark\"><div class=\"foot__grid\"><div class=\"foot__brand\"><a class=\"foot__logo\" href=\"https://project13642453.tilda.ws/\" aria-label=\"Harmony Global School\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"660 656 5400 1376\"><use href=\"#logo-global\" x=\"660\" y=\"656\" width=\"5400\" height=\"1376\"></use></svg></a></div><div class=\"foot__col\"><p class=\"foot__head\">Harmony Global</p><a href=\"#about\">О&nbsp;школе</a><a href=\"#ib\">IB-программа</a><a href=\"#director\">Директор</a><a href=\"#team\">Команда</a><a href=\"/admission\">Поступление</a><a href=\"/#contacts\">Контакты</a></div><div class=\"foot__col\"><p class=\"foot__head\">Школы Harmony</p><a href=\"https://knit-decided-ocelot.tilda.ws/\">Harmony STEAM</a><a href=\"https://project13642453.tilda.ws/\">Harmony Global</a><a href=\"https://intently-finished-panflute.tilda.ws/\">Обе школы</a><a href=\"https://intently-finished-panflute.tilda.ws/#difference\">Отличия школ</a></div><div class=\"foot__col foot__col--contacts\"><p class=\"foot__head\">Контакты</p><a href=\"tel:+77750072332\">+7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a><p>ЖК&nbsp;Highvill, Астана</p><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram</a></div></div>\n    <p class=\"foot__legal\">Сеть школ в Астане. Международное образование с первого года и до поступления в университет.<br>© 2026&nbsp;Harmony&nbsp;Schools, Астана, Казахстан<br>Политика конфиденциальности · Оферта</p></footer>", "dRec": "rec4730902003", "anchor": "rec4730902003", "contact": "<!-- hs contact section: global-ru. Verbatim from https://project13642453.tilda.ws/contacts rec4616886003 + rec4616896303 + rec4616896403. Styles: contact.css -->\n<div class=\"hs hs-contact-wrap\"><section class=\"hs-contact\" id=\"contacts\" data-tone=\"light\"><h2 class=\"hs-contact__title\">Контакты</h2><p class=\"hs-contact__lead hs-contact__address\">ЖК&nbsp;Highvill, Астана</p><ul class=\"hs-contact__lines\"><li><a href=\"tel:+77750072332\">Телефон: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a></li><li><a href=\"mailto:admission@harmony.edu.kz\">Почта: admission@harmony.edu.kz</a></li><li><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram</a></li><li hidden data-pending=\"address-and-map\">[Map: address to confirm]</li></ul><div class=\"hs-contact__group\"><h3 class=\"hs-contact__sub\">Запись на&nbsp;приёмную комиссию</h3><dl class=\"hs-contact__grid\"><div class=\"hs-contact__entry\"><dt>Harmony STEAM School</dt><dd><a href=\"tel:+77000550051\">+7&nbsp;700&nbsp;055&nbsp;0051</a></dd></div><div class=\"hs-contact__entry\"><dt>Harmony Global School</dt><dd><a href=\"tel:+77001010038\">+7&nbsp;700&nbsp;101&nbsp;0038</a></dd></div><div class=\"hs-contact__entry\"><dt>Email</dt><dd><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a></dd></div></dl></div><div class=\"hs-contact__group hs-contact__group--form\"><h3 class=\"hs-contact__sub\">Оставьте заявку</h3><p class=\"hs-contact__lead\">Перезвоним в&nbsp;течение рабочего дня.</p><div class=\"hs-contact__slot\">[Microsoft Forms embed goes here]</div></div></section></div>\n", "edits": [{"id": "GN-010", "rec": "rec4616795903", "sel": "[field=\"title\"]", "kind": "html", "before": "Учителя,<br /><em>с которыми хочется учиться</em>", "after": "Учителя, <em>с&nbsp;которыми хочется учиться</em>"}, {"id": "FF-201", "rec": "rec4616591103", "sel": "[field=\"descr\"]", "kind": "html", "before": "Команда Harmony Global расскажет о&nbsp;программе и&nbsp;ответит на&nbsp;все&nbsp;ваши вопросы.<br /><ul><li data-list=\"bullet\">Знакомство с&nbsp;командой</li><li data-list=\"bullet\">Разбор IB‑программы</li><li data-list=\"bullet\">Сдача вступительного комплекса</li></ul><a href=\"tel:+77750072332\">Телефон: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><br /><a href=\"mailto:admission@harmony.edu.kz\">Почта: admission@harmony.edu.kz</a>", "after": "<span data-hs-dup hidden>Команда Harmony Global расскажет о&nbsp;программе и&nbsp;ответит на&nbsp;все&nbsp;ваши вопросы.<br /></span><ul><li data-list=\"bullet\">Знакомство с&nbsp;командой</li><li data-list=\"bullet\">Разбор IB‑программы</li><li data-list=\"bullet\">Сдача вступительного комплекса</li></ul><a href=\"tel:+77750072332\">Телефон: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><br /><a href=\"mailto:admission@harmony.edu.kz\">Почта: admission@harmony.edu.kz</a>"}, {"id": "NUM-01", "rec": "rec4616588203", "sel": "[field=\"li_text__6846079630030\"]", "kind": "html", "before": "Опыт в&nbsp;менеджменте школ. Награжден орденом \"Құрмет\" от&nbsp;президента РК.", "after": "Более 20&nbsp;лет в&nbsp;менеджменте школ. Награжден орденом «Құрмет» от&nbsp;президента РК.", "alt": ["Опыт в&nbsp;менеджменте школ. Награжден орденом «Құрмет» от&nbsp;президента РК."]}, {"id": "NUM-02", "rec": "rec4616588203", "sel": "[field=\"li_text__6846079630031\"]", "kind": "html", "before": "Опыт в&nbsp;экосистемах БИЛ&nbsp;и&nbsp;НИШ. Магистр Назарбаев Университета по&nbsp;направлению «Управление образованием».<br />Сертифицированный педагог Cambridge University.<br />Аккредитованный международный эксперт CIS, Нидерланды.", "after": "18&nbsp;лет опыта в&nbsp;экосистемах БИЛ&nbsp;и&nbsp;НИШ. Магистр Назарбаев Университета по&nbsp;направлению «Управление образованием».<br />Сертифицированный педагог Cambridge University.<br />Аккредитованный международный эксперт CIS, Нидерланды."}, {"id": "NUM-03", "rec": "rec4616588203", "sel": "[field=\"li_text__6846079630032\"]", "kind": "html", "before": "Опыт в&nbsp;сфере образования.<br />Опыт в&nbsp;системе Назарбаев Интеллектуальных школ (NIS)<br />международный оценщик CIS, Master of&nbsp;Education, UCL", "after": "14&nbsp;лет опыта в&nbsp;сфере образования.<br />12&nbsp;лет опыта в&nbsp;системе Назарбаев Интеллектуальных школ (NIS)<br />международный оценщик CIS, Master of&nbsp;Education, UCL"}, {"id": "NUM-04", "rec": "rec4616588203", "sel": "[field=\"li_text__6846079630033\"]", "kind": "html", "before": "Педагог с&nbsp;опытом работы в&nbsp;сфере образования.<br />Сертифицированный специалист по&nbsp;международному экзамену IELTS, профессиональный наставник.", "after": "Педагог с&nbsp;более чем 14‑летним опытом работы в&nbsp;сфере образования.<br />Сертифицированный специалист по&nbsp;международному экзамену IELTS, профессиональный наставник."}, {"id": "NUM-05", "rec": "rec4616795903", "sel": "[field=\"descr\"]", "kind": "html", "before": "Мы&nbsp;постоянно инвестируем в&nbsp;учителей, как&nbsp;в&nbsp;детей. Большая часть наших учителей говорит на&nbsp;трёх языках и&nbsp;преподает предметы на&nbsp;английском языке.", "after": "Мы&nbsp;постоянно инвестируем в&nbsp;учителей, как&nbsp;в&nbsp;детей. Большая часть наших учителей говорит на&nbsp;трёх языках и&nbsp;преподает предметы на&nbsp;английском языке. Средний опыт в&nbsp;образовании, 12&nbsp;лет."}, {"id": "NUM-06", "rec": "rec4616673403", "sel": "[field=\"descr\"]", "kind": "html", "before": "БІЛІМ Инновация, сеть лицеев, из&nbsp;которых выпускаются победители международных олимпиад и&nbsp;студенты ведущих университетов Казахстана и&nbsp;мира. Harmony Global, не&nbsp;филиал БИЛ, но&nbsp;его&nbsp;стратегический партнёр.<br /><br />Это&nbsp;значит, что&nbsp;наши ученики участвуют в&nbsp;мероприятиях, конкурсах и&nbsp;мониторингах фонда. А&nbsp;воспитательная программа построена на&nbsp;основе программы лицеев БИЛ.<br /><br /><strong>Что&nbsp;даёт партнёрство</strong><br /><br /><ul><li data-list=\"bullet\">Участие в&nbsp;мероприятиях и&nbsp;конкурсах среди школ фонда</li><li data-list=\"bullet\">Регулярные мониторинги качества, как&nbsp;в&nbsp;системе БИЛ</li><li data-list=\"bullet\">Воспитательная программа на&nbsp;базе лицеев БИЛ</li><li data-list=\"bullet\">Доступ к&nbsp;методической базе и&nbsp;педагогическому сообществу</li><li data-list=\"bullet\">Олимпиадная подготовка и&nbsp;академическая культура</li><li data-list=\"bullet\">Директор с&nbsp;опытом внутри системы БИЛ&nbsp;и&nbsp;НИШ</li></ul>", "after": "БІЛІМ Инновация, сеть лицеев, из&nbsp;которых выпускаются победители международных олимпиад и&nbsp;студенты ведущих университетов Казахстана и&nbsp;мира. Harmony Global, не&nbsp;филиал БИЛ, но&nbsp;его&nbsp;стратегический партнёр.<br /><br />Это&nbsp;значит, что&nbsp;наши ученики участвуют в&nbsp;мероприятиях, конкурсах и&nbsp;мониторингах фонда. А&nbsp;воспитательная программа построена на&nbsp;основе программы лицеев БИЛ.<br /><br /><strong>Что&nbsp;даёт партнёрство</strong><br /><br /><ul><li data-list=\"bullet\">Участие в&nbsp;мероприятиях и&nbsp;конкурсах среди школ фонда</li><li data-list=\"bullet\">Регулярные мониторинги качества, как&nbsp;в&nbsp;системе БИЛ</li><li data-list=\"bullet\">Воспитательная программа на&nbsp;базе лицеев БИЛ</li><li data-list=\"bullet\">Доступ к&nbsp;методической базе и&nbsp;педагогическому сообществу</li><li data-list=\"bullet\">Олимпиадная подготовка и&nbsp;академическая культура</li><li data-list=\"bullet\">Директор, 18&nbsp;лет внутри системы БИЛ&nbsp;и&nbsp;НИШ</li></ul>"}, {"id": "NUM-07", "rec": "rec4616586103", "sel": "[field=\"descr\"]", "kind": "html", "before": "Harmony Global, вторая школа сети Harmony в&nbsp;Астане. Это&nbsp;не&nbsp;замена существующей школе, а&nbsp;развитие нашей образовательной среды с&nbsp;теми же&nbsp;ценностями, вниманием к&nbsp;ребёнку и&nbsp;академической&nbsp;культурой.<br /><br />Новая школа будет работать по&nbsp;программе International Baccalaureate с&nbsp;преемственностью между этапами обучения. Такой подход позволяет выстроить единый образовательный путь без&nbsp;смены академической логики на&nbsp;разных этапах&nbsp;обучения.<br /><br />Harmony Global расположена в&nbsp;ЖК&nbsp;Highvill. Новое здание спроектировано с&nbsp;учётом требований современной международной&nbsp;школы.<br /><br />Приём начинается с&nbsp;начальной&nbsp;школы.", "after": "Harmony Global, вторая школа сети Harmony в&nbsp;Астане. Это&nbsp;не&nbsp;замена существующей школе, а&nbsp;развитие нашей образовательной среды с&nbsp;теми же&nbsp;ценностями, вниманием к&nbsp;ребёнку и&nbsp;академической&nbsp;культурой.<br /><br />Новая школа будет работать по&nbsp;программе International Baccalaureate с&nbsp;преемственностью от&nbsp;0 до&nbsp;12&nbsp;класса. Такой подход позволяет выстроить единый образовательный путь без&nbsp;смены академической логики на&nbsp;разных этапах&nbsp;обучения.<br /><br />Harmony Global расположена в&nbsp;ЖК&nbsp;Highvill. Новое здание площадью 10&nbsp;446&nbsp;м² рассчитано на&nbsp;800&nbsp;учеников и&nbsp;спроектировано с&nbsp;учётом требований современной международной&nbsp;школы.<br /><br />В&nbsp;сентябре 2026&nbsp;года Harmony Global откроет свои двери для&nbsp;учеников 0–5&nbsp;классов."}, {"id": "NUM-22", "rec": "rec4616580403", "sel": "[field=\"li_title__6646075653033\"]", "kind": "html", "before": "KG –12", "after": "KG–12"}], "stages": true,"tones":[function(){(function(){var m={'#rec4616588203 .t537__bgimg':'dark','#rec4620043503 .t537__bgimg':'dark','#rec4620139203 .t537__bgimg':'dark'};for(var s in m){var l=document.querySelectorAll(s);for(var i=0;i<l.length;i++){l[i].setAttribute('data-tone',m[s]);}}})();}]},
+"293178803":{"key": "global-kz", "lang": "kz", "home": true, "header": "<header class=\"hdr\"><a class=\"hdr__logo\" href=\"https://project13642453.tilda.ws/kz\" aria-label=\"Harmony Global School\" data-on=\"dark\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"660 656 5400 1376\"><use href=\"#logo-global\" x=\"660\" y=\"656\" width=\"5400\" height=\"1376\"></use></svg></a>\n    <div class=\"hdr__end\" data-on=\"dark\"><nav class=\"hdr__nav\" data-on=\"dark\"><a href=\"https://project13642453.tilda.ws/kz/admission\">Оқуға түсу</a></nav><nav class=\"lang\" aria-label=\"Language\"><a href=\"https://project13642453.tilda.ws/\" data-lang=\"ru\" lang=\"ru\">RU</a><a href=\"https://project13642453.tilda.ws/kz\" data-lang=\"kz\" lang=\"kk\" aria-current=\"true\">KZ</a><a href=\"https://project13642453.tilda.ws/en\" data-lang=\"en\" lang=\"en\">EN</a></nav><details class=\"lang-d\"><summary aria-label=\"Language: KZ\">KZ</summary><nav class=\"lang-d__menu\" aria-label=\"Language\"><a href=\"https://project13642453.tilda.ws/\" data-lang=\"ru\" lang=\"ru\">RU</a><a href=\"https://project13642453.tilda.ws/en\" data-lang=\"en\" lang=\"en\">EN</a></nav></details>\n      <a class=\"btn hdr__cta\" href=\"#contact\">Консультация</a></div></header>", "footer": "<footer class=\"foot\" data-tone=\"dark\"><div class=\"foot__grid\"><div class=\"foot__brand\"><a class=\"foot__logo\" href=\"https://project13642453.tilda.ws/kz\" aria-label=\"Harmony Global School\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"660 656 5400 1376\"><use href=\"#logo-global\" x=\"660\" y=\"656\" width=\"5400\" height=\"1376\"></use></svg></a></div><div class=\"foot__col\"><p class=\"foot__head\">Harmony Global</p><a href=\"#about\">Мектеп туралы</a><a href=\"#ib\">IB-бағдарламасы</a><a href=\"#director\">Директор</a><a href=\"#team\">Команда</a><a href=\"/kz/admission\">Оқуға түсу</a><a href=\"/kz#contacts\">Байланыс</a></div><div class=\"foot__col\"><p class=\"foot__head\">Harmony мектептері</p><a href=\"https://knit-decided-ocelot.tilda.ws/kz\">Harmony STEAM</a><a href=\"https://project13642453.tilda.ws/kz\">Harmony Global</a><a href=\"https://intently-finished-panflute.tilda.ws/kz\">Екі мектеп</a><a href=\"https://intently-finished-panflute.tilda.ws/kz#difference\">Мектептердің айырмашылығы</a></div><div class=\"foot__col foot__col--contacts\"><p class=\"foot__head\">Байланыс</p><a href=\"tel:+77750072332\">+7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a><p>Highvill ТК, Астана</p><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram</a></div></div>\n    <p class=\"foot__legal\">Астанадағы мектептер желісі. Халықаралық білім бірінші жылдан бастап университетке түскенге дейін.<br>© 2026&nbsp;Harmony&nbsp;Schools, Астана, Қазақстан<br>Жеке деректерді қорғау/өңдеу саясаты · Ұсыныс</p></footer>", "dRec": "rec4730949203", "anchor": "rec4730949203", "contact": "<!-- hs contact section: global-kz. Verbatim from https://project13642453.tilda.ws/kz/contacts rec4620090603 + rec4620090703 + rec4620090803. Styles: contact.css -->\n<div class=\"hs hs-contact-wrap\"><section class=\"hs-contact\" id=\"contacts\" data-tone=\"light\"><h2 class=\"hs-contact__title\">Байланыс</h2><p class=\"hs-contact__lead hs-contact__address\">Highvill ТК, Астана</p><ul class=\"hs-contact__lines\"><li><a href=\"tel:+77750072332\">Телефон: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a></li><li><a href=\"mailto:admission@harmony.edu.kz\">Пошта: admission@harmony.edu.kz</a></li><li><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram</a></li><li hidden data-pending=\"address-and-map\">[Map: address to confirm]</li></ul><div class=\"hs-contact__group\"><h3 class=\"hs-contact__sub\">Қабылдау бөліміне жазылу</h3><dl class=\"hs-contact__grid\"><div class=\"hs-contact__entry\"><dt>Harmony STEAM School</dt><dd><a href=\"tel:+77000550051\">+7&nbsp;700&nbsp;055&nbsp;0051</a></dd></div><div class=\"hs-contact__entry\"><dt>Harmony Global School</dt><dd><a href=\"tel:+77001010038\">+7&nbsp;700&nbsp;101&nbsp;0038</a></dd></div><div class=\"hs-contact__entry\"><dt>Email</dt><dd><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a></dd></div></dl></div><div class=\"hs-contact__group hs-contact__group--form\"><h3 class=\"hs-contact__sub\">Өтініш қалдырыңыз</h3><p class=\"hs-contact__lead\">Жұмыс күні ішінде хабарласамыз.</p><div class=\"hs-contact__slot\">[Microsoft Forms embed goes here]</div></div></section></div>\n", "edits": [{"id": "FF-209", "rec": "rec4620043703", "sel": "[field=\"descr\"]", "kind": "html", "before": "Harmony Global командасы бағдарлама туралы айтып, барлық сұрақтарыңызға жауап береді.<br /><ul><li data-list=\"bullet\">Командамен танысу</li><li data-list=\"bullet\">IB&nbsp;бағдарламасын талдау</li><li data-list=\"bullet\">Кешенді қабылдау емтиханын тапсыру</li></ul><a href=\"tel:+77750072332\">Телефон: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><br /><a href=\"mailto:admission@harmony.edu.kz\">Пошта: admission@harmony.edu.kz</a>", "after": "<span data-hs-dup hidden>Harmony Global командасы бағдарлама туралы айтып, барлық сұрақтарыңызға жауап береді.<br /></span><ul><li data-list=\"bullet\">Командамен танысу</li><li data-list=\"bullet\">IB&nbsp;бағдарламасын талдау</li><li data-list=\"bullet\">Кешенді қабылдау емтиханын тапсыру</li></ul><a href=\"tel:+77750072332\">Телефон: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><br /><a href=\"mailto:admission@harmony.edu.kz\">Пошта: admission@harmony.edu.kz</a>"}, {"id": "NUM-08", "rec": "rec4620043503", "sel": "[field=\"li_text__6846079630030\"]", "kind": "html", "before": "Мектеп менеджментіндегі тәжірибе. Қазақстан Республикасы мемлекеттік “Құрмет” орденімен марапатталған.", "after": "Мектеп менеджментіндегі 20&nbsp;жылдан астам тәжірибе. Қазақстан Республикасы мемлекеттік «Құрмет» орденімен марапатталған.", "alt": ["Мектеп менеджментіндегі тәжірибе. Қазақстан Республикасы мемлекеттік «Құрмет» орденімен марапатталған."]}, {"id": "NUM-09", "rec": "rec4620043503", "sel": "[field=\"li_text__6846079630031\"]", "kind": "html", "before": "БИЛ&nbsp;және НЗМ&nbsp;білім беру жүйелеріндегі тәжірибе. Назарбаев Университетінің «Білім беруді басқару саласы» бағыты бойынша магистрі. Cambridge University сертификатталған маманы.<br />CIS, Нидерланды, аккредиттеу жөніндегі халықаралық сарапшысы.", "after": "БИЛ&nbsp;және НЗМ&nbsp;білім беру жүйелерінде 18&nbsp;жылдық тәжірибе. Назарбаев Университетінің «Білім беруді басқару саласы» бағыты бойынша магистрі. Cambridge University сертификатталған маманы.<br />CIS, Нидерланды, аккредиттеу жөніндегі халықаралық сарапшысы."}, {"id": "NUM-10", "rec": "rec4620043503", "sel": "[field=\"li_text__6846079630032\"]", "kind": "html", "before": "Білім беру саласындағы тәжірибе.<br />Назарбаев Зияткерлік мектептері (NIS) жүйесіндегі тәжірибе.<br />CIS&nbsp;халықаралық бағалаушысы<br />UCL&nbsp;университетінің Master of&nbsp;Education дәрежесі", "after": "Білім беру саласында 14&nbsp;жылдық тәжірибе.<br />Назарбаев Зияткерлік мектептері (NIS) жүйесінде 12&nbsp;жылдық тәжірибе.<br />CIS&nbsp;халықаралық бағалаушысы<br />UCL&nbsp;университетінің Master of&nbsp;Education дәрежесі"}, {"id": "NUM-11", "rec": "rec4620043503", "sel": "[field=\"li_text__6846079630033\"]", "kind": "html", "before": "Білім беру саласында тәжірибесі бар&nbsp;педагог. IELTS халықаралық емтиханы бойынша сертификатталған маман, кәсіби тәлімгер.", "after": "Білім беру саласында 14&nbsp;жылдан астам тәжірибесі бар&nbsp;педагог. IELTS халықаралық емтиханы бойынша сертификатталған маман, кәсіби тәлімгер."}, {"id": "NUM-12", "rec": "rec4620043403", "sel": "[field=\"descr\"]", "kind": "html", "before": "Біз&nbsp;ұстаздарға балаға сияқты үнемі инвестиция құямыз. Ұстаздарымыздың басым бөлігі үш&nbsp;тілде сөйлеп, пәндерін ағылшын тілінде береді.", "after": "Біз&nbsp;ұстаздарға балаға сияқты үнемі инвестиция құямыз. Ұстаздарымыздың басым бөлігі үш&nbsp;тілде сөйлеп, пәндерін ағылшын тілінде береді. Білім берудегі орта тәжірибесі, 12&nbsp;жыл."}, {"id": "NUM-13", "rec": "rec4620043603", "sel": "[field=\"descr\"]", "kind": "html", "before": "Білім‑Инновация, халықаралық олимпиада жеңімпаздары мен&nbsp;әлемнің үздік университеттері студенттерін түлеген лицейлер желісі. Harmony Global, БИЛ‑дің филиалы емес, оның ресми стратегиялық серіктесі.<br /><br />Біздің оқушылар қордың барлық іс‑шараларына, конкурстары мен&nbsp;олимпиадаларына қатысады, ал&nbsp;тәрбие жұмысы БІЛ&nbsp;лицейлерінің үздік тәжірибесі негізінде құрылған.<br /><br /><strong>Бұл&nbsp;не&nbsp;береді?</strong><br /><br /><ul><li data-list=\"bullet\">Қор&nbsp;мектептері арасындағы ауқымды іс‑шаралар мен&nbsp;конкурстарға қатысу</li><li data-list=\"bullet\">БИЛ&nbsp;стандарттары бойынша білім сапасына тұрақты ішкі мониторинг жүргізу</li><li data-list=\"bullet\">БИЛ&nbsp;лицейлерінің озық тәжірибесіне негізделген тәрбие жүйесі</li><li data-list=\"bullet\">Ортақ әдістемелік база мен&nbsp;кәсіби педагогтар қауымдастығына қолжетімділік</li><li data-list=\"bullet\">Олимпиадаға дайындық және жоғары академиялық мәдениет</li><li data-list=\"bullet\">Мектеп басшысы, БИЛ&nbsp;және НЗМ&nbsp;жүйесінде тәжірибесі бар&nbsp;маман</li></ul>", "after": "Білім‑Инновация, халықаралық олимпиада жеңімпаздары мен&nbsp;әлемнің үздік университеттері студенттерін түлеген лицейлер желісі. Harmony Global, БИЛ‑дің филиалы емес, оның ресми стратегиялық серіктесі.<br /><br />Біздің оқушылар қордың барлық іс‑шараларына, конкурстары мен&nbsp;олимпиадаларына қатысады, ал&nbsp;тәрбие жұмысы БІЛ&nbsp;лицейлерінің үздік тәжірибесі негізінде құрылған.<br /><br /><strong>Бұл&nbsp;не&nbsp;береді?</strong><br /><br /><ul><li data-list=\"bullet\">Қор&nbsp;мектептері арасындағы ауқымды іс‑шаралар мен&nbsp;конкурстарға қатысу</li><li data-list=\"bullet\">БИЛ&nbsp;стандарттары бойынша білім сапасына тұрақты ішкі мониторинг жүргізу</li><li data-list=\"bullet\">БИЛ&nbsp;лицейлерінің озық тәжірибесіне негізделген тәрбие жүйесі</li><li data-list=\"bullet\">Ортақ әдістемелік база мен&nbsp;кәсіби педагогтар қауымдастығына қолжетімділік</li><li data-list=\"bullet\">Олимпиадаға дайындық және жоғары академиялық мәдениет</li><li data-list=\"bullet\">Мектеп басшысы, БИЛ&nbsp;және НЗМ&nbsp;жүйесінде 18&nbsp;жылдық тәжірибесі бар&nbsp;маман</li></ul>"}, {"id": "NUM-14", "rec": "rec4620042703", "sel": "[field=\"descr\"]", "kind": "html", "before": "Harmony Global, Астанадағы Harmony мектептер желісінің екінші мектебі. Бұл&nbsp;қолданыстағы мектептің орнын басу емес, ортақ құндылықтарға, балаға бағытталған көзқарасқа және академиялық мәдениетке негізделген білім беру ортасын&nbsp;кеңейту.<br /><br />Жаңа мектепте International Baccalaureate бағдарламасы оқу&nbsp;кезеңдері арасындағы сабақтастықпен жүзеге асырылатын болады. Бұл&nbsp;оқушыларға мектептегі барлық оқу&nbsp;кезеңдерінде бірізді әрі&nbsp;тұтас білім беру жолын қамтамасыз&nbsp;етеді.<br /><br />Harmony Global Highvill тұрғын үй&nbsp;кешенінде орналасқан. Жаңа ғимарат заманауи халықаралық мектеп талаптарына сәйкес&nbsp;жобаланған.<br /><br />Қабылдау бастауыш мектептен&nbsp;басталады.", "after": "Harmony Global, Астанадағы Harmony мектептер желісінің екінші мектебі. Бұл&nbsp;қолданыстағы мектептің орнын басу емес, ортақ құндылықтарға, балаға бағытталған көзқарасқа және академиялық мәдениетке негізделген білім беру ортасын&nbsp;кеңейту.<br /><br />Жаңа мектепте International Baccalaureate бағдарламасы 0‑сыныптан 12‑сыныпқа дейінгі сабақтастықпен жүзеге асырылады. Бұл&nbsp;оқушыларға мектептегі барлық оқу&nbsp;кезеңдерінде бірізді әрі&nbsp;тұтас білім беру жолын қамтамасыз&nbsp;етеді.<br /><br />Harmony Global Highvill тұрғын үй&nbsp;кешенінде орналасқан. Жалпы ауданы 10&nbsp;446&nbsp;м² болатын жаңа ғимарат 800&nbsp;оқушыға арналған және заманауи халықаралық мектеп талаптарына сәйкес&nbsp;жобаланған.<br /><br />2026&nbsp;жылдың қыркүйегінде Harmony Global 0–5&nbsp;сынып оқушыларына өз есігін&nbsp;ашады."}, {"id": "NUM-23", "rec": "rec4620042403", "sel": "[field=\"li_title__6646075653030\"]", "kind": "html", "before": "10 446<br /><em>м²</em>", "after": "10 446 <em>м²</em>"}, {"id": "NUM-24", "rec": "rec4620042403", "sel": "[field=\"li_title__6646075653033\"]", "kind": "html", "before": "KG -12", "after": "KG–12"}], "stages": true,"tones":[function(){(function(){var m={'#rec4616588203 .t537__bgimg':'dark','#rec4620043503 .t537__bgimg':'dark','#rec4620139203 .t537__bgimg':'dark'};for(var s in m){var l=document.querySelectorAll(s);for(var i=0;i<l.length;i++){l[i].setAttribute('data-tone',m[s]);}}})();}]},
+"293226903":{"key": "global-en", "lang": "en", "home": true, "header": "<header class=\"hdr\"><a class=\"hdr__logo\" href=\"https://project13642453.tilda.ws/en\" aria-label=\"Harmony Global School\" data-on=\"dark\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"660 656 5400 1376\"><use href=\"#logo-global\" x=\"660\" y=\"656\" width=\"5400\" height=\"1376\"></use></svg></a>\n    <div class=\"hdr__end\" data-on=\"dark\"><nav class=\"hdr__nav\" data-on=\"dark\"><a href=\"https://project13642453.tilda.ws/en/admission\">Admission</a></nav><nav class=\"lang\" aria-label=\"Language\"><a href=\"https://project13642453.tilda.ws/\" data-lang=\"ru\" lang=\"ru\">RU</a><a href=\"https://project13642453.tilda.ws/kz\" data-lang=\"kz\" lang=\"kk\">KZ</a><a href=\"https://project13642453.tilda.ws/en\" data-lang=\"en\" lang=\"en\" aria-current=\"true\">EN</a></nav><details class=\"lang-d\"><summary aria-label=\"Language: EN\">EN</summary><nav class=\"lang-d__menu\" aria-label=\"Language\"><a href=\"https://project13642453.tilda.ws/\" data-lang=\"ru\" lang=\"ru\">RU</a><a href=\"https://project13642453.tilda.ws/kz\" data-lang=\"kz\" lang=\"kk\">KZ</a></nav></details>\n      <a class=\"btn hdr__cta\" href=\"#contact\">Consultation</a></div></header>", "footer": "<footer class=\"foot\" data-tone=\"dark\"><div class=\"foot__grid\"><div class=\"foot__brand\"><a class=\"foot__logo\" href=\"https://project13642453.tilda.ws/en\" aria-label=\"Harmony Global School\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"660 656 5400 1376\"><use href=\"#logo-global\" x=\"660\" y=\"656\" width=\"5400\" height=\"1376\"></use></svg></a></div><div class=\"foot__col\"><p class=\"foot__head\">Harmony Global</p><a href=\"#about\">About the&nbsp;school</a><a href=\"#ib\">IB curriculum</a><a href=\"#director\">Principal</a><a href=\"#team\">Team</a><a href=\"/en/admission\">Admission</a><a href=\"/en#contacts\">Contacts</a></div><div class=\"foot__col\"><p class=\"foot__head\">Harmony schools</p><a href=\"https://knit-decided-ocelot.tilda.ws/en\">Harmony STEAM</a><a href=\"https://project13642453.tilda.ws/en\">Harmony Global</a><a href=\"https://intently-finished-panflute.tilda.ws/en\">Both schools</a><a href=\"https://intently-finished-panflute.tilda.ws/en#difference\">School differences</a></div><div class=\"foot__col foot__col--contacts\"><p class=\"foot__head\">Contacts</p><a href=\"tel:+77750072332\">+7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a><p>Highvill residential complex,&nbsp;Astana</p><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram</a></div></div>\n    <p class=\"foot__legal\">A network of schools in Astana. International education from Year 1 right through to university entrance.<br>© 2026&nbsp;Harmony&nbsp;Schools, Astana, Kazakhstan<br>Privacy Policy · Terms and Conditions</p></footer>", "dRec": "rec4730963903", "anchor": "rec4730963903", "contact": "<!-- hs contact section: global-en. Verbatim from https://project13642453.tilda.ws/en/contacts rec4620148903 + rec4620149003 + rec4620149103. Styles: contact.css -->\n<div class=\"hs hs-contact-wrap\"><section class=\"hs-contact\" id=\"contacts\" data-tone=\"light\"><h2 class=\"hs-contact__title\">Contacts</h2><p class=\"hs-contact__lead hs-contact__address\">Highvill residential complex, Astana</p><ul class=\"hs-contact__lines\"><li><a href=\"tel:+77750072332\">Phone: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a></li><li><a href=\"mailto:admission@harmony.edu.kz\">Email: admission@harmony.edu.kz</a></li><li><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram</a></li><li hidden data-pending=\"address-and-map\">[Map: address to confirm]</li></ul><div class=\"hs-contact__group\"><h3 class=\"hs-contact__sub\">Book an&nbsp;admissions appointment</h3><dl class=\"hs-contact__grid\"><div class=\"hs-contact__entry\"><dt>Harmony STEAM School</dt><dd><a href=\"tel:+77000550051\">+7&nbsp;700&nbsp;055&nbsp;0051</a></dd></div><div class=\"hs-contact__entry\"><dt>Harmony Global School</dt><dd><a href=\"tel:+77001010038\">+7&nbsp;700&nbsp;101&nbsp;0038</a></dd></div><div class=\"hs-contact__entry\"><dt>Email</dt><dd><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a></dd></div></dl></div><div class=\"hs-contact__group hs-contact__group--form\"><h3 class=\"hs-contact__sub\">Leave a&nbsp;request</h3><p class=\"hs-contact__lead\">We will call back within one working day.</p><div class=\"hs-contact__slot\">[Microsoft Forms embed goes here]</div></div></section></div>\n", "edits": [{"id": "FF-221", "rec": "rec4620139403", "sel": "[field=\"descr\"]", "kind": "html", "before": "The Harmony Global team will introduce the program and answer all your questions.<br /><ul><li data-list=\"bullet\">Meet the Team</li><li data-list=\"bullet\">Explore the IB Programme</li><li data-list=\"bullet\">Taking the entrance exam</li></ul><a href=\"tel:+77750072332\">Phone: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><br /><a href=\"mailto:admission@harmony.edu.kz\">Email: admission@harmony.edu.kz</a>", "after": "<span data-hs-dup hidden>The Harmony Global team will introduce the program and answer all your questions.<br /></span><ul><li data-list=\"bullet\">Meet the team</li><li data-list=\"bullet\">Explore the IB programme</li><li data-list=\"bullet\">Taking the entrance exam</li></ul><a href=\"tel:+77750072332\">Phone: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><br /><a href=\"mailto:admission@harmony.edu.kz\">Email: admission@harmony.edu.kz</a>"}, {"id": "CASE-30", "rec": "rec4620139203", "sel": "[field=\"li_persdescr__6846079630030\"]", "kind": "html", "before": "General Director", "after": "General director"}, {"id": "CASE-32", "rec": "rec4620139203", "sel": "[field=\"li_persdescr__6846079630032\"]", "kind": "html", "before": "Vice Principal for&nbsp;Academic Affairs", "after": "Vice principal for&nbsp;academic affairs"}, {"id": "CASE-33", "rec": "rec4620139203", "sel": "[field=\"li_persdescr__6846079630033\"]", "kind": "html", "before": "Vice Principal of&nbsp;Well Being", "after": "Vice principal of&nbsp;well being"}, {"id": "NUM-15", "rec": "rec4620139203", "sel": "[field=\"li_text__6846079630030\"]", "kind": "html", "before": "Experience in school administration. Recipient of the “Qurmet” State Order.", "after": "Over 20&nbsp;years of experience in school administration. Recipient of the “Qurmet” State Order."}, {"id": "NUM-16", "rec": "rec4620139203", "sel": "[field=\"li_text__6846079630031\"]", "kind": "html", "before": "Experience in education: Vice Principal at BIL and NIS.<br />Master of Science in Educational Leadership from Nazarbayev University.<br />Cambridge Certified Teacher.<br />Accredited CIS International Expert (Netherlands)", "after": "18&nbsp;years of experience in education: Vice Principal at BIL and NIS.<br />Master of Science in Educational Leadership from Nazarbayev University.<br />Cambridge Certified Teacher.<br />Accredited CIS International Expert (Netherlands)"}, {"id": "NUM-17", "rec": "rec4620139203", "sel": "[field=\"li_text__6846079630032\"]", "kind": "html", "before": "Experience in education.<br />Experience within the Nazarbayev Intellectual Schools (NIS) system.<br />CIS International Evaluator<br />Master of Education, UCL", "after": "14&nbsp;years of experience in education.<br />12&nbsp;years of experience within the Nazarbayev Intellectual Schools (NIS) system.<br />CIS International Evaluator<br />Master of Education, UCL"}, {"id": "NUM-18", "rec": "rec4620139203", "sel": "[field=\"li_text__6846079630033\"]", "kind": "html", "before": "Experience in education. A&nbsp;certified IELTS specialist and professional mentor.", "after": "Over 14&nbsp;years of experience in education. A&nbsp;certified IELTS specialist and professional mentor."}, {"id": "NUM-19", "rec": "rec4620139103", "sel": "[field=\"descr\"]", "kind": "html", "before": "We are constantly investing in our teachers, just as we do in our pupils. Most of our teachers are trilingual and teach their subjects in English.", "after": "We are constantly investing in our teachers, just as we do in our pupils. Most of our teachers are trilingual and teach their subjects in English. They have an average of 12&nbsp;years’ teaching experience."}, {"id": "NUM-20", "rec": "rec4620139303", "sel": "[field=\"descr\"]", "kind": "html", "before": "Bilim‑Innovation is a&nbsp;network of schools famous for international olympiad winners and students at the world's top universities. Harmony Global is an&nbsp;independent school, but its strategic partner. Our students actively participate in the foundation's events, competitions, and tests, while our counseling and values program is built upon the proven BIL model.<br /><br /><strong>What does this mean?</strong><br /><br /><ul><li data-list=\"bullet\">Active participation in elite competitions and events across the foundation's network</li><li data-list=\"bullet\">Regular quality benchmarks and academic monitoring aligned with BIL standards</li><li data-list=\"bullet\">Values and character development based on the proven BIL school model</li><li data-list=\"bullet\">Direct access to an&nbsp;exclusive methodological framework and a&nbsp;premium pedagogical community</li><li data-list=\"bullet\">Advanced Olympiad preparation and a&nbsp;well‑established culture of academic excellence</li><li data-list=\"bullet\">Led by a&nbsp;Principal with leadership experience within the prestigious BIL and NIS networks</li></ul>", "after": "Bilim‑Innovation is a&nbsp;network of schools famous for international olympiad winners and students at the world’s top universities. Harmony Global is an&nbsp;independent school, but its strategic partner. Our students actively participate in the foundation’s events, competitions, and tests, while our counseling and values program is built upon the proven BIL model.<br /><br /><strong>What does this mean?</strong><br /><br /><ul><li data-list=\"bullet\">Active participation in elite competitions and events across the foundation’s network</li><li data-list=\"bullet\">Regular quality benchmarks and academic monitoring aligned with BIL standards</li><li data-list=\"bullet\">Values and character development based on the proven BIL school model</li><li data-list=\"bullet\">Direct access to an&nbsp;exclusive methodological framework and a&nbsp;premium pedagogical community</li><li data-list=\"bullet\">Advanced Olympiad preparation and a&nbsp;well‑established culture of academic excellence</li><li data-list=\"bullet\">Led by a&nbsp;Principal with 18&nbsp;years of leadership within the prestigious BIL and NIS networks</li></ul>", "alt": ["Bilim‑Innovation is a&nbsp;network of schools famous for international olympiad winners and students at the world’s top universities. Harmony Global is an&nbsp;independent school, but its strategic partner. Our students actively participate in the foundation’s events, competitions, and tests, while our counseling and values program is built upon the proven BIL model.<br /><br /><strong>What does this mean?</strong><br /><br /><ul><li data-list=\"bullet\">Active participation in elite competitions and events across the foundation’s network</li><li data-list=\"bullet\">Regular quality benchmarks and academic monitoring aligned with BIL standards</li><li data-list=\"bullet\">Values and character development based on the proven BIL school model</li><li data-list=\"bullet\">Direct access to an&nbsp;exclusive methodological framework and a&nbsp;premium pedagogical community</li><li data-list=\"bullet\">Advanced Olympiad preparation and a&nbsp;well‑established culture of academic excellence</li><li data-list=\"bullet\">Led by a&nbsp;Principal with leadership experience within the prestigious BIL and NIS networks</li></ul>"]}, {"id": "NUM-21", "rec": "rec4620138403", "sel": "[field=\"descr\"]", "kind": "html", "before": "Harmony Global is the second school in the Harmony network in Astana. It is not a&nbsp;replacement for our existing school, but an&nbsp;expansion of our educational environment built on the same values, student‑centered approach, and academic&nbsp;culture.<br /><br />The new school will offer the International Baccalaureate programme with continuity between stages of learning. This approach provides students with a&nbsp;consistent educational pathway and a&nbsp;seamless academic experience throughout their school&nbsp;years.<br /><br />Located in the Highvill Residential Complex, Harmony Global features a&nbsp;new purpose‑built campus designed to meet the needs of a&nbsp;modern international&nbsp;school.<br /><br />The initial intake is for primary&nbsp;school.", "after": "Harmony Global is the second school in the Harmony network in Astana. It is not a&nbsp;replacement for our existing school, but an&nbsp;expansion of our educational environment built on the same values, student‑centered approach, and academic&nbsp;culture.<br /><br />The new school will offer the International Baccalaureate programme with continuity from Grade&nbsp;0 through Grade&nbsp;12. This approach provides students with a&nbsp;consistent educational pathway and a&nbsp;seamless academic experience throughout their school&nbsp;years.<br /><br />Located in the Highvill Residential Complex, Harmony Global features a&nbsp;new purpose‑built campus with a&nbsp;total area of 10,446&nbsp;m² and a&nbsp;capacity of 800&nbsp;students, designed to meet the needs of a&nbsp;modern international&nbsp;school.<br /><br />In September 2026, Harmony Global will open its doors to students in Grades 0–5."}, {"id": "NUM-25", "rec": "rec4620138103", "sel": "[field=\"li_title__6646075653030\"]", "kind": "html", "before": "10 446<br /><em>м²</em>", "after": "10 446 <em>м²</em>"}, {"id": "NUM-26", "rec": "rec4620138103", "sel": "[field=\"li_title__6646075653033\"]", "kind": "html", "before": "KG -12", "after": "KG–12"}], "stages": true,"tones":[function(){(function(){var m={'#rec4616588203 .t537__bgimg':'dark','#rec4620043503 .t537__bgimg':'dark','#rec4620139203 .t537__bgimg':'dark'};for(var s in m){var l=document.querySelectorAll(s);for(var i=0;i<l.length;i++){l[i].setAttribute('data-tone',m[s]);}}})();}]},
 "293024503":{"key": "global-ru-admission", "lang": "ru", "home": false, "header": "<header class=\"hdr\"><a class=\"hdr__logo\" href=\"https://project13642453.tilda.ws/\" aria-label=\"Harmony Global School\" data-on=\"light\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"660 656 5400 1376\"><use href=\"#logo-global\" x=\"660\" y=\"656\" width=\"5400\" height=\"1376\"></use></svg></a>\n    <div class=\"hdr__end\" data-on=\"light\"><nav class=\"hdr__nav\" data-on=\"light\"><a href=\"https://project13642453.tilda.ws/admission\">Поступление</a></nav><nav class=\"lang\" aria-label=\"Language\"><a href=\"https://project13642453.tilda.ws/admission\" data-lang=\"ru\" lang=\"ru\" aria-current=\"true\">RU</a><a href=\"https://project13642453.tilda.ws/kz/admission\" data-lang=\"kz\" lang=\"kk\">KZ</a><a href=\"https://project13642453.tilda.ws/en/admission\" data-lang=\"en\" lang=\"en\">EN</a></nav><details class=\"lang-d\"><summary aria-label=\"Language: RU\">RU</summary><nav class=\"lang-d__menu\" aria-label=\"Language\"><a href=\"https://project13642453.tilda.ws/kz/admission\" data-lang=\"kz\" lang=\"kk\">KZ</a><a href=\"https://project13642453.tilda.ws/en/admission\" data-lang=\"en\" lang=\"en\">EN</a></nav></details>\n      <a class=\"btn hdr__cta\" href=\"#rec4616870203\">Консультация</a></div></header>", "footer": "<footer class=\"foot\" data-tone=\"dark\"><div class=\"foot__grid\"><div class=\"foot__brand\"><a class=\"foot__logo\" href=\"https://project13642453.tilda.ws/\" aria-label=\"Harmony Global School\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"660 656 5400 1376\"><use href=\"#logo-global\" x=\"660\" y=\"656\" width=\"5400\" height=\"1376\"></use></svg></a></div><div class=\"foot__col\"><p class=\"foot__head\">Harmony Global</p><a href=\"https://project13642453.tilda.ws/#about\">О&nbsp;школе</a><a href=\"https://project13642453.tilda.ws/#ib\">IB-программа</a><a href=\"https://project13642453.tilda.ws/#director\">Директор</a><a href=\"https://project13642453.tilda.ws/#team\">Команда</a><a href=\"/admission\">Поступление</a><a href=\"/#contacts\">Контакты</a></div><div class=\"foot__col\"><p class=\"foot__head\">Школы Harmony</p><a href=\"https://knit-decided-ocelot.tilda.ws/\">Harmony STEAM</a><a href=\"https://project13642453.tilda.ws/\">Harmony Global</a><a href=\"https://intently-finished-panflute.tilda.ws/\">Обе школы</a><a href=\"https://intently-finished-panflute.tilda.ws/#difference\">Отличия школ</a></div><div class=\"foot__col foot__col--contacts\"><p class=\"foot__head\">Контакты</p><a href=\"tel:+77750072332\">+7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a><p>ЖК&nbsp;Highvill, Астана</p><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram</a></div></div>\n    <p class=\"foot__legal\">Сеть школ в Астане. Международное образование с первого года и до поступления в университет.<br>© 2026&nbsp;Harmony&nbsp;Schools, Астана, Казахстан<br>Политика конфиденциальности · Оферта</p></footer>", "contactPage": null, "H": "<!-- hs block H: global-ru-admission, frozen header only -->\n<div class=\"hs\">\u0001</div>", "Dm": "<!-- hs block D: global-ru-admission, frozen footer only -->\n<div class=\"hs\">\u0001</div>\n", "first": "rec4616826403", "edits": [{"id": "GN-094", "rec": "rec4616861603", "sel": ".t-btnflex__text", "kind": "html", "before": "Записаться на собеседование →", "after": "Записаться на собеседование"}, {"id": "GN-095", "rec": "rec4616863203", "sel": ".t-btnflex__text", "kind": "html", "before": "Записаться на собеседование →", "after": "Записаться на собеседование"}, {"id": "GN-174", "rec": "rec4616847403", "sel": "[field=\"descr\"]", "kind": "html", "before": "5–6 лет · IB PYP Early Years<br />Акционная цена", "after": "5–6&nbsp;лет, IB&nbsp;PYP&nbsp;Early Years<br />Акционная цена"}, {"id": "GN-175", "rec": "rec4616856803", "sel": "[field=\"li_descr__2614858988812\"]", "kind": "html", "before": "10 платежей · сентябрь–июнь<br />в месяц", "after": "10&nbsp;платежей, сентябрь–июнь<br />в&nbsp;месяц"}, {"id": "GN-176", "rec": "rec4616863003", "sel": "[field=\"descr\"]", "kind": "html", "before": "6–11 лет · IB PYP<br />Акционная цена", "after": "6–11&nbsp;лет, IB&nbsp;PYP<br />Акционная цена"}, {"id": "GN-177", "rec": "rec4616863103", "sel": "[field=\"li_descr__5346168568032\"]", "kind": "html", "before": "10 платежей · сентябрь–июнь<br />в месяц", "after": "10&nbsp;платежей, сентябрь–июнь<br />в&nbsp;месяц"}, {"id": "FF-202", "rec": "rec4616842203", "sel": "[field=\"title\"]", "kind": "html", "before": "Harmony Global School<br />0‑12&nbsp;классы<br />3&nbsp;варианта оплаты", "after": "Harmony Global School<br />0–12&nbsp;классы<br />3&nbsp;варианта оплаты"}, {"id": "FF-203", "rec": "rec4616856803", "sel": "[field=\"li_descr__2614858988810\"]", "kind": "html", "before": "1&nbsp;платёж за&nbsp;весь год&nbsp;- максимальная выгода<br />за&nbsp;год", "after": "1&nbsp;платёж за&nbsp;весь год, максимальная выгода<br />за&nbsp;год"}, {"id": "FF-204", "rec": "rec4616861603", "sel": "[field=\"descr\"]", "kind": "html", "before": "<ul><li data-list=\"bullet\"><strong>Вступительный взнос</strong></li><li data-list=\"bullet\">единоразово, при&nbsp;заключении договора</li><li data-list=\"bullet\"><strong>250&nbsp;000&nbsp;₸</strong></li><li data-list=\"bullet\"><strong>В&nbsp;цену входит</strong></li><li data-list=\"bullet\">Обучение,</li><li data-list=\"bullet\">учебные материалы и&nbsp;книги,</li><li data-list=\"bullet\">комплект школьной формы,</li><li data-list=\"bullet\">кружки на&nbsp;выбор.</li><li data-list=\"bullet\"><strong>В&nbsp;цену не&nbsp;входит</strong></li><li data-list=\"bullet\">Питание и&nbsp;развозка оплачиваются отдельно.</li><li data-list=\"bullet\">Цена без&nbsp;акции&nbsp;- от&nbsp;4&nbsp;000&nbsp;000&nbsp;₸ Скидка сохраняется на&nbsp;2&nbsp;года обучения: забронируйте место и&nbsp;учитесь по&nbsp;специальной цене первый и&nbsp;второй год.</li><li data-list=\"bullet\"></li></ul>", "after": "<ul><li data-list=\"bullet\"><strong>Вступительный взнос</strong></li><li data-list=\"bullet\">единоразово, при&nbsp;заключении договора</li><li data-list=\"bullet\"><strong>250&nbsp;000&nbsp;₸</strong></li><li data-list=\"bullet\"><strong>В&nbsp;цену входит</strong></li><li data-list=\"bullet\">Обучение,</li><li data-list=\"bullet\">учебные материалы и&nbsp;книги,</li><li data-list=\"bullet\">комплект школьной формы,</li><li data-list=\"bullet\">кружки на&nbsp;выбор.</li><li data-list=\"bullet\"><strong>В&nbsp;цену не&nbsp;входит</strong></li><li data-list=\"bullet\">Питание и&nbsp;развозка оплачиваются отдельно.</li><li data-list=\"bullet\">Цена без&nbsp;акции, от&nbsp;4&nbsp;000&nbsp;000&nbsp;₸. Скидка сохраняется на&nbsp;2&nbsp;года обучения: забронируйте место и&nbsp;учитесь по&nbsp;специальной цене первый и&nbsp;второй год.</li><li data-list=\"bullet\"></li></ul>"}, {"id": "FF-205", "rec": "rec4616863003", "sel": "[field=\"subtitle\"]", "kind": "html", "before": "1 – 5 классы", "after": "1–5 классы"}, {"id": "FF-206", "rec": "rec4616863103", "sel": "[field=\"li_descr__5346168568030\"]", "kind": "html", "before": "1&nbsp;платёж за&nbsp;весь год&nbsp;- максимальная выгода<br />за&nbsp;год", "after": "1&nbsp;платёж за&nbsp;весь год, максимальная выгода<br />за&nbsp;год"}, {"id": "FF-207", "rec": "rec4616863203", "sel": "[field=\"descr\"]", "kind": "html", "before": "<ul><li data-list=\"bullet\"><strong>Вступительный взнос</strong></li><li data-list=\"bullet\">единоразово, при&nbsp;заключении договора</li><li data-list=\"bullet\"><strong>250&nbsp;000&nbsp;₸</strong></li><li data-list=\"bullet\"><strong>В&nbsp;цену входит</strong></li><li data-list=\"bullet\">Обучение,</li><li data-list=\"bullet\">учебные материалы и&nbsp;книги,</li><li data-list=\"bullet\">комплект школьной формы,</li><li data-list=\"bullet\">кружки на&nbsp;выбор.</li><li data-list=\"bullet\"><strong>В&nbsp;цену не&nbsp;входит</strong></li><li data-list=\"bullet\">Питание и&nbsp;развозка оплачиваются отдельно.</li><li data-list=\"bullet\">Цена без&nbsp;акции&nbsp;- от&nbsp;5&nbsp;500&nbsp;000&nbsp;₸ Скидка сохраняется на&nbsp;2&nbsp;года обучения: забронируйте место и&nbsp;учитесь по&nbsp;специальной цене первый и&nbsp;второй год.</li><li data-list=\"bullet\"></li></ul>", "after": "<ul><li data-list=\"bullet\"><strong>Вступительный взнос</strong></li><li data-list=\"bullet\">единоразово, при&nbsp;заключении договора</li><li data-list=\"bullet\"><strong>250&nbsp;000&nbsp;₸</strong></li><li data-list=\"bullet\"><strong>В&nbsp;цену входит</strong></li><li data-list=\"bullet\">Обучение,</li><li data-list=\"bullet\">учебные материалы и&nbsp;книги,</li><li data-list=\"bullet\">комплект школьной формы,</li><li data-list=\"bullet\">кружки на&nbsp;выбор.</li><li data-list=\"bullet\"><strong>В&nbsp;цену не&nbsp;входит</strong></li><li data-list=\"bullet\">Питание и&nbsp;развозка оплачиваются отдельно.</li><li data-list=\"bullet\">Цена без&nbsp;акции, от&nbsp;5&nbsp;500&nbsp;000&nbsp;₸. Скидка сохраняется на&nbsp;2&nbsp;года обучения: забронируйте место и&nbsp;учитесь по&nbsp;специальной цене первый и&nbsp;второй год.</li><li data-list=\"bullet\"></li></ul>"}],"tones":[]},
 "293054703":{"key": "global-ru-contacts", "lang": "ru", "home": false, "header": "<header class=\"hdr\"><a class=\"hdr__logo\" href=\"https://project13642453.tilda.ws/\" aria-label=\"Harmony Global School\" data-on=\"light\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"660 656 5400 1376\"><use href=\"#logo-global\" x=\"660\" y=\"656\" width=\"5400\" height=\"1376\"></use></svg></a>\n    <div class=\"hdr__end\" data-on=\"light\"><nav class=\"hdr__nav\" data-on=\"light\"><a href=\"https://project13642453.tilda.ws/admission\">Поступление</a></nav><nav class=\"lang\" aria-label=\"Language\"><a href=\"https://project13642453.tilda.ws/contacts\" data-lang=\"ru\" lang=\"ru\" aria-current=\"true\">RU</a><a href=\"https://project13642453.tilda.ws/kz/contacts\" data-lang=\"kz\" lang=\"kk\">KZ</a><a href=\"https://project13642453.tilda.ws/en/contacts\" data-lang=\"en\" lang=\"en\">EN</a></nav><details class=\"lang-d\"><summary aria-label=\"Language: RU\">RU</summary><nav class=\"lang-d__menu\" aria-label=\"Language\"><a href=\"https://project13642453.tilda.ws/kz/contacts\" data-lang=\"kz\" lang=\"kk\">KZ</a><a href=\"https://project13642453.tilda.ws/en/contacts\" data-lang=\"en\" lang=\"en\">EN</a></nav></details>\n      <a class=\"btn hdr__cta\" href=\"#rec4616896403\">Консультация</a></div></header>", "footer": "<footer class=\"foot\" data-tone=\"dark\"><div class=\"foot__grid\"><div class=\"foot__brand\"><a class=\"foot__logo\" href=\"https://project13642453.tilda.ws/\" aria-label=\"Harmony Global School\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"660 656 5400 1376\"><use href=\"#logo-global\" x=\"660\" y=\"656\" width=\"5400\" height=\"1376\"></use></svg></a></div><div class=\"foot__col\"><p class=\"foot__head\">Harmony Global</p><a href=\"https://project13642453.tilda.ws/#about\">О&nbsp;школе</a><a href=\"https://project13642453.tilda.ws/#ib\">IB-программа</a><a href=\"https://project13642453.tilda.ws/#director\">Директор</a><a href=\"https://project13642453.tilda.ws/#team\">Команда</a><a href=\"/admission\">Поступление</a><a href=\"/#contacts\">Контакты</a></div><div class=\"foot__col\"><p class=\"foot__head\">Школы Harmony</p><a href=\"https://knit-decided-ocelot.tilda.ws/\">Harmony STEAM</a><a href=\"https://project13642453.tilda.ws/\">Harmony Global</a><a href=\"https://intently-finished-panflute.tilda.ws/\">Обе школы</a><a href=\"https://intently-finished-panflute.tilda.ws/#difference\">Отличия школ</a></div><div class=\"foot__col foot__col--contacts\"><p class=\"foot__head\">Контакты</p><a href=\"tel:+77750072332\">+7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a><p>ЖК&nbsp;Highvill, Астана</p><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram</a></div></div>\n    <p class=\"foot__legal\">Сеть школ в Астане. Международное образование с первого года и до поступления в университет.<br>© 2026&nbsp;Harmony&nbsp;Schools, Астана, Казахстан<br>Политика конфиденциальности · Оферта</p></footer>", "contactPage": "<!-- hs contact section: global-ru. Verbatim from https://project13642453.tilda.ws/contacts rec4616886003 + rec4616896303 + rec4616896403. Styles: contact.css -->\n<div class=\"hs hs-contact-wrap hs-contact-wrap--page\"><section class=\"hs-contact\" id=\"contacts\" data-tone=\"light\"><h2 class=\"hs-contact__title\">Контакты</h2><p class=\"hs-contact__lead hs-contact__address\">ЖК&nbsp;Highvill, Астана</p><ul class=\"hs-contact__lines\"><li><a href=\"tel:+77750072332\">Телефон: +7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a></li><li><a href=\"mailto:admission@harmony.edu.kz\">Почта: admission@harmony.edu.kz</a></li><li><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram</a></li><li hidden data-pending=\"address-and-map\">[Map: address to confirm]</li></ul><div class=\"hs-contact__group\"><h3 class=\"hs-contact__sub\">Запись на&nbsp;приёмную комиссию</h3><dl class=\"hs-contact__grid\"><div class=\"hs-contact__entry\"><dt>Harmony STEAM School</dt><dd><a href=\"tel:+77000550051\">+7&nbsp;700&nbsp;055&nbsp;0051</a></dd></div><div class=\"hs-contact__entry\"><dt>Harmony Global School</dt><dd><a href=\"tel:+77001010038\">+7&nbsp;700&nbsp;101&nbsp;0038</a></dd></div><div class=\"hs-contact__entry\"><dt>Email</dt><dd><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a></dd></div></dl></div><div class=\"hs-contact__group hs-contact__group--form\"><h3 class=\"hs-contact__sub\">Оставьте заявку</h3><p class=\"hs-contact__lead\">Перезвоним в&nbsp;течение рабочего дня.</p><div class=\"hs-contact__slot\">[Microsoft Forms embed goes here]</div></div></section></div>\n", "H": "<!-- hs block H: global-ru-contacts, frozen header only -->\n<div class=\"hs\">\u0001</div>", "Dm": "<!-- hs block D: global-ru-contacts, frozen footer only -->\n<div class=\"hs\">\u0001</div>\n", "first": "rec4616886003", "edits": [{"id": "CDN-MAP-contacts", "rec": "rec4616886003", "sel": "[field=\"text\"]", "kind": "strip", "before": "[Map: address to confirm]", "after": ""}],"tones":[]},
 "293198903":{"key": "global-kz-admission", "lang": "kz", "home": false, "header": "<header class=\"hdr\"><a class=\"hdr__logo\" href=\"https://project13642453.tilda.ws/kz\" aria-label=\"Harmony Global School\" data-on=\"light\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"660 656 5400 1376\"><use href=\"#logo-global\" x=\"660\" y=\"656\" width=\"5400\" height=\"1376\"></use></svg></a>\n    <div class=\"hdr__end\" data-on=\"light\"><nav class=\"hdr__nav\" data-on=\"light\"><a href=\"https://project13642453.tilda.ws/kz/admission\">Оқуға түсу</a></nav><nav class=\"lang\" aria-label=\"Language\"><a href=\"https://project13642453.tilda.ws/admission\" data-lang=\"ru\" lang=\"ru\">RU</a><a href=\"https://project13642453.tilda.ws/kz/admission\" data-lang=\"kz\" lang=\"kk\" aria-current=\"true\">KZ</a><a href=\"https://project13642453.tilda.ws/en/admission\" data-lang=\"en\" lang=\"en\">EN</a></nav><details class=\"lang-d\"><summary aria-label=\"Language: KZ\">KZ</summary><nav class=\"lang-d__menu\" aria-label=\"Language\"><a href=\"https://project13642453.tilda.ws/admission\" data-lang=\"ru\" lang=\"ru\">RU</a><a href=\"https://project13642453.tilda.ws/en/admission\" data-lang=\"en\" lang=\"en\">EN</a></nav></details>\n      <a class=\"btn hdr__cta\" href=\"#rec4620089103\">Консультация</a></div></header>", "footer": "<footer class=\"foot\" data-tone=\"dark\"><div class=\"foot__grid\"><div class=\"foot__brand\"><a class=\"foot__logo\" href=\"https://project13642453.tilda.ws/kz\" aria-label=\"Harmony Global School\"><svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"660 656 5400 1376\"><use href=\"#logo-global\" x=\"660\" y=\"656\" width=\"5400\" height=\"1376\"></use></svg></a></div><div class=\"foot__col\"><p class=\"foot__head\">Harmony Global</p><a href=\"https://project13642453.tilda.ws/kz#about\">Мектеп туралы</a><a href=\"https://project13642453.tilda.ws/kz#ib\">IB-бағдарламасы</a><a href=\"https://project13642453.tilda.ws/kz#director\">Директор</a><a href=\"https://project13642453.tilda.ws/kz#team\">Команда</a><a href=\"/kz/admission\">Оқуға түсу</a><a href=\"/kz#contacts\">Байланыс</a></div><div class=\"foot__col\"><p class=\"foot__head\">Harmony мектептері</p><a href=\"https://knit-decided-ocelot.tilda.ws/kz\">Harmony STEAM</a><a href=\"https://project13642453.tilda.ws/kz\">Harmony Global</a><a href=\"https://intently-finished-panflute.tilda.ws/kz\">Екі мектеп</a><a href=\"https://intently-finished-panflute.tilda.ws/kz#difference\">Мектептердің айырмашылығы</a></div><div class=\"foot__col foot__col--contacts\"><p class=\"foot__head\">Байланыс</p><a href=\"tel:+77750072332\">+7&nbsp;775&nbsp;007&nbsp;23&nbsp;32</a><a href=\"mailto:admission@harmony.edu.kz\">admission@harmony.edu.kz</a><p>Highvill ТК, Астана</p><a href=\"https://www.instagram.com/harmonyedukz/\">Instagram</a></div></div>\n    <p class=\"foot__legal\">Астанадағы мектептер желісі. Халықаралық білім бірінші жылдан бастап университетке түскенге дейін.<br>© 2026&nbsp;Harmony&nbsp;Schools, Астана, Қазақстан<br>Жеке деректерді қорғау/өңдеу саясаты · Ұсыныс</p></footer>", "contactPage": null, "H": "<!-- hs block H: global-kz-admission, frozen header only -->\n<div class=\"hs\">\u0001</div>", "Dm": "<!-- hs block D: global-kz-admission, frozen footer only -->\n<div class=\"hs\">\u0001</div>\n", "first": "rec4620087803", "edits": [{"id": "GN-123", "rec": "rec4620088403", "sel": ".t-btnflex__text", "kind": "html", "before": "Консультацияға жазылу→", "after": "Консультацияға жазылу"}, {"id": "GN-124", "rec": "rec4620088703", "sel": ".t-btnflex__text", "kind": "html", "before": "Консультацияға жазылу →", "after": "Консультацияға жазылу"}, {"id": "GN-179", "rec": "rec4620088303", "sel": "[field=\"li_descr__2614858988812\"]", "kind": "html", "before": "10 төлем · қыркүйек–маусым<br />айына", "after": "10&nbsp;төлем, қыркүйек–маусым<br />айына"}, {"id": "GN-181", "rec": "rec4620088603", "sel": "[field=\"li_descr__5346168568032\"]", "kind": "html", "before": "10 төлем · қыркүйек–маусым<br />айына", "after": "10&nbsp;төлем, қыркүйек–маусым<br />айына"}, {"id": "FF-210", "rec": "rec4620088103", "sel": "[field=\"title\"]", "kind": "html", "before": "Harmony Global School<br />0‑12&nbsp;сыныптар<br />3&nbsp;төлем түрі", "after": "Harmony Global School<br />0–12&nbsp;сыныптар<br />3&nbsp;төлем түрі"}, {"id": "FF-211", "rec": "rec4620088203", "sel": "[field=\"descr\"]", "kind": "html", "before": "5‑6&nbsp;жас, IB&nbsp;PYP&nbsp;Early Years<br />Арнайы баға", "after": "5–6&nbsp;жас, IB&nbsp;PYP&nbsp;Early Years<br />Арнайы баға", "alt": ["5-6 жас · IB PYP Early Years<br />Арнайы баға", "5&#8209;6&nbsp;жас, IB&nbsp;PYP&nbsp;Early Years<br />Арнайы баға"]}, {"id": "FF-212", "rec": "rec4620088303", "sel": "[field=\"li_descr__2614858988810\"]", "kind": "html", "before": "Бүкіл жылға 1&nbsp;төлем&nbsp;- максималды тиімділік<br />жылына", "after": "Бүкіл жылға 1&nbsp;төлем, максималды тиімділік<br />жылына"}, {"id": "FF-213", "rec": "rec4620088403", "sel": "[field=\"descr\"]", "kind": "html", "before": "<ul><li data-list=\"bullet\"><strong>Қабылдау жарнасы</strong></li><li data-list=\"bullet\">келісім жасасу кезінде бір&nbsp;рет&nbsp;төленеді</li><li data-list=\"bullet\"><strong>250&nbsp;000&nbsp;₸</strong></li><li data-list=\"bullet\"><strong>В&nbsp;цену входит</strong></li><li data-list=\"bullet\">Обучение,</li><li data-list=\"bullet\">учебные материалы и&nbsp;книги,</li><li data-list=\"bullet\">комплект школьной формы,</li><li data-list=\"bullet\">кружки на&nbsp;выбор.</li><li data-list=\"bullet\"><strong>В&nbsp;цену не&nbsp;входит</strong></li><li data-list=\"bullet\">Питание и&nbsp;развозка оплачиваются отдельно.</li><li data-list=\"bullet\">Акциясыз баға&nbsp;- 4&nbsp;000&nbsp;000&nbsp;₸- ден&nbsp;бастап Жеңілдік 2&nbsp;жылға жарамды: орныңызды қазір брондап, бірінші және екінші жылды тиімді бағамен оқыңыз:</li><li data-list=\"bullet\"></li></ul>", "after": "<ul><li data-list=\"bullet\"><strong>Қабылдау жарнасы</strong></li><li data-list=\"bullet\">келісім жасасу кезінде бір&nbsp;рет&nbsp;төленеді</li><li data-list=\"bullet\"><strong>250&nbsp;000&nbsp;₸</strong></li><li data-list=\"bullet\"><strong>Бағаға кіреді</strong></li><li data-list=\"bullet\">Оқыту,</li><li data-list=\"bullet\">оқу материалдары мен кітаптар,</li><li data-list=\"bullet\">мектеп формасының жинағы,</li><li data-list=\"bullet\">таңдау бойынша үйірмелер.</li><li data-list=\"bullet\"><strong>Бағаға кірмейді</strong></li><li data-list=\"bullet\">Тамақтану мен тасымалдау бөлек төленеді.</li><li data-list=\"bullet\">Акциясыз баға, 4&nbsp;000&nbsp;000&nbsp;₸-ден&nbsp;бастап. Жеңілдік 2&nbsp;жылға жарамды: орныңызды қазір брондап, бірінші және екінші жылды тиімді бағамен оқыңыз:</li><li data-list=\"bullet\"></li></ul>"}, {"id": "FF-214", "rec": "rec4620088503", "sel": "[field=\"subtitle\"]", "kind": "html", "before": "1 - 5 сыныптар", "after": "1–5 сыныптар"}, {"id": "FF-215", "rec": "rec4620088503", "sel": "[field=\"descr\"]", "kind": "html", "before": "6‑11&nbsp;жас, IB&nbsp;PYP<br />Арнайы баға", "after": "6–11&nbsp;жас, IB&nbsp;PYP<br />Арнайы баға", "alt": ["6 -11 жас · IB PYP<br />Арнайы баға", "6&#8209;11&nbsp;жас, IB&nbsp;PYP<br />Арнайы баға"]}, {"id": "FF-216", "rec": "rec4620088603", "sel": "[field=\"li_descr__5346168568030\"]", "kind": "html", "before": "Бүкіл жылға 1&nbsp;төлем&nbsp;- максималды тиімділік<br />жылына", "after": "Бүкіл жылға 1&nbsp;төлем, максималды тиімділік<br />жылына"}, {"id": "FF-217", "rec": "rec4620088703", "sel": "[field=\"descr\"]", "kind": "html", "before": "<ul><li data-list=\"bullet\"><strong>Кіру жарнасы</strong></li><li data-list=\"bullet\">единоразово, при&nbsp;заключении договора</li><li data-list=\"bullet\"><strong>250&nbsp;000&nbsp;₸</strong></li><li data-list=\"bullet\"><strong>В&nbsp;цену входит</strong></li><li data-list=\"bullet\">Обучение,</li><li data-list=\"bullet\">учебные материалы и&nbsp;книги,</li><li data-list=\"bullet\">комплект школьной формы,</li><li data-list=\"bullet\">кружки на&nbsp;выбор.</li><li data-list=\"bullet\"><strong>В&nbsp;цену не&nbsp;входит</strong></li><li data-list=\"bullet\">Питание и&nbsp;развозка оплачиваются отдельно.</li><li data-list=\"bullet\">Акциясыз баға&nbsp;- 4&nbsp;000&nbsp;000&nbsp;₸- ден&nbsp;бастап Жеңілдік 2&nbsp;жылға жарамды</li><li data-list=\"bullet\"></li></ul>", "after": "<ul><li data-list=\"bullet\"><strong>Кіру жарнасы</strong></li><li data-list=\"bullet\">келісім жасасу кезінде бір рет төленеді</li><li data-list=\"bullet\"><strong>250&nbsp;000&nbsp;₸</strong></li><li data-list=\"bullet\"><strong>Бағаға кіреді</strong></li><li data-list=\"bullet\">Оқыту,</li><li data-list=\"bullet\">оқу материалдары мен кітаптар,</li><li data-list=\"bullet\">мектеп формасының жинағы,</li><li data-list=\"bullet\">таңдау бойынша үйірмелер.</li><li data-list=\"bullet\"><strong>Бағаға кірмейді</strong></li><li data-list=\"bullet\">Тамақтану мен тасымалдау бөлек төленеді.</li><li data-list=\"bullet\">Акциясыз баға, 4&nbsp;000&nbsp;000&nbsp;₸-ден&nbsp;бастап. Жеңілдік 2&nbsp;жылға жарамды</li><li data-list=\"bullet\"></li></ul>"}, {"id": "FF-218", "rec": "rec4620088903", "sel": "[field=\"li_descr__7584858981300\"]", "kind": "html", "before": "На&nbsp;обучение 2‑го ребёнка в&nbsp;семье", "after": "Отбасындағы 2‑ші баланың оқуына"}, {"id": "FF-219", "rec": "rec4620088903", "sel": "[field=\"li_descr__7584858981301\"]", "kind": "html", "before": "На&nbsp;обучение 2‑го ребёнка в&nbsp;семье", "after": "3‑ші және одан кейінгі әр баланың оқуына"}],"tones":[]},
@@ -688,6 +688,15 @@ document.addEventListener("DOMContentLoaded",function(){
     if (rec) {
       place.insertBefore(rec, place.firstChild);
       R.classList.add('k-v9-form');
+      /* neutral first option on the drop-down (no default school / grade) */
+      var PH = { school: { ru: 'Выберите школу', kz: 'Мектепті таңдаңыз', en: 'Choose a school' }, grade: { ru: 'Выберите класс', kz: 'Сыныпты таңдаңыз', en: 'Choose a grade' } };
+      rec.querySelectorAll('select').forEach(function (sel) {
+        if (sel.querySelector('option[data-v9-ph]')) return;
+        var isSchool = [].some.call(sel.options, function (o) { return /Harmony/.test(o.textContent); });
+        var o = D.createElement('option'); o.value = ''; o.disabled = true; o.selected = true; o.setAttribute('data-v9-ph', '');
+        o.textContent = (PH[isSchool ? 'school' : 'grade'][lang()] || PH[isSchool ? 'school' : 'grade'].ru);
+        sel.insertBefore(o, sel.firstChild); sel.value = '';
+      });
     } else R.classList.add('k-v9-noform');
     if (lines && !lines.querySelector('.v9-addr')) {
       var fp = D.querySelector('.foot__col--contacts p:not(.foot__head)');
@@ -952,391 +961,626 @@ document.addEventListener("DOMContentLoaded",function(){
 })();
 });
 
-/* hero-continuum.js (v6): Harmony Global homepage hero, "the continuum". One blue current, born as a single thread at the
-   left, gaining strands as it travels (filaments, braid, ribbon). Raw WebGL2, instanced line strips, ink on white.
-   Global homepages only: runs when <html> carries data-site="global" and data-hs-home (set by dist/global.js from the URL
-   and the runtime's page table) and the hero (.hs .sentence) exists; anywhere else it does nothing.
-   Starts after window load, in idle time; one rAF loop, paused off-screen and on a hidden tab; DPR capped at 2; survives
-   WebGL context loss; reduced motion and no WebGL2 get a still frame. One global: window.hsContinuum. No dependencies. */
+/* hero-global.js (v14): proto/heroes/shared/current.js + shapes.js (the Start current engine, continuum shape) + boot. */
+/* Harmony "current": the Start hero's WebGL2 renderer (axis/hero.js, 2026-10-15), factored out so one engine draws any
+   path. PROTOTYPE (proto/heroes), not shipped.
+   What stayed identical to axis/hero.js: transform-feedback particles (40k desktop / 16k phone), spring to a path table
+   (equal-time samples on a float texture), curl noise near the source, fade-buffer trails, the tone-mapped composite on
+   #111216, the per-dot alpha/brightness/streak rules, the intro time-lapse, pointer steering, reduced-motion still frame,
+   the 2D fallback. What became a parameter (the "shape"): the path itself (measure), mirroring of the second current, where the curl
+   stir sits (near the source, or near the loose end: curlAtEnd),
+   the helix sign, colours, lane distribution, bottom-edge dissolve. Shapes live in shapes.js.
+   API: const ctl = HSCurrent.mount(heroEl, shape) -> { S, geo, RM, running() }. */
 (() => {
-  'use strict';
-  const W0 = window, D = document, R = D.documentElement;
-  if (W0.hsContinuum) return;
-  const NS = (W0.hsContinuum = { version: 'v6', state: 'waiting', mode: '', frames: 0 });
+  const smooth = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+  const bez = (P, t) => { const u = 1 - t; return [0, 1].map(k => u * u * u * P[0][k] + 3 * u * u * t * P[1][k] + 3 * u * t * t * P[2][k] + t * t * t * P[3][k]); };
+  const mixW = (c, k) => c.map(v => (v / 255) * (1 - k) + k);
+  const NP = 256, NM = 5;
 
-  const eligible = () => R.getAttribute('data-site') === 'global' && R.hasAttribute('data-hs-home') && D.querySelector('.hs .sentence');
+  function mount(hero, shape) {
+    const root = document.documentElement;
+    const RM = matchMedia('(prefers-reduced-motion: reduce)').matches || /[?&]rm=1/.test(location.search);
+    const STR = !!shape.strands; // strand mode: particles ride an analytic strand family (v6 continuum) instead of the path table
+    let INTRO = !RM && !STR && !/[?&]intro=0/.test(location.search);
+    try { const k = shape.sessionKey || 'hsCurrentIntro'; INTRO = INTRO && (!sessionStorage.getItem(k) || /[?&]intro=1/.test(location.search)); sessionStorage.setItem(k, '1'); } catch (e) {}
 
-  // GLOBAL blue (token color.accent.global #3a72ce); ink = token color.ink #0a1226
-  const BLUE = [58, 114, 206], INK = [10, 18, 38];
-  const mix = (a, b, k) => a.map((v, i) => (v + (b[i] - v) * k) / 255);
-  const DEEP = mix(BLUE, INK, 0.42), TINT = mix(BLUE, [255, 255, 255], 0.38);
-  const TAU = 6.2831853, T_STILL = 3.4;
-  const ss = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+    const WARM = shape.warm || mixW([0xcc, 0x43, 0x3b], 0.06); // --steam #cc433b
+    const COOL = shape.cool || mixW([0x3a, 0x72, 0xce], 0.06); // --global #3a72ce
+    const WHITE = [0.93, 0.93, 0.95];
+    const WARM_GAIN = shape.warmGain != null ? shape.warmGain : 1.25;
+    const bg = shape.bg || [17 / 255, 18 / 255, 22 / 255];
+    const MIRROR = shape.mirror === false ? 0 : 1, EDGE = shape.edge === 0 ? 0 : 1;
 
-  let hero, h1, intro, btn, cv = null, gl = null, prog = null, vao = null, bufs = [], U = {};
-  let W = 0, H = 0, dpr = 1, phone = false, N = 0, SEG = 0, S = null, T = null, calm = 1;
-  let running = false, visible = true, raf = 0, last = 0, t = 0, pull = 0, pullT = 0, startAt = 0, lost = false;
-  let rmq = null, rszTimer = 0, lastW = -1, lastH = -1, ro = null, io = null;
-  const geo = { k: 1, x0: 0, x1: 0, yL: 0, yR: 0, wMax: 0, amp: 0 };
-  const masks = new Float32Array(12);
-  const listeners = [];
-  const on = (el, ev, fn, opt) => { el.addEventListener(ev, fn, opt); listeners.push([el, ev, fn, opt]); };
+    let cv, gl, W = 0, H = 0, dpr = 1, running = false;
+    const path = new Float32Array(NP * 3 * 4); // rows: (x, y, tx, ty) | (twist amplitude px, twist phase rad, half width px, white) | (arc px, arm wave weight, speed px/s, twist weight)
+    const geo = { mob: 0, cx: 0, S: 240, T: 16, lean: 6, hdir: [1, 0], uM: 0.3, rs: 4, helS: 0, mask: new Float32Array(NM * 4), mk: new Float32Array(NM) };
+    const S = { t6: 1.2, rev: 1.08, spr: 1.28, fade: 1, pull: 0, pullT: 0, k6: 1, t0: 0, t: 0, intro: 0, bias: 0, biasT: 0, sweep: 0, sweepSide: 0, sweepOn: false, trav: [0, 0], trav0: [0, 0], dtrav: [0, 0], rate: [1, 1], ir: 1, off: 0, snap: true, ti: 0, front: [9, 9], m: [-1e4, -1e4], mv: [0, 0], mvRaw: [0, 0], mOn: 0, mOnT: 0, last: null };
+    const introShape = f => 1.5 - 0.78 * smooth(geo.uM - 0.14, geo.uM, f) + 0.38 * smooth(geo.uM + 0.02, geo.uM + 0.2, f);
 
-  // ---------- strands (seeded so every load composes the same) ----------
-  function buildStrands(isPhone) {
-    // phone: fewer strands, quieter wander, lighter ink: calm and uncrowded at 390
-    N = isPhone ? 40 : 150; SEG = isPhone ? 150 : 280; calm = isPhone ? 0.6 : 1;
-    const aK = isPhone ? 0.9 : 1;
-    S = new Float32Array(N * 4); T = new Float32Array(N * 4); // [birth, lane, phase, group] [width, alpha, tone, freq]
-    let seed = 7;
-    const rnd = () => (seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296;
-    const nRoot = 4, nFil = Math.round(N * 0.1), nBr = Math.round(N * 0.3), nRib = N - nRoot - nFil - nBr;
-    let k = 0;
-    const put = (b, l, ph, g, w, a, tone, f) => { S.set([b, l, ph, g], k * 4); T.set([w, a * aK, tone, f], k * 4); k++; };
-    for (let i = 0; i < nRoot; i++) put(-0.2, (i / 3 - 0.5) * 0.3, rnd(), i % 3, 0.95, 0.34, 0, 0.8 + rnd() * 0.4);
-    for (let i = 0; i < nFil; i++) put(0.08 + 0.22 * rnd(), rnd() * 2 - 1, rnd(), i % 3, 0.6 + 0.45 * rnd(), 0.34 + 0.2 * rnd(), 0.1 + 0.3 * rnd(), 0.7 + rnd() * 0.9);
-    for (let i = 0; i < nBr; i++) put(0.28 + 0.24 * rnd(), rnd() * 2 - 1, rnd(), i % 3, 0.5 + 0.4 * rnd(), 0.2 + 0.14 * rnd(), 0.2 + 0.5 * rnd(), 0.8 + rnd() * 0.6);
-    for (let i = 0; i < nRib; i++) put(0.5 + 0.28 * rnd(), (i / (nRib - 1)) * 2 - 1 + (rnd() - 0.5) * 0.04, rnd(), i % 3, 0.45 + 0.4 * rnd(), 0.13 + 0.13 * rnd(), 0.3 + 0.7 * rnd(), 0.8 + rnd() * 0.5);
-  }
-
-  // ---------- layout ----------
-  const rect = (el, r) => { const b = el.getBoundingClientRect(); return [b.left - r.left, b.top - r.top, b.right - r.left, b.bottom - r.top]; };
-  function measure() {
-    const r = hero.getBoundingClientRect();
-    W = r.width; H = r.height; phone = W < 768;
-    const mh = h1 ? rect(h1, r) : [0, 0, 0, 0], mi = intro ? rect(intro, r) : mh, mb = btn ? rect(btn, r) : mi;
-    masks.set([...mh, ...mi, ...mb]);
-    const below = mb[3], room = Math.max(1, H - below);
-    geo.x0 = -0.01 * W; geo.x1 = 1.01 * W;
-    if (phone) {
-      // the current sits low in the free band, slim and nearly level, with air above and below
-      const c = below + room * 0.6;
-      geo.yL = c + room * 0.1; geo.yR = c - room * 0.03;
-      geo.wMax = room * 0.15; geo.amp = room * 0.04;
-    } else {
-      geo.amp = H * 0.03;
-      const top = Math.max(mi[3], mh[3]) + 44, bottom = H - 14 - geo.amp;
-      geo.wMax = Math.max(40, Math.min(H * 0.13, (bottom - top) / 1.95));
-      geo.yR = Math.min(Math.max(top + geo.wMax * 0.95 + geo.amp, H * 0.62), bottom - geo.wMax);
-      // short, wide screens: keep the ribbon's upper edge below the button line so it never rides up into the text
-      geo.yR = Math.max(geo.yR, Math.min(mb[1] + geo.wMax * 0.9, bottom - geo.wMax));
-      geo.yL = Math.max(below + room * 0.5, geo.yR + 20);
-    }
-    geo.k = Math.min(1, Math.max(0.5, W / 1440 * 1.25));
-  }
-  function fitCanvas() {
-    measure();
-    dpr = Math.min(W0.devicePixelRatio || 1, 2);
-    const cw = Math.max(1, Math.round(W * dpr)), ch = Math.max(1, Math.round(H * dpr));
-    if (cv.width !== cw) cv.width = cw;
-    if (cv.height !== ch) cv.height = ch;
-    lastW = Math.round(W); lastH = Math.round(H);
-  }
-
-  // ---------- shared analytic path (JS mirror of the vertex shader, for the still frame) ----------
-  function pathJS(i, u, tt) {
-    const b = S[i * 4], l = S[i * 4 + 1], ph = S[i * 4 + 2], g = S[i * 4 + 3], f = T[i * 4 + 3];
-    const x = geo.x0 + (geo.x1 - geo.x0) * u, e = u * u * (3 - 2 * u), br = 1 + 0.05 * Math.sin(tt * 0.42);
-    const v = u * geo.k;
-    let yc = geo.yL + (geo.yR - geo.yL) * e + geo.amp * (0.35 + 0.65 * u) * Math.sin(TAU * 1.05 * v - tt * 0.32) * br;
-    const w = geo.wMax * (0.015 + 0.985 * Math.pow(u, 1.35)) * br;
-    const born = ss(b, b + 0.14, u), early = 1 - ss(0.22, 0.46, u), late = ss(0.58, 0.82, u), mid = 1 - early - late;
-    const wander = calm * (1.5 * Math.sin(TAU * (v * f * 1.9 + ph) + tt * 0.3 * (0.6 + ph)) + 0.8 * Math.sin(TAU * (v * f * 4.7 + ph * 3.1) - tt * 0.23) + 0.35 * Math.sin(TAU * (v * 9.3 + ph * 5) + tt * 0.17));
-    const braid = 0.8 * Math.sin(TAU * v * 3.1 + g * 2.0944 - tt * 0.28) + 0.2 * l;
-    const tw = 0.55 * Math.sin(3.1416 * u * 1.6 - tt * 0.12 + 0.6);
-    const ribbon = l * Math.cos(tw) + 0.05 * Math.sin(TAU * (v * 2 + ph) - tt * 0.3);
-    yc += born * w * (early * wander + mid * braid + late * ribbon);
-    return [x, yc];
-  }
-  function alphaJS(i, u, tt, x, y) {
-    const b = S[i * 4], l = S[i * 4 + 1], ph = S[i * 4 + 2];
-    let a = T[i * 4 + 1] * ss(b - 0.02, b + 0.09, u) * ss(0, 0.05, u);
-    a *= 0.72 + 0.28 * Math.pow(0.5 + 0.5 * Math.sin(TAU * (u * 7 - tt * 0.18 + ph)), 2);
-    a *= 1 - 0.45 * ss(0.58, 0.82, u) * l * l;
-    for (let m = 0; m < 3; m++) {
-      const x0 = masks[m * 4], y0 = masks[m * 4 + 1], x1 = masks[m * 4 + 2], y1 = masks[m * 4 + 3];
-      const dx = Math.max(x0 - x, 0, x - x1), dy = Math.max(y0 - y, 0, y - y1);
-      a *= 0.1 + 0.9 * ss(0, 30, Math.hypot(dx, dy));
-    }
-    return a;
-  }
-
-  // Still frame: reduced motion, no WebGL2, or a context that cannot be restored
-  function drawStill() {
-    fitCanvas();
-    if (phone !== (N === 40)) buildStrands(phone);
-    const c = cv.getContext('2d');
-    if (!c) return;
-    c.setTransform(dpr, 0, 0, dpr, 0, 0);
-    c.clearRect(0, 0, W, H);
-    c.lineCap = 'butt';
-    const steps = Math.round(SEG * 0.6), span = geo.x1 - geo.x0;
-    for (let i = 0; i < N; i++) {
-      // one path per strand; alpha along it rides a horizontal gradient (x is monotonic in u), so no segment seams
-      const tone = T[i * 4 + 2], col = DEEP.map((v, j) => Math.round((v + (TINT[j] - v) * tone) * 255)).join(',');
-      const g = c.createLinearGradient(geo.x0, 0, geo.x1, 0);
-      c.lineWidth = T[i * 4];
-      c.beginPath();
-      for (let s = 0; s <= steps; s++) {
-        const u = s / steps, q = pathJS(i, u, T_STILL);
-        s ? c.lineTo(q[0], q[1]) : c.moveTo(q[0], q[1]);
-        if (s % 4 === 0) g.addColorStop(Math.min(1, Math.max(0, (q[0] - geo.x0) / span)), `rgba(${col},${alphaJS(i, u, T_STILL, q[0], q[1]).toFixed(3)})`);
+    // ---------- geometry: the shape lays down raw samples, the engine resamples them at equal time ----------
+    function measure() {
+      let res, again = false;
+      for (let k = 0; k < 4; k++) {
+        const r = hero.getBoundingClientRect();
+        W = r.width; H = r.height; geo.cx = W / 2; geo.mob = W < 768 ? 1 : 0;
+        geo.mask.fill(-1e5); geo.mk.fill(1);
+        res = shape.measure({ hero, r, W, H, geo, smooth, bez }, again);
+        if (!res.again) break; again = true;
       }
-      c.strokeStyle = g; c.stroke();
+      geo.helS = shape.helS === 'always' ? 1 : geo.mob;
+      const { pts, iM } = res;
+      const n = pts.length, arc = new Float64Array(n), tim = new Float64Array(n);
+      for (let i = 1; i < n; i++) { const ds = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); arc[i] = arc[i - 1] + ds; tim[i] = tim[i - 1] + ds / (0.5 * (pts[i][7] + pts[i - 1][7])); }
+      geo.T = tim[n - 1]; geo.uM = tim[iM] / geo.T;
+      let I = 0; for (let i = 0; i < 200; i++) I += 1 / introShape((i + 0.5) / 200) / 200;
+      const it = shape.introSec || [4.6, 3.6];
+      geo.rs = Math.max(1, geo.T * I / (geo.mob ? it[1] : it[0]));
+      let j = 0;
+      for (let i = 0; i < NP; i++) {
+        const tt = geo.T * i / (NP - 1);
+        while (j < n - 2 && tim[j + 1] < tt) j++;
+        const f = Math.min(1, Math.max(0, (tt - tim[j]) / Math.max(1e-6, tim[j + 1] - tim[j]))), L = k => pts[j][k] + (pts[j + 1][k] - pts[j][k]) * f;
+        const tx = pts[j + 1][0] - pts[j][0], ty = pts[j + 1][1] - pts[j][1], tl = Math.hypot(tx, ty) || 1;
+        path.set([L(0), L(1), tx / tl, ty / tl], i * 4);
+        path.set([L(2), L(3), L(4), L(5)], (NP + i) * 4);
+        path.set([arc[j] + (arc[j + 1] - arc[j]) * f, L(6), L(7), L(8)], (2 * NP + i) * 4);
+      }
     }
-    NS.frames++;
-  }
+    const laneOf = (i, s) => shape.lane ? shape.lane(i, s) : (Math.random() + Math.random() + Math.random() - 1.5) / 1.5;
 
-  // ---------- WebGL2 ----------
-  const VS = `#version 300 es
-precision highp float;
-layout(location=0) in vec4 aS; layout(location=1) in vec4 aT;
-uniform vec2 uRes; uniform float uT, uRev, uSpr, uFade, uSeg, uPull, uDpr, uCap, uK, uCalm;
-uniform vec4 uG, uG2; uniform vec4 uP[10]; uniform vec4 uM[3];
-uniform vec3 uDeep, uTint;
-out float vD; out float vHW; out float vA; out vec3 vC;
-const float TAU = 6.2831853;
-float ss(float a, float b, float x){ return smoothstep(a, b, x); }
-vec2 path(float u){
-  float b=aS.x, l=aS.y, ph=aS.z, g=aS.w, f=aT.w;
-  float x = mix(uG.x, uG.y, u), e = u*u*(3.-2.*u), br = 1. + .05*sin(uT*.42);
-  float v = u*uK;
-  float yc = mix(uG.z, uG.w, e) + uG2.y*(.35+.65*u)*sin(TAU*1.05*v - uT*.32)*br;
-  float pw = ss(.6, 1., u)*uPull;
-  float w = uG2.x*(.015 + .985*pow(u, 1.35))*br*(1. - .12*pw);
-  float born = ss(b, b+.14, u)*ss(0., .16, uSpr - u), early = 1. - ss(.22, .46, u), late = ss(.58, .82, u), mid = 1. - early - late;
-  float wander = uCalm*(1.5*sin(TAU*(v*f*1.9 + ph) + uT*.3*(.6+ph)) + .8*sin(TAU*(v*f*4.7 + ph*3.1) - uT*.23) + .35*sin(TAU*(v*9.3 + ph*5.) + uT*.17));
-  float braid = .8*sin(TAU*v*3.1 + g*2.0944 - uT*.28) + .2*l;
-  float tw = .55*sin(3.1416*u*1.6 - uT*.12 + .6);
-  float ribbon = l*cos(tw) + .05*sin(TAU*(v*2. + ph) - uT*.3);
-  yc += born*w*(early*wander + mid*braid + late*ribbon);
-  vec2 p = vec2(x, yc - 6.*pw);
-  vec2 D = vec2(0.);
-  for (int i = 0; i < 10; i++) {
-    vec4 c = uP[i]; if (c.z < .002) continue;
-    vec2 d = p - c.xy; float r = c.w;
-    D += d/(length(d) + 5.) * c.z*exp(-dot(d, d)/(r*r)) * r*.7;
-  }
-  float dl = length(D);
-  return p + D*min(1., uCap/(dl + 1e-3));
-}
-void main(){
-  float i = float(gl_VertexID >> 1), side = float(gl_VertexID & 1)*2. - 1.;
-  float u = i/uSeg;
-  vec2 p = path(u), q = path(u + .002);
-  vec2 tn = normalize(q - p + vec2(1e-4, 0.)), n = vec2(-tn.y, tn.x);
-  float px = 1./uDpr, wv = max(aT.x, px);
-  vHW = wv*.5 + px; vD = side*vHW;
-  p += n*vD;
-  float b = aS.x, l = aS.y, ph = aS.z;
-  float a = aT.y*(aT.x/wv)*ss(b - .02, b + .09, u)*ss(0., .05, u);
-  a *= .72 + .28*pow(.5 + .5*sin(TAU*(u*7. - uT*.18 + ph)), 2.);
-  a *= 1. - .45*ss(.58, .82, u)*l*l;
-  a *= (1. - ss(uRev - .07, uRev, u))*uFade;
-  for (int m = 0; m < 3; m++) {
-    vec4 r = uM[m]; vec2 d = max(max(r.xy - p, p - r.zw), 0.);
-    a *= .1 + .9*ss(0., 30., length(d));
-  }
-  vA = a; vC = mix(uDeep, uTint, aT.z);
-  vec2 cl = p/uRes*2. - 1.;
-  gl_Position = vec4(cl.x, -cl.y, 0., 1.);
-}`;
-  const FS = `#version 300 es
-precision highp float;
-in float vD; in float vHW; in float vA; in vec3 vC;
-uniform float uDpr; out vec4 o;
-void main(){
-  float cov = clamp((vHW - 1./uDpr - abs(vD))*uDpr + .5, 0., 1.);
-  float a = vA*cov; o = vec4(vC*a, a);
-}`;
-
-  function uploadStrands() {
-    gl.bindVertexArray(vao);
-    [S, T].forEach((data, loc) => {
-      gl.bindBuffer(gl.ARRAY_BUFFER, bufs[loc]); gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW);
-      gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 4, gl.FLOAT, false, 0, 0); gl.vertexAttribDivisor(loc, 1);
-    });
-    gl.uniform1f(U.uSeg, SEG); gl.uniform1f(U.uCalm, calm);
-  }
-  function initGL() {
-    const sh = (type, src) => {
-      const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
-      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS) && !gl.isContextLost()) throw new Error('shader');
-      return s;
+    const boot = () => {
+      cv = document.createElement('canvas');
+      cv.className = 'hc';
+      cv.setAttribute('aria-hidden', 'true');
+      hero.prepend(cv);
+      measure();
+      gl = cv.getContext('webgl2', { alpha: false, antialias: false, depth: false, stencil: false, premultipliedAlpha: false, powerPreference: 'high-performance' });
+      if (!gl || window.__forceFallback) { if (gl) { cv.remove(); boot2D(); } else fallback2D(); return; }
+      try { initGL(); } catch (e) { console.warn('[current]', e); gl = null; cv.remove(); boot2D(); }
     };
-    prog = gl.createProgram();
-    gl.attachShader(prog, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FS));
-    gl.linkProgram(prog);
-    if (!gl.getProgramParameter(prog, gl.LINK_STATUS) && !gl.isContextLost()) throw new Error('link');
-    gl.useProgram(prog);
-    U = {};
-    for (const k of ['uRes', 'uT', 'uRev', 'uSpr', 'uFade', 'uSeg', 'uPull', 'uDpr', 'uCap', 'uK', 'uCalm', 'uG', 'uG2', 'uP', 'uM', 'uDeep', 'uTint']) U[k] = gl.getUniformLocation(prog, k);
-    vao = gl.createVertexArray(); bufs = [gl.createBuffer(), gl.createBuffer()];
-    uploadStrands();
-    gl.uniform3fv(U.uDeep, DEEP); gl.uniform3fv(U.uTint, TINT);
-    gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
-    gl.clearColor(0, 0, 0, 0);
-  }
-  function glFit() {
-    const wasPhone = N === 40;
-    fitCanvas();
-    if (phone !== wasPhone) { buildStrands(phone); uploadStrands(); }
-    gl.viewport(0, 0, cv.width, cv.height);
-    gl.uniform2f(U.uRes, W, H); gl.uniform1f(U.uDpr, dpr);
-    gl.uniform4f(U.uG, geo.x0, geo.x1, geo.yL, geo.yR);
-    gl.uniform4f(U.uG2, geo.wMax, geo.amp, 0, 0);
-    gl.uniform4fv(U.uM, masks); gl.uniform1f(U.uCap, phone ? 12 : 20); gl.uniform1f(U.uK, geo.k);
-  }
+    function boot2D() { gl = null; cv = document.createElement('canvas'); cv.className = 'hc'; cv.setAttribute('aria-hidden', 'true'); hero.prepend(cv); fallback2D(); }
 
-  // ---------- pointer: soft presence + velocity-sensitive wake ----------
-  const P = new Float32Array(40), wake = [];
-  const ptr = { s: 0, sx: 0, sy: 0, x: -1e4, y: -1e4, in: false, lx: 0, ly: 0, lt: 0, v: 0, px: -1e4, py: -1e4 };
-  function onMove(cx, cy) {
-    if (!visible || D.hidden) return;
-    const r = hero.getBoundingClientRect(), x = cx - r.left, y = cy - r.top, now = performance.now();
-    ptr.in = x >= 0 && y >= 0 && x <= r.width && y <= r.height;
-    const dt = Math.max(8, now - ptr.lt), d = Math.hypot(x - ptr.lx, y - ptr.ly);
-    ptr.v = ptr.v * 0.6 + 0.4 * Math.min(4000, (d / dt) * 1000);
-    ptr.x = x; ptr.y = y; ptr.lx = x; ptr.ly = y; ptr.lt = now;
-    if (ptr.in && Math.hypot(x - ptr.px, y - ptr.py) > 14) {
-      const s = Math.min(1, ptr.v / 1400);
-      wake.push({ x, y, peak: 0.22 + 0.3 * s, r: (phone ? 13 : 17) + 10 * s, age: 0 }); // cursor radius 17 to 27 px (phone 13 to 23)
-      if (wake.length > 5) wake.shift();
-      ptr.px = x; ptr.py = y;
+    // ---------- 2D still fallback (no WebGL2): strands along the same path ----------
+    function fallback2D() {
+      const draw = () => {
+        measure();
+        dpr = Math.min(devicePixelRatio || 1, 2);
+        cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+        const c = cv.getContext('2d');
+        c.setTransform(dpr, 0, 0, dpr, 0, 0);
+        c.fillStyle = `rgb(${bg.map(v => v * 255 | 0)})`; c.fillRect(0, 0, W, H);
+        c.globalCompositeOperation = 'lighter'; c.lineWidth = 0.6;
+        const col = (s, k, a) => `rgba(${(s > 0 ? WARM : COOL).map((v, j) => (v + (WHITE[j] - v) * k) * 255 | 0)},${a})`;
+        for (const s of [1, -1]) for (let i = 0; i < 90; i++) {
+          const lane = laneOf(i * 2 + (s > 0 ? 0 : 1), s);
+          c.beginPath();
+          for (let k = 0; k < NP; k++) {
+            const o = k * 4, x0 = path[o], y0 = path[o + 1], nx = -path[o + 3], ny = path[o + 2], amp = path[(NP + k) * 4], ph = path[(NP + k) * 4 + 1], w = path[(NP + k) * 4 + 2];
+            const hel = amp * Math.sin(ph - 1.3) * (geo.helS ? s : 1);
+            let x = x0 + nx * w * lane + geo.hdir[0] * hel, y = y0 + ny * w * lane + geo.hdir[1] * hel;
+            if (s < 0 && MIRROR) x = W - x;
+            k ? c.lineTo(x, y) : c.moveTo(x, y);
+          }
+          c.strokeStyle = col(s, 0.2, 0.1); c.stroke();
+        }
+        c.globalCompositeOperation = 'source-over'; c.filter = 'blur(14px)';
+        for (let i = 0; i < NM; i++) { const m = geo.mask.subarray(i * 4, i * 4 + 4); c.fillStyle = `rgba(${bg.map(v => v * 255 | 0)},${1 - geo.mk[i]})`; c.fillRect(m[0], m[1], m[2] - m[0], m[3] - m[1]); }
+        c.filter = 'none';
+        cv.classList.add('on');
+      };
+      draw();
+      let to; new ResizeObserver(() => { clearTimeout(to); to = setTimeout(draw, 150); }).observe(hero);
     }
-  }
-  function stepPointer(dt) {
-    let k = 0;
-    for (let i = wake.length - 1; i >= 0; i--) {
-      const w = wake[i]; w.age += dt;
-      const a = w.age / 0.22, s = w.peak * a * Math.exp(1 - a); // critically damped: smooth rise, no overshoot, ~1.5 s to rest
-      if (w.age > 1.8) { wake.splice(i, 1); continue; }
-      P.set([w.x, w.y, s, w.r * (1 + 0.2 * w.age)], k * 4); k++;
+
+    // ---------- WebGL2 (shaders verbatim from axis/hero.js; uMirror, uHelS, uEdge are the only additions) ----------
+    const COMMON = `
+uniform float uT,uDt,uW,uH,uS,uBias,uIntro,uIR,uMob,uLean,uOff,uMirror,uHelS,uEdge;uniform vec2 uSweep,uTrav,uDTrav,uRate,uHDir,uFront;
+uniform highp sampler2D uPath;
+uniform highp sampler2D uStr;uniform float uStrand,uT6,uSpr,uRev,uFade,uPull;uniform vec4 uG,uG2;
+const float TAU=6.2831853;
+// v6 continuum strand, verbatim from dist/src/hero-continuum.js path() (pointer wake left to the particle sim)
+vec2 v6p(float idx,float u){
+ u=clamp(u,0.,1.);
+ vec4 A=texelFetch(uStr,ivec2(int(idx),0),0),B=texelFetch(uStr,ivec2(int(idx),1),0);
+ float b=A.x,l=A.y,ph=A.z,g=A.w,f=B.w;
+ float x=mix(uG.x,uG.y,u),e=u*u*(3.-2.*u),br=1.+.05*sin(uT6*.42);
+ float v=u*uG2.z;
+ float yc=mix(uG.z,uG.w,e)+uG2.y*(.35+.65*u)*sin(TAU*1.05*v-uT6*.32)*br;
+ float pw=smoothstep(.6,1.,u)*uPull;
+ float w=uG2.x*(.015+.985*pow(u,1.35))*br*(1.-.12*pw);
+ float born=smoothstep(b,b+.14,u)*smoothstep(0.,.16,uSpr-u),early=1.-smoothstep(.22,.46,u),late=smoothstep(.58,.82,u),mid=1.-early-late;
+ float wander=uG2.w*(1.5*sin(TAU*(v*f*1.9+ph)+uT6*.3*(.6+ph))+.8*sin(TAU*(v*f*4.7+ph*3.1)-uT6*.23)+.35*sin(TAU*(v*9.3+ph*5.)+uT6*.17));
+ float braid=.8*sin(TAU*v*3.1+g*2.0944-uT6*.28)+.2*l;
+ float tw=.55*sin(3.1416*u*1.6-uT6*.12+.6);
+ float ribbon=l*cos(tw)+.05*sin(TAU*(v*2.+ph)-uT6*.3);
+ yc+=born*w*(early*wander+mid*braid+late*ribbon);
+ return vec2(x,yc-6.*pw);
+}
+float lead(float s){return max(0.,s*uBias);}
+float lag(float s){return max(0.,-s*uBias);}
+float swOn(float s){return uSweep.x*step(0.,s*uSweep.y);}
+float swOff(float s){return uSweep.x*step(0.,-s*uSweep.y);}
+float hash(float n){return fract(sin(n*12.9898)*43758.5453);}
+vec4 row(float u,int r){float f=clamp(u,0.,1.)*${NP - 1}.;int i=int(floor(f));int j=min(i+1,${NP - 1});return mix(texelFetch(uPath,ivec2(i,r),0),texelFetch(uPath,ivec2(j,r),0),fract(f));}
+float rawU(float s,float z){return z+(s>0.?uTrav.x:uTrav.y)-uOff;}
+float front(float s){return s>0.?uFront.x:uFront.y;}
+vec2 target(float u,float s,float lane,float ph,out vec2 tg,out float hw,out float dep,out float wh,out float spd){
+ vec4 a=row(u,0),b=row(u,1),c=row(u,2);
+ if(uStrand>.5){vec2 p0=v6p(lane,u),p1=v6p(lane,u+.002);tg=normalize(p1-p0+vec2(1e-4,0.));hw=.6;dep=1.;wh=.03+.1*texelFetch(uStr,ivec2(int(lane),1),0).z;spd=c.z;return p0;}
+ tg=normalize(a.zw+1e-5);vec2 n=vec2(-tg.y,tg.x);
+ hw=c.w;wh=b.w;spd=c.z;
+ float k1=6.2832/(.40*uW);
+ float wave=uS*(.075*sin(k1*c.x+1.3+s*.9)*(1.+.3*lead(s))*c.y+.01*sin(.8*uT+ph*6.2832+c.x*.013));
+ float phs=b.y;
+ dep=cos(phs);
+ float hel=b.x*sin(phs)*mix(1.,s,uHelS);
+ float tip=mix(.25,1.,smoothstep(front(s),front(s)-.05,u));
+ vec2 p=a.xy+n*(wave+b.z*tip*lane*(1.+.5*lead(s)-.2*lag(s)))+uHDir*hel;
+ if(s<0.&&uMirror>.5){p.x=uW-p.x;tg.x=-tg.x;}
+ p.x-=uLean*uBias*hw;
+ return p;
+}`;
+    const NOISE = `
+vec4 pm(vec4 x){return mod(((x*34.)+1.)*x,289.);}
+float sn(vec3 v){const vec2 C=vec2(1./6.,1./3.);vec3 i=floor(v+dot(v,C.yyy));vec3 x0=v-i+dot(i,C.xxx);vec3 g=step(x0.yzx,x0.xyz);vec3 l=1.-g;vec3 i1=min(g,l.zxy);vec3 i2=max(g,l.zxy);vec3 x1=x0-i1+C.x;vec3 x2=x0-i2+C.y;vec3 x3=x0-.5;i=mod(i,289.);vec4 p=pm(pm(pm(i.z+vec4(0.,i1.z,i2.z,1.))+i.y+vec4(0.,i1.y,i2.y,1.))+i.x+vec4(0.,i1.x,i2.x,1.));vec4 j=p-49.*floor(p/49.);vec4 x_=floor(j/7.);vec4 y_=floor(j-7.*x_);vec4 x=(x_*2.+.5)/7.-1.;vec4 y=(y_*2.+.5)/7.-1.;vec4 h=1.-abs(x)-abs(y);vec4 b0=vec4(x.xy,y.xy);vec4 b1=vec4(x.zw,y.zw);vec4 s0=floor(b0)*2.+1.;vec4 s1=floor(b1)*2.+1.;vec4 sh=-step(h,vec4(0.));vec4 a0=b0.xzyw+s0.xzyw*sh.xxyy;vec4 a1=b1.xzyw+s1.xzyw*sh.zzww;vec3 p0=vec3(a0.xy,h.x);vec3 p1=vec3(a0.zw,h.y);vec3 p2=vec3(a1.xy,h.z);vec3 p3=vec3(a1.zw,h.w);vec4 nr=inversesqrt(vec4(dot(p0,p0),dot(p1,p1),dot(p2,p2),dot(p3,p3)));p0*=nr.x;p1*=nr.y;p2*=nr.z;p3*=nr.w;vec4 m=max(.6-vec4(dot(x0,x0),dot(x1,x1),dot(x2,x2),dot(x3,x3)),0.);m*=m;return 42.*dot(m*m,vec4(dot(p0,x0),dot(p1,x1),dot(p2,x2),dot(p3,x3)));}
+vec2 curl(vec2 q,float z){float e=.35;return vec2(sn(vec3(q.x,q.y+e,z))-sn(vec3(q.x,q.y-e,z)),sn(vec3(q.x-e,q.y,z))-sn(vec3(q.x+e,q.y,z)))/(2.*e);}`;
+
+    const SIM_VS = `#version 300 es
+precision highp float;
+layout(location=0) in vec4 aS;layout(location=1) in vec4 aM;
+out vec4 vS;
+uniform vec2 uM,uMV;uniform float uMOn,uR,uSnap,uCurlEnd;
+${COMMON}${NOISE}
+void main(){
+ vec2 p=aS.xy,v=aS.zw;float s=aM.x,lane=aM.y,id=float(gl_VertexID);
+ float ph=hash(id*.137+1.);
+ float raw=rawU(s,aM.z),u=fract(raw);
+ vec2 tg;float hw,dep,wh,spd;
+ vec2 T=target(u,s,lane,ph,tg,hw,dep,wh,spd);
+ vec2 vT=tg*spd*(s>0.?uRate.x:uRate.y);
+ float prev=raw-(s>0.?uDTrav.x:uDTrav.y);
+ if(raw<0.||floor(raw)!=floor(prev)||uSnap>.5){p=T;v=vT;}
+ else{
+  float R=s>0.?uRate.x:uRate.y,K=min(mix(9.,22.,hw)*R*R,700.);
+  vec2 acc=(T-p)*K+(vT-v)*2.*sqrt(K)*.95;
+  float sc=1./(.8*uS+.1*uW),e=mix(1.-smoothstep(0.,.22,u),smoothstep(.6,1.,u),uCurlEnd);
+  acc+=curl(p*sc,uT*.05+s*3.)*uS*.3*e*e*(1.-uStrand);
+  vec2 d=p-uM;float r2=dot(d,d);float f=exp(-r2/(uR*uR))*uMOn;float sp=length(uMV);
+  acc+=d*inversesqrt(r2+30.)*f*(uR*1.1+sp*1.9)*mix(1.,.45,hw);
+  acc+=uMV*f*2.4;
+  v+=acc*uDt;
+  float L=length(v),cap=1400.+4200.*uSweep.x;if(L>cap)v*=cap/L;
+  p+=v*uDt;
+ }
+ vS=vec4(p,v);
+}`;
+    const NULL_FS = `#version 300 es
+precision mediump float;out vec4 o;void main(){o=vec4(0.);}`;
+    const DRAW_VS = `#version 300 es
+precision highp float;
+layout(location=0) in vec4 aS;layout(location=1) in vec4 aM;
+out vec3 vC;
+uniform float uA,uWarmGain;uniform vec4 uMask[${NM}];uniform float uMk[${NM}];uniform vec3 uWarm,uCool,uWhite;
+${COMMON}
+void main(){
+ vec2 p=aS.xy,v=aS.zw;float s=aM.x,id=float(gl_InstanceID);
+ vec2 q=gl_VertexID==0?p-v*uDt*(1.6+4.*swOn(s)):p;
+ float raw=rawU(s,aM.z),u=fract(raw);
+ vec4 b=row(u,1);float hw=row(u,2).w,wh=b.w,phs=b.y;
+ if(uStrand>.5){hw=0.;wh=.03+.1*texelFetch(uStr,ivec2(int(aM.y),1),0).z;}
+ float a=uA*step(0.,raw)*mix(smoothstep(0.,.03,u)*smoothstep(1.,.93,u),smoothstep(0.,.006,u)*smoothstep(1.,.985,u),uStrand)*smoothstep(front(s),front(s)-.03,u);
+ if(uStrand>.5){ // v6 strand alpha: weight, birth, travelling pulse, ribbon edges, the intro tip and fade
+  vec4 A=texelFetch(uStr,ivec2(int(aM.y),0),0),B=texelFetch(uStr,ivec2(int(aM.y),1),0);float sb=A.x,sl=A.y,sph=A.z;
+  a*=(B.y/.25)*smoothstep(sb-.02,sb+.09,u)*smoothstep(0.,.05,u)*(.72+.28*pow(.5+.5*sin(TAU*(u*7.-uT6*.18+sph)),2.))*(1.-.45*smoothstep(.58,.82,u)*sl*sl)*(1.-smoothstep(uRev-.07,uRev,u))*uFade;
+ }
+ float h=hash(id*.37+7.);a*=.2+2.2*h*h*h*h;
+ float act=.62+.12*lead(s)-.1*lag(s);
+ a*=clamp((act-hash(id*.913+3.))*12.,0.,1.);
+ a*=max(0.,1.+.45*lead(s)-.3*lag(s)-.5*swOff(s));
+ float core=swOn(s)*(1.-abs(aM.y));
+ a*=1.3/((1.+9.*swOn(s))*(1.+2.5*swOn(s)))*(1.+3.*core);
+ a*=mix(1.,mix(.72,1.15,.5+.5*s*cos(phs)),hw*(1.-uMob));
+ float mk=1.;
+ for(int i=0;i<${NM};i++){
+  vec2 c=(uMask[i].xy+uMask[i].zw)*.5,hs=(uMask[i].zw-uMask[i].xy)*.5,dd=abs(p-c)-hs;
+  float sd=length(max(dd,0.))+min(max(dd.x,dd.y),0.);
+  mk=min(mk,mix(uMk[i],1.,smoothstep(-8.,14.,sd)));
+ }
+ a*=mk*mix(.7,1.,uIntro)*pow(uIR,-.45)*smoothstep(0.,18.,p.y)*mix(1.,mix(.5,1.,smoothstep(uH,uH*.82,p.y)),(1.-uMob)*uEdge);
+ vC=mix(s>0.?uWarm*uWarmGain:uCool,uWhite,min(1.,wh+.6*core))*a;
+ gl_Position=vec4(q.x/uW*2.-1.,1.-q.y/uH*2.,0.,1.);
+}`;
+    const DRAW_FS = `#version 300 es
+precision mediump float;in vec3 vC;out vec4 o;void main(){o=vec4(vC,1.);}`;
+    const QUAD_VS = `#version 300 es
+out vec2 uv;void main(){vec2 p=vec2((gl_VertexID<<1)&2,gl_VertexID&2);uv=p;gl_Position=vec4(p*2.-1.,0.,1.);}`;
+    const FADE_FS = `#version 300 es
+precision mediump float;in vec2 uv;out vec4 o;uniform sampler2D uTex;uniform float uDecay,uSub;
+void main(){o=vec4(max(texture(uTex,uv).rgb*uDecay-uSub,0.),1.);}`;
+    const COMP_FS = `#version 300 es
+precision mediump float;in vec2 uv;out vec4 o;uniform sampler2D uTex;uniform vec3 uBg;
+void main(){vec3 t=texture(uTex,uv).rgb;float L=max(max(t.r,t.g),max(t.b,1e-4));o=vec4(uBg+t*(1.-exp(-L*1.15))/L*.92,1.);}`;
+
+    function initGL() {
+      const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; };
+      const prog = (vs, fs, tf) => {
+        const p = gl.createProgram();
+        gl.attachShader(p, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(p, sh(gl.FRAGMENT_SHADER, fs));
+        if (tf) gl.transformFeedbackVaryings(p, tf, gl.SEPARATE_ATTRIBS);
+        gl.linkProgram(p);
+        if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
+        const u = {}, n = gl.getProgramParameter(p, gl.ACTIVE_UNIFORMS);
+        for (let i = 0; i < n; i++) { const name = gl.getActiveUniform(p, i).name.replace(/\[0\]$/, ''); u[name] = gl.getUniformLocation(p, name); }
+        return { p, u };
+      };
+      const sim = prog(SIM_VS, NULL_FS, ['vS']), draw = prog(DRAW_VS, DRAW_FS), fade = prog(QUAD_VS, FADE_FS), comp = prog(QUAD_VS, COMP_FS);
+
+      const ptex = gl.createTexture();
+      const upload = () => { gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, ptex); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA32F, NP, 3, 0, gl.RGBA, gl.FLOAT, path); for (const k of [gl.TEXTURE_MIN_FILTER, gl.TEXTURE_MAG_FILTER]) gl.texParameteri(gl.TEXTURE_2D, k, gl.NEAREST); };
+
+      const N = W < 768 ? 16000 : 40000;
+      let SN = 0;
+      if (STR) { // the strand family (positions S, looks T) as an SN x 2 float texture on unit 2
+        const st6 = shape.strands(W < 768); SN = st6.N;
+        const d = new Float32Array(SN * 8); d.set(st6.S, 0); d.set(st6.T, SN * 4);
+        const t6 = gl.createTexture(); gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, t6);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA32F, SN, 2, 0, gl.RGBA, gl.FLOAT, d);
+        for (const k of [gl.TEXTURE_MIN_FILTER, gl.TEXTURE_MAG_FILTER]) gl.texParameteri(gl.TEXTURE_2D, k, gl.NEAREST);
+      }
+      const st = new Float32Array(N * 4), meta = new Float32Array(N * 4);
+      for (let i = 0; i < N; i++) {
+        const s = i & 1 ? -1 : 1, lane = STR ? (i % SN) : laneOf(i, s);
+        meta.set([s, lane, Math.random(), Math.random()], i * 4);
+        st.set([s > 0 || !MIRROR ? -40 : W + 40, H * 0.3, 0, 0], i * 4);
+      }
+      const buf = d => { const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, d, gl.DYNAMIC_COPY); return b; };
+      const sBuf = [buf(st), buf(st)], mBuf = buf(meta);
+      const vao = (sb, div) => {
+        const a = gl.createVertexArray(); gl.bindVertexArray(a);
+        gl.bindBuffer(gl.ARRAY_BUFFER, sb); gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0, 4, gl.FLOAT, false, 0, 0); gl.vertexAttribDivisor(0, div);
+        gl.bindBuffer(gl.ARRAY_BUFFER, mBuf); gl.enableVertexAttribArray(1); gl.vertexAttribPointer(1, 4, gl.FLOAT, false, 0, 0); gl.vertexAttribDivisor(1, div);
+        gl.bindVertexArray(null); return a;
+      };
+      const simV = [vao(sBuf[0], 0), vao(sBuf[1], 0)], drawV = [vao(sBuf[0], 1), vao(sBuf[1], 1)];
+      const tfo = [0, 1].map(i => { const t = gl.createTransformFeedback(); gl.bindTransformFeedback(gl.TRANSFORM_FEEDBACK, t); gl.bindBufferBase(gl.TRANSFORM_FEEDBACK_BUFFER, 0, sBuf[1 - i]); return t; });
+      gl.bindTransformFeedback(gl.TRANSFORM_FEEDBACK, null);
+      gl.bindBuffer(gl.TRANSFORM_FEEDBACK_BUFFER, null);
+      const emptyVao = gl.createVertexArray();
+
+      const half = !!gl.getExtension('EXT_color_buffer_float');
+      let tex = [], fbo = [], cur = 0, pp = 0;
+      function resize() {
+        measure(); upload(); S.snap = true;
+        dpr = Math.min(devicePixelRatio || 1, 2);
+        cv.width = Math.max(1, Math.round(W * dpr)); cv.height = Math.max(1, Math.round(H * dpr));
+        tex.forEach(t => gl.deleteTexture(t)); fbo.forEach(f => gl.deleteFramebuffer(f));
+        tex = []; fbo = [];
+        gl.activeTexture(gl.TEXTURE0);
+        for (let i = 0; i < 2; i++) {
+          const t = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, t);
+          gl.texImage2D(gl.TEXTURE_2D, 0, half ? gl.RGBA16F : gl.RGBA8, cv.width, cv.height, 0, gl.RGBA, half ? gl.HALF_FLOAT : gl.UNSIGNED_BYTE, null);
+          for (const [k, v] of [[gl.TEXTURE_MIN_FILTER, gl.NEAREST], [gl.TEXTURE_MAG_FILTER, gl.NEAREST], [gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE], [gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE]]) gl.texParameteri(gl.TEXTURE_2D, k, v);
+          const f = gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER, f);
+          gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, t, 0);
+          gl.clearColor(0, 0, 0, 1); gl.clear(gl.COLOR_BUFFER_BIT);
+          tex.push(t); fbo.push(f);
+        }
+        gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+      }
+      resize();
+
+      const setCommon = (u, dt) => {
+        gl.uniform1f(u.uT, S.t); gl.uniform1f(u.uDt, dt); gl.uniform1f(u.uW, W); gl.uniform1f(u.uH, H); gl.uniform1f(u.uS, geo.S);
+        gl.uniform1f(u.uBias, S.bias); gl.uniform1f(u.uIntro, S.intro); gl.uniform1f(u.uIR, S.ir); gl.uniform2f(u.uSweep, S.sweep, S.sweepSide);
+        gl.uniform1f(u.uMob, geo.mob); gl.uniform1f(u.uLean, geo.lean); gl.uniform1f(u.uOff, S.off);
+        gl.uniform1f(u.uMirror, MIRROR); gl.uniform1f(u.uHelS, geo.helS); gl.uniform1f(u.uEdge, EDGE);
+        gl.uniform2f(u.uFront, S.front[0], S.front[1]);
+        gl.uniform2f(u.uTrav, S.trav[0], S.trav[1]); gl.uniform2f(u.uDTrav, S.dtrav[0], S.dtrav[1]); gl.uniform2f(u.uRate, S.rate[0], S.rate[1]); gl.uniform2f(u.uHDir, geo.hdir[0], geo.hdir[1]);
+        gl.uniform1i(u.uPath, 1);
+        gl.uniform1f(u.uStrand, STR ? 1 : 0);
+        if (STR) { const g = geo.v6; gl.uniform1i(u.uStr, 2); gl.uniform1f(u.uT6, S.t6); gl.uniform1f(u.uSpr, S.spr); gl.uniform1f(u.uRev, S.rev); gl.uniform1f(u.uFade, S.fade); gl.uniform1f(u.uPull, S.pull); gl.uniform4f(u.uG, g.x0, g.x1, g.yL, g.yR); gl.uniform4f(u.uG2, g.wMax, g.amp, g.k, g.calm); }
+      };
+      const advance = dt => {
+        for (let k = 0; k < 2; k++) {
+          const side = k ? -1 : 1, sw = S.sweepSide === side ? S.sweep : 0;
+          S.rate[k] = S.ir * (1 + 9 * sw);
+          S.dtrav[k] = dt * S.rate[k] / geo.T; S.trav[k] += S.dtrav[k];
+        }
+      };
+      function step(dt, render) {
+        gl.useProgram(sim.p); setCommon(sim.u, dt);
+        gl.uniform2f(sim.u.uM, S.m[0], S.m[1]); gl.uniform2f(sim.u.uMV, S.mv[0], S.mv[1]);
+        gl.uniform1f(sim.u.uMOn, S.mOn); gl.uniform1f(sim.u.uR, Math.max(55, Math.min(120, W * 0.075))); gl.uniform1f(sim.u.uSnap, S.snap ? 1 : 0); gl.uniform1f(sim.u.uCurlEnd, shape.curlAtEnd ? 1 : 0); S.snap = false;
+        gl.bindVertexArray(simV[cur]);
+        gl.bindTransformFeedback(gl.TRANSFORM_FEEDBACK, tfo[cur]);
+        gl.enable(gl.RASTERIZER_DISCARD);
+        gl.beginTransformFeedback(gl.POINTS); gl.drawArrays(gl.POINTS, 0, N); gl.endTransformFeedback();
+        gl.disable(gl.RASTERIZER_DISCARD);
+        gl.bindTransformFeedback(gl.TRANSFORM_FEEDBACK, null);
+        cur = 1 - cur;
+        if (!render) return;
+        gl.bindFramebuffer(gl.FRAMEBUFFER, fbo[pp]); gl.viewport(0, 0, cv.width, cv.height);
+        gl.useProgram(fade.p); gl.bindVertexArray(emptyVao);
+        gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tex[1 - pp]);
+        gl.uniform1i(fade.u.uTex, 0); gl.uniform1f(fade.u.uDecay, Math.pow(0.965, dt * 60 * Math.sqrt(S.ir) * (1 + 2.5 * S.sweep)));
+        gl.uniform1f(fade.u.uSub, half ? 0.0004 : 1.5 / 255);
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+        gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE);
+        gl.useProgram(draw.p); setCommon(draw.u, dt);
+        gl.uniform1f(draw.u.uA, 0.06 * Math.sqrt(dpr) * (W < 768 ? 2 : 1) * (shape.gain || 1));
+        gl.uniform4fv(draw.u.uMask, geo.mask); gl.uniform1fv(draw.u.uMk, geo.mk);
+        gl.uniform3f(draw.u.uWarm, ...WARM); gl.uniform3f(draw.u.uCool, ...COOL); gl.uniform1f(draw.u.uWarmGain, WARM_GAIN);
+        const lc = S.bias >= 0 ? WARM : COOL, lk = 0.22 * Math.abs(S.bias) * (1 - S.sweep);
+        gl.uniform3f(draw.u.uWhite, ...WHITE.map((v, i) => v + (lc[i] - v) * lk));
+        gl.bindVertexArray(drawV[cur]);
+        gl.drawArraysInstanced(gl.LINES, 0, 2, N);
+        gl.disable(gl.BLEND);
+        gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+        pp = 1 - pp;
+      }
+      function composite() {
+        gl.bindFramebuffer(gl.FRAMEBUFFER, null); gl.viewport(0, 0, cv.width, cv.height);
+        gl.useProgram(comp.p); gl.bindVertexArray(emptyVao);
+        gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tex[1 - pp]);
+        gl.uniform1i(comp.u.uTex, 0); gl.uniform3f(comp.u.uBg, ...bg);
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+      }
+      // v5 (Akhmet): the line draws visibly from the first frame: ease-out cubic tip (fastest at the start), no opacity ramp.
+      // v6 had a sine ease-in-out tip and a sin fade; total stays 4.8 s, spread still follows the tip as in v6
+      const reveal = k => { const e = 1 - Math.pow(1 - k, 3); S.k6 = k; S.rev = e * 1.08; S.spr = S.rev + 0.2 * smooth(0.55, 1, k); S.fade = 1; };
+      const prewarm = (draw, n = 480) => { S.t = 0; for (let i = 0; i < n; i++) { S.t += 1 / 60; advance(1 / 60); step(1 / 60, draw && i > 430); } };
+
+      if (RM) {
+        const still = () => { if (STR) { reveal(1); S.t6 = 3.4; } S.intro = 1; S.front = [9, 9]; prewarm(true); composite(); cv.classList.add('on'); window.__hcStill = 1; };
+        still();
+        let to; new ResizeObserver(() => { clearTimeout(to); to = setTimeout(() => { resize(); still(); }, 150); }).observe(hero);
+        return;
+      }
+      const intro = () => { S.ti = 0; S.intro = 0; S.trav0 = S.trav.slice(); S.front = [0, 0]; S.ir = geo.rs * introShape(0); };
+      const V6INTRO = STR && !/[?&]intro=0/.test(location.search) && !(() => { try { const f = sessionStorage.getItem('hsHandoff') === 'global'; sessionStorage.removeItem('hsHandoff'); return f; } catch (e) { return false; } })();   // v14: arriving from the Start click veil, the current is already flowing
+      if (STR) { reveal(1); S.t6 = 1.2; }
+      S.intro = INTRO ? 0 : 1; prewarm(!INTRO && !V6INTRO, V6INTRO ? 2 : 480); // v6 intro: the dots snap onto the strands, no settling pass before the first frame if (!INTRO && !V6INTRO) composite();
+      if (STR) { S.t6 = 1.2; if (V6INTRO) reveal(0); S.t0 = performance.now(); window.__hcStart = S.t0; }
+      if (INTRO) intro();
+
+      let lastP = null;
+      const onMove = (x, y) => {
+        const r = hero.getBoundingClientRect(), mx = x - r.left, my = y - r.top, now = performance.now();
+        if (lastP) { const dt = Math.max(8, now - lastP.t) / 1000; S.mvRaw = [(mx - lastP.x) / dt, (my - lastP.y) / dt]; }
+        lastP = { x: mx, y: my, t: now };
+        S.m = [mx, my];
+        S.mOnT = (my > -80 && my < H + 80 && mx > -80 && mx < W + 80) ? 1 : 0;
+      };
+      addEventListener('pointermove', e => onMove(e.clientX, e.clientY), { passive: true });
+      addEventListener('touchmove', e => { const t = e.touches[0]; if (t) onMove(t.clientX, t.clientY); }, { passive: true });
+      addEventListener('touchstart', e => { const t = e.touches[0]; lastP = null; if (t) onMove(t.clientX, t.clientY); }, { passive: true });
+      const off = () => { S.mOnT = 0; lastP = null; };
+      addEventListener('touchend', off, { passive: true });
+      root.addEventListener('pointerleave', off);
+
+      let visible = true, onscreen = true, raf = 0;
+      const frame = now => {
+        raf = requestAnimationFrame(frame);
+        const dt = S.last == null ? 1 / 60 : Math.min(1 / 30, Math.max(1 / 240, (now - S.last) / 1000));
+        S.last = now; S.t += dt;
+        S.ti += dt;
+        if (S.front[0] < 9) {
+          S.intro = smooth(0, 1.4, S.ti);
+          const f = Math.min(S.front[0], S.front[1]);
+          if (f < 1) S.ir = geo.rs * introShape(f);
+          else { S.ir = 1 + (S.ir - 1) * Math.exp(-dt * 1.4); if (S.ir < 1.004) { S.ir = 1; S.front = [9, 9]; } }
+        } else { S.intro = 1; S.ir = 1; }
+        const ease = k => 1 - Math.exp(-dt * k);
+        S.bias += (S.biasT - S.bias) * ease(2.6);
+        S.sweep += ((S.sweepOn ? 1 : 0) - S.sweep) * ease(S.sweepOn ? 12 : 8);
+        S.mOn += (S.mOnT - S.mOn) * ease(5);
+        S.mv[0] += (S.mvRaw[0] - S.mv[0]) * ease(14); S.mv[1] += (S.mvRaw[1] - S.mv[1]) * ease(14);
+        S.mvRaw[0] *= Math.exp(-dt * 9); S.mvRaw[1] *= Math.exp(-dt * 9);
+        if (STR) {
+          S.t6 += dt;
+          const pin = /[?&]introAt=(\d+)/.exec(location.search); // review aid: hold the intro at this many ms
+          if (S.k6 < 1 || pin) reveal(Math.min(1, Math.max(0, (pin ? +pin[1] : now - S.t0) / 4800))); // v4: no 400 ms hold, the draw starts on the first frame
+          S.pull += (S.pullT - S.pull) * (1 - Math.exp(-dt / 0.27));
+        }
+        advance(dt);
+        if (S.front[0] < 9) S.front = [0, 1].map(k => S.trav[k] - S.trav0[k]);
+        step(dt, true); composite();
+        window.__hcFrames = (window.__hcFrames || 0) + 1;
+      };
+      const update = () => {
+        const want = visible && onscreen;
+        if (want && !running) { running = true; S.last = null; raf = requestAnimationFrame(frame); }
+        else if (!want && running) { running = false; cancelAnimationFrame(raf); }
+      };
+      document.addEventListener('visibilitychange', () => { visible = !document.hidden; update(); });
+      new IntersectionObserver(es => { onscreen = es[0].isIntersecting; update(); }).observe(hero);
+      let to; new ResizeObserver(() => { clearTimeout(to); to = setTimeout(resize, 120); }).observe(hero);
+      visible = !document.hidden; update();
+      if (shape.immediate) cv.classList.add('on'); else requestAnimationFrame(() => cv.classList.add('on'));
     }
-    ptr.v *= Math.exp(-dt / 0.25);
-    const e = 1 - Math.exp(-dt / 0.25);
-    ptr.s += ((ptr.in ? 0.4 : 0) - ptr.s) * e; ptr.sx += (ptr.x - ptr.sx) * e * 1.6; ptr.sy += (ptr.y - ptr.sy) * e * 1.6;
-    P.set([ptr.sx, ptr.sy, ptr.s, phone ? 15 : 20], k * 4); k++;
-    for (; k < 10; k++) P[k * 4 + 2] = 0;
+
+    const start = () => requestAnimationFrame(() => setTimeout(boot, 60));
+    if (shape.immediate) boot(); // v4 Global: init as soon as the hero has parsed (the script sits right after it)
+    else if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+    const ctl = { S, geo, RM, running: () => running };
+    if (shape.bind) shape.bind(ctl);
+    return ctl;
+  }
+  window.HSCurrent = { mount, smooth, bez };
+})();
+
+/* Shapes for HSCurrent (current.js). A shape lays down the trajectory as raw samples; the engine does everything else.
+   Sample: [x, y, twist amplitude px, twist phase rad, half width px, white 0..1, arm wave weight, speed px/s, twist weight 0..1].
+   measure(env, again) -> { pts, iM } (iM: sample where the intro slows) or { again: true } to be measured once more.
+   It also sets env.geo.S (scale for wave and curl), lean, hdir (helix direction) and the five text masks (geo.mask, geo.mk). */
+(() => {
+  const box = (r, els, pad) => { const b = els.map(e => e.getBoundingClientRect()); return [Math.min(...b.map(v => v.left)) - r.left - pad, Math.min(...b.map(v => v.top)) - r.top - pad, Math.max(...b.map(v => v.right)) - r.left + pad, Math.max(...b.map(v => v.bottom)) - r.top + pad]; };
+  const rg = (r, el) => { const R = document.createRange(); R.selectNodeContents(el); const b = R.getBoundingClientRect(); return [b.left - r.left, b.top - r.top, b.right - r.left, b.bottom - r.top]; };
+
+  // ---------- Start: "axis" (verbatim geometry from axis/hero.js measure()) ----------
+  function axis(hero) {
+    const q = (a, s) => a.querySelector(s);
+    const halves = [...hero.querySelectorAll('.mh__half')];
+    const rowEl = q(hero, '.mh__halves');
+    return {
+      name: 'axis', sessionKey: 'hsAxisIntro', mirror: true, helS: 'mob', edge: 1,
+      measure({ r, W, H, geo, smooth, bez }, again) {
+        const balance = !geo.mob && getComputedStyle(hero).getPropertyValue('--balance').trim() === '1';
+        if (!balance && rowEl.style.top) rowEl.style.top = '';
+        const sink = parseFloat(rowEl.style.top) || 0;
+        const bx = (els, pad) => box(r, els, pad);
+        const ink = el => { const b = bx([el], 0), h = b[3] - b[1]; return [b[0] - 4, b[1] + h * 0.12, b[2] + 4, b[3] - h * 0.04]; };
+        const name = halves.map(a => ink(q(a, '.mh__name')));
+        const det = halves.map(a => bx([q(a, '.mh__desc'), q(a, '.mh__go')], 8));
+        const lock = halves.map(a => bx([q(a, '.mh__lock')], 0));
+        const tk = rg(r, q(hero, '.mh__kicker')), tm = rg(r, q(hero, '.mh__mark')), inkL = Math.min(tk[0], tm[0]), inkR = Math.max(tk[2], tm[2]), inkT = tk[1], inkB = tm[3];
+        geo.mask.set([inkL - 10, inkT - 10, inkR + 10, inkB + 10, ...name[0], ...name[1], ...det[0], ...det[1]]);
+        geo.mk.set([0.06, 0.22, 0.22, 0.08, 0.08]);
+        const pts = []; let iM = 0;
+        if (!geo.mob) {
+          const gapL = Math.max(lock[0][2], det[0][2] - 8), gapR = Math.min(lock[1][0], det[1][0] + 8), half = (gapR - gapL) / 2;
+          const lockTop = Math.min(lock[0][1], lock[1][1]);
+          const lift = Math.max(0, bx([q(hero, '.mh__top')], 0)[3] - bx([q(hero, '.mh__title')], 0)[3]) + sink, wT = inkT + lift, wB = inkB + lift;
+          const vA = Math.max(60, W * 0.07), vF = Math.max(40, W * 0.042), vS = Math.max(34, W * 0.03), vO = Math.max(50, W * 0.05);
+          const g = lockTop - wB, yM0 = lockTop - Math.min(22, g * 0.14), yM = yM0 - lift, yLast = yM0 + 0.82 * (H - yM0), yEnd = H + 40, Lb = yLast - yM;
+          const Ac = Math.max(6, Math.min(9, half * 0.17));
+          const b0 = 0.1 * Math.PI, k0 = (3 * Math.PI - b0) / Lb, phi = y => k0 * (y - yM) + b0 * smooth(yM, yM + Lb / 3, y), amp = () => Ac;
+          geo.S = Math.max(160, g * 1.3); geo.lean = Math.max(0, Math.min(8, half - Ac - 14)); geo.hdir = [1, 0];
+          const wA = geo.S * 0.1, wF = 6, wS = 6, wO = 12, x0 = -0.04 * W, wAt = t => wA + (wF - wA) * smooth(0.3, 0.85, t);
+          const sl = Ac * k0, dl = Math.hypot(sl, 1), dir = [sl / dl, 1 / dl], hb = 0.16 * (geo.cx - x0);
+          let P = null;
+          for (let yE = wT; yE < yM0 - 30; yE += 3) {
+            P = [[x0, yE], [x0 + 0.4 * (geo.cx - x0), yE + 0.45 * (yM0 - yE)], [geo.cx - hb * dir[0], yM0 - hb * dir[1]], [geo.cx, yM0]];
+            let ok = true;
+            for (let i = 0; i <= 160 && ok; i++) { const t = i / 160, [x, y] = bez(P, t), w = wAt(t); if ((x > inkL - 24 && x < inkR + 24 && y - w < wB + 12) || (x < gapL + half * 0.6 && y + w > lockTop - 6)) ok = false; }
+            if (ok) break;
+          }
+          P.forEach(c => { c[1] -= lift; });
+          if (balance && !again) {
+            let armB = -1e9;
+            for (let i = 0; i <= 400; i++) { const t = i / 400, [x, y] = bez(P, t); if (x >= name[0][0] && x <= name[0][2]) armB = Math.max(armB, y + wAt(t)); }
+            const goB = Math.max(...halves.map(a => bx([q(a, '.mh__go')], 0)[3])), d = ((H - goB) - (name[0][1] - armB)) / 2;
+            if (Math.abs(d) > 0.5) { rowEl.style.top = Math.max(0, sink + d).toFixed(1) + 'px'; return { again: true }; }
+          }
+          for (let i = 0; i < 240; i++) { const t = i / 240, [x, y] = bez(P, t), k = smooth(0.55, 1, t); pts.push([x, y, 0, 0, wAt(t), 0.08 * k, 0.7 * (1 - smooth(0, 0.85, t)), vA + (vF - vA) * k, smooth(0.7, 1, t)]); }
+          iM = pts.length;
+          for (let y = yM; y <= yEnd; y += 2) {
+            let off, ph, D = 0;
+            if (y < yLast) { ph = phi(y); off = amp(y) * Math.sin(ph); }
+            else { ph = Math.min(3.5 * Math.PI, 3 * Math.PI + k0 * (y - yLast)); off = Ac * Math.sin(ph); D = Math.min(0.07 * W, 100) * Math.pow((y - yLast) / (yEnd - yLast), 1.5); }
+            const tw = 1 - smooth(yLast, yLast + 70, y), op = smooth(yLast - 20, yEnd, y), wIn = smooth(yM, yM + 50, y);
+            pts.push([geo.cx + off - D, y, 0, ph, wF + (wS - wF) * wIn + (wO - wS) * op, 0.1 * tw, 0, vF + (vS - vF) * wIn + (vO - vS) * op, tw]);
+          }
+        } else {
+          const a0 = det[0][3] - 8, a1 = lock[1][1] - 4, corr = a1 - a0, yU = a0 + corr * 0.5, dy = corr * 0.3, amp = Math.min(16, corr * 0.14), om = 6.2832 / (0.42 * W);
+          geo.S = Math.max(150, corr * 1.35); geo.lean = 0; geo.hdir = [0, 1]; iM = 200;
+          const x0 = -0.04 * W, x1 = 1.04 * W, A = [[x0, yU - dy], [0.22 * W, yU - dy], [0.34 * W, yU], [geo.cx, yU]], B = [[geo.cx, yU], [0.66 * W, yU], [0.78 * W, yU + dy], [x1, yU + dy]];
+          const v = Math.max(30, W * 0.08), vC = Math.max(22, W * 0.055);
+          for (let i = 0; i <= 400; i++) {
+            const t = i / 400, [x, y] = t < 0.5 ? bez(A, t * 2) : bez(B, t * 2 - 1), d = Math.abs(x - geo.cx) / (0.5 * W), h = 1 - smooth(0.12, 0.62, d);
+            pts.push([x, y, amp * h, om * (x - geo.cx), 4 + (geo.S * 0.09 - 4) * (1 - h), 0.35 * h, 1 - h, vC + (v - vC) * (1 - h), h]);
+          }
+        }
+        return { pts, iM };
+      }
+    };
   }
 
-  // ---------- loop ----------
-  function draw(now, dt) {
-    pull += (pullT - pull) * (1 - Math.exp(-dt / 0.27)); // button lift: 6 px over ~800 ms
-    t += dt;
-    // intro: 400 ms of stillness, then a 4.8 s sine ease-in-out draw; spread and opacity follow the tip
-    const k = Math.min(1, Math.max(0, (now - startAt - 400) / 4800)), ease = 0.5 - 0.5 * Math.cos(Math.PI * k), rev = ease * 1.08;
-    gl.uniform1f(U.uSpr, rev + 0.2 * ss(0.55, 1, k)); gl.uniform1f(U.uFade, Math.sin(k * Math.PI / 2));
-    stepPointer(dt);
-    gl.clear(gl.COLOR_BUFFER_BIT);
-    gl.uniform1f(U.uT, t); gl.uniform1f(U.uRev, rev); gl.uniform1f(U.uPull, pull);
-    gl.uniform4fv(U.uP, P);
-    gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 2 * (SEG + 1), N);
-    NS.frames++;
+  // ---------- Global: "continuum" (v3) ----------
+  // Akhmet, 2026-10-15: the v6 continuum EXACTLY (dist/src/hero-continuum.js: geometry, strand family, intro, timing), only
+  // the material is the Start current. The engine runs in strand mode: every particle belongs to one v6 strand and travels
+  // along it (left -> right) while the strand itself moves by v6's analytic path(u, t); the per-strand alpha (weight, birth,
+  // travelling pulse, ribbon edges) and the intro (400 ms still, 4.8 s sine draw, spread and fade following the tip) are
+  // v6's, computed in the shader. buildStrands() and measure() below are v6's, verbatim but for the element names.
+  function continuum(hero) {
+    const q = s => hero.querySelector(s);
+    const ss = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+    const cta = q('.gx__cta');
+    let ctl = null;
+    const shape = {
+      name: 'continuum', immediate: true, sessionKey: 'hsContinuumIntro', mirror: false, helS: 'mob', edge: 0, gain: 1.5, // 150 thin strands share the light one Start current gets; 1.5 brings the line up to the Start current's brightness
+      warm: [0x3a, 0x72, 0xce].map(v => v / 255 * 0.94 + 0.06), warmGain: 1, // both halves the Start Global blue
+      strands(isPhone) { // v6 buildStrands, seeded so every load composes the same
+        const N = isPhone ? 40 : 150, aK = isPhone ? 0.9 : 1;
+        const S = new Float32Array(N * 4), T = new Float32Array(N * 4); // [birth, lane, phase, group] [width, alpha, tone, freq]
+        let seed = 7;
+        const rnd = () => (seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296;
+        const nRoot = 4, nFil = Math.round(N * 0.1), nBr = Math.round(N * 0.3), nRib = N - nRoot - nFil - nBr;
+        let k = 0;
+        const put = (b, l, ph, g, w, a, tone, f) => { S.set([b, l, ph, g], k * 4); T.set([w, a * aK, tone, f], k * 4); k++; };
+        for (let i = 0; i < nRoot; i++) put(-0.2, (i / 3 - 0.5) * 0.3, rnd(), i % 3, 0.95, 0.34, 0, 0.8 + rnd() * 0.4);
+        for (let i = 0; i < nFil; i++) put(0.08 + 0.22 * rnd(), rnd() * 2 - 1, rnd(), i % 3, 0.6 + 0.45 * rnd(), 0.34 + 0.2 * rnd(), 0.1 + 0.3 * rnd(), 0.7 + rnd() * 0.9);
+        for (let i = 0; i < nBr; i++) put(0.28 + 0.24 * rnd(), rnd() * 2 - 1, rnd(), i % 3, 0.5 + 0.4 * rnd(), 0.2 + 0.14 * rnd(), 0.2 + 0.5 * rnd(), 0.8 + rnd() * 0.6);
+        for (let i = 0; i < nRib; i++) put(0.5 + 0.28 * rnd(), (i / (nRib - 1)) * 2 - 1 + (rnd() - 0.5) * 0.04, rnd(), i % 3, 0.45 + 0.4 * rnd(), 0.13 + 0.13 * rnd(), 0.3 + 0.7 * rnd(), 0.8 + rnd() * 0.5);
+        return { S, T, N };
+      },
+      measure({ r, W, H, geo }) { // v6 measure()
+        const phone = W < 768;
+        const mh = box(r, [q('.gx__title')], 0), mi = box(r, [q('.gx__sub')], 0), mb = box(r, [cta], 0);
+        geo.mask.set([...mh, ...mi, ...mb]); geo.mk.set([0.1, 0.1, 0.1, 1, 1]);
+        const below = mb[3], room = Math.max(1, H - below), g = { x0: -0.01 * W, x1: 1.01 * W, calm: phone ? 0.6 : 1 };
+        if (phone) {
+          const c = below + room * 0.6;
+          g.yL = c + room * 0.1; g.yR = c - room * 0.03; g.wMax = room * 0.15; g.amp = room * 0.04;
+        } else {
+          g.amp = H * 0.03;
+          const top = Math.max(mi[3], mh[3]) + 44, bottom = H - 14 - g.amp;
+          g.wMax = Math.max(40, Math.min(H * 0.13, (bottom - top) / 1.95));
+          g.yR = Math.min(Math.max(top + g.wMax * 0.95 + g.amp, H * 0.62), bottom - g.wMax);
+          g.yR = Math.max(g.yR, Math.min(mb[1] + g.wMax * 0.9, bottom - g.wMax));
+          g.yL = Math.max(below + room * 0.5, g.yR + 20);
+        }
+        g.k = Math.min(1, Math.max(0.5, W / 1440 * 1.25));
+        geo.v6 = g; geo.S = 160; geo.lean = 0; geo.hdir = [0, 1];
+        // the engine's path table only carries the travel speed here (the Start arms' pace); positions come from the strands
+        const v = Math.max(phone ? 34 : 60, W * (phone ? 0.09 : 0.05)), pts = [];
+        for (let i = 0; i <= 64; i++) { const x = g.x0 + (g.x1 - g.x0) * i / 64; pts.push([x, g.yL, 0, 0, 0, 0, 0, v, 0]); }
+        return { pts, iM: 32 };
+      }
+    };
+    // v6 button lift: hovering or focusing the CTA lifts the ribbon 6 px over ~800 ms
+    shape.bind = c => { ctl = c; if (!cta) return; const up = () => { c.S.pullT = 1; }, down = () => { c.S.pullT = 0; }; ['pointerenter', 'focus'].forEach(e => cta.addEventListener(e, up)); ['pointerleave', 'blur'].forEach(e => cta.addEventListener(e, down)); };
+    return shape;
   }
-  function frame(now) {
-    raf = 0;
-    if (!running || lost) return;
-    const dt = Math.min(0.05, (now - last) / 1000 || 0.016); last = now;
-    draw(now, dt);
-    raf = requestAnimationFrame(frame);
-  }
-  function start() { if (running || lost || !gl) return; running = true; last = performance.now(); raf = requestAnimationFrame(frame); NS.state = 'running'; }
-  function stop() { running = false; if (raf) cancelAnimationFrame(raf); raf = 0; if (NS.state === 'running') NS.state = 'paused'; }
-  const sync = () => (visible && !D.hidden ? start() : stop());
+  window.HSShapes = { axis, continuum };
+})();
 
-  // resize and orientation: debounced; the canvas keeps its last frame (CSS-stretched) until the new size is drawn in the
-  // same task, so there is never a blank frame
-  function applyResize() {
-    rszTimer = 0;
-    const r = hero.getBoundingClientRect();
-    if (Math.round(r.width) === lastW && Math.round(r.height) === lastH) return;
-    if (gl && !lost) { glFit(); draw(performance.now(), 0); } else if (NS.mode === 'still') drawStill();
-  }
-  const onResize = () => { clearTimeout(rszTimer); rszTimer = setTimeout(applyResize, 150); };
 
-  function makeCanvas() {
-    if (cv) cv.remove();
-    cv = D.createElement('canvas');
-    cv.className = 'hs-continuum';
-    cv.setAttribute('aria-hidden', 'true');
-    cv.setAttribute('role', 'presentation');
-    hero.appendChild(cv);
-  }
-  function toStill() {
-    stop(); gl = null; makeCanvas();
-    NS.mode = 'still'; NS.state = 'still';
-    drawStill();
-  }
-  function toGL() {
-    makeCanvas();
-    try {
-      gl = cv.getContext('webgl2', { alpha: true, antialias: false, depth: false, stencil: false, premultipliedAlpha: true, powerPreference: 'high-performance' });
-    } catch (e) { gl = null; }
-    if (!gl) return false;
-    try { initGL(); } catch (e) { gl = null; return false; }
-    cv.addEventListener('webglcontextlost', e => { e.preventDefault(); lost = true; stop(); NS.state = 'lost'; });
-    cv.addEventListener('webglcontextrestored', () => {
-      lost = false;
-      try { initGL(); glFit(); NS.restored = (NS.restored || 0) + 1; startAt = performance.now() - 5200; sync(); } catch (e) { toStill(); }
-    });
-    NS.mode = 'webgl2';
-    glFit();
-    t = T_STILL - 2.2;
-    startAt = performance.now();
-    draw(startAt, 0);
-    sync();
+/* v14 (G1 + G2, approved 2026-10-15): the Global homepage hero, built in the head bundle from the PUBLISHED block C (no Tilda
+   edit). dist/global.js runs in <head>; a MutationObserver catches block C's section.sentence as the parser inserts it and,
+   once its last child (the CTA) is in, turns it into the dark centred hero: h1 -> .gx__title, the intro h2 -> p.gx__sub, the
+   CTA -> .gx__cta (and after the sub); the stage table and note are moved out by the page runtime (stages section).
+   hero-global.css styles section.sentence from the head on, and hides its children until the swap, so no frame shows the old
+   hero and no layout shift follows. markup/global-*-top.html carries the same hero for the handover bake into block C. */
+(() => {
+  const R = document.documentElement;
+  if (R.getAttribute('data-site') !== 'global') return;
+  let done = false;
+  function swap(sec) {
+    if (done || sec.classList.contains('gx')) return true;
+    const h1 = sec.querySelector('h1'), cta = sec.querySelector('a.btn--primary, a.btn');
+    if (!h1 || !cta) return false;                     // not fully parsed yet
+    const h2 = sec.querySelector('h2.stages__title');
+    sec.classList.add('gx'); sec.setAttribute('data-tone', 'dark'); sec.setAttribute('aria-labelledby', 'gx-title');
+    h1.classList.add('gx__title'); h1.id = 'gx-title';
+    const w = document.createTreeWalker(h1, 4); let n, last = null; while ((n = w.nextNode())) if (n.data.trim()) last = n;
+    if (last) last.data = last.data.replace(/([^.])\.(\s*)$/, '$1$2');   // U2
+    let sub = sec.querySelector('.gx__sub');
+    if (!sub && h2) { sub = document.createElement('p'); sub.className = 'gx__sub'; sub.innerHTML = h2.innerHTML; h2.removeAttribute('id'); h2.hidden = true; h2.setAttribute('aria-hidden', 'true'); h2.classList.add('gx__old'); }
+    if (sub) h1.after(sub);
+    cta.classList.add('gx__cta'); (sub || h1).after(cta);
+    const tb = sec.querySelector('.stages__table'); if (tb) { tb.removeAttribute('aria-labelledby'); tb.setAttribute('aria-label', 'IB'); }
+    done = true;
+    try { if (!window.hsContinuum) { window.hsContinuum = true; window.__gx = HSCurrent.mount(sec, HSShapes.continuum(sec)); } } catch (e) { console.error(e); }
     return true;
   }
-  function setMode() {
-    if (rmq && rmq.matches) toStill();
-    else if (!toGL()) toStill();
+  window.hsGlobalHero = () => { const s = document.querySelector('.hs .sentence'); return s ? swap(s) : false; };
+  function check() {
+    if (!R.hasAttribute('data-hs-home')) return;
+    const s = document.querySelector('.hs .sentence');
+    if (s && (s.nextElementSibling || s.querySelector('a.btn') || document.readyState !== 'loading')) { if (swap(s)) mo.disconnect(); }
   }
-
-  function boot() {
-    if (NS.state !== 'waiting') return;
-    hero = eligible();
-    if (!hero) { NS.state = 'off'; return; }
-    h1 = hero.querySelector('h1');
-    intro = hero.querySelector('.stages__title');
-    btn = hero.querySelector('.btn--primary');
-    rmq = W0.matchMedia ? W0.matchMedia('(prefers-reduced-motion: reduce)') : null;
-    buildStrands(hero.getBoundingClientRect().width < 768);
-    NS.state = 'booting'; NS.bootAt = performance.now();
-    setMode();
-    if (rmq) on(rmq, 'change', () => { NS.state = 'booting'; setMode(); });
-    ro = new ResizeObserver(onResize); ro.observe(hero);
-    on(W0, 'orientationchange', onResize);
-    io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (NS.mode === 'webgl2') sync(); }); io.observe(hero);
-    on(D, 'visibilitychange', () => { if (NS.mode === 'webgl2') sync(); });
-    on(W0, 'pointermove', e => onMove(e.clientX, e.clientY), { passive: true });
-    on(W0, 'pointerdown', e => onMove(e.clientX, e.clientY), { passive: true });
-    on(W0, 'touchmove', e => { const p = e.touches[0]; if (p) onMove(p.clientX, p.clientY); }, { passive: true });
-    on(R, 'pointerleave', () => { ptr.in = false; });
-    on(W0, 'touchend', () => { ptr.in = false; }, { passive: true });
-    if (btn) {
-      const up = () => { pullT = 1; }, down = () => { pullT = 0; };
-      on(btn, 'pointerenter', up); on(btn, 'pointerleave', down); on(btn, 'focus', up); on(btn, 'blur', down);
-    }
-  }
-  NS.destroy = () => {
-    stop(); clearTimeout(rszTimer);
-    listeners.forEach(([el, ev, fn, opt]) => el.removeEventListener(ev, fn, opt));
-    if (ro) ro.disconnect(); if (io) io.disconnect();
-    if (cv) cv.remove();
-    gl = null; NS.state = 'destroyed';
-  };
-
-  // after window load (or 4 s after DOMContentLoaded at the latest, if a third-party resource holds load), in idle time
-  let queued = false;
-  const queue = () => {
-    if (queued) return; queued = true;
-    if (W0.requestIdleCallback) W0.requestIdleCallback(boot, { timeout: 1000 }); else setTimeout(boot, 1);
-  };
-  if (D.readyState === 'complete') queue();
-  else {
-    W0.addEventListener('load', queue, { once: true });
-    const late = () => setTimeout(queue, 4000);
-    D.readyState === 'loading' ? D.addEventListener('DOMContentLoaded', late, { once: true }) : late();
-  }
+  const mo = new MutationObserver(check);
+  mo.observe(R, { childList: true, subtree: true });
+  document.addEventListener('DOMContentLoaded', () => { check(); mo.disconnect(); });
 })();

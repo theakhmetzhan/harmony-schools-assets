@@ -561,6 +561,15 @@ document.addEventListener("DOMContentLoaded",function(){
     if (rec) {
       place.insertBefore(rec, place.firstChild);
       R.classList.add('k-v9-form');
+      /* neutral first option on the drop-down (no default school / grade) */
+      var PH = { school: { ru: 'Выберите школу', kz: 'Мектепті таңдаңыз', en: 'Choose a school' }, grade: { ru: 'Выберите класс', kz: 'Сыныпты таңдаңыз', en: 'Choose a grade' } };
+      rec.querySelectorAll('select').forEach(function (sel) {
+        if (sel.querySelector('option[data-v9-ph]')) return;
+        var isSchool = [].some.call(sel.options, function (o) { return /Harmony/.test(o.textContent); });
+        var o = D.createElement('option'); o.value = ''; o.disabled = true; o.selected = true; o.setAttribute('data-v9-ph', '');
+        o.textContent = (PH[isSchool ? 'school' : 'grade'][lang()] || PH[isSchool ? 'school' : 'grade'].ru);
+        sel.insertBefore(o, sel.firstChild); sel.value = '';
+      });
     } else R.classList.add('k-v9-noform');
     if (lines && !lines.querySelector('.v9-addr')) {
       var fp = D.querySelector('.foot__col--contacts p:not(.foot__head)');
@@ -1094,7 +1103,7 @@ void main(){vec3 t=texture(uTex,uv).rgb;float L=max(max(t.r,t.g),max(t.b,1e-4));
 
   // ---------- hover leans the helix toward a school; press sends that current racing down, then the screen fades to the
   // school page's own first colour and it opens. About 450ms from press to navigation, wherever the click lands ----------
-  const NEXT_BG = { steam: '#1b1b1d', global: '#ffffff' }; // first paint of each school page: STEAM's photo block before the photo, Global's white
+  const NEXT_BG = { steam: '#1b1b1d', global: '#111216' }; // v14: Global's hero is dark (#111216, the current's ground): the veil hands off into it // first paint of each school page: STEAM's photo block before the photo, Global's white
   const TOTAL = 450, FADE = 180;
   let going = false, press = null, veil = null;
   const plain = e => e.button === 0 && !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey);
@@ -1120,7 +1129,7 @@ void main(){vec3 t=texture(uTex,uv).rgb;float L=max(max(t.r,t.g),max(t.b,1e-4));
       if (!veil) { veil = document.createElement('div'); veil.setAttribute('aria-hidden', 'true'); veil.style.cssText = `position:fixed;inset:0;z-index:2147483000;pointer-events:none;opacity:0;transition:opacity ${FADE}ms cubic-bezier(.6,0,1,1)`; document.body.appendChild(veil); }
       veil.style.background = NEXT_BG[a.dataset.school];
       setTimeout(() => { veil.style.opacity = '1'; }, left - FADE);
-      setTimeout(() => { location.href = a.href; }, left);
+      setTimeout(() => { if (a.dataset.school === 'global') try { sessionStorage.setItem('hsHandoff', 'global'); } catch (x) {} location.href = a.href; }, left);   // v14: Global skips its intro draw
     });
   });
   addEventListener('pointerup', e => { if (press && !halves.some(a => a.contains(e.target))) release(); }); // pressed, then dragged off before letting go

@@ -691,6 +691,15 @@ document.addEventListener("DOMContentLoaded",function(){
     if (rec) {
       place.insertBefore(rec, place.firstChild);
       R.classList.add('k-v9-form');
+      /* neutral first option on the drop-down (no default school / grade) */
+      var PH = { school: { ru: 'Выберите школу', kz: 'Мектепті таңдаңыз', en: 'Choose a school' }, grade: { ru: 'Выберите класс', kz: 'Сыныпты таңдаңыз', en: 'Choose a grade' } };
+      rec.querySelectorAll('select').forEach(function (sel) {
+        if (sel.querySelector('option[data-v9-ph]')) return;
+        var isSchool = [].some.call(sel.options, function (o) { return /Harmony/.test(o.textContent); });
+        var o = D.createElement('option'); o.value = ''; o.disabled = true; o.selected = true; o.setAttribute('data-v9-ph', '');
+        o.textContent = (PH[isSchool ? 'school' : 'grade'][lang()] || PH[isSchool ? 'school' : 'grade'].ru);
+        sel.insertBefore(o, sel.firstChild); sel.value = '';
+      });
     } else R.classList.add('k-v9-noform');
     if (lines && !lines.querySelector('.v9-addr')) {
       var fp = D.querySelector('.foot__col--contacts p:not(.foot__head)');
