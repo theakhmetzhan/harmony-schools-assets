@@ -460,3 +460,520 @@ document.addEventListener("DOMContentLoaded",function(){
   function go() { Promise.resolve(window.HSK.icons).then(wire).catch(function () {}); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
 })();
+
+/* v8 hero axis2: dist/start.js runs in <head>, before the T123 markup exists, so the hero waits for DOMContentLoaded */
+(function(f){if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",f);else f();})(function(){
+/* Harmony Start hero: "axis". The schools keep the currents positions; the two currents (raw WebGL2 transform-feedback
+   particles, fade-buffer trails, the currents look) slope down from the edges under the heading, cross where they meet over
+   the gap between the schools, plait over each other down it in three long loops and part at the bottom. The trajectory is
+   fixed; only the dots move along it. Particles follow a path table (equal-time samples on a float texture); the STEAM
+   side is drawn, the Global side is its mirror.
+   Intro: the currents really travel. Only particles that left the source after the start are drawn, and the flow runs
+   as a time-lapse that eases back to real time once the heads have left the frame. Phones: an X across the seam. */
+(() => {
+  const hero = document.querySelector('.mh');
+  if (!hero) return;
+  const root = document.documentElement;
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let INTRO = !RM;
+  try { INTRO = INTRO && !sessionStorage.getItem('hsAxisIntro'); sessionStorage.setItem('hsAxisIntro', '1'); } catch (e) {}
+  const halves = [...hero.querySelectorAll('.mh__half')];
+  const q = (a, s) => a.querySelector(s);
+
+  // ---------- copy swap (RU ships in the HTML; KZ/EN as on the live /kz and /en pages) ----------
+  const COPY = {
+    ru: { kicker: 'Добро пожаловать в', nav: 'Школы Harmony', go: 'Сайт школы', steam: '1–11 классы,<br>Cambridge&nbsp;и&nbsp;AP', global: 'KG–12 классы,<br>программа&nbsp;IB', path: '' },
+    kz: { kicker: 'Қош келдіңіз', nav: 'Harmony мектептері', go: 'Мектеп сайты', steam: '1–11 сыныптар,<br>Cambridge және&nbsp;AP', global: 'KG–12 сыныптар,<br>IB&nbsp;бағдарламасы', path: 'kz' },
+    en: { kicker: 'Welcome to', nav: 'Harmony schools', go: 'School website', steam: 'Grades 1–11,<br>Cambridge and&nbsp;AP', global: 'Grades KG–12,<br>IB&nbsp;programme', path: 'en' }
+  };
+  const lang = (new URLSearchParams(location.search).get('lang') || ({ kk: 'kz' })[root.lang] || root.lang || 'ru').slice(0, 2);
+  halves.forEach(a => { const r = document.querySelector(`.halves .half[data-school="${a.dataset.school}"]`); if (r) a.href = r.href; });
+  if (lang !== 'ru' && COPY[lang]) {
+    const c = COPY[lang];
+    hero.querySelectorAll('[data-i18n]').forEach(el => { el.innerHTML = c[el.dataset.i18n]; });
+    hero.querySelectorAll('[data-i18n-aria]').forEach(el => el.setAttribute('aria-label', c[el.dataset.i18nAria]));
+    halves.forEach(a => { a.href = new URL(c.path, a.href).href; });
+    q(hero, '.mh__kicker').lang = lang === 'kz' ? 'kk' : lang;
+  }
+
+  const WARM = mixW([0xcc, 0x43, 0x3b], 0.06); // --steam #cc433b
+  const COOL = mixW([0x3a, 0x72, 0xce], 0.06); // --global #3a72ce
+  const WHITE = [0.93, 0.93, 0.95];
+  const WARM_GAIN = 1.25; // red carries less light than blue at equal alpha; keeps both schools at equal weight
+  function mixW(c, k) { return c.map(v => (v / 255) * (1 - k) + k); }
+
+  let cv, gl, W = 0, H = 0, dpr = 1, running = false;
+  const NP = 256, NM = 5; // path samples; text masks: welcome, two school names, two detail blocks
+  const path = new Float32Array(NP * 3 * 4); // rows: (x, y, tx, ty) | (twist amplitude px, twist phase rad, half width px, white) | (arc px, arm wave weight, speed px/s, twist weight)
+  const geo = { mob: 0, cx: 0, S: 240, T: 16, lean: 6, hdir: [1, 0], uM: 0.3, rs: 4, mask: new Float32Array(NM * 4), mk: new Float32Array(NM) };
+  const bg = [17 / 255, 18 / 255, 22 / 255];
+  const S = { t: 0, intro: 0, bias: 0, biasT: 0, sweep: 0, sweepSide: 0, sweepOn: false, trav: [0, 0], trav0: [0, 0], dtrav: [0, 0], rate: [1, 1], ir: 1, off: 0, snap: true, ti: 0, front: [9, 9], m: [-1e4, -1e4], mv: [0, 0], mvRaw: [0, 0], mOn: 0, mOnT: 0, last: null };
+
+  const introShape = f => 1.5 - 0.78 * smooth(geo.uM - 0.14, geo.uM, f) + 0.38 * smooth(geo.uM + 0.02, geo.uM + 0.2, f);
+  const smooth = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+  const bez = (P, t) => { const u = 1 - t; return [0, 1].map(k => u * u * u * P[0][k] + 3 * u * u * t * P[1][k] + 3 * u * t * t * P[2][k] + t * t * t * P[3][k]); };
+
+  // ---------- geometry: text masks + the STEAM-side path, resampled at equal time ----------
+  // balance (the axis2 variant, --balance:1 in its css): the schools sink until the space from the currents down to their names
+  // equals the space from their links down to the bottom of the screen. They are offset with top, so nothing else in the
+  // layout moves, and the offset counts as lift, so the currents stay where they are
+  const rowEl = q(hero, '.mh__halves');
+  function measure(again) {
+    const r = hero.getBoundingClientRect();
+    W = r.width; H = r.height; geo.cx = W / 2; geo.mob = W < 768 ? 1 : 0;
+    const balance = !geo.mob && getComputedStyle(hero).getPropertyValue('--balance').trim() === '1';
+    if (!balance && rowEl.style.top) rowEl.style.top = '';
+    const sink = parseFloat(rowEl.style.top) || 0;
+    const box = (els, pad) => { const b = els.map(e => e.getBoundingClientRect()); return [Math.min(...b.map(v => v.left)) - r.left - pad, Math.min(...b.map(v => v.top)) - r.top - pad, Math.max(...b.map(v => v.right)) - r.left + pad, Math.max(...b.map(v => v.bottom)) - r.top + pad]; };
+    const ink = el => { const b = box([el], 0), h = b[3] - b[1]; return [b[0] - 4, b[1] + h * 0.12, b[2] + 4, b[3] - h * 0.04]; };
+    const name = halves.map(a => ink(q(a, '.mh__name')));
+    const det = halves.map(a => box([q(a, '.mh__desc'), q(a, '.mh__go')], 8));
+    const lock = halves.map(a => box([q(a, '.mh__lock')], 0));
+    const rg = el => { const R = document.createRange(); R.selectNodeContents(el); const b = R.getBoundingClientRect(); return [b.left - r.left, b.top - r.top, b.right - r.left, b.bottom - r.top]; };
+    const tk = rg(q(hero, '.mh__kicker')), tm = rg(q(hero, '.mh__mark')), inkL = Math.min(tk[0], tm[0]), inkR = Math.max(tk[2], tm[2]), inkT = tk[1], inkB = tm[3]; // welcome text itself, not its full-width block
+    geo.mask.set([inkL - 10, inkT - 10, inkR + 10, inkB + 10, ...name[0], ...name[1], ...det[0], ...det[1]]);
+    geo.mk.set([0.06, 0.22, 0.22, 0.08, 0.08]);
+
+    const pts = []; // raw samples: x, y, twist amplitude px, twist phase rad, half width px, white, arm wave weight, speed px/s, twist weight 0..1
+    let iM = 0; // sample where the currents reach the axis (the intro slows there)
+    if (!geo.mob) {
+      // desktop: the arms come in from the edges under the heading and the currents plait down the gap between the schools
+      const gapL = Math.max(lock[0][2], det[0][2] - 8), gapR = Math.min(lock[1][0], det[1][0] + 8), half = (gapR - gapL) / 2;
+      const lockTop = Math.min(lock[0][1], lock[1][1]);
+      // lift: how far the welcome was raised by giving its block extra room underneath (the axis2 variant; 0 here). The arms are
+      // laid out as if it had not moved, then raised whole, meeting point included, so they keep their shape; the braid starts that
+      // much higher and still parts where it does without the lift
+      const lift = Math.max(0, box([q(hero, '.mh__top')], 0)[3] - box([q(hero, '.mh__title')], 0)[3]) + sink, wT = inkT + lift, wB = inkB + lift;
+      const vA = Math.max(60, W * 0.07), vF = Math.max(40, W * 0.042), vS = Math.max(34, W * 0.03), vO = Math.max(50, W * 0.05);
+      // Akhmet's sketch: long arms slope down from the edges and simply cross where they meet, plait over each other down the
+      // gap in three identical long loops, then part at the bottom, each back to its own side. The shape never moves;
+      // only the dots travel along it.
+      const g = lockTop - wB, yM0 = lockTop - Math.min(22, g * 0.14), yM = yM0 - lift, yLast = yM0 + 0.82 * (H - yM0), yEnd = H + 40, Lb = yLast - yM;
+      const Ac = Math.max(6, Math.min(9, half * 0.17)); // close to one line: the strands touch at their widest
+      // three identical turns. Without this the first runs ~10px long and the third ~5px short: the dots overshoot as the fast
+      // arms brake into the braid. A tenth of a turn faster on the first, eased in so the arms still arrive on the braid's angle,
+      // evens the drawn crossings out (measured 142/143/142 px at 1440x900; 0.06 and 0.14 both measure worse)
+      const b0 = 0.1 * Math.PI, k0 = (3 * Math.PI - b0) / Lb, phi = y => k0 * (y - yM) + b0 * smooth(yM, yM + Lb / 3, y), amp = () => Ac;
+      geo.S = Math.max(160, g * 1.3); geo.lean = Math.max(0, Math.min(8, half - Ac - 14)); geo.hdir = [1, 0];
+      const wA = geo.S * 0.1, wF = 6, wS = 6, wO = 12, x0 = -0.04 * W, wAt = t => wA + (wF - wA) * smooth(0.3, 0.85, t); // braid-thin before the meet, so the first crossing reads where it is
+      const sl = Ac * k0, dl = Math.hypot(sl, 1), dir = [sl / dl, 1 / dl], hb = 0.16 * (geo.cx - x0); // the arm arrives on the braid's own angle
+      let P = null;
+      for (let yE = wT; yE < yM0 - 30; yE += 3) { // the highest, longest slope that still passes under the welcome and over the schools
+        P = [[x0, yE], [x0 + 0.4 * (geo.cx - x0), yE + 0.45 * (yM0 - yE)], [geo.cx - hb * dir[0], yM0 - hb * dir[1]], [geo.cx, yM0]];
+        let ok = true;
+        for (let i = 0; i <= 160 && ok; i++) { const t = i / 160, [x, y] = bez(P, t), w = wAt(t); if ((x > inkL - 24 && x < inkR + 24 && y - w < wB + 12) || (x < gapL + half * 0.6 && y + w > lockTop - 6)) ok = false; }
+        if (ok) break;
+      }
+      P.forEach(c => { c[1] -= lift; });
+      if (balance && !again) {
+        let armB = -1e9; // the current's lower edge over the STEAM name
+        for (let i = 0; i <= 400; i++) { const t = i / 400, [x, y] = bez(P, t); if (x >= name[0][0] && x <= name[0][2]) armB = Math.max(armB, y + wAt(t)); }
+        const goB = Math.max(...halves.map(a => box([q(a, '.mh__go')], 0)[3])), d = ((H - goB) - (name[0][1] - armB)) / 2;
+        if (Math.abs(d) > 0.5) { rowEl.style.top = Math.max(0, sink + d).toFixed(1) + 'px'; return measure(true); }
+      }
+      for (let i = 0; i < 240; i++) { const t = i / 240, [x, y] = bez(P, t), k = smooth(0.55, 1, t); pts.push([x, y, 0, 0, wAt(t), 0.08 * k, 0.7 * (1 - smooth(0, 0.85, t)), vA + (vF - vA) * k, smooth(0.7, 1, t)]); } // stiff by the meet, so the dots cross where the path does
+      iM = pts.length;
+      for (let y = yM; y <= yEnd; y += 2) {
+        let off, ph, D = 0;
+        if (y < yLast) { ph = phi(y); off = amp(y) * Math.sin(ph); }
+        else { ph = Math.min(3.5 * Math.PI, 3 * Math.PI + k0 * (y - yLast)); off = Ac * Math.sin(ph); D = Math.min(0.07 * W, 100) * Math.pow((y - yLast) / (yEnd - yLast), 1.5); }
+        const tw = 1 - smooth(yLast, yLast + 70, y), op = smooth(yLast - 20, yEnd, y), wIn = smooth(yM, yM + 50, y);
+        pts.push([geo.cx + off - D, y, 0, ph, wF + (wS - wF) * wIn + (wO - wS) * op, 0.1 * tw, 0, vF + (vS - vF) * wIn + (vO - vS) * op, tw]);
+      }
+    } else {
+      // phone: the STEAM current enters above the seam at the left, crosses the axis, leaves below at the right (the Global one mirrors it)
+      const a0 = det[0][3] - 8, a1 = lock[1][1] - 4, corr = a1 - a0, yU = a0 + corr * 0.5, dy = corr * 0.3, amp = Math.min(16, corr * 0.14), om = 6.2832 / (0.42 * W);
+      geo.S = Math.max(150, corr * 1.35); geo.lean = 0; geo.hdir = [0, 1]; iM = 200;
+      const x0 = -0.04 * W, x1 = 1.04 * W, A = [[x0, yU - dy], [0.22 * W, yU - dy], [0.34 * W, yU], [geo.cx, yU]], B = [[geo.cx, yU], [0.66 * W, yU], [0.78 * W, yU + dy], [x1, yU + dy]];
+      const v = Math.max(30, W * 0.08), vC = Math.max(22, W * 0.055);
+      for (let i = 0; i <= 400; i++) {
+        const t = i / 400, [x, y] = t < 0.5 ? bez(A, t * 2) : bez(B, t * 2 - 1), d = Math.abs(x - geo.cx) / (0.5 * W), h = 1 - smooth(0.12, 0.62, d);
+        pts.push([x, y, amp * h, om * (x - geo.cx), 4 + (geo.S * 0.09 - 4) * (1 - h), 0.35 * h, 1 - h, vC + (v - vC) * (1 - h), h]);
+      }
+    }
+    // arc length and travel time, then equal-time resampling (so u advances uniformly in time)
+    const n = pts.length, arc = new Float64Array(n), tim = new Float64Array(n);
+    for (let i = 1; i < n; i++) { const ds = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); arc[i] = arc[i - 1] + ds; tim[i] = tim[i - 1] + ds / (0.5 * (pts[i][7] + pts[i - 1][7])); }
+    geo.T = tim[n - 1]; geo.uM = tim[iM] / geo.T;
+    // intro time-lapse: rate = rs * shape(head position); quick along the arms, slow as they meet, steady on the way down,
+    // scaled so the heads leave the frame after tEnd seconds whatever the path length
+    let I = 0; for (let i = 0; i < 200; i++) I += 1 / introShape((i + 0.5) / 200) / 200;
+    geo.rs = Math.max(1, geo.T * I / (geo.mob ? 3.6 : 4.6));
+    let j = 0;
+    for (let i = 0; i < NP; i++) {
+      const tt = geo.T * i / (NP - 1);
+      while (j < n - 2 && tim[j + 1] < tt) j++;
+      const f = Math.min(1, Math.max(0, (tt - tim[j]) / Math.max(1e-6, tim[j + 1] - tim[j]))), L = k => pts[j][k] + (pts[j + 1][k] - pts[j][k]) * f;
+      const tx = pts[j + 1][0] - pts[j][0], ty = pts[j + 1][1] - pts[j][1], tl = Math.hypot(tx, ty) || 1;
+      path.set([L(0), L(1), tx / tl, ty / tl], i * 4);
+      path.set([L(2), L(3), L(4), L(5)], (NP + i) * 4);
+      path.set([arc[j] + (arc[j + 1] - arc[j]) * f, L(6), L(7), L(8)], (2 * NP + i) * 4);
+    }
+  }
+
+  const boot = () => {
+    cv = document.createElement('canvas');
+    cv.className = 'hc';
+    cv.setAttribute('aria-hidden', 'true');
+    hero.prepend(cv);
+    measure();
+    gl = cv.getContext('webgl2', { alpha: false, antialias: false, depth: false, stencil: false, premultipliedAlpha: false, powerPreference: 'high-performance' });
+    if (!gl || window.__forceFallback) { if (gl) { cv.remove(); boot2D(); } else fallback2D(); return; }
+    try { initGL(); } catch (e) { console.warn('[hero]', e); gl = null; cv.remove(); boot2D(); }
+  };
+  function boot2D() { gl = null; cv = document.createElement('canvas'); cv.className = 'hc'; cv.setAttribute('aria-hidden', 'true'); hero.prepend(cv); fallback2D(); }
+
+  // ---------- 2D still fallback (no WebGL2): strands along the same path ----------
+  function fallback2D() {
+    const draw = () => {
+      measure();
+      dpr = Math.min(devicePixelRatio || 1, 2);
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      const c = cv.getContext('2d');
+      c.setTransform(dpr, 0, 0, dpr, 0, 0);
+      c.fillStyle = `rgb(${bg.map(v => v * 255 | 0)})`; c.fillRect(0, 0, W, H);
+      c.globalCompositeOperation = 'lighter'; c.lineWidth = 0.6;
+      const col = (s, k, a) => `rgba(${(s > 0 ? WARM : COOL).map((v, j) => (v + (WHITE[j] - v) * k) * 255 | 0)},${a})`;
+      for (const s of [1, -1]) for (let i = 0; i < 90; i++) {
+        const lane = (Math.random() + Math.random() + Math.random() - 1.5) / 1.5;
+        c.beginPath();
+        for (let k = 0; k < NP; k++) {
+          const o = k * 4, x0 = path[o], y0 = path[o + 1], nx = -path[o + 3], ny = path[o + 2], amp = path[(NP + k) * 4], ph = path[(NP + k) * 4 + 1], w = path[(NP + k) * 4 + 2];
+          const hel = amp * Math.sin(ph - 1.3) * (geo.mob ? s : 1);
+          let x = x0 + nx * w * lane + geo.hdir[0] * hel, y = y0 + ny * w * lane + geo.hdir[1] * hel;
+          if (s < 0) x = W - x;
+          k ? c.lineTo(x, y) : c.moveTo(x, y);
+        }
+        c.strokeStyle = col(s, 0.2, 0.1); c.stroke();
+      }
+      c.globalCompositeOperation = 'source-over'; c.filter = 'blur(14px)';
+      for (let i = 0; i < NM; i++) { const m = geo.mask.subarray(i * 4, i * 4 + 4); c.fillStyle = `rgba(${bg.map(v => v * 255 | 0)},${1 - geo.mk[i]})`; c.fillRect(m[0], m[1], m[2] - m[0], m[3] - m[1]); }
+      c.filter = 'none';
+      cv.classList.add('on');
+    };
+    draw();
+    let to; new ResizeObserver(() => { clearTimeout(to); to = setTimeout(draw, 150); }).observe(hero);
+  }
+
+  // ---------- WebGL2 ----------
+  const COMMON = `
+uniform float uT,uDt,uW,uH,uS,uBias,uIntro,uIR,uMob,uLean,uOff;uniform vec2 uSweep,uTrav,uDTrav,uRate,uHDir,uFront;
+uniform highp sampler2D uPath;
+float lead(float s){return max(0.,s*uBias);}
+float lag(float s){return max(0.,-s*uBias);}
+float swOn(float s){return uSweep.x*step(0.,s*uSweep.y);}
+float swOff(float s){return uSweep.x*step(0.,-s*uSweep.y);}
+float hash(float n){return fract(sin(n*12.9898)*43758.5453);}
+vec4 row(float u,int r){float f=clamp(u,0.,1.)*${NP - 1}.;int i=int(floor(f));int j=min(i+1,${NP - 1});return mix(texelFetch(uPath,ivec2(i,r),0),texelFetch(uPath,ivec2(j,r),0),fract(f));}
+float rawU(float s,float z){return z+(s>0.?uTrav.x:uTrav.y)-uOff;}
+float front(float s){return s>0.?uFront.x:uFront.y;}
+// target on the path for the STEAM side, mirrored for Global; out: tangent, helix weight, helix depth, white, speed.
+// Nothing here moves with time except the per-dot shimmer: the trajectory is laid down once and the dots travel along it.
+vec2 target(float u,float s,float lane,float ph,out vec2 tg,out float hw,out float dep,out float wh,out float spd){
+ vec4 a=row(u,0),b=row(u,1),c=row(u,2);
+ tg=normalize(a.zw+1e-5);vec2 n=vec2(-tg.y,tg.x);
+ hw=c.w;wh=b.w;spd=c.z;
+ float k1=6.2832/(.40*uW);
+ float wave=uS*(.075*sin(k1*c.x+1.3+s*.9)*(1.+.3*lead(s))*c.y+.01*sin(.8*uT+ph*6.2832+c.x*.013));
+ float phs=b.y;
+ dep=cos(phs);
+ float hel=b.x*sin(phs)*mix(1.,s,uMob);
+ float tip=mix(.25,1.,smoothstep(front(s),front(s)-.05,u)); // intro: each head narrows to a point
+ vec2 p=a.xy+n*(wave+b.z*tip*lane*(1.+.5*lead(s)-.2*lag(s)))+uHDir*hel;
+ if(s<0.){p.x=uW-p.x;tg.x=-tg.x;}
+ p.x-=uLean*uBias*hw; // both strands lean toward the school being pointed at
+ return p;
+}`;
+  const NOISE = `
+vec4 pm(vec4 x){return mod(((x*34.)+1.)*x,289.);}
+float sn(vec3 v){const vec2 C=vec2(1./6.,1./3.);vec3 i=floor(v+dot(v,C.yyy));vec3 x0=v-i+dot(i,C.xxx);vec3 g=step(x0.yzx,x0.xyz);vec3 l=1.-g;vec3 i1=min(g,l.zxy);vec3 i2=max(g,l.zxy);vec3 x1=x0-i1+C.x;vec3 x2=x0-i2+C.y;vec3 x3=x0-.5;i=mod(i,289.);vec4 p=pm(pm(pm(i.z+vec4(0.,i1.z,i2.z,1.))+i.y+vec4(0.,i1.y,i2.y,1.))+i.x+vec4(0.,i1.x,i2.x,1.));vec4 j=p-49.*floor(p/49.);vec4 x_=floor(j/7.);vec4 y_=floor(j-7.*x_);vec4 x=(x_*2.+.5)/7.-1.;vec4 y=(y_*2.+.5)/7.-1.;vec4 h=1.-abs(x)-abs(y);vec4 b0=vec4(x.xy,y.xy);vec4 b1=vec4(x.zw,y.zw);vec4 s0=floor(b0)*2.+1.;vec4 s1=floor(b1)*2.+1.;vec4 sh=-step(h,vec4(0.));vec4 a0=b0.xzyw+s0.xzyw*sh.xxyy;vec4 a1=b1.xzyw+s1.xzyw*sh.zzww;vec3 p0=vec3(a0.xy,h.x);vec3 p1=vec3(a0.zw,h.y);vec3 p2=vec3(a1.xy,h.z);vec3 p3=vec3(a1.zw,h.w);vec4 nr=inversesqrt(vec4(dot(p0,p0),dot(p1,p1),dot(p2,p2),dot(p3,p3)));p0*=nr.x;p1*=nr.y;p2*=nr.z;p3*=nr.w;vec4 m=max(.6-vec4(dot(x0,x0),dot(x1,x1),dot(x2,x2),dot(x3,x3)),0.);m*=m;return 42.*dot(m*m,vec4(dot(p0,x0),dot(p1,x1),dot(p2,x2),dot(p3,x3)));}
+vec2 curl(vec2 q,float z){float e=.35;return vec2(sn(vec3(q.x,q.y+e,z))-sn(vec3(q.x,q.y-e,z)),sn(vec3(q.x-e,q.y,z))-sn(vec3(q.x+e,q.y,z)))/(2.*e);}`;
+
+  const SIM_VS = `#version 300 es
+precision highp float;
+layout(location=0) in vec4 aS;layout(location=1) in vec4 aM;
+out vec4 vS;
+uniform vec2 uM,uMV;uniform float uMOn,uR,uSnap;
+${COMMON}${NOISE}
+void main(){
+ vec2 p=aS.xy,v=aS.zw;float s=aM.x,lane=aM.y,id=float(gl_VertexID);
+ float ph=hash(id*.137+1.);
+ float raw=rawU(s,aM.z),u=fract(raw);
+ vec2 tg;float hw,dep,wh,spd;
+ vec2 T=target(u,s,lane,ph,tg,hw,dep,wh,spd);
+ vec2 vT=tg*spd*(s>0.?uRate.x:uRate.y);
+ float prev=raw-(s>0.?uDTrav.x:uDTrav.y);
+ if(raw<0.||floor(raw)!=floor(prev)||uSnap>.5){p=T;v=vT;}
+ else{
+  float R=s>0.?uRate.x:uRate.y,K=min(mix(9.,22.,hw)*R*R,700.); // stiffer whenever this side runs fast (intro time-lapse, click), so the dots stay on the path instead of fanning out
+  vec2 acc=(T-p)*K+(vT-v)*2.*sqrt(K)*.95;
+  float sc=1./(.8*uS+.1*uW),e=1.-smoothstep(0.,.22,u);
+  acc+=curl(p*sc,uT*.05+s*3.)*uS*.3*e*e;
+  vec2 d=p-uM;float r2=dot(d,d);float f=exp(-r2/(uR*uR))*uMOn;float sp=length(uMV);
+  acc+=d*inversesqrt(r2+30.)*f*(uR*1.1+sp*1.9)*mix(1.,.45,hw);
+  acc+=uMV*f*2.4;
+  v+=acc*uDt;
+  float L=length(v),cap=1400.+4200.*uSweep.x;if(L>cap)v*=cap/L;
+  p+=v*uDt;
+ }
+ vS=vec4(p,v);
+}`;
+  const NULL_FS = `#version 300 es
+precision mediump float;out vec4 o;void main(){o=vec4(0.);}`;
+  const DRAW_VS = `#version 300 es
+precision highp float;
+layout(location=0) in vec4 aS;layout(location=1) in vec4 aM;
+out vec3 vC;
+uniform float uA,uWarmGain;uniform vec4 uMask[${NM}];uniform float uMk[${NM}];uniform vec3 uWarm,uCool,uWhite;
+${COMMON}
+void main(){
+ vec2 p=aS.xy,v=aS.zw;float s=aM.x,id=float(gl_InstanceID);
+ vec2 q=gl_VertexID==0?p-v*uDt*(1.6+4.*swOn(s)):p; // chosen: longer streaks, so it reads as speed
+ float raw=rawU(s,aM.z),u=fract(raw);
+ vec4 b=row(u,1);float hw=row(u,2).w,wh=b.w,phs=b.y;
+ float a=uA*step(0.,raw)*smoothstep(0.,.03,u)*smoothstep(1.,.93,u)*smoothstep(front(s),front(s)-.03,u); // intro: only what has left the source
+ float h=hash(id*.37+7.);a*=.2+2.2*h*h*h*h;
+ float act=.62+.12*lead(s)-.1*lag(s);
+ a*=clamp((act-hash(id*.913+3.))*12.,0.,1.);
+ a*=max(0.,1.+.45*lead(s)-.3*lag(s)-.5*swOff(s)); // the other current steps back but stays in the braid
+ float core=swOn(s)*(1.-abs(aM.y)); // chosen: the centre of the strand runs hot and white, the edges stay where they were
+ a*=1.3/((1.+9.*swOn(s))*(1.+2.5*swOn(s)))*(1.+3.*core); // chosen: each dot draws a line as long as it travelled, so ten times the speed is ten times the light and the strand blooms wider; keep its light, show only the speed
+ a*=mix(1.,mix(.72,1.15,.5+.5*s*cos(phs)),hw*(1.-uMob)); // over and under: at each crossing the strand in front is brighter
+ float mk=1.;
+ for(int i=0;i<${NM};i++){
+  vec2 c=(uMask[i].xy+uMask[i].zw)*.5,hs=(uMask[i].zw-uMask[i].xy)*.5,dd=abs(p-c)-hs;
+  float sd=length(max(dd,0.))+min(max(dd.x,dd.y),0.);
+  mk=min(mk,mix(uMk[i],1.,smoothstep(-8.,14.,sd)));
+ }
+ a*=mk*mix(.7,1.,uIntro)*pow(uIR,-.45)*smoothstep(0.,18.,p.y)*mix(1.,mix(.5,1.,smoothstep(uH,uH*.82,p.y)),1.-uMob); // and dissolve into the bottom edge
+ vC=mix(s>0.?uWarm*uWarmGain:uCool,uWhite,min(1.,wh+.6*core))*a;
+ gl_Position=vec4(q.x/uW*2.-1.,1.-q.y/uH*2.,0.,1.);
+}`;
+  const DRAW_FS = `#version 300 es
+precision mediump float;in vec3 vC;out vec4 o;void main(){o=vec4(vC,1.);}`;
+  const QUAD_VS = `#version 300 es
+out vec2 uv;void main(){vec2 p=vec2((gl_VertexID<<1)&2,gl_VertexID&2);uv=p;gl_Position=vec4(p*2.-1.,0.,1.);}`;
+  const FADE_FS = `#version 300 es
+precision mediump float;in vec2 uv;out vec4 o;uniform sampler2D uTex;uniform float uDecay,uSub;
+void main(){o=vec4(max(texture(uTex,uv).rgb*uDecay-uSub,0.),1.);}`;
+  const COMP_FS = `#version 300 es
+precision mediump float;in vec2 uv;out vec4 o;uniform sampler2D uTex;uniform vec3 uBg;
+void main(){vec3 t=texture(uTex,uv).rgb;float L=max(max(t.r,t.g),max(t.b,1e-4));o=vec4(uBg+t*(1.-exp(-L*1.15))/L*.92,1.);}`;
+
+  function initGL() {
+    const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; };
+    const prog = (vs, fs, tf) => {
+      const p = gl.createProgram();
+      gl.attachShader(p, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(p, sh(gl.FRAGMENT_SHADER, fs));
+      if (tf) gl.transformFeedbackVaryings(p, tf, gl.SEPARATE_ATTRIBS);
+      gl.linkProgram(p);
+      if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
+      const u = {}, n = gl.getProgramParameter(p, gl.ACTIVE_UNIFORMS);
+      for (let i = 0; i < n; i++) { const name = gl.getActiveUniform(p, i).name.replace(/\[0\]$/, ''); u[name] = gl.getUniformLocation(p, name); }
+      return { p, u };
+    };
+    const sim = prog(SIM_VS, NULL_FS, ['vS']), draw = prog(DRAW_VS, DRAW_FS), fade = prog(QUAD_VS, FADE_FS), comp = prog(QUAD_VS, COMP_FS);
+
+    // path table texture (NP x 3, RGBA32F, nearest; read with texelFetch)
+    const ptex = gl.createTexture();
+    const upload = () => { gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, ptex); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA32F, NP, 3, 0, gl.RGBA, gl.FLOAT, path); for (const k of [gl.TEXTURE_MIN_FILTER, gl.TEXTURE_MAG_FILTER]) gl.texParameteri(gl.TEXTURE_2D, k, gl.NEAREST); };
+
+    const N = W < 768 ? 16000 : 40000;
+    const st = new Float32Array(N * 4), meta = new Float32Array(N * 4);
+    for (let i = 0; i < N; i++) {
+      const s = i & 1 ? -1 : 1, lane = (Math.random() + Math.random() + Math.random() - 1.5) / 1.5;
+      meta.set([s, lane, Math.random(), Math.random()], i * 4);
+      st.set([s > 0 ? -40 : W + 40, H * 0.3, 0, 0], i * 4);
+    }
+    const buf = d => { const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, d, gl.DYNAMIC_COPY); return b; };
+    const sBuf = [buf(st), buf(st)], mBuf = buf(meta);
+    const vao = (sb, div) => {
+      const a = gl.createVertexArray(); gl.bindVertexArray(a);
+      gl.bindBuffer(gl.ARRAY_BUFFER, sb); gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0, 4, gl.FLOAT, false, 0, 0); gl.vertexAttribDivisor(0, div);
+      gl.bindBuffer(gl.ARRAY_BUFFER, mBuf); gl.enableVertexAttribArray(1); gl.vertexAttribPointer(1, 4, gl.FLOAT, false, 0, 0); gl.vertexAttribDivisor(1, div);
+      gl.bindVertexArray(null); return a;
+    };
+    const simV = [vao(sBuf[0], 0), vao(sBuf[1], 0)], drawV = [vao(sBuf[0], 1), vao(sBuf[1], 1)];
+    const tfo = [0, 1].map(i => { const t = gl.createTransformFeedback(); gl.bindTransformFeedback(gl.TRANSFORM_FEEDBACK, t); gl.bindBufferBase(gl.TRANSFORM_FEEDBACK_BUFFER, 0, sBuf[1 - i]); return t; });
+    gl.bindTransformFeedback(gl.TRANSFORM_FEEDBACK, null);
+    gl.bindBuffer(gl.TRANSFORM_FEEDBACK_BUFFER, null);
+    const emptyVao = gl.createVertexArray();
+
+    const half = !!gl.getExtension('EXT_color_buffer_float');
+    let tex = [], fbo = [], cur = 0, pp = 0;
+    function resize() {
+      measure(); upload(); S.snap = true; // the layout moved: put every dot straight onto the new path rather than let it spring across the current
+      dpr = Math.min(devicePixelRatio || 1, 2);
+      cv.width = Math.max(1, Math.round(W * dpr)); cv.height = Math.max(1, Math.round(H * dpr));
+      tex.forEach(t => gl.deleteTexture(t)); fbo.forEach(f => gl.deleteFramebuffer(f));
+      tex = []; fbo = [];
+      gl.activeTexture(gl.TEXTURE0);
+      for (let i = 0; i < 2; i++) {
+        const t = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, t);
+        gl.texImage2D(gl.TEXTURE_2D, 0, half ? gl.RGBA16F : gl.RGBA8, cv.width, cv.height, 0, gl.RGBA, half ? gl.HALF_FLOAT : gl.UNSIGNED_BYTE, null);
+        for (const [k, v] of [[gl.TEXTURE_MIN_FILTER, gl.NEAREST], [gl.TEXTURE_MAG_FILTER, gl.NEAREST], [gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE], [gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE]]) gl.texParameteri(gl.TEXTURE_2D, k, v);
+        const f = gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER, f);
+        gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, t, 0);
+        gl.clearColor(0, 0, 0, 1); gl.clear(gl.COLOR_BUFFER_BIT);
+        tex.push(t); fbo.push(f);
+      }
+      gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+    }
+    resize();
+
+    const setCommon = (u, dt) => {
+      gl.uniform1f(u.uT, S.t); gl.uniform1f(u.uDt, dt); gl.uniform1f(u.uW, W); gl.uniform1f(u.uH, H); gl.uniform1f(u.uS, geo.S);
+      gl.uniform1f(u.uBias, S.bias); gl.uniform1f(u.uIntro, S.intro); gl.uniform1f(u.uIR, S.ir); gl.uniform2f(u.uSweep, S.sweep, S.sweepSide);
+      gl.uniform1f(u.uMob, geo.mob); gl.uniform1f(u.uLean, geo.lean); gl.uniform1f(u.uOff, S.off);
+      gl.uniform2f(u.uFront, S.front[0], S.front[1]);
+      gl.uniform2f(u.uTrav, S.trav[0], S.trav[1]); gl.uniform2f(u.uDTrav, S.dtrav[0], S.dtrav[1]); gl.uniform2f(u.uRate, S.rate[0], S.rate[1]); gl.uniform2f(u.uHDir, geo.hdir[0], geo.hdir[1]);
+      gl.uniform1i(u.uPath, 1);
+    };
+    const advance = dt => { // travel along the path, in cycles; intro and click sweep speed it up per side
+      for (let k = 0; k < 2; k++) {
+        const side = k ? -1 : 1, sw = S.sweepSide === side ? S.sweep : 0;
+        S.rate[k] = S.ir * (1 + 9 * sw);
+        S.dtrav[k] = dt * S.rate[k] / geo.T; S.trav[k] += S.dtrav[k];
+      }
+    };
+    function step(dt, render) {
+      gl.useProgram(sim.p); setCommon(sim.u, dt);
+      gl.uniform2f(sim.u.uM, S.m[0], S.m[1]); gl.uniform2f(sim.u.uMV, S.mv[0], S.mv[1]);
+      gl.uniform1f(sim.u.uMOn, S.mOn); gl.uniform1f(sim.u.uR, Math.max(55, Math.min(120, W * 0.075))); gl.uniform1f(sim.u.uSnap, S.snap ? 1 : 0); S.snap = false;
+      gl.bindVertexArray(simV[cur]);
+      gl.bindTransformFeedback(gl.TRANSFORM_FEEDBACK, tfo[cur]);
+      gl.enable(gl.RASTERIZER_DISCARD);
+      gl.beginTransformFeedback(gl.POINTS); gl.drawArrays(gl.POINTS, 0, N); gl.endTransformFeedback();
+      gl.disable(gl.RASTERIZER_DISCARD);
+      gl.bindTransformFeedback(gl.TRANSFORM_FEEDBACK, null);
+      cur = 1 - cur;
+      if (!render) return;
+      gl.bindFramebuffer(gl.FRAMEBUFFER, fbo[pp]); gl.viewport(0, 0, cv.width, cv.height);
+      gl.useProgram(fade.p); gl.bindVertexArray(emptyVao);
+      gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tex[1 - pp]);
+      gl.uniform1i(fade.u.uTex, 0); gl.uniform1f(fade.u.uDecay, Math.pow(0.965, dt * 60 * Math.sqrt(S.ir) * (1 + 2.5 * S.sweep))); // time-lapse: more light flows per frame, so trails clear faster; click: short trails, so the press shows at once
+      gl.uniform1f(fade.u.uSub, half ? 0.0004 : 1.5 / 255);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+      gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE);
+      gl.useProgram(draw.p); setCommon(draw.u, dt);
+      gl.uniform1f(draw.u.uA, 0.06 * Math.sqrt(dpr) * (W < 768 ? 2 : 1));
+      gl.uniform4fv(draw.u.uMask, geo.mask); gl.uniform1fv(draw.u.uMk, geo.mk);
+      gl.uniform3f(draw.u.uWarm, ...WARM); gl.uniform3f(draw.u.uCool, ...COOL); gl.uniform1f(draw.u.uWarmGain, WARM_GAIN);
+      const lc = S.bias >= 0 ? WARM : COOL, lk = 0.22 * Math.abs(S.bias) * (1 - S.sweep);
+      gl.uniform3f(draw.u.uWhite, ...WHITE.map((v, i) => v + (lc[i] - v) * lk));
+      gl.bindVertexArray(drawV[cur]);
+      gl.drawArraysInstanced(gl.LINES, 0, 2, N);
+      gl.disable(gl.BLEND);
+      gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+      pp = 1 - pp;
+    }
+    function composite() {
+      gl.bindFramebuffer(gl.FRAMEBUFFER, null); gl.viewport(0, 0, cv.width, cv.height);
+      gl.useProgram(comp.p); gl.bindVertexArray(emptyVao);
+      gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tex[1 - pp]);
+      gl.uniform1i(comp.u.uTex, 0); gl.uniform3f(comp.u.uBg, ...bg);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    }
+    const prewarm = draw => { S.t = 0; for (let i = 0; i < 480; i++) { S.t += 1 / 60; advance(1 / 60); step(1 / 60, draw && i > 430); } }; // settle the particles on the path
+
+    if (RM) { // reduced motion: one composed still frame
+      const still = () => { S.intro = 1; S.front = [9, 9]; prewarm(true); composite(); cv.classList.add('on'); };
+      still();
+      let to; new ResizeObserver(() => { clearTimeout(to); to = setTimeout(() => { resize(); still(); }, 150); }).observe(hero);
+      return;
+    }
+    const intro = () => { S.ti = 0; S.intro = 0; S.trav0 = S.trav.slice(); S.front = [0, 0]; S.ir = geo.rs * introShape(0); };
+    S.intro = INTRO ? 0 : 1; prewarm(!INTRO); if (!INTRO) composite(); // first visit: settled but hidden, drawn as the heads travel; return visit: in place
+    if (INTRO) intro();
+
+    // pointer and touch steer the particles a little
+    let lastP = null;
+    const onMove = (x, y) => {
+      const r = hero.getBoundingClientRect(), mx = x - r.left, my = y - r.top, now = performance.now();
+      if (lastP) { const dt = Math.max(8, now - lastP.t) / 1000; S.mvRaw = [(mx - lastP.x) / dt, (my - lastP.y) / dt]; }
+      lastP = { x: mx, y: my, t: now };
+      S.m = [mx, my];
+      S.mOnT = (my > -80 && my < H + 80 && mx > -80 && mx < W + 80) ? 1 : 0;
+    };
+    addEventListener('pointermove', e => onMove(e.clientX, e.clientY), { passive: true });
+    addEventListener('touchmove', e => { const t = e.touches[0]; if (t) onMove(t.clientX, t.clientY); }, { passive: true });
+    addEventListener('touchstart', e => { const t = e.touches[0]; lastP = null; if (t) onMove(t.clientX, t.clientY); }, { passive: true });
+    const off = () => { S.mOnT = 0; lastP = null; };
+    addEventListener('touchend', off, { passive: true });
+    root.addEventListener('pointerleave', off);
+
+    let visible = true, onscreen = true, raf = 0;
+    const frame = now => {
+      raf = requestAnimationFrame(frame);
+      const dt = S.last == null ? 1 / 60 : Math.min(1 / 30, Math.max(1 / 240, (now - S.last) / 1000));
+      S.last = now; S.t += dt;
+      S.ti += dt;
+      if (S.front[0] < 9) { // intro: rate follows the slower head, then eases back to real time once both heads are out of frame
+        S.intro = smooth(0, 1.4, S.ti);
+        const f = Math.min(S.front[0], S.front[1]);
+        if (f < 1) S.ir = geo.rs * introShape(f);
+        else { S.ir = 1 + (S.ir - 1) * Math.exp(-dt * 1.4); if (S.ir < 1.004) { S.ir = 1; S.front = [9, 9]; } }
+      } else { S.intro = 1; S.ir = 1; }
+      const ease = k => 1 - Math.exp(-dt * k);
+      S.bias += (S.biasT - S.bias) * ease(2.6);
+      S.sweep += ((S.sweepOn ? 1 : 0) - S.sweep) * ease(S.sweepOn ? 12 : 8);
+      S.mOn += (S.mOnT - S.mOn) * ease(5);
+      S.mv[0] += (S.mvRaw[0] - S.mv[0]) * ease(14); S.mv[1] += (S.mvRaw[1] - S.mv[1]) * ease(14);
+      S.mvRaw[0] *= Math.exp(-dt * 9); S.mvRaw[1] *= Math.exp(-dt * 9);
+      advance(dt);
+      if (S.front[0] < 9) S.front = [0, 1].map(k => S.trav[k] - S.trav0[k]); // a head sits exactly on the first particles out of the source
+      step(dt, true); composite();
+      window.__hcFrames = (window.__hcFrames || 0) + 1;
+    };
+    const update = () => {
+      const want = visible && onscreen;
+      if (want && !running) { running = true; S.last = null; raf = requestAnimationFrame(frame); }
+      else if (!want && running) { running = false; cancelAnimationFrame(raf); }
+    };
+    document.addEventListener('visibilitychange', () => { visible = !document.hidden; update(); });
+    new IntersectionObserver(es => { onscreen = es[0].isIntersecting; update(); }).observe(hero);
+    let to; new ResizeObserver(() => { clearTimeout(to); to = setTimeout(resize, 120); }).observe(hero);
+    visible = !document.hidden; update();
+    requestAnimationFrame(() => cv.classList.add('on'));
+  }
+
+  // ---------- hover leans the helix toward a school; press sends that current racing down, then the screen fades to the
+  // school page's own first colour and it opens. About 450ms from press to navigation, wherever the click lands ----------
+  const NEXT_BG = { steam: '#1b1b1d', global: '#ffffff' }; // first paint of each school page: STEAM's photo block before the photo, Global's white
+  const TOTAL = 450, FADE = 180;
+  let going = false, press = null, veil = null;
+  const plain = e => e.button === 0 && !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey);
+  const send = side => { S.sweepOn = true; S.sweepSide = side; S.biasT = side; S.sweep = Math.max(S.sweep, 0.5); }; // visible on the very next frame
+  const release = () => { if (press && !going) { press = null; S.sweepOn = false; } };
+  halves.forEach(a => {
+    const side = a.dataset.school === 'steam' ? 1 : -1;
+    let pf = false;
+    const on = () => {
+      S.biasT = side;
+      if (!pf) { pf = true; const l = document.createElement('link'); l.rel = 'prefetch'; l.href = a.href; document.head.appendChild(l); }
+    };
+    const out = () => { if (S.biasT === side && !going && !press) S.biasT = 0; };
+    a.addEventListener('pointerenter', on); a.addEventListener('pointerleave', out);
+    a.addEventListener('focus', on); a.addEventListener('blur', out);
+    a.addEventListener('pointerdown', e => { if (RM || !running || going || !plain(e)) return; on(); press = { side, t: performance.now() }; send(side); });
+    a.addEventListener('pointercancel', release);
+    a.addEventListener('click', e => {
+      if (RM || !running || going || e.defaultPrevented || !plain(e)) { release(); return; }
+      e.preventDefault(); going = true; send(side);
+      const t0 = press && press.side === side ? press.t : performance.now(); press = null; // keyboard: the whole run starts now
+      const left = Math.max(FADE + 60, TOTAL - (performance.now() - t0));
+      if (!veil) { veil = document.createElement('div'); veil.setAttribute('aria-hidden', 'true'); veil.style.cssText = `position:fixed;inset:0;z-index:2147483000;pointer-events:none;opacity:0;transition:opacity ${FADE}ms cubic-bezier(.6,0,1,1)`; document.body.appendChild(veil); }
+      veil.style.background = NEXT_BG[a.dataset.school];
+      setTimeout(() => { veil.style.opacity = '1'; }, left - FADE);
+      setTimeout(() => { location.href = a.href; }, left);
+    });
+  });
+  addEventListener('pointerup', e => { if (press && !halves.some(a => a.contains(e.target))) release(); }); // pressed, then dragged off before letting go
+  addEventListener('pageshow', e => { if (!e.persisted) return; going = false; press = null; S.sweepOn = false; S.sweep = 0; S.biasT = 0; if (veil) veil.style.opacity = '0'; });
+
+  // start after first paint, never compete with LCP
+  const start = () => requestAnimationFrame(() => setTimeout(boot, 60));
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+})();
+
+});
