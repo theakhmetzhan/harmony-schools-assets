@@ -641,16 +641,25 @@ document.addEventListener("DOMContentLoaded",function(){
   }
   function stripAll(sel, root) { var l = (root || D).querySelectorAll(sel); for (var i = 0; i < l.length; i++) strip(l[i]); }
 
-  /* Global RU hero copy (Akhmet 2026-10-16), swapped as the parser inserts block C (before paint). Runtime: bake into
-     Tilda block C / markup/global-ru-top.html at handover */
+  /* Global hero copy, RU / KZ / EN (Akhmet 2026-10-16), swapped as the parser inserts block C (before paint). Each entry
+     matches the published text first, so a baked-back Tilda block is left alone. Runtime: bake into Tilda block C /
+     markup/global-*-top.html at handover */
+  var HERO = {
+    ru: { h: /^От[\s\u00a0]+нулевого/, s: /International[\s\u00a0]+Baccalaureate/,
+      H: 'Полный IB&nbsp;Continuum от&nbsp;0&nbsp;(KG) до&nbsp;12&nbsp;класса, в&nbsp;одной&nbsp;школе в&nbsp;Астане',
+      S: 'Harmony&nbsp;Global будет работать по&nbsp;программе IB&nbsp;Continuum от&nbsp;0&nbsp;до&nbsp;12&nbsp;класса, и&nbsp;ребёнку не&nbsp;придётся менять&nbsp;школу' },
+    kz: { h: /^0-сыныптан[\s\u00a0]+бітіргенге/, s: /International[\s\u00a0]+Baccalaureate/,
+      H: '<span class="nowrap">0-сыныптан</span> (KG) <span class="nowrap">12-сыныпқа</span> дейін толық IB&nbsp;Continuum,<br class="br-wide"> Астанадағы бір&nbsp;мектепте',
+      S: 'Harmony&nbsp;Global-да IB&nbsp;Continuum бағдарламасы <span class="nowrap">0-сыныптан</span> <span class="nowrap">12-сыныпқа</span> дейін жүзеге асырылады, сондықтан балаға мектеп ауыстырудың қажеті&nbsp;жоқ' },
+    en: { h: /^From[\s\u00a0]+kindergarten/, s: /International[\s\u00a0]+Baccalaureate/,
+      H: 'The full IB&nbsp;Continuum from Grade&nbsp;0&nbsp;(KG) to&nbsp;Grade&nbsp;12, in&nbsp;one&nbsp;school in&nbsp;Astana',
+      S: 'Harmony&nbsp;Global will follow the IB&nbsp;Continuum from Grade&nbsp;0 to Grade&nbsp;12, so students will not need to change&nbsp;schools' }
+  };
   function heroCopy() {
-    if ((R.getAttribute('data-site') !== 'global' && !/project13642453|harmonyglobal/.test(location.host)) || lang() !== 'ru') return;
-    var h = D.getElementById('gx-title');
-    if (h && /^От[\s ]+нулевого/.test(h.textContent))
-      h.innerHTML = 'Полный IB&nbsp;Continuum от&nbsp;0&nbsp;(KG) до&nbsp;12&nbsp;класса, в&nbsp;одной&nbsp;школе в&nbsp;Астане';
-    var s = D.querySelector('.gx .gx__sub');
-    if (s && /International[\s ]+Baccalaureate/.test(s.textContent) && /^Harmony/.test(s.textContent))
-      s.innerHTML = 'Harmony&nbsp;Global будет работать по&nbsp;программе IB&nbsp;Continuum от&nbsp;0&nbsp;до&nbsp;12&nbsp;класса, и&nbsp;ребёнку не&nbsp;придётся менять&nbsp;школу';
+    if (R.getAttribute('data-site') !== 'global' && !/project13642453|harmonyglobal/.test(location.host)) return;
+    var c = HERO[lang()]; if (!c) return;
+    var h = D.getElementById('gx-title'); if (h && c.h.test(h.textContent.trim())) h.innerHTML = c.H;
+    var s = D.querySelector('.gx .gx__sub'); if (s && c.s.test(s.textContent)) s.innerHTML = c.S;
   }
 
   var mo = new MutationObserver(function (recs) {
