@@ -626,6 +626,36 @@ document.addEventListener("DOMContentLoaded",function(){
     }
   }
 
+  /* Stages round 10 (Akhmet 2026-10-16): one-line stage descriptions, RU / KZ / EN, cut from the school's copy by deletion
+     only (STEAM block C + Global markup). Runtime: bake into Tilda / markup/*-top.html at handover */
+  var STG = {
+    'Дети исследуют мир': 'Исследуют мир, учатся мыслить критически.',
+    'Ученики глубоко изучают': 'Изучают предметы и выбирают профиль.',
+    'Ученики завершают школу': 'Готовятся к поступлению в ведущие вузы.',
+    'Балалар әлемді таниды': 'Әлемді таниды, сыни ойлауға үйренеді.',
+    'Оқушылар пәндерді тереңдетіп': 'Пәндерді оқиды және бейін таңдайды.',
+    'Оқушылар мектепті аяқтап': 'Университеттерге түсуге дайындалады.',
+    'Children explore the world': 'Explore the world and think critically.',
+    'Students study subjects in depth': 'Study subjects in depth and choose a profile.',
+    'Students complete school': 'Prepare for admission to leading universities.',
+    'Дети развивают любопытство': 'Развивают английский через игру.',
+    'Ученики открывают свои': 'Открывают свои интересы через проекты.',
+    'Ученики сдают IGCSE': 'Сдают IGCSE, готовятся к SAT и IELTS.',
+    'Балалар ойын мен STEAM': 'Ойын арқылы ағылшын тілін дамытады.',
+    'Оқушылар өз қызығушылықтарын': 'Өз қызығушылықтарын ашады.',
+    'Оқушылар IGCSE тапсырады': 'IGCSE тапсырады, IELTS-ке дайындалады.',
+    'Children build curiosity': 'Build English through play.',
+    'Students discover their interests': 'Discover their interests through projects.',
+    'Students sit IGCSE': 'Sit IGCSE and prepare for SAT and IELTS.'
+  };
+  function stageCopy() {
+    var l = D.querySelectorAll('.hs > section.stages td.stage__does');
+    for (var i = 0; i < l.length; i++) {
+      var t = l[i].textContent.replace(/ /g, ' ').trim();
+      for (var k in STG) if (t.indexOf(k) === 0) { l[i].textContent = STG[k]; break; }
+    }
+  }
+
   /* R5 (Akhmet 2026-10-16): no em dashes anywhere; every em dash shows as an en dash (all sites, RU / KZ / EN). Runtime
      only: bake into the Tilda copy at handover */
   function noEm(n) { if (n.nodeType === 3) { if (n.data.indexOf('\u2014') > -1 && !(n.parentNode && n.parentNode.closest && n.parentNode.closest('script,style,textarea'))) n.data = n.data.replace(/\u2014/g, '\u2013'); return; }
@@ -637,13 +667,13 @@ document.addEventListener("DOMContentLoaded",function(){
 
   function ready() {
     emAll();
-    markStats(D); g3(); dashes();
+    markStats(D); g3(); dashes(); stageCopy();
     stripAll(HS); stripAll(HN);
     story();
     whenConsult();
   }
   if (D.readyState === 'loading') D.addEventListener('DOMContentLoaded', ready); else ready();
-  addEventListener('load', function () { setTimeout(function () { stripAll(HN); stripAll(HS); markStats(D); emAll(); mo.disconnect(); }, 4500); });
+  addEventListener('load', function () { setTimeout(function () { stripAll(HN); stripAll(HS); markStats(D); stageCopy(); emAll(); mo.disconnect(); }, 4500); });
 })();
 
 /* v8 hero axis2: dist/start.js runs in <head>, before the T123 markup exists, so the hero waits for DOMContentLoaded */
