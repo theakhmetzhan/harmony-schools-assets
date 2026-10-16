@@ -1378,11 +1378,7 @@ document.addEventListener("DOMContentLoaded",function(){
       replaceIn(l[i], [[/\+7[\s\u00a0]*775[\s\u00a0]*007[\s\u00a0]*23[\s\u00a0]*32/g, '+7\u00a0700\u00a0101\u00a000\u00a038']]);
     }
     replaceIn(rec, PH);
-    // /contacts: the contact lines now carry the Global admissions number, so its entry in the admissions group would
-    // repeat it (the homepage consultation block drops it the same way, kit/consult.js "each number once")
-    var lines = rec.querySelector('.hs-contact__lines a[href="tel:+77001010038"]');
-    var dupe = lines && rec.querySelectorAll('.hs-contact__entry a[href="tel:+77001010038"]');
-    for (var k = 0; dupe && k < dupe.length; k++) { var en = dupe[k].closest('.hs-contact__entry'); if (en) en.remove(); }
+    // (v33) the admissions group keeps both schools' entries; the "duplicate Global entry" removal is gone (see below)
   }
   // D8: the stage note keeps «Первыми открываются 0–5 классы» and drops the 2027/28 clause (the runtime moves the note
   // out of the hero record into its own section, so it is looked up in the document)
@@ -1422,6 +1418,80 @@ document.addEventListener("DOMContentLoaded",function(){
     // deep link /#about: the anchor is created during parsing; re-aim once layout has settled
     if (location.hash === '#about') setTimeout(function () { var a = D.getElementById('about'); if (a) a.scrollIntoView(); }, 450);
   });
+})();
+
+
+/* v33 review fixes (lane F-final, 2026-10-16). Every Global page, RU / KZ / EN. Idempotent passes while the page builds.
+   1. «Запись на приёмную комиссию» lists both schools: Harmony STEAM School +7 700 055 00 51 and Harmony Global School
+      +7 700 101 00 38. kit/consult.js keeps each number once, and the consultation line above it already calls the
+      Global number (D1), so it drops the Global entry; it is put back after the STEAM entry.
+   2. /contacts: the visible «Контакты» / «Байланыс» / "Contacts" heading is the page's H1 (same classes, same look); the
+      hidden Tilda header record's H1 becomes an H2.
+   3. /career: under «Учителя, с которыми хочется учиться» a way to apply: the careers email hr@harmony.edu.kz (D3) and
+      the network's vacancies page (STEAM /team, same language).
+   4. EN footer: "from Year 1" -> "from Grade 1" (as on STEAM). */
+(function () {
+  var D = document, R = D.documentElement;
+  var path = location.pathname.replace(/\/+$/, '') || '/';
+  var lang = /^\/kz(\/|$)/.test(path) ? 'kz' : /^\/en(\/|$)/.test(path) ? 'en' : 'ru';
+  var GL = 'tel:+77001010038', ST = 'tel:+77000550051';
+
+  function admissions() {
+    var l = D.querySelectorAll('.k-consult__entries, .hs-contact__grid');
+    for (var i = 0; i < l.length; i++) {
+      var g = l[i], st = g.querySelector('a[href="' + ST + '"]');
+      if (!st || g.querySelector('a[href="' + GL + '"]')) continue;
+      var e = st.closest('.k-consult__entry, .hs-contact__entry'); if (!e) continue;
+      var n = e.cloneNode(true), dt = n.querySelector('dt'), a = n.querySelector('a');
+      if (dt) dt.textContent = 'Harmony Global School';
+      a.setAttribute('href', GL); a.textContent = '+7 700 101 00 38';
+      e.parentNode.insertBefore(n, e.nextSibling);
+    }
+  }
+  function contactsH1() {
+    if (!/\/contacts$/.test(path)) return;
+    var h = D.querySelector('.hs-contact__title'); if (!h) return;
+    if (h.nodeName !== 'H1') swap(h, 'h1');
+    var l = D.querySelectorAll('#allrecords h1:not(.hs-contact__title)');
+    for (var i = 0; i < l.length; i++) if (!l[i].getClientRects().length) swap(l[i], 'h2');
+  }
+  function swap(h, tag) {
+    var n = D.createElement(tag);
+    for (var k = 0; k < h.attributes.length; k++) n.setAttribute(h.attributes[k].name, h.attributes[k].value);
+    while (h.firstChild) n.appendChild(h.firstChild);
+    h.parentNode.replaceChild(n, h);
+  }
+  var APPLY = {
+    ru: ['rec4848673403', 'Отправить резюме: ', 'Вакансии сети Harmony', '/team'],
+    kz: ['rec4848737503', 'Түйіндеме жіберу: ', 'Harmony желісінің бос орындары', '/kz/team'],
+    en: ['rec4848804203', 'Send your CV: ', 'Vacancies across the Harmony network', '/en/team']
+  }[lang];
+  function career() {
+    if (!/\/career$/.test(path)) return;
+    var r = D.getElementById(APPLY[0]), d = r && r.querySelector('.t468__descr');
+    if (!d || r.querySelector('.hsg-apply')) return;
+    var b = D.createElement('div'); b.className = 'hsg-apply';
+    var p1 = D.createElement('p'), m = D.createElement('a');
+    p1.appendChild(D.createTextNode(APPLY[1])); m.href = 'mailto:hr@harmony.edu.kz'; m.textContent = 'hr@harmony.edu.kz'; p1.appendChild(m);
+    var p2 = D.createElement('p'), v = D.createElement('a');
+    v.href = 'https://knit-decided-ocelot.tilda.ws' + APPLY[3]; v.textContent = APPLY[2]; p2.appendChild(v);
+    b.appendChild(p1); b.appendChild(p2);
+    d.parentNode.insertBefore(b, d.nextSibling);
+    r.classList.add('hsg-apply-rec');
+  }
+  function footer() {
+    if (lang !== 'en') return;
+    var l = D.querySelectorAll('.foot__legal');
+    for (var i = 0; i < l.length; i++) {
+      var w = D.createTreeWalker(l[i], 4), n;
+      while ((n = w.nextNode())) if (/from[\s ]+Year[\s ]+1\b/.test(n.data)) n.data = n.data.replace(/from([\s ]+)Year([\s ]+)1\b/, 'from$1Grade$21');
+    }
+  }
+  function pass() { admissions(); contactsH1(); career(); footer(); }
+  var mo = new MutationObserver(pass);
+  mo.observe(R, { childList: true, subtree: true });
+  D.addEventListener('DOMContentLoaded', pass);
+  addEventListener('load', function () { pass(); setTimeout(pass, 400); setTimeout(function () { pass(); mo.disconnect(); }, 5500); });
 })();
 
 /* nav-global.js (lane N-global, 2026-10-16). The school's 7-item menu and the new pages /about, /program, /wellbeing,

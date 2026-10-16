@@ -1287,9 +1287,9 @@ document.addEventListener("DOMContentLoaded",function(){
     ['/en', 'library with FaceID', 'library with Face ID'],
     ['/en', 'school management.  Coordinator', 'school management. Coordinator'],
     // contacts: phone display (link is already tel:+77000550051)
-    ['/contacts', '8 700 055 0051', '+7 700 055 0051'],
-    ['/kz/contacts', '8 700 055 0051', '+7 700 055 0051'],
-    ['/en/contacts', '8 700 055 0051', '+7 700 055 0051']
+    ['/contacts', '8 700 055 0051', '+7 700 055 00 51'],
+    ['/kz/contacts', '8 700 055 0051', '+7 700 055 00 51'],
+    ['/en/contacts', '8 700 055 0051', '+7 700 055 00 51']
   ];
   // whole-text-node rules: [pages, exact text (trimmed, nbsp as space), replacement] (admission "includes" lists)
   var X = [
@@ -1377,8 +1377,57 @@ document.addEventListener("DOMContentLoaded",function(){
   addEventListener('load', function () { all(); setTimeout(function () { all(); mo.disconnect(); }, 4500); });
 })();
 
+
+/* v33 review fixes (lane F-final, 2026-10-16). Every STEAM page, RU / KZ / EN.
+   1. Phone display "+7 XXX XXX XX XX" (no-break spaces) in visible text, e.g. the admissions group's
+      "+7 700 055 0051" / "+7 700 101 0038" -> "+7 700 055 00 51" / "+7 700 101 00 38". Links are unchanged.
+   2. /contacts: the visible «Контакты» / «Байланыс» / "Contacts" heading is the page's H1 (same classes, same look); a
+      hidden Tilda H1 becomes an H2. */
+(function () {
+  var D = document, R = D.documentElement;
+  var path = location.pathname.replace(/\/+$/, '') || '/';
+  var PH = /\+7[\s ]*\(?(\d{3})\)?[\s -]*(\d{3})[\s -]*(\d{2})[\s -]*(\d{2})(?!\d)/g;
+  var NB = ' ', OUT = '+7' + NB + '$1' + NB + '$2' + NB + '$3' + NB + '$4';
+  function fixText(n) {
+    var p = n.parentNode && n.parentNode.nodeName; if (p === 'SCRIPT' || p === 'STYLE') return;
+    if (n.data.indexOf('+7') < 0) return;
+    PH.lastIndex = 0; var e = n.data.replace(PH, OUT); if (e !== n.data) n.data = e;
+  }
+  function walk(root) {
+    if (!root) return;
+    if (root.nodeType === 3) { fixText(root); return; }
+    if (root.nodeType !== 1 || /^(SCRIPT|STYLE|NOSCRIPT|TEMPLATE)$/.test(root.nodeName)) return;
+    var w = D.createTreeWalker(root, 4), n; while ((n = w.nextNode())) fixText(n);
+  }
+  function swap(h, tag) {
+    var n = D.createElement(tag);
+    for (var k = 0; k < h.attributes.length; k++) n.setAttribute(h.attributes[k].name, h.attributes[k].value);
+    while (h.firstChild) n.appendChild(h.firstChild);
+    h.parentNode.replaceChild(n, h);
+  }
+  function contactsH1() {
+    if (!/\/contacts$/.test(path)) return;
+    var h = D.querySelector('.hs-contact__title'); if (!h) return;
+    if (h.nodeName !== 'H1') swap(h, 'h1');
+    var l = D.querySelectorAll('#allrecords h1:not(.hs-contact__title)');
+    for (var i = 0; i < l.length; i++) if (!l[i].getClientRects().length) swap(l[i], 'h2');
+  }
+  function all() { walk(D.body); contactsH1(); }
+  var mo = new MutationObserver(function (ms) {
+    for (var i = 0; i < ms.length; i++) {
+      var m = ms[i];
+      if (m.type === 'characterData') fixText(m.target);
+      else for (var j = 0; j < m.addedNodes.length; j++) walk(m.addedNodes[j]);
+    }
+    contactsH1();
+  });
+  mo.observe(R, { childList: true, subtree: true, characterData: true });
+  D.addEventListener('DOMContentLoaded', all);
+  addEventListener('load', function () { all(); setTimeout(all, 400); setTimeout(function () { all(); mo.disconnect(); }, 5500); });
+})();
+
 /* school-decision fixes for steam (lane D-steam-start), DECISIONS.md 2026-10-16. Runtime only: bake into Tilda at handover.
-   D1  STEAM consultation block (homes): phone line is STEAM admissions +7 700 055 0051 (tel:+77000550051).
+   D1  STEAM consultation block (homes): phone line is STEAM admissions +7 700 055 00 51 (tel:+77000550051).
    D2  any wa.me link to the old 7000550051 / 77000550051 number goes to wa.me/77750072332.
    D3  info@harmony.edu.kz is never shown: dropped where admission@ is already in the same list, else becomes admission@.
    D11 /team (RU / KZ / EN): the hero "see the vacancies" CTA is hidden while the page says there are no vacancies.
@@ -1427,7 +1476,7 @@ document.addEventListener("DOMContentLoaded",function(){
       l = D.querySelectorAll('.k-consult__lines > a.k-consult__line[href^="tel:+77750072332"]');
       for (i = 0; i < l.length; i++) {
         l[i].setAttribute('href', 'tel:+77000550051');
-        l[i].textContent = l[i].textContent.replace(/\+7[\s ]*775[\s ]*007[\s ]*23[\s ]*32/, '+7 700 055 0051');
+        l[i].textContent = l[i].textContent.replace(/\+7[\s ]*775[\s ]*007[\s ]*23[\s ]*32/, '+7\u00a0700\u00a0055\u00a000\u00a051');
       }
     }
     /* D3 */
@@ -1550,7 +1599,7 @@ document.addEventListener("DOMContentLoaded",function(){
     var l = D.querySelectorAll('.k-consult__lines > a.k-consult__line[href^="tel:+77750072332"]');
     for (var i = 0; i < l.length; i++) {
       l[i].setAttribute('href', 'tel:+77000550051');
-      l[i].textContent = l[i].textContent.replace(/\+7[\s ]*775[\s ]*007[\s ]*23[\s ]*32/, '+7 700 055 0051');
+      l[i].textContent = l[i].textContent.replace(/\+7[\s ]*775[\s ]*007[\s ]*23[\s ]*32/, '+7\u00a0700\u00a0055\u00a000\u00a051');
     }
   }
   function text() {   /* fix-steam.js /en rule on the copied team record */
