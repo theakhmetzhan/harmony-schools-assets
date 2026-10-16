@@ -511,11 +511,23 @@ document.addEventListener("DOMContentLoaded",function(){
   }
   function stripAll(sel, root) { var l = (root || D).querySelectorAll(sel); for (var i = 0; i < l.length; i++) strip(l[i]); }
 
+  /* Global RU hero copy (Akhmet 2026-10-16), swapped as the parser inserts block C (before paint). Runtime: bake into
+     Tilda block C / markup/global-ru-top.html at handover */
+  function heroCopy() {
+    if ((R.getAttribute('data-site') !== 'global' && !/project13642453|harmonyglobal/.test(location.host)) || lang() !== 'ru') return;
+    var h = D.getElementById('gx-title');
+    if (h && /^От[\s ]+нулевого/.test(h.textContent))
+      h.innerHTML = 'Полный IB&nbsp;Continuum от&nbsp;0&nbsp;(KG) до&nbsp;12&nbsp;класса, в&nbsp;одной&nbsp;школе в&nbsp;Астане';
+    var s = D.querySelector('.gx .gx__sub');
+    if (s && /International[\s ]+Baccalaureate/.test(s.textContent) && /^Harmony/.test(s.textContent))
+      s.innerHTML = 'Harmony&nbsp;Global будет работать по&nbsp;программе IB&nbsp;Continuum от&nbsp;0&nbsp;до&nbsp;12&nbsp;класса, и&nbsp;ребёнку не&nbsp;придётся менять&nbsp;школу';
+  }
+
   var mo = new MutationObserver(function (recs) {
     for (var i = 0; i < recs.length; i++) for (var j = 0; j < recs[i].addedNodes.length; j++) {
       var n = recs[i].addedNodes[j]; if (n.nodeType !== 1) continue;
       if (n.matches && (n.matches('.t1052, .t-rec') || n.querySelector('.t1052'))) markStats(n.matches('.t1052') ? n.parentNode : n);
-      if (n.closest && (n.closest('.hs') || n.querySelector('.hs'))) stripAll(HS, n.closest('.hs') ? n.closest('.hs').parentNode : n);
+      if (n.closest && (n.closest('.hs') || n.querySelector('.hs'))) { heroCopy(); stripAll(HS, n.closest('.hs') ? n.closest('.hs').parentNode : n); }
     }
   });
   mo.observe(R, { childList: true, subtree: true });
@@ -667,7 +679,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
   function ready() {
     emAll();
-    markStats(D); g3(); dashes(); stageCopy();
+    heroCopy(); markStats(D); g3(); dashes(); stageCopy();
     stripAll(HS); stripAll(HN);
     story();
     whenConsult();
