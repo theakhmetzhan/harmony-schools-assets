@@ -697,6 +697,103 @@ document.addEventListener("DOMContentLoaded",function(){
   addEventListener('load', function () { setTimeout(function () { stripAll(HN); stripAll(HS); markStats(D); stageCopy(); emAll(); mo.disconnect(); }, 4500); });
 })();
 
+/* v28 start fixes (lane C-start), production-readiness audit 2026-10-16. Runtime only: bake into Tilda at handover.
+   2. Partner logo links open in a new tab (rel=noopener).
+   3. Consent line under the button of the three Start forms, Global's wording per language.
+   4. Copy: RU ё in «партнёр(ы)»; «Білім-Инновация» (RU / KZ); «Для кого» STEAM cell parallel to Global; EN grades row.
+   5. 404: the home link reads «На главную» / «Басты бетке» / "Home" by the path language. */
+(function () {
+  var D = document, R = D.documentElement;
+  if (R.getAttribute('data-site') && R.getAttribute('data-site') !== 'start') return;
+  function lang() { return R.getAttribute('data-lang') || (location.pathname.match(/^\/(kz|en)(\/|$)/) || [])[1] || 'ru'; }
+
+  /* 2. */
+  var EXT = /^https?:\/\/(www\.)?(bil\.edu\.kz|alliancefr\.kz|pioneeracademy\.org|royalcanadianhighschool\.ca|wcdsb\.ca)(\/|$)/i;
+  function links() {
+    var l = D.querySelectorAll('a[href]');
+    for (var i = 0; i < l.length; i++) {
+      var a = l[i]; if (!EXT.test(a.getAttribute('href') || '')) continue;
+      a.target = '_blank';
+      var rel = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
+      if (rel.indexOf('noopener') < 0) rel.push('noopener');
+      a.setAttribute('rel', rel.join(' '));
+    }
+  }
+
+  /* 3. */
+  var FORMS = { form4836245203: 'ru', form4836252003: 'kz', form4836262103: 'en' };
+  var CONSENT = {
+    ru: 'Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.',
+    kz: 'Батырманы басу арқылы жеке деректерді өңдеуге келісесіз.',
+    en: 'By clicking the button, you agree to personal data processing.'
+  };
+  function consent() {
+    for (var id in FORMS) {
+      var f = D.getElementById(id); if (!f) continue;
+      var box = f.parentNode; if (!box || (box.nextElementSibling && box.nextElementSibling.classList.contains('fs-consent'))) continue;
+      var p = D.createElement('div');
+      p.className = 't678__form-bottom-text t-text t-text_xs fs-consent';
+      p.textContent = CONSENT[FORMS[id]];
+      box.parentNode.insertBefore(p, box.nextSibling);
+    }
+  }
+
+  /* 4. text fixes, per language, on text nodes (never the hidden t431 source the runtime edits compare) */
+  var NH = '‑';
+  var TX = {
+    ru: [
+      [/партнер/g, 'партнёр'], [/Партнер/g, 'Партнёр'], [/ПАРТНЕР/g, 'ПАРТНЁР'],
+      [/Білім[\s ‐‑-]+Инновация/g, 'Білім' + NH + 'Инновация'],
+      [/^Семья,\s+ориентированная\s+на\s+поступление/, 'Семьям, ориентированным на поступление']
+    ],
+    kz: [[/Білім[\s ‐‑-]+Инновация/g, 'Білім' + NH + 'Инновация']],
+    en: [[/KG\u2013(\u2060?)5([\s\u00a0]+)grades([\s\u00a0]+)first/, 'Grades$2KG\u2013$15$3open first']]
+  };
+  function fixNode(n) {
+    var rules = TX[lang()]; if (!rules) return;
+    var p = n.parentNode; if (!p || !p.closest || p.closest('script,style,textarea,.t431__data-part2')) return;
+    var s = n.data, t = s;
+    for (var i = 0; i < rules.length; i++) t = t.replace(rules[i][0], rules[i][1]);
+    if (t !== s) n.data = t;
+  }
+  function textAll(root) {
+    if (!root) return;
+    if (root.nodeType === 3) { fixNode(root); return; }
+    if (root.nodeType !== 1) return;
+    var w = D.createTreeWalker(root, 4), n; while ((n = w.nextNode())) fixNode(n);
+  }
+
+  /* 5. */
+  var HOME = { ru: 'На главную', kz: 'Басты бетке', en: 'Home' };
+  function notFound() {
+    var all = D.getElementById('allrecords');
+    if (!all || all.getAttribute('data-tilda-page-alias') !== 'not-found') return;
+    var lg = (location.pathname.match(/^\/(kz|en)(\/|$)/) || [])[1] || 'ru', l = all.querySelectorAll('.t467__descr a, [field="descr"] a');
+    for (var i = 0; i < l.length; i++) {
+      var a = l[i]; if (a.classList.contains('fs-home')) continue;
+      if (!/^←?\s*harmony$/i.test(a.textContent.trim())) continue;
+      a.textContent = HOME[lg] || HOME.ru; a.classList.add('fs-home');
+      a.setAttribute('href', lg === 'ru' ? '/' : '/' + lg);
+    }
+  }
+
+  function all() { links(); consent(); textAll(D.body); notFound(); }
+  var mo = null;
+  function ready() {
+    all();
+    mo = new MutationObserver(function (ms) {
+      for (var i = 0; i < ms.length; i++) {
+        var m = ms[i];
+        if (m.type === 'characterData') fixNode(m.target);
+        else for (var j = 0; j < m.addedNodes.length; j++) textAll(m.addedNodes[j]);
+      }
+    });
+    mo.observe(D.body, { childList: true, subtree: true, characterData: true });
+  }
+  if (D.readyState === 'loading') D.addEventListener('DOMContentLoaded', ready); else ready();
+  addEventListener('load', function () { all(); setTimeout(function () { all(); if (mo) mo.disconnect(); }, 5000); });
+})();
+
 /* v8 hero axis2: dist/start.js runs in <head>, before the T123 markup exists, so the hero waits for DOMContentLoaded */
 (function(f){if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",f);else f();})(function(){
 /* Harmony Start hero: "axis". The schools keep the currents positions; the two currents (raw WebGL2 transform-feedback
