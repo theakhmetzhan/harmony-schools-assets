@@ -1566,6 +1566,100 @@ document.addEventListener("DOMContentLoaded",function(){
   addEventListener('load', function () { walk(D.body); setTimeout(function () { walk(D.body); }, 400); setTimeout(function () { walk(D.body); mo.disconnect(); }, 5500); });
 })();
 
+
+/* v36 (lane H-footer, Akhmet 2026-10-16): 2GIS round (DECISIONS.md, supersedes D2) for global. Runtime only; bake back.
+   WhatsApp links go to the site's number; map links go to the school's 2GIS card; the address (RU / KZ / EN) shows in the
+   consultation contacts panel (a v9-addr line, so the panel keeps its one-gap rhythm), on /contacts and in the footer;
+   social links per site (Global: Instagram only, no YouTube / Facebook / Telegram items; Start: no YouTube item).
+   External links open in a new tab with rel=noopener. Idempotent; data-hs36 marks what this block added. */
+(function () {
+  var D = document, R = D.documentElement;
+  var CFG = {"wa": "77001010038", "schools": [{"name": "Harmony Global", "gis": "https://2gis.kz/astana/firm/70000001113778269", "addr": {"ru": "Астана, проспект Ракымжан Кошкарбаев, 6", "kz": "Астана, Рақымжан Қошқарбаев даңғылы, 6", "en": "6 Rakymzhan Koshkarbayev Avenue, Astana"}}], "ig": "https://instagram.com/harmonyglobal.edu.kz", "drop": ["YouTube", "Facebook", "Telegram"]};
+  var lg = (location.pathname.match(/^\/(kz|en)(\/|$)/) || [0, 'ru'])[1];
+  var TX = { map: { ru: 'Открыть на карте', kz: 'Картадан ашу', en: 'Open in 2GIS' } };
+  function ext(a) { a.target = '_blank'; var r = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean); if (r.indexOf('noopener') < 0) r.push('noopener'); a.setAttribute('rel', r.join(' ')); }
+  function mk(tag, cls, text, href) { var e = D.createElement(tag); if (cls) e.className = cls; e.textContent = text; if (href) { e.href = href; ext(e); } e.setAttribute('data-hs36', ''); return e; }
+  function school(a) { return CFG.schools.length > 1 && /global/i.test(a.textContent) ? CFG.schools[1] : CFG.schools[0]; }
+  function drop(e) { var li = e.parentElement && e.parentElement.nodeName === 'LI' && e.parentElement.children.length === 1 ? e.parentElement : e; if (li.parentNode) li.parentNode.removeChild(li); }
+  var NOSOC = CFG.drop ? new RegExp('^(' + CFG.drop.join('|') + ')$', 'i') : null;
+  var NOSOC_HREF = { YouTube: /youtu\.?be/i, Facebook: /facebook\.com|fb\.com/i, Telegram: /t\.me\/|telegram/i };
+  function run() {
+    var i, l, a, h;
+    /* WhatsApp */
+    l = D.querySelectorAll('a[href*="wa.me/"], a[href*="whatsapp.com/send"]');
+    for (i = 0; i < l.length; i++) { a = l[i]; h = 'https://wa.me/' + CFG.wa; if (a.getAttribute('href') !== h) a.setAttribute('href', h); if (a.target !== '_blank') ext(a); }
+    /* map links -> 2GIS cards */
+    l = D.querySelectorAll('a[href*="google.com/maps"], a[href*="maps.google"], a[href*="yandex."][href*="maps"], a[href*="2gis."]');
+    for (i = 0; i < l.length; i++) {
+      a = l[i]; var s = school(a);
+      if (a.getAttribute('href') !== s.gis) a.setAttribute('href', s.gis);
+      if (a.target !== '_blank') ext(a);
+      if (CFG.schools.length > 1) { var t = s.name + ': ' + s.addr[lg]; if (a.textContent !== t) a.textContent = t; }
+      else if (/Google Maps/i.test(a.textContent)) a.textContent = TX.map[lg];
+    }
+    /* consultation panel: address line above the map link (school sites) */
+    if (CFG.schools.length === 1) {
+      var s0 = CFG.schools[0];
+      l = D.querySelectorAll('.k-consult__lines');
+      for (i = 0; i < l.length; i++) {
+        var lines = l[i], ad = lines.querySelector('.v9-addr');
+        if (ad && ad.textContent !== s0.addr[lg]) ad.textContent = s0.addr[lg];
+        if (!ad) { var mp = lines.querySelector('.v9-map') || lines.querySelector('.k-consult__group'); lines.insertBefore(mk('p', 'v9-addr', s0.addr[lg]), mp || null); }
+      }
+      /* footer: address (2GIS link) after the e-mail */
+      l = D.querySelectorAll('.foot__col--contacts');
+      for (i = 0; i < l.length; i++) if (!l[i].querySelector('[data-hs36-addr]')) {
+        var fa = mk('a', '', s0.addr[lg], s0.gis); fa.setAttribute('data-hs36-addr', '');
+        var em = l[i].querySelector('a[href^="mailto:"]'); l[i].insertBefore(fa, em ? em.nextSibling : null);
+      }
+      /* /contacts: address lead + map link */
+      var hc = D.querySelectorAll('.hs-contact');
+      for (i = 0; i < hc.length; i++) {
+        var c = hc[i], lead = c.querySelector('.hs-contact__address');
+        if (!lead) { var h1 = c.querySelector('.hs-contact__title'); if (h1) { lead = mk('p', 'hs-contact__lead hs-contact__address', ''); h1.parentNode.insertBefore(lead, h1.nextSibling); } }
+        if (lead && lead.textContent !== s0.addr[lg]) lead.textContent = s0.addr[lg];
+        var pm = c.querySelector('li[data-pending="address-and-map"]');
+        if (pm) { pm.removeAttribute('hidden'); pm.removeAttribute('data-pending'); pm.textContent = ''; pm.appendChild(mk('a', '', TX.map[lg], s0.gis)); pm.setAttribute('data-hs36', ''); }
+        /* the map link sits right under the address: first item of the first contact list */
+        var ml = c.querySelector('li[data-hs36] a[href*="2gis."]'), ul1 = c.querySelector('.hs-contact__lines');
+        if (ml && ul1 && ul1.firstElementChild !== ml.parentElement) ul1.insertBefore(ml.parentElement, ul1.firstElementChild);
+      }
+    }
+    /* Instagram */
+    if (CFG.ig) { l = D.querySelectorAll('a[href*="instagram.com"]'); for (i = 0; i < l.length; i++) { a = l[i]; if (a.getAttribute('href') !== CFG.ig) a.setAttribute('href', CFG.ig); if (a.target !== '_blank') ext(a); } }
+    /* extra socials (STEAM): real links after every Instagram link in a footer or contacts list; YouTube placeholders become links */
+    if (CFG.social) {
+      l = D.querySelectorAll('.foot__col--contacts a[href*="instagram.com"], .hs-contact__lines a[href*="instagram.com"]');
+      for (i = 0; i < l.length; i++) {
+        a = l[i]; if (a.hasAttribute('data-hs36-soc')) continue; a.setAttribute('data-hs36-soc', '');
+        var li0 = a.parentElement.nodeName === 'LI' ? a.parentElement : null, after = li0 || a;
+        for (var k = 0; k < CFG.social.length; k++) {
+          var sl = mk('a', '', CFG.social[k][0], CFG.social[k][1]), node = sl;
+          if (li0) { node = D.createElement('li'); node.setAttribute('data-hs36', ''); node.appendChild(sl); }
+          after.parentNode.insertBefore(node, after.nextSibling); after = node;
+        }
+      }
+      l = D.querySelectorAll('li[data-pending="youtube-url"]'); for (i = 0; i < l.length; i++) l[i].parentNode.removeChild(l[i]);
+      l = D.querySelectorAll('a[href="#"], a[href=""]');
+      for (i = 0; i < l.length; i++) for (k = 0; k < CFG.social.length; k++) if (l[i].textContent.trim() === CFG.social[k][0]) { l[i].setAttribute('href', CFG.social[k][1]); ext(l[i]); }
+    }
+    /* social items this site does not have: links, "#" placeholders and plain-text items */
+    if (NOSOC) {
+      l = D.querySelectorAll('a[href]');
+      for (i = 0; i < l.length; i++) {
+        a = l[i]; h = a.getAttribute('href') || ''; var tx = a.textContent.replace(/\s+/g, ' ').trim();
+        for (k = 0; k < CFG.drop.length; k++) if (NOSOC_HREF[CFG.drop[k]].test(h) || (NOSOC.test(tx) && /^#?$/.test(h))) { drop(a); break; }
+      }
+      l = D.querySelectorAll('#allrecords li, #allrecords p, #allrecords span, #allrecords div');
+      for (i = 0; i < l.length; i++) { var e = l[i]; if (e.children.length === 0 && NOSOC.test(e.textContent.replace(/\s+/g, ' ').trim()) && !e.closest('a')) drop(e); }
+    }
+  }
+  var mo = new MutationObserver(function () { if (!run.q) { run.q = 1; setTimeout(function () { run.q = 0; mo.disconnect(); run(); mo.observe(R, { childList: true, subtree: true }); }, 0); } });
+  mo.observe(R, { childList: true, subtree: true });
+  D.addEventListener('DOMContentLoaded', run);
+  addEventListener('load', function () { run(); setTimeout(run, 400); setTimeout(function () { run(); mo.disconnect(); }, 6000); });
+})();
+
 /* nav-global.js (lane N-global, 2026-10-16). The school's 7-item menu and the new pages /about, /program, /wellbeing,
    /career (RU / KZ / EN), which Tilda made by duplicating the homepages (markup/inner/copies.json; the runtime treats them
    as homepages with re-keyed record ids; About, Wellbeing and Career have no block C, so the runtime inserts the header
