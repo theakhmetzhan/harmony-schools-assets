@@ -1530,6 +1530,42 @@ document.addEventListener("DOMContentLoaded",function(){
   addEventListener('load', function () { walk(D.body); setTimeout(function () { walk(D.body); }, 400); setTimeout(function () { walk(D.body); mo.disconnect(); }, 5500); });
 })();
 
+
+/* v35 (lane H-footer, Akhmet 2026-10-16): no callback promise in page text. «Перезвоним в течение рабочего дня» /
+   «Жұмыс күні ішінде хабарласамыз» / "We will call back within one working day" (full stop optional, nbsp as space)
+   is removed wherever it is visible: the closing «Оставьте заявку» block on /admission and /contacts (Tilda bdescr) and
+   the hs-contact lead. An element holding only the sentence is hidden (data-hs-cb, CSS in fix-*.css); a sentence inside
+   longer text is cut out. Form success messages are untouched: no attribute is read or written, and anything inside a
+   Tilda success box is skipped. Idempotent. */
+(function () {
+  var D = document, R = D.documentElement;
+  var S = '(?:Перезвоним\\s+в\\s+течение\\s+рабочего\\s+дня|Жұмыс\\s+күні\\s+ішінде\\s+хабарласамыз|We\\s+will\\s+call\\s+back\\s+within\\s+one\\s+working\\s+day)\\.?';
+  var WHOLE = new RegExp('^\\s*' + S + '\\s*$', 'i'), PART = new RegExp('\\s*' + S, 'i');
+  function fixText(n) {
+    var p = n.parentElement; if (!p || /^(SCRIPT|STYLE|NOSCRIPT|TEMPLATE|TEXTAREA)$/.test(p.nodeName)) return;
+    var t = n.data.replace(/[ ⁠]/g, ' ');
+    if (!PART.test(t) || p.closest('.t-form__successbox, .js-successbox')) return;
+    if (WHOLE.test(t) && WHOLE.test(p.textContent.replace(/[ ⁠]/g, ' '))) { p.setAttribute('data-hs-cb', ''); return; }
+    n.data = t.replace(PART, '');
+  }
+  function walk(root) {
+    if (!root) return;
+    if (root.nodeType === 3) { fixText(root); return; }
+    if (root.nodeType !== 1 || /^(SCRIPT|STYLE|NOSCRIPT|TEMPLATE)$/.test(root.nodeName)) return;
+    var w = D.createTreeWalker(root, 4), n; while ((n = w.nextNode())) fixText(n);
+  }
+  var mo = new MutationObserver(function (ms) {
+    for (var i = 0; i < ms.length; i++) {
+      var m = ms[i];
+      if (m.type === 'characterData') fixText(m.target);
+      else for (var j = 0; j < m.addedNodes.length; j++) walk(m.addedNodes[j]);
+    }
+  });
+  mo.observe(R, { childList: true, subtree: true, characterData: true });
+  D.addEventListener('DOMContentLoaded', function () { walk(D.body); });
+  addEventListener('load', function () { walk(D.body); setTimeout(function () { walk(D.body); }, 400); setTimeout(function () { walk(D.body); mo.disconnect(); }, 5500); });
+})();
+
 /* nav-global.js (lane N-global, 2026-10-16). The school's 7-item menu and the new pages /about, /program, /wellbeing,
    /career (RU / KZ / EN), which Tilda made by duplicating the homepages (markup/inner/copies.json; the runtime treats them
    as homepages with re-keyed record ids; About, Wellbeing and Career have no block C, so the runtime inserts the header
