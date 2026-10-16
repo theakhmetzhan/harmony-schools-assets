@@ -1506,11 +1506,11 @@ document.addEventListener("DOMContentLoaded",function(){
 /* v36 (lane H-footer, Akhmet 2026-10-16): 2GIS round (DECISIONS.md, supersedes D2) for steam. Runtime only; bake back.
    WhatsApp links go to the site's number; map links go to the school's 2GIS card; the address (RU / KZ / EN) shows in the
    consultation contacts panel (a v9-addr line, so the panel keeps its one-gap rhythm), on /contacts and in the footer;
-   social links per site (Global: Instagram only, no YouTube / Facebook / Telegram items; Start: no YouTube item).
+   /team careers WhatsApp stays wa.me/77750072332 (v37, Akhmet); social links per site (Global: Instagram only, no YouTube / Facebook / Telegram items; Start: no YouTube item).
    External links open in a new tab with rel=noopener. Idempotent; data-hs36 marks what this block added. */
 (function () {
   var D = document, R = D.documentElement;
-  var CFG = {"wa": "77000550051", "schools": [{"name": "Harmony STEAM", "gis": "https://2gis.kz/astana/firm/70000001070540671", "addr": {"ru": "Астана, шоссе Коргалжын, 4а", "kz": "Астана, Қорғалжын тас жолы, 4а", "en": "4a Korgalzhyn Highway, Astana"}}], "ig": "https://www.instagram.com/harmonyedukz/", "social": [["YouTube", "https://youtube.com/@harmonysteamschool"], ["Facebook", "https://facebook.com/harmonyedukz"], ["Telegram", "https://t.me/harmonyschoolkz"]]};
+  var CFG = {"wa": "77000550051", "waTeam": "77750072332", "schools": [{"name": "Harmony STEAM", "gis": "https://2gis.kz/astana/firm/70000001070540671", "addr": {"ru": "Астана, шоссе Коргалжын, 4а", "kz": "Астана, Қорғалжын тас жолы, 4а", "en": "4a Korgalzhyn Highway, Astana"}}], "ig": "https://www.instagram.com/harmonyedukz/", "social": [["YouTube", "https://youtube.com/@harmonysteamschool"], ["Facebook", "https://facebook.com/harmonyedukz"], ["Telegram", "https://t.me/harmonyschoolkz"]]};
   var lg = (location.pathname.match(/^\/(kz|en)(\/|$)/) || [0, 'ru'])[1];
   var TX = { map: { ru: 'Открыть на карте', kz: 'Картадан ашу', en: 'Open in 2GIS' } };
   function ext(a) { a.target = '_blank'; var r = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean); if (r.indexOf('noopener') < 0) r.push('noopener'); a.setAttribute('rel', r.join(' ')); }
@@ -1523,7 +1523,7 @@ document.addEventListener("DOMContentLoaded",function(){
     var i, l, a, h;
     /* WhatsApp */
     l = D.querySelectorAll('a[href*="wa.me/"], a[href*="whatsapp.com/send"]');
-    for (i = 0; i < l.length; i++) { a = l[i]; h = 'https://wa.me/' + CFG.wa; if (a.getAttribute('href') !== h) a.setAttribute('href', h); if (a.target !== '_blank') ext(a); }
+    for (i = 0; i < l.length; i++) { a = l[i]; h = 'https://wa.me/' + (CFG.waTeam && /^(\/(kz|en))?\/team\/?$/.test(location.pathname) && !a.closest('footer, .k-consult, .hs-contact') ? CFG.waTeam : CFG.wa); if (a.getAttribute('href') !== h) a.setAttribute('href', h); if (a.target !== '_blank') ext(a); }
     /* map links -> 2GIS cards */
     l = D.querySelectorAll('a[href*="google.com/maps"], a[href*="maps.google"], a[href*="yandex."][href*="maps"], a[href*="2gis."]');
     for (i = 0; i < l.length; i++) {
