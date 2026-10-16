@@ -794,6 +794,71 @@ document.addEventListener("DOMContentLoaded",function(){
   addEventListener('load', function () { all(); setTimeout(function () { all(); if (mo) mo.disconnect(); }, 5000); });
 })();
 
+/* school-decision fixes for start (lane D-steam-start), DECISIONS.md 2026-10-16. Runtime only: bake into Tilda at handover.
+   D5  the accreditations sentence next to the "4" stat lists all four (НААР in RU, IAAR in KZ / EN); RU table cell uses НААР.
+   D8  comparison table: the "full cycle KG–12 in 2027/28" clause is dropped, "KG–5 first" stays.
+   D10 comparison table: STEAM tuition reads "from 4,4 млн ₸ / год" (KZ / EN equivalents, worded as the Global cell).
+   D13 KZ uses IAAR, the acronym iaar.agency itself uses in Kazakh text
+       («Аккредиттеу және рейтинг тәуелсіз агенттігі (IAAR)», iaar.agency/iaar/nezavisimoe-agentstvo-akkreditacii-i-rejtinga/kz).
+   Text nodes only, never the hidden t431 source the runtime edits compare. Every rule is idempotent. */
+(function () {
+  var D = document, R = D.documentElement;
+  if (R.getAttribute('data-site') && R.getAttribute('data-site') !== 'start') return;
+  var lg = (location.pathname.match(/^\/(kz|en)(\/|$)/) || [])[1] || 'ru';
+  var S = '[\\s\\u00a0]+', J = '\\u2060?';
+  function re(s, f) { return new RegExp(s.replace(/ /g, S), f || ''); }
+
+  var TX = {
+    ru: [
+      [re('Cambridge, CIS и AP(?=[.\\s\\u00a0]|$)'), 'Cambridge, CIS, AP и НААР'],
+      [re('Cambridge, CIS, AP, IAAR'), 'Cambridge, CIS, AP, НААР'],
+      [re(', полный цикл KG–' + J + '12 в 2027/28'), '']
+    ],
+    kz: [
+      [re('Cambridge, CIS және AP жүйелері'), 'Cambridge, CIS, AP және IAAR жүйелері'],
+      [re(', толық цикл KG–' + J + '12 2027/28 жылы'), '']
+    ],
+    en: [
+      [re('Cambridge, CIS and AP(?=[.\\s\\u00a0]|$)'), 'Cambridge, CIS, AP and IAAR'],
+      [re(', full KG–' + J + '12 cycle in 2027/28'), '']
+    ]
+  };
+  /* whole-cell rules (trimmed, spaces normalised) */
+  var CELL = {
+    ru: [[/^4,4 млн ₸ \/ год$/, 'от 4,4 млн ₸ / год']],
+    kz: [[/^([Жж]ылына) 4,4 млн ₸$/, '$1 4,4 млн теңгеден бастап']],
+    en: [[/^4\.4 million ₸ \/ year$/, 'From 4.4 million ₸ / year']]
+  };
+  function fixNode(n) {
+    var p = n.parentNode; if (!p || !p.closest || p.closest('script,style,textarea,noscript,.t431__data-part2')) return;
+    var s = n.data, t = s, r = TX[lg] || [], c = CELL[lg] || [];
+    for (var i = 0; i < r.length; i++) t = t.replace(r[i][0], r[i][1]);
+    var m = t.replace(/[\s ]+/g, ' ').trim();
+    for (var k = 0; k < c.length; k++) if (c[k][0].test(m)) { t = t.replace(/\S[\s\S]*\S|\S/, m.replace(c[k][0], c[k][1])); break; }
+    if (t !== s) n.data = t;
+  }
+  function walk(root) {
+    if (!root) return;
+    if (root.nodeType === 3) { fixNode(root); return; }
+    if (root.nodeType !== 1) return;
+    var w = D.createTreeWalker(root, 4), n; while ((n = w.nextNode())) fixNode(n);
+  }
+  var mo = null;
+  function ready() {
+    walk(D.body);
+    mo = new MutationObserver(function (ms) {
+      for (var i = 0; i < ms.length; i++) {
+        var m = ms[i];
+        if (m.type === 'characterData') fixNode(m.target);
+        else for (var j = 0; j < m.addedNodes.length; j++) walk(m.addedNodes[j]);
+      }
+    });
+    mo.observe(D.body, { childList: true, subtree: true, characterData: true });
+  }
+  if (D.readyState === 'loading') D.addEventListener('DOMContentLoaded', ready); else ready();
+  addEventListener('load', function () { walk(D.body); setTimeout(function () { walk(D.body); if (mo) mo.disconnect(); }, 6000); });
+})();
+
 /* v8 hero axis2: dist/start.js runs in <head>, before the T123 markup exists, so the hero waits for DOMContentLoaded */
 (function(f){if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",f);else f();})(function(){
 /* Harmony Start hero: "axis". The schools keep the currents positions; the two currents (raw WebGL2 transform-feedback

@@ -1367,3 +1367,92 @@ document.addEventListener("DOMContentLoaded",function(){
   D.addEventListener('DOMContentLoaded', all);
   addEventListener('load', function () { all(); setTimeout(function () { all(); mo.disconnect(); }, 4500); });
 })();
+
+/* school-decision fixes for steam (lane D-steam-start), DECISIONS.md 2026-10-16. Runtime only: bake into Tilda at handover.
+   D1  STEAM consultation block (homes): phone line is STEAM admissions +7 700 055 0051 (tel:+77000550051).
+   D2  any wa.me link to the old 7000550051 / 77000550051 number goes to wa.me/77750072332.
+   D3  info@harmony.edu.kz is never shown: dropped where admission@ is already in the same list, else becomes admission@.
+   D11 /team (RU / KZ / EN): the hero "see the vacancies" CTA is hidden while the page says there are no vacancies.
+   D12 "Northwestern Polytechnic University" reads "San Francisco Bay University" (text and img alt / title).
+   Orchestrator: "FaceID" reads "Face ID" (RU / KZ homes).
+   Every rule is idempotent. */
+(function () {
+  var D = document, R = D.documentElement;
+  if (R.getAttribute('data-site') && R.getAttribute('data-site') !== 'steam') return;
+  var path = (location.pathname.replace(/\/+$/, '') || '/');
+  var home = /^\/(kz|en)?$/.test(path) || path === '/', team = /^(\/(kz|en))?\/team$/.test(path);
+
+  var TX = [
+    [/Northwestern[\s ]+Polytechnic[\s ]+University/g, 'San Francisco Bay University'],
+    [/FaceID/g, 'Face ID']
+  ];
+  function fixNode(n) {
+    var p = n.parentNode; if (!p || /^(SCRIPT|STYLE|TEXTAREA|NOSCRIPT)$/.test(p.nodeName)) return;
+    var s = n.data, t = s;
+    for (var i = 0; i < TX.length; i++) t = t.replace(TX[i][0], TX[i][1]);
+    if (t !== s) n.data = t;
+  }
+  function walk(root) {
+    if (!root) return;
+    if (root.nodeType === 3) { fixNode(root); return; }
+    if (root.nodeType !== 1) return;
+    var w = D.createTreeWalker(root, 4), n; while ((n = w.nextNode())) fixNode(n);
+  }
+
+  var NO_VAC = /открытых[\s ]+вакансий[\s ]+нет|ашық[\s ]+бос[\s ]+орындар[\s ]+жоқ|no[\s ]+open[\s ]+positions/i;
+  function els() {
+    var i, l;
+    /* D12 attributes */
+    l = D.querySelectorAll('img[alt*="Northwestern"], [title*="Northwestern"], [aria-label*="Northwestern"]');
+    for (i = 0; i < l.length; i++) ['alt', 'title', 'aria-label'].forEach(function (a) {
+      var v = l[i].getAttribute(a); if (v && /Northwestern/.test(v)) l[i].setAttribute(a, v.replace(TX[0][0], 'San Francisco Bay University'));
+    });
+    /* D2 */
+    l = D.querySelectorAll('a[href*="wa.me/"], a[href*="whatsapp"]');
+    for (i = 0; i < l.length; i++) {
+      var h = l[i].getAttribute('href') || '';
+      if (/(wa\.me\/|phone=)7?7000550051/.test(h)) l[i].setAttribute('href', h.replace(/7?7000550051/, '77750072332'));
+    }
+    /* D1: STEAM consultation block phone line */
+    if (home) {
+      l = D.querySelectorAll('.k-consult__lines > a.k-consult__line[href^="tel:+77750072332"]');
+      for (i = 0; i < l.length; i++) {
+        l[i].setAttribute('href', 'tel:+77000550051');
+        l[i].textContent = l[i].textContent.replace(/\+7[\s ]*775[\s ]*007[\s ]*23[\s ]*32/, '+7 700 055 0051');
+      }
+    }
+    /* D3 */
+    l = D.querySelectorAll('a[href^="mailto:info@harmony.edu.kz"]');
+    for (i = 0; i < l.length; i++) {
+      var a = l[i], box = a.parentNode && (a.parentNode.closest('.k-consult__lines, ul, ol') || a.parentNode);
+      if (box && box.querySelector('a[href^="mailto:admission@harmony.edu.kz"]')) {
+        var li = a.parentNode.nodeName === 'LI' ? a.parentNode : a; li.parentNode.removeChild(li); continue;
+      }
+      a.setAttribute('href', 'mailto:admission@harmony.edu.kz');
+      var w = D.createTreeWalker(a, 4), n;
+      while ((n = w.nextNode())) if (/info@harmony\.edu\.kz/.test(n.data)) n.data = n.data.replace(/info@harmony\.edu\.kz/, 'admission@harmony.edu.kz');
+    }
+    /* D11 */
+    if (team && D.body && NO_VAC.test(D.body.textContent)) {
+      l = D.querySelectorAll('.t-hero__button a[href="#vacancies"]');
+      for (i = 0; i < l.length; i++) { var b = l[i].closest('.t-hero__button'); if (b && !b.hasAttribute('data-dec-hide')) b.setAttribute('data-dec-hide', ''); }
+    }
+  }
+
+  function all() { walk(D.body); els(); }
+  var mo = null;
+  function ready() {
+    all();
+    mo = new MutationObserver(function (ms) {
+      for (var i = 0; i < ms.length; i++) {
+        var m = ms[i];
+        if (m.type === 'characterData') fixNode(m.target);
+        else for (var j = 0; j < m.addedNodes.length; j++) walk(m.addedNodes[j]);
+      }
+      els();
+    });
+    mo.observe(D.body, { childList: true, subtree: true, characterData: true });
+  }
+  if (D.readyState === 'loading') D.addEventListener('DOMContentLoaded', ready); else ready();
+  addEventListener('load', function () { all(); setTimeout(function () { all(); if (mo) mo.disconnect(); }, 9000); });
+})();
